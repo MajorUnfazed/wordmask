@@ -1,0 +1,408 @@
+{
+  "id": "f1",
+  "name": "F1 Motorsport",
+  "emoji": "🏎️",
+  "description": "Formula 1 teams, drivers, and concepts",
+  "words": [
+    {
+      "word": "DRS",
+      "hints": [
+        "drag",
+        "reduction",
+        "system"
+      ]
+    },
+    {
+      "word": "Undercut",
+      "hints": [
+        "pitting",
+        "earlier",
+        "gain"
+      ]
+    },
+    {
+      "word": "Safety Car",
+      "hints": [
+        "deployed",
+        "neutralise",
+        "race"
+      ]
+    },
+    {
+      "word": "Parc Fermé",
+      "hints": [
+        "restricted",
+        "area",
+        "cars"
+      ]
+    },
+    {
+      "word": "Tifosi",
+      "hints": [
+        "passionate",
+        "ferrari",
+        "fans"
+      ]
+    },
+    {
+      "word": "Haas",
+      "hints": [
+        "american",
+        "team",
+        "based"
+      ]
+    },
+    {
+      "word": "Ayrton Senna",
+      "hints": [
+        "brazilian",
+        "triple",
+        "world"
+      ]
+    },
+    {
+      "word": "Lewis Hamilton",
+      "hints": [
+        "record",
+        "seven",
+        "time"
+      ]
+    },
+    {
+      "word": "Max Verstappen",
+      "hints": [
+        "dominant",
+        "dutch",
+        "champion"
+      ]
+    },
+    {
+      "word": "Monaco",
+      "hints": [
+        "narrow",
+        "street",
+        "circuit"
+      ]
+    },
+    {
+      "word": "Silverstone",
+      "hints": [
+        "historic",
+        "british",
+        "grand"
+      ]
+    },
+    {
+      "word": "Spa-Francorchamps",
+      "hints": [
+        "belgian",
+        "circuit",
+        "famous"
+      ]
+    },
+    {
+      "word": "Monza",
+      "hints": [
+        "temple",
+        "speed",
+        "fastest"
+      ]
+    },
+    {
+      "word": "Podium",
+      "hints": [
+        "top",
+        "three",
+        "finishing"
+      ]
+    },
+    {
+      "word": "Pole Position",
+      "hints": [
+        "front",
+        "grid",
+        "qualifying"
+      ]
+    },
+    {
+      "word": "Pit Stop",
+      "hints": [
+        "tyre",
+        "change",
+        "race"
+      ]
+    },
+    {
+      "word": "Virtual Safety Car",
+      "hints": [
+        "drivers",
+        "must",
+        "maintain"
+      ]
+    },
+    {
+      "word": "Graining",
+      "hints": [
+        "tyre",
+        "surface",
+        "rubber"
+      ]
+    },
+    {
+      "word": "Blistering",
+      "hints": [
+        "tyre",
+        "heat",
+        "damage"
+      ]
+    },
+    {
+      "word": "Overcut",
+      "hints": [
+        "staying",
+        "out",
+        "longer"
+      ]
+    },
+    {
+      "word": "Grid Penalty",
+      "hints": [
+        "starting",
+        "further",
+        "back"
+      ]
+    },
+    {
+      "word": "Team Radio",
+      "hints": [
+        "communication",
+        "channel",
+        "between"
+      ]
+    },
+    {
+      "word": "Sector Time",
+      "hints": [
+        "timing",
+        "split",
+        "one"
+      ]
+    },
+    {
+      "word": "Lap Record",
+      "hints": [
+        "fastest",
+        "ever",
+        "set"
+      ]
+    },
+    {
+      "word": "Downforce",
+      "hints": [
+        "aerodynamic",
+        "force",
+        "pushing"
+      ]
+    },
+    {
+      "word": "Porpoising",
+      "hints": [
+        "bouncing",
+        "caused",
+        "ground"
+      ]
+    },
+    {
+      "word": "FIA",
+      "hints": [
+        "international",
+        "governing",
+        "body"
+      ]
+    },
+    {
+      "word": "Stewards",
+      "hints": [
+        "officials",
+        "investigate",
+        "track"
+      ]
+    },
+    {
+      "word": "Concorde Agreement",
+      "hints": [
+        "commercial",
+        "contract",
+        "between"
+      ]
+    },
+    {
+      "word": "Cost Cap",
+      "hints": [
+        "budget",
+        "limit",
+        "introduced"
+      ]
+    },
+    {
+      "word": "Sprint Race",
+      "hints": [
+        "short",
+        "saturday",
+        "format"
+      ]
+    },
+    {
+      "word": "Michael Schumacher",
+      "hints": [
+        "german",
+        "seven",
+        "time"
+      ]
+    },
+    {
+      "word": "Nico Rosberg",
+      "hints": [
+        "2016",
+        "champion",
+        "retired"
+      ]
+    },
+    {
+      "word": "Jeddah Corniche",
+      "hints": [
+        "saudi",
+        "arabian",
+        "street"
+      ]
+    },
+    {
+      "word": "Suzuka",
+      "hints": [
+        "japanese",
+        "figure",
+        "eight"
+      ]
+    },
+    {
+      "word": "KERS",
+      "hints": [
+        "kinetic",
+        "energy",
+        "recovery"
+      ]
+    },
+    {
+      "word": "Marbles",
+      "hints": [
+        "rubber",
+        "debris",
+        "builds"
+      ]
+    },
+    {
+      "word": "Kerb",
+      "hints": [
+        "raised",
+        "painted",
+        "edge"
+      ]
+    },
+    {
+      "word": "Braking Point",
+      "hints": [
+        "latest",
+        "possible",
+        "position"
+      ]
+    },
+    {
+      "word": "Apex",
+      "hints": [
+        "innermost",
+        "point",
+        "corner"
+      ]
+    },
+    {
+      "word": "Chicane",
+      "hints": [
+        "tight",
+        "section",
+        "added"
+      ]
+    },
+    {
+      "word": "Hairpin",
+      "hints": [
+        "very",
+        "tight",
+        "slow"
+      ]
+    },
+    {
+      "word": "Eau Rouge",
+      "hints": [
+        "legendary",
+        "uphill",
+        "left"
+      ]
+    },
+    {
+      "word": "Verstappen Lap",
+      "hints": [
+        "slang",
+        "incredibly",
+        "fast"
+      ]
+    },
+    {
+      "word": "Lapped Traffic",
+      "hints": [
+        "backmarker",
+        "cars",
+        "leaders"
+      ]
+    },
+    {
+      "word": "Blue Flag",
+      "hints": [
+        "signal",
+        "move",
+        "aside"
+      ]
+    },
+    {
+      "word": "Yellow Flag",
+      "hints": [
+        "danger",
+        "ahead",
+        "overtaking"
+      ]
+    },
+    {
+      "word": "Red Flag",
+      "hints": [
+        "race",
+        "suspended",
+        "all"
+      ]
+    },
+    {
+      "word": "Formation Lap",
+      "hints": [
+        "warm",
+        "standing",
+        "start"
+      ]
+    },
+    {
+      "word": "Flying Lap",
+      "hints": [
+        "single",
+        "timed",
+        "qualifying"
+      ]
+    }
+  ]
+}

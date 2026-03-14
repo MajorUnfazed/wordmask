@@ -1,0 +1,248 @@
+{
+  "id": "gaming",
+  "name": "Gaming",
+  "emoji": "🎮",
+  "description": "Video games, mechanics, and gamer culture",
+  "words": [
+    {
+      "word": "Respawn",
+      "hints": [
+        "returning",
+        "game",
+        "character"
+      ]
+    },
+    {
+      "word": "Loot Box",
+      "hints": [
+        "randomised",
+        "game",
+        "reward"
+      ]
+    },
+    {
+      "word": "Speedrun",
+      "hints": [
+        "completing",
+        "game",
+        "fast"
+      ]
+    },
+    {
+      "word": "Aggro",
+      "hints": [
+        "pulling",
+        "enemy",
+        "attention"
+      ]
+    },
+    {
+      "word": "Open World",
+      "hints": [
+        "game",
+        "design",
+        "players"
+      ]
+    },
+    {
+      "word": "Checkpoint",
+      "hints": [
+        "progress",
+        "save",
+        "point"
+      ]
+    },
+    {
+      "word": "Easter Egg",
+      "hints": [
+        "hidden",
+        "message",
+        "joke"
+      ]
+    },
+    {
+      "word": "Nerf",
+      "hints": [
+        "developer",
+        "update",
+        "weakening"
+      ]
+    },
+    {
+      "word": "Buff",
+      "hints": [
+        "developer",
+        "update",
+        "strengthening"
+      ]
+    },
+    {
+      "word": "Gacha",
+      "hints": [
+        "japanese",
+        "monetisation",
+        "mechanic"
+      ]
+    },
+    {
+      "word": "No Hit Run",
+      "hints": [
+        "completing",
+        "notoriously",
+        "difficult"
+      ]
+    },
+    {
+      "word": "Rage Quit",
+      "hints": [
+        "angrily",
+        "leaving",
+        "game"
+      ]
+    },
+    {
+      "word": "Permadeath",
+      "hints": [
+        "character",
+        "dies",
+        "permanently"
+      ]
+    },
+    {
+      "word": "DLC",
+      "hints": [
+        "downloadable",
+        "additional",
+        "game"
+      ]
+    },
+    {
+      "word": "Frame Rate",
+      "hints": [
+        "how",
+        "many",
+        "images"
+      ]
+    },
+    {
+      "word": "Controller Drift",
+      "hints": [
+        "joystick",
+        "registers",
+        "input"
+      ]
+    },
+    {
+      "word": "Hitbox",
+      "hints": [
+        "invisible",
+        "area",
+        "around"
+      ]
+    },
+    {
+      "word": "Camper",
+      "hints": [
+        "player",
+        "stays",
+        "one"
+      ]
+    },
+    {
+      "word": "AFK",
+      "hints": [
+        "away",
+        "keyboard",
+        "player"
+      ]
+    },
+    {
+      "word": "Skill Issue",
+      "hints": [
+        "dismissive",
+        "response",
+        "complaint"
+      ]
+    },
+    {
+      "word": "Git Gud",
+      "hints": [
+        "harsh",
+        "advice",
+        "improve"
+      ]
+    },
+    {
+      "word": "GG",
+      "hints": [
+        "good",
+        "game",
+        "sportsmanship"
+      ]
+    },
+    {
+      "word": "Patch Notes",
+      "hints": [
+        "developer",
+        "changelog",
+        "describing"
+      ]
+    },
+    {
+      "word": "Meta",
+      "hints": [
+        "current",
+        "dominant",
+        "strategy"
+      ]
+    },
+    {
+      "word": "Side Quest",
+      "hints": [
+        "optional",
+        "mission",
+        "separate"
+      ]
+    },
+    {
+      "word": "Dungeon",
+      "hints": [
+        "enclosed",
+        "danger",
+        "area"
+      ]
+    },
+    {
+      "word": "Healer",
+      "hints": [
+        "support",
+        "role",
+        "rpgs"
+      ]
+    },
+    {
+      "word": "Tank",
+      "hints": [
+        "heavy",
+        "defensive",
+        "role"
+      ]
+    },
+    {
+      "word": "Last Hit",
+      "hints": [
+        "delivering",
+        "killing",
+        "blow"
+      ]
+    },
+    {
+      "word": "Battle Pass",
+      "hints": [
+        "season",
+        "based",
+        "cosmetic"
+      ]
+    }
+  ]
+}

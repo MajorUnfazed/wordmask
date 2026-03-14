@@ -1,0 +1,248 @@
+{
+  "id": "internet-culture",
+  "name": "Internet Culture",
+  "emoji": "🌐",
+  "description": "Viral trends, platforms, and online phenomena",
+  "words": [
+    {
+      "word": "Doomscrolling",
+      "hints": [
+        "compulsively",
+        "reading",
+        "bad"
+      ]
+    },
+    {
+      "word": "Stan",
+      "hints": [
+        "extremely",
+        "devoted",
+        "superfan"
+      ]
+    },
+    {
+      "word": "Ratio'd",
+      "hints": [
+        "tweet's",
+        "replies",
+        "vastly"
+      ]
+    },
+    {
+      "word": "Shadowban",
+      "hints": [
+        "silently",
+        "restricting",
+        "account's"
+      ]
+    },
+    {
+      "word": "Parasocial Relationship",
+      "hints": [
+        "one",
+        "sided",
+        "bond"
+      ]
+    },
+    {
+      "word": "Threadboi",
+      "hints": [
+        "person",
+        "turns",
+        "every"
+      ]
+    },
+    {
+      "word": "Hot Take",
+      "hints": [
+        "instant",
+        "controversial",
+        "opinion"
+      ]
+    },
+    {
+      "word": "Main Character Energy",
+      "hints": [
+        "acting",
+        "like",
+        "world"
+      ]
+    },
+    {
+      "word": "No Cap",
+      "hints": [
+        "slang",
+        "lie",
+        "expressing"
+      ]
+    },
+    {
+      "word": "Touch Grass",
+      "hints": [
+        "telling",
+        "someone",
+        "outside"
+      ]
+    },
+    {
+      "word": "Astroturfing",
+      "hints": [
+        "fake",
+        "grassroots",
+        "movement"
+      ]
+    },
+    {
+      "word": "Algorithm",
+      "hints": [
+        "invisible",
+        "feed",
+        "ranking"
+      ]
+    },
+    {
+      "word": "Clout Chasing",
+      "hints": [
+        "doing",
+        "things",
+        "purely"
+      ]
+    },
+    {
+      "word": "Slacktivism",
+      "hints": [
+        "low",
+        "effort",
+        "online"
+      ]
+    },
+    {
+      "word": "Dark Pattern",
+      "hints": [
+        "deceptive",
+        "trick",
+        "designed"
+      ]
+    },
+    {
+      "word": "Vibe Check",
+      "hints": [
+        "assessing",
+        "someone's",
+        "attitude"
+      ]
+    },
+    {
+      "word": "Copypasta",
+      "hints": [
+        "blocks",
+        "text",
+        "repeatedly"
+      ]
+    },
+    {
+      "word": "Based",
+      "hints": [
+        "slang",
+        "being",
+        "confidently"
+      ]
+    },
+    {
+      "word": "Brain Rot",
+      "hints": [
+        "state",
+        "mental",
+        "degradation"
+      ]
+    },
+    {
+      "word": "Oversharer",
+      "hints": [
+        "someone",
+        "posts",
+        "intimate"
+      ]
+    },
+    {
+      "word": "Influencer",
+      "hints": [
+        "professional",
+        "monetises",
+        "online"
+      ]
+    },
+    {
+      "word": "Finsta",
+      "hints": [
+        "secondary",
+        "private",
+        "instagram"
+      ]
+    },
+    {
+      "word": "Subtweet",
+      "hints": [
+        "indirect",
+        "post",
+        "clearly"
+      ]
+    },
+    {
+      "word": "FOMO",
+      "hints": [
+        "fear",
+        "missing",
+        "out"
+      ]
+    },
+    {
+      "word": "Catfish",
+      "hints": [
+        "person",
+        "pretending",
+        "someone"
+      ]
+    },
+    {
+      "word": "Cancel Culture",
+      "hints": [
+        "public",
+        "ostracising",
+        "someone"
+      ]
+    },
+    {
+      "word": "Echo Chamber",
+      "hints": [
+        "online",
+        "bubble",
+        "only"
+      ]
+    },
+    {
+      "word": "Crowdfunding",
+      "hints": [
+        "raising",
+        "money",
+        "project"
+      ]
+    },
+    {
+      "word": "Lurker",
+      "hints": [
+        "someone",
+        "reads",
+        "online"
+      ]
+    },
+    {
+      "word": "Fandom Wiki",
+      "hints": [
+        "fan",
+        "maintained",
+        "website"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,248 @@
+{
+  "id": "everyday",
+  "name": "Everyday",
+  "emoji": "🌍",
+  "description": "Common objects and everyday situations",
+  "words": [
+    {
+      "word": "Elevator Pitch",
+      "hints": [
+        "second",
+        "summary",
+        "idea"
+      ]
+    },
+    {
+      "word": "Alarm Clock",
+      "hints": [
+        "device",
+        "wakes",
+        "set"
+      ]
+    },
+    {
+      "word": "Grocery Store",
+      "hints": [
+        "shop",
+        "buy",
+        "food"
+      ]
+    },
+    {
+      "word": "Bus Stop",
+      "hints": [
+        "designated",
+        "place",
+        "wait"
+      ]
+    },
+    {
+      "word": "Waiting Room",
+      "hints": [
+        "sit",
+        "appointment",
+        "waiting"
+      ]
+    },
+    {
+      "word": "Password",
+      "hints": [
+        "secret",
+        "string",
+        "grants"
+      ]
+    },
+    {
+      "word": "Voicemail",
+      "hints": [
+        "recorded",
+        "message",
+        "left"
+      ]
+    },
+    {
+      "word": "Umbrella",
+      "hints": [
+        "portable",
+        "shelter",
+        "rain"
+      ]
+    },
+    {
+      "word": "Charging Cable",
+      "hints": [
+        "wire",
+        "refills",
+        "device's"
+      ]
+    },
+    {
+      "word": "Doorbell",
+      "hints": [
+        "button",
+        "visitors",
+        "press"
+      ]
+    },
+    {
+      "word": "Leftovers",
+      "hints": [
+        "yesterday's",
+        "meal",
+        "eaten"
+      ]
+    },
+    {
+      "word": "Traffic Jam",
+      "hints": [
+        "gridlock",
+        "vehicles",
+        "moving"
+      ]
+    },
+    {
+      "word": "Laundry",
+      "hints": [
+        "clothes",
+        "waiting",
+        "washed"
+      ]
+    },
+    {
+      "word": "Deadline",
+      "hints": [
+        "point",
+        "which",
+        "work"
+      ]
+    },
+    {
+      "word": "Power Cut",
+      "hints": [
+        "sudden",
+        "loss",
+        "electricity"
+      ]
+    },
+    {
+      "word": "Receipt",
+      "hints": [
+        "paper",
+        "proof",
+        "purchase"
+      ]
+    },
+    {
+      "word": "Flat Tyre",
+      "hints": [
+        "punctured",
+        "deflated",
+        "car"
+      ]
+    },
+    {
+      "word": "Spam Email",
+      "hints": [
+        "unwanted",
+        "mass",
+        "sent"
+      ]
+    },
+    {
+      "word": "Coins",
+      "hints": [
+        "metal",
+        "currency",
+        "jingles"
+      ]
+    },
+    {
+      "word": "Sunscreen",
+      "hints": [
+        "lotion",
+        "applied",
+        "protect"
+      ]
+    },
+    {
+      "word": "Takeaway",
+      "hints": [
+        "food",
+        "ordered",
+        "restaurant"
+      ]
+    },
+    {
+      "word": "Parking Ticket",
+      "hints": [
+        "fine",
+        "issued",
+        "illegally"
+      ]
+    },
+    {
+      "word": "Wi-Fi Password",
+      "hints": [
+        "string",
+        "needed",
+        "connect"
+      ]
+    },
+    {
+      "word": "Queue",
+      "hints": [
+        "orderly",
+        "line",
+        "people"
+      ]
+    },
+    {
+      "word": "Pothole",
+      "hints": [
+        "hole",
+        "road",
+        "surface"
+      ]
+    },
+    {
+      "word": "Thermostat",
+      "hints": [
+        "device",
+        "regulates",
+        "indoor"
+      ]
+    },
+    {
+      "word": "Subscription",
+      "hints": [
+        "regular",
+        "payment",
+        "ongoing"
+      ]
+    },
+    {
+      "word": "Commute",
+      "hints": [
+        "daily",
+        "journey",
+        "between"
+      ]
+    },
+    {
+      "word": "Nap",
+      "hints": [
+        "short",
+        "daytime",
+        "sleep"
+      ]
+    },
+    {
+      "word": "Notification",
+      "hints": [
+        "buzz",
+        "ping",
+        "alerting"
+      ]
+    }
+  ]
+}

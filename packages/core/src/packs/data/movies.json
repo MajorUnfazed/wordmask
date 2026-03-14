@@ -1,0 +1,408 @@
+{
+  "id": "movies",
+  "name": "Movies",
+  "emoji": "🎬",
+  "description": "Iconic films and cinematic moments",
+  "words": [
+    {
+      "word": "Inception",
+      "hints": [
+        "dreams",
+        "within",
+        "heist"
+      ]
+    },
+    {
+      "word": "Titanic",
+      "hints": [
+        "doomed",
+        "ocean",
+        "liner"
+      ]
+    },
+    {
+      "word": "The Matrix",
+      "hints": [
+        "red",
+        "pill",
+        "blue"
+      ]
+    },
+    {
+      "word": "Parasite",
+      "hints": [
+        "south",
+        "korean",
+        "oscar"
+      ]
+    },
+    {
+      "word": "Interstellar",
+      "hints": [
+        "wormhole",
+        "space",
+        "odyssey"
+      ]
+    },
+    {
+      "word": "Spirited Away",
+      "hints": [
+        "studio",
+        "ghibli",
+        "spirit"
+      ]
+    },
+    {
+      "word": "The Godfather",
+      "hints": [
+        "corleone",
+        "family",
+        "crime"
+      ]
+    },
+    {
+      "word": "Pulp Fiction",
+      "hints": [
+        "tarantino",
+        "interwoven",
+        "crime"
+      ]
+    },
+    {
+      "word": "Avengers: Endgame",
+      "hints": [
+        "mcu",
+        "final",
+        "showdown"
+      ]
+    },
+    {
+      "word": "Joker",
+      "hints": [
+        "phoenix's",
+        "origin",
+        "story"
+      ]
+    },
+    {
+      "word": "Get Out",
+      "hints": [
+        "jordan",
+        "peele's",
+        "race"
+      ]
+    },
+    {
+      "word": "Mad Max: Fury Road",
+      "hints": [
+        "post",
+        "apocalyptic",
+        "car"
+      ]
+    },
+    {
+      "word": "Everything Everywhere All at Once",
+      "hints": [
+        "multiverse",
+        "laundromat",
+        "tax"
+      ]
+    },
+    {
+      "word": "Blade Runner 2049",
+      "hints": [
+        "neo",
+        "noir",
+        "sequel"
+      ]
+    },
+    {
+      "word": "Hereditary",
+      "hints": [
+        "graham",
+        "family",
+        "grief"
+      ]
+    },
+    {
+      "word": "The Grand Budapest Hotel",
+      "hints": [
+        "wes",
+        "anderson",
+        "colourful"
+      ]
+    },
+    {
+      "word": "Requiem for a Dream",
+      "hints": [
+        "aronofsky",
+        "portrait",
+        "addiction"
+      ]
+    },
+    {
+      "word": "Whiplash",
+      "hints": [
+        "ruthless",
+        "jazz",
+        "drumming"
+      ]
+    },
+    {
+      "word": "The Dark Knight",
+      "hints": [
+        "heath",
+        "ledger's",
+        "iconic"
+      ]
+    },
+    {
+      "word": "Her",
+      "hints": [
+        "man",
+        "falls",
+        "love"
+      ]
+    },
+    {
+      "word": "Moonlight",
+      "hints": [
+        "three",
+        "chapter",
+        "portrait"
+      ]
+    },
+    {
+      "word": "1917",
+      "hints": [
+        "wwi",
+        "single",
+        "shot"
+      ]
+    },
+    {
+      "word": "Dune",
+      "hints": [
+        "desert",
+        "planet",
+        "sci"
+      ]
+    },
+    {
+      "word": "Toy Story",
+      "hints": [
+        "first",
+        "pixar",
+        "feature"
+      ]
+    },
+    {
+      "word": "La La Land",
+      "hints": [
+        "los",
+        "angeles",
+        "jazz"
+      ]
+    },
+    {
+      "word": "Black Swan",
+      "hints": [
+        "ballet",
+        "dancer",
+        "obsessed"
+      ]
+    },
+    {
+      "word": "The Shape of Water",
+      "hints": [
+        "guillermo",
+        "del",
+        "toro's"
+      ]
+    },
+    {
+      "word": "Knives Out",
+      "hints": [
+        "whodunit",
+        "detective",
+        "benoit"
+      ]
+    },
+    {
+      "word": "Roma",
+      "hints": [
+        "alfonso",
+        "cuar",
+        "black"
+      ]
+    },
+    {
+      "word": "No Country for Old Men",
+      "hints": [
+        "coen",
+        "brothers",
+        "unstoppable"
+      ]
+    },
+    {
+      "word": "Gone Girl",
+      "hints": [
+        "marriage",
+        "thriller",
+        "shocking"
+      ]
+    },
+    {
+      "word": "The Truman Show",
+      "hints": [
+        "man",
+        "discovers",
+        "his"
+      ]
+    },
+    {
+      "word": "Shutter Island",
+      "hints": [
+        "dicaprio",
+        "investigates",
+        "asylum"
+      ]
+    },
+    {
+      "word": "Midsommar",
+      "hints": [
+        "swedish",
+        "folk",
+        "horror"
+      ]
+    },
+    {
+      "word": "Oldboy",
+      "hints": [
+        "korean",
+        "revenge",
+        "mystery"
+      ]
+    },
+    {
+      "word": "Ex Machina",
+      "hints": [
+        "programmer",
+        "tests",
+        "artificial"
+      ]
+    },
+    {
+      "word": "A Quiet Place",
+      "hints": [
+        "family",
+        "survives",
+        "blind"
+      ]
+    },
+    {
+      "word": "Portrait of a Lady on Fire",
+      "hints": [
+        "forbidden",
+        "love",
+        "between"
+      ]
+    },
+    {
+      "word": "Train to Busan",
+      "hints": [
+        "korean",
+        "zombie",
+        "outbreak"
+      ]
+    },
+    {
+      "word": "Soul",
+      "hints": [
+        "pixar",
+        "film",
+        "exploring"
+      ]
+    },
+    {
+      "word": "The Witch",
+      "hints": [
+        "puritan",
+        "family",
+        "terrorised"
+      ]
+    },
+    {
+      "word": "Annihilation",
+      "hints": [
+        "scientists",
+        "enter",
+        "mysterious"
+      ]
+    },
+    {
+      "word": "Prisoners",
+      "hints": [
+        "father",
+        "takes",
+        "justice"
+      ]
+    },
+    {
+      "word": "Arrival",
+      "hints": [
+        "linguist",
+        "deciphers",
+        "alien"
+      ]
+    },
+    {
+      "word": "Burning",
+      "hints": [
+        "korean",
+        "drama",
+        "social"
+      ]
+    },
+    {
+      "word": "Uncut Gems",
+      "hints": [
+        "sadie's",
+        "frantic",
+        "gambling"
+      ]
+    },
+    {
+      "word": "The Lighthouse",
+      "hints": [
+        "two",
+        "keepers",
+        "mad"
+      ]
+    },
+    {
+      "word": "Chinatown",
+      "hints": [
+        "1970s",
+        "neo",
+        "noir"
+      ]
+    },
+    {
+      "word": "2001: A Space Odyssey",
+      "hints": [
+        "kubrick's",
+        "monolith",
+        "hal"
+      ]
+    },
+    {
+      "word": "City of God",
+      "hints": [
+        "rio",
+        "janeiro",
+        "favela"
+      ]
+    }
+  ]
+}

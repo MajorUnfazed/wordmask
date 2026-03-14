@@ -1,0 +1,408 @@
+{
+  "id": "technology",
+  "name": "Technology",
+  "emoji": "💻",
+  "description": "Tech concepts, gadgets, and innovations",
+  "words": [
+    {
+      "word": "Blockchain",
+      "hints": [
+        "immutable",
+        "distributed",
+        "ledger"
+      ]
+    },
+    {
+      "word": "Quantum Computing",
+      "hints": [
+        "uses",
+        "qubits",
+        "solve"
+      ]
+    },
+    {
+      "word": "Neural Network",
+      "hints": [
+        "model",
+        "loosely",
+        "inspired"
+      ]
+    },
+    {
+      "word": "Dark Web",
+      "hints": [
+        "encrypted",
+        "internet",
+        "not"
+      ]
+    },
+    {
+      "word": "Kubernetes",
+      "hints": [
+        "container",
+        "orchestration",
+        "platform"
+      ]
+    },
+    {
+      "word": "WebAssembly",
+      "hints": [
+        "binary",
+        "format",
+        "runs"
+      ]
+    },
+    {
+      "word": "Large Language Model",
+      "hints": [
+        "trained",
+        "text",
+        "generate"
+      ]
+    },
+    {
+      "word": "Zero-Day",
+      "hints": [
+        "security",
+        "vulnerability",
+        "unknown"
+      ]
+    },
+    {
+      "word": "Deepfake",
+      "hints": [
+        "generated",
+        "synthetic",
+        "video"
+      ]
+    },
+    {
+      "word": "Edge Computing",
+      "hints": [
+        "processing",
+        "data",
+        "closer"
+      ]
+    },
+    {
+      "word": "Solid-State Drive",
+      "hints": [
+        "flash",
+        "memory",
+        "storage"
+      ]
+    },
+    {
+      "word": "GraphQL",
+      "hints": [
+        "api",
+        "query",
+        "language"
+      ]
+    },
+    {
+      "word": "Fuzzing",
+      "hints": [
+        "feeding",
+        "random",
+        "inputs"
+      ]
+    },
+    {
+      "word": "Raspberry Pi",
+      "hints": [
+        "credit",
+        "card",
+        "sized"
+      ]
+    },
+    {
+      "word": "Haptic Feedback",
+      "hints": [
+        "technology",
+        "simulates",
+        "touch"
+      ]
+    },
+    {
+      "word": "Git",
+      "hints": [
+        "distributed",
+        "version",
+        "control"
+      ]
+    },
+    {
+      "word": "Docker",
+      "hints": [
+        "platform",
+        "packaging",
+        "applications"
+      ]
+    },
+    {
+      "word": "Pixel Shader",
+      "hints": [
+        "gpu",
+        "program",
+        "calculates"
+      ]
+    },
+    {
+      "word": "Bandwidth",
+      "hints": [
+        "maximum",
+        "data",
+        "transfer"
+      ]
+    },
+    {
+      "word": "Latency",
+      "hints": [
+        "delay",
+        "between",
+        "sending"
+      ]
+    },
+    {
+      "word": "RISC-V",
+      "hints": [
+        "open",
+        "source",
+        "instruction"
+      ]
+    },
+    {
+      "word": "Progressive Web App",
+      "hints": [
+        "website",
+        "behaves",
+        "like"
+      ]
+    },
+    {
+      "word": "Penetration Testing",
+      "hints": [
+        "authorised",
+        "simulated",
+        "cyberattack"
+      ]
+    },
+    {
+      "word": "Prompt Engineering",
+      "hints": [
+        "crafting",
+        "inputs",
+        "get"
+      ]
+    },
+    {
+      "word": "Retrieval-Augmented Generation",
+      "hints": [
+        "technique",
+        "supplements",
+        "llms"
+      ]
+    },
+    {
+      "word": "Transformer",
+      "hints": [
+        "neural",
+        "network",
+        "architecture"
+      ]
+    },
+    {
+      "word": "ARM Chip",
+      "hints": [
+        "low",
+        "power",
+        "processor"
+      ]
+    },
+    {
+      "word": "LiDAR",
+      "hints": [
+        "laser",
+        "based",
+        "depth"
+      ]
+    },
+    {
+      "word": "Hypervisor",
+      "hints": [
+        "software",
+        "creates",
+        "manages"
+      ]
+    },
+    {
+      "word": "OWASP",
+      "hints": [
+        "open",
+        "source",
+        "foundation"
+      ]
+    },
+    {
+      "word": "Mesh Network",
+      "hints": [
+        "each",
+        "node",
+        "relays"
+      ]
+    },
+    {
+      "word": "Serverless",
+      "hints": [
+        "cloud",
+        "model",
+        "run"
+      ]
+    },
+    {
+      "word": "Rate Limiting",
+      "hints": [
+        "restricting",
+        "how",
+        "many"
+      ]
+    },
+    {
+      "word": "Cache Invalidation",
+      "hints": [
+        "one",
+        "two",
+        "hardest"
+      ]
+    },
+    {
+      "word": "Linker",
+      "hints": [
+        "tool",
+        "combines",
+        "compiled"
+      ]
+    },
+    {
+      "word": "CUDA",
+      "hints": [
+        "nvidia's",
+        "parallel",
+        "computing"
+      ]
+    },
+    {
+      "word": "Socket",
+      "hints": [
+        "network",
+        "endpoint",
+        "two"
+      ]
+    },
+    {
+      "word": "Mutex",
+      "hints": [
+        "lock",
+        "prevents",
+        "concurrent"
+      ]
+    },
+    {
+      "word": "Garbage Collection",
+      "hints": [
+        "automatic",
+        "memory",
+        "reclamation"
+      ]
+    },
+    {
+      "word": "Binary Tree",
+      "hints": [
+        "data",
+        "structure",
+        "each"
+      ]
+    },
+    {
+      "word": "Hash Collision",
+      "hints": [
+        "two",
+        "different",
+        "inputs"
+      ]
+    },
+    {
+      "word": "Idempotency",
+      "hints": [
+        "operation",
+        "produces",
+        "same"
+      ]
+    },
+    {
+      "word": "CORS",
+      "hints": [
+        "browser",
+        "security",
+        "policy"
+      ]
+    },
+    {
+      "word": "WebRTC",
+      "hints": [
+        "real",
+        "time",
+        "peer"
+      ]
+    },
+    {
+      "word": "Monorepo",
+      "hints": [
+        "single",
+        "repository",
+        "housing"
+      ]
+    },
+    {
+      "word": "CI/CD",
+      "hints": [
+        "automated",
+        "pipeline",
+        "building"
+      ]
+    },
+    {
+      "word": "Technical Debt",
+      "hints": [
+        "accumulated",
+        "cost",
+        "shortcut"
+      ]
+    },
+    {
+      "word": "Rubber Duck Debugging",
+      "hints": [
+        "explaining",
+        "code",
+        "inanimate"
+      ]
+    },
+    {
+      "word": "Spaghetti Code",
+      "hints": [
+        "codebase",
+        "tangled",
+        "hard"
+      ]
+    },
+    {
+      "word": "Blue-Green Deployment",
+      "hints": [
+        "zero",
+        "downtime",
+        "deploy"
+      ]
+    }
+  ]
+}

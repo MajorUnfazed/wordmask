@@ -1,0 +1,248 @@
+{
+  "id": "random-objects",
+  "name": "Random Objects",
+  "emoji": "🎲",
+  "description": "Ordinary items you wouldn't expect in a game",
+  "words": [
+    {
+      "word": "Bubble Wrap",
+      "hints": [
+        "plastic",
+        "packing",
+        "sheet"
+      ]
+    },
+    {
+      "word": "Toothpick",
+      "hints": [
+        "small",
+        "wooden",
+        "sliver"
+      ]
+    },
+    {
+      "word": "Staple Remover",
+      "hints": [
+        "claw",
+        "shaped",
+        "tool"
+      ]
+    },
+    {
+      "word": "Lava Lamp",
+      "hints": [
+        "retro",
+        "decoration",
+        "blobs"
+      ]
+    },
+    {
+      "word": "Kazoo",
+      "hints": [
+        "humming",
+        "toy",
+        "instrument"
+      ]
+    },
+    {
+      "word": "Whisk",
+      "hints": [
+        "loop",
+        "wire",
+        "kitchen"
+      ]
+    },
+    {
+      "word": "Tape Measure",
+      "hints": [
+        "retractable",
+        "ruler",
+        "coiled"
+      ]
+    },
+    {
+      "word": "Thimble",
+      "hints": [
+        "metal",
+        "cap",
+        "worn"
+      ]
+    },
+    {
+      "word": "Door Stopper",
+      "hints": [
+        "rubber",
+        "wedge",
+        "placed"
+      ]
+    },
+    {
+      "word": "Lint Roller",
+      "hints": [
+        "sticky",
+        "tape",
+        "roll"
+      ]
+    },
+    {
+      "word": "Rubber Duck",
+      "hints": [
+        "floating",
+        "squeaky",
+        "bath"
+      ]
+    },
+    {
+      "word": "Paper Clip",
+      "hints": [
+        "bent",
+        "wire",
+        "loop"
+      ]
+    },
+    {
+      "word": "Egg Timer",
+      "hints": [
+        "small",
+        "hourglass",
+        "shaped"
+      ]
+    },
+    {
+      "word": "Corkscrew",
+      "hints": [
+        "spiral",
+        "tool",
+        "extracting"
+      ]
+    },
+    {
+      "word": "Chalk",
+      "hints": [
+        "soft",
+        "white",
+        "stick"
+      ]
+    },
+    {
+      "word": "Protractor",
+      "hints": [
+        "semicircular",
+        "tool",
+        "measuring"
+      ]
+    },
+    {
+      "word": "Magnet",
+      "hints": [
+        "object",
+        "attracts",
+        "iron"
+      ]
+    },
+    {
+      "word": "Bookmark",
+      "hints": [
+        "thin",
+        "card",
+        "placed"
+      ]
+    },
+    {
+      "word": "Compass",
+      "hints": [
+        "hinged",
+        "drawing",
+        "tool"
+      ]
+    },
+    {
+      "word": "Pipette",
+      "hints": [
+        "narrow",
+        "tube",
+        "transfer"
+      ]
+    },
+    {
+      "word": "Abacus",
+      "hints": [
+        "ancient",
+        "calculating",
+        "frame"
+      ]
+    },
+    {
+      "word": "Plunger",
+      "hints": [
+        "rubber",
+        "cup",
+        "stick"
+      ]
+    },
+    {
+      "word": "Sundial",
+      "hints": [
+        "ancient",
+        "timekeeper",
+        "reads"
+      ]
+    },
+    {
+      "word": "Spirit Level",
+      "hints": [
+        "tool",
+        "bubble",
+        "check"
+      ]
+    },
+    {
+      "word": "Hourglass",
+      "hints": [
+        "twin",
+        "glass",
+        "bulbs"
+      ]
+    },
+    {
+      "word": "Magnifying Glass",
+      "hints": [
+        "convex",
+        "lens",
+        "makes"
+      ]
+    },
+    {
+      "word": "Metronome",
+      "hints": [
+        "ticking",
+        "device",
+        "keeps"
+      ]
+    },
+    {
+      "word": "Clamp",
+      "hints": [
+        "tool",
+        "holds",
+        "two"
+      ]
+    },
+    {
+      "word": "Squeegee",
+      "hints": [
+        "rubber",
+        "bladed",
+        "tool"
+      ]
+    },
+    {
+      "word": "Funnel",
+      "hints": [
+        "cone",
+        "shaped",
+        "channel"
+      ]
+    }
+  ]
+}

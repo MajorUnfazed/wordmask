@@ -1,0 +1,248 @@
+{
+  "id": "sports",
+  "name": "Sports",
+  "emoji": "⚽",
+  "description": "Games, athletes, and sporting moments",
+  "words": [
+    {
+      "word": "Hat Trick",
+      "hints": [
+        "three",
+        "goals",
+        "same"
+      ]
+    },
+    {
+      "word": "Grand Slam",
+      "hints": [
+        "winning",
+        "all",
+        "four"
+      ]
+    },
+    {
+      "word": "Offside",
+      "hints": [
+        "football",
+        "rule",
+        "caught"
+      ]
+    },
+    {
+      "word": "Love",
+      "hints": [
+        "tennis",
+        "scoring",
+        "term"
+      ]
+    },
+    {
+      "word": "Penalty Shootout",
+      "hints": [
+        "football",
+        "tiebreaker",
+        "alternating"
+      ]
+    },
+    {
+      "word": "Tour de France",
+      "hints": [
+        "gruelling",
+        "three",
+        "week"
+      ]
+    },
+    {
+      "word": "Marathon",
+      "hints": [
+        "mile",
+        "road",
+        "running"
+      ]
+    },
+    {
+      "word": "Slam Dunk",
+      "hints": [
+        "powerful",
+        "basketball",
+        "shot"
+      ]
+    },
+    {
+      "word": "Discus",
+      "hints": [
+        "heavy",
+        "disc",
+        "thrown"
+      ]
+    },
+    {
+      "word": "Sumo",
+      "hints": [
+        "japanese",
+        "wrestling",
+        "push"
+      ]
+    },
+    {
+      "word": "Wild Card",
+      "hints": [
+        "additional",
+        "tournament",
+        "entry"
+      ]
+    },
+    {
+      "word": "Yellow Card",
+      "hints": [
+        "football",
+        "caution",
+        "foul"
+      ]
+    },
+    {
+      "word": "Backstroke",
+      "hints": [
+        "swimming",
+        "back",
+        "alternating"
+      ]
+    },
+    {
+      "word": "Pole Vault",
+      "hints": [
+        "athletics",
+        "event",
+        "clearing"
+      ]
+    },
+    {
+      "word": "Deuce",
+      "hints": [
+        "tennis",
+        "score",
+        "both"
+      ]
+    },
+    {
+      "word": "Overtime",
+      "hints": [
+        "extra",
+        "playing",
+        "time"
+      ]
+    },
+    {
+      "word": "Cricket Wicket",
+      "hints": [
+        "three",
+        "stumps",
+        "two"
+      ]
+    },
+    {
+      "word": "Own Goal",
+      "hints": [
+        "scoring",
+        "net",
+        "own"
+      ]
+    },
+    {
+      "word": "Baton Pass",
+      "hints": [
+        "relay",
+        "race",
+        "handoff"
+      ]
+    },
+    {
+      "word": "Bodyboard",
+      "hints": [
+        "short",
+        "foam",
+        "board"
+      ]
+    },
+    {
+      "word": "Parallel Bars",
+      "hints": [
+        "men's",
+        "gymnastics",
+        "apparatus"
+      ]
+    },
+    {
+      "word": "Curling",
+      "hints": [
+        "winter",
+        "sport",
+        "sliding"
+      ]
+    },
+    {
+      "word": "Handicap",
+      "hints": [
+        "golf",
+        "scoring",
+        "adjustment"
+      ]
+    },
+    {
+      "word": "Pacer",
+      "hints": [
+        "runner",
+        "setting",
+        "target"
+      ]
+    },
+    {
+      "word": "Javelin",
+      "hints": [
+        "long",
+        "metal",
+        "spear"
+      ]
+    },
+    {
+      "word": "Box Set",
+      "hints": [
+        "cricket",
+        "term",
+        "batsman"
+      ]
+    },
+    {
+      "word": "Underdog",
+      "hints": [
+        "competitor",
+        "expected",
+        "lose"
+      ]
+    },
+    {
+      "word": "Sudden Death",
+      "hints": [
+        "format",
+        "first",
+        "point"
+      ]
+    },
+    {
+      "word": "Tiebreak",
+      "hints": [
+        "final",
+        "set",
+        "decider"
+      ]
+    },
+    {
+      "word": "Photo Finish",
+      "hints": [
+        "race",
+        "decided",
+        "camera"
+      ]
+    }
+  ]
+}

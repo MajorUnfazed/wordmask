@@ -1,0 +1,248 @@
+{
+  "id": "campus-life",
+  "name": "Campus Life",
+  "emoji": "🎓",
+  "description": "University experiences and student culture",
+  "words": [
+    {
+      "word": "All-Nighter",
+      "hints": [
+        "studying",
+        "working",
+        "entire"
+      ]
+    },
+    {
+      "word": "Drop/Add Period",
+      "hints": [
+        "short",
+        "window",
+        "change"
+      ]
+    },
+    {
+      "word": "Dissertation",
+      "hints": [
+        "long",
+        "original",
+        "research"
+      ]
+    },
+    {
+      "word": "Office Hours",
+      "hints": [
+        "scheduled",
+        "time",
+        "professor"
+      ]
+    },
+    {
+      "word": "Orientation Week",
+      "hints": [
+        "social",
+        "introduction",
+        "events"
+      ]
+    },
+    {
+      "word": "Plagiarism",
+      "hints": [
+        "presenting",
+        "someone",
+        "else's"
+      ]
+    },
+    {
+      "word": "Seminar",
+      "hints": [
+        "small",
+        "group",
+        "discussion"
+      ]
+    },
+    {
+      "word": "Lecture Theatre",
+      "hints": [
+        "large",
+        "tiered",
+        "room"
+      ]
+    },
+    {
+      "word": "Fresher",
+      "hints": [
+        "first",
+        "year",
+        "university"
+      ]
+    },
+    {
+      "word": "Campus Card",
+      "hints": [
+        "unlocks",
+        "buildings",
+        "pays"
+      ]
+    },
+    {
+      "word": "Grade Inflation",
+      "hints": [
+        "trend",
+        "higher",
+        "marks"
+      ]
+    },
+    {
+      "word": "Cram Session",
+      "hints": [
+        "intensive",
+        "last",
+        "minute"
+      ]
+    },
+    {
+      "word": "Hall of Residence",
+      "hints": [
+        "student",
+        "accommodation",
+        "managed"
+      ]
+    },
+    {
+      "word": "Common Room",
+      "hints": [
+        "shared",
+        "space",
+        "hall"
+      ]
+    },
+    {
+      "word": "Fresher's Flu",
+      "hints": [
+        "illness",
+        "spread",
+        "rapidly"
+      ]
+    },
+    {
+      "word": "Reading Week",
+      "hints": [
+        "break",
+        "lectures",
+        "independent"
+      ]
+    },
+    {
+      "word": "Past Papers",
+      "hints": [
+        "previous",
+        "years",
+        "exam"
+      ]
+    },
+    {
+      "word": "Plagiarism Checker",
+      "hints": [
+        "software",
+        "scans",
+        "essays"
+      ]
+    },
+    {
+      "word": "Student Union",
+      "hints": [
+        "organisation",
+        "representing",
+        "students"
+      ]
+    },
+    {
+      "word": "Imposter Syndrome",
+      "hints": [
+        "feeling",
+        "don't",
+        "deserve"
+      ]
+    },
+    {
+      "word": "Library Fine",
+      "hints": [
+        "fee",
+        "charged",
+        "returning"
+      ]
+    },
+    {
+      "word": "Extracurricular",
+      "hints": [
+        "activity",
+        "outside",
+        "formal"
+      ]
+    },
+    {
+      "word": "Thesis Defence",
+      "hints": [
+        "oral",
+        "examination",
+        "completed"
+      ]
+    },
+    {
+      "word": "Student Loan",
+      "hints": [
+        "government",
+        "bank",
+        "money"
+      ]
+    },
+    {
+      "word": "Matriculation",
+      "hints": [
+        "formal",
+        "enrolment",
+        "registration"
+      ]
+    },
+    {
+      "word": "Dean's List",
+      "hints": [
+        "academic",
+        "honour",
+        "roll"
+      ]
+    },
+    {
+      "word": "Pre-Med",
+      "hints": [
+        "undergraduate",
+        "track",
+        "preparing"
+      ]
+    },
+    {
+      "word": "Retroactive Drop",
+      "hints": [
+        "removing",
+        "failed",
+        "course"
+      ]
+    },
+    {
+      "word": "Credit Hours",
+      "hints": [
+        "unit",
+        "measuring",
+        "workload"
+      ]
+    },
+    {
+      "word": "Cafeteria Swipe",
+      "hints": [
+        "meal",
+        "plan",
+        "entry"
+      ]
+    }
+  ]
+}

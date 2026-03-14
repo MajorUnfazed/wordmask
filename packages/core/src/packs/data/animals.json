@@ -1,0 +1,408 @@
+{
+  "id": "animals",
+  "name": "Animals",
+  "emoji": "🦁",
+  "description": "Creatures from land, sea, and sky",
+  "words": [
+    {
+      "word": "Axolotl",
+      "hints": [
+        "mexican",
+        "salamander",
+        "keeps"
+      ]
+    },
+    {
+      "word": "Platypus",
+      "hints": [
+        "egg",
+        "laying",
+        "mammal"
+      ]
+    },
+    {
+      "word": "Narwhal",
+      "hints": [
+        "arctic",
+        "whale",
+        "long"
+      ]
+    },
+    {
+      "word": "Pangolin",
+      "hints": [
+        "scale",
+        "covered",
+        "mammal"
+      ]
+    },
+    {
+      "word": "Quokka",
+      "hints": [
+        "smiling",
+        "marsupial",
+        "western"
+      ]
+    },
+    {
+      "word": "Capybara",
+      "hints": [
+        "world's",
+        "largest",
+        "rodent"
+      ]
+    },
+    {
+      "word": "Mantis Shrimp",
+      "hints": [
+        "crustacean",
+        "most",
+        "complex"
+      ]
+    },
+    {
+      "word": "Tardigrade",
+      "hints": [
+        "microscopic",
+        "creature",
+        "survives"
+      ]
+    },
+    {
+      "word": "Okapi",
+      "hints": [
+        "striped",
+        "forest",
+        "relative"
+      ]
+    },
+    {
+      "word": "Fossa",
+      "hints": [
+        "top",
+        "predator",
+        "madagascar"
+      ]
+    },
+    {
+      "word": "Gharial",
+      "hints": [
+        "long",
+        "snouted",
+        "indian"
+      ]
+    },
+    {
+      "word": "Binturong",
+      "hints": [
+        "bearcat",
+        "smells",
+        "like"
+      ]
+    },
+    {
+      "word": "Aye-aye",
+      "hints": [
+        "madagascar",
+        "primate",
+        "long"
+      ]
+    },
+    {
+      "word": "Saiga",
+      "hints": [
+        "antelope",
+        "bulbous",
+        "nose"
+      ]
+    },
+    {
+      "word": "Wombat",
+      "hints": [
+        "australian",
+        "marsupial",
+        "makes"
+      ]
+    },
+    {
+      "word": "Manta Ray",
+      "hints": [
+        "giant",
+        "flat",
+        "ocean"
+      ]
+    },
+    {
+      "word": "Shoebill",
+      "hints": [
+        "tall",
+        "african",
+        "bird"
+      ]
+    },
+    {
+      "word": "Sun Bear",
+      "hints": [
+        "smallest",
+        "species",
+        "long"
+      ]
+    },
+    {
+      "word": "Kinkajou",
+      "hints": [
+        "honey",
+        "loving",
+        "rainforest"
+      ]
+    },
+    {
+      "word": "Kakapo",
+      "hints": [
+        "critically",
+        "endangered",
+        "flightless"
+      ]
+    },
+    {
+      "word": "Blue-footed Booby",
+      "hints": [
+        "seabird",
+        "famous",
+        "bright"
+      ]
+    },
+    {
+      "word": "Proboscis Monkey",
+      "hints": [
+        "borneo",
+        "enormous",
+        "nose"
+      ]
+    },
+    {
+      "word": "Dumbo Octopus",
+      "hints": [
+        "deep",
+        "sea",
+        "ear"
+      ]
+    },
+    {
+      "word": "Red Panda",
+      "hints": [
+        "fluffy",
+        "tree",
+        "climbing"
+      ]
+    },
+    {
+      "word": "Blobfish",
+      "hints": [
+        "deep",
+        "sea",
+        "fish"
+      ]
+    },
+    {
+      "word": "Thorny Devil",
+      "hints": [
+        "australian",
+        "lizard",
+        "covered"
+      ]
+    },
+    {
+      "word": "Mimic Octopus",
+      "hints": [
+        "cephalopod",
+        "impersonates",
+        "other"
+      ]
+    },
+    {
+      "word": "Leafy Sea Dragon",
+      "hints": [
+        "seahorse",
+        "relative",
+        "disguised"
+      ]
+    },
+    {
+      "word": "Glass Frog",
+      "hints": [
+        "amphibian",
+        "transparent",
+        "belly"
+      ]
+    },
+    {
+      "word": "Flying Fish",
+      "hints": [
+        "glides",
+        "above",
+        "ocean"
+      ]
+    },
+    {
+      "word": "Mudskipper",
+      "hints": [
+        "fish",
+        "walks",
+        "land"
+      ]
+    },
+    {
+      "word": "Pistol Shrimp",
+      "hints": [
+        "crustacean",
+        "snaps",
+        "claw"
+      ]
+    },
+    {
+      "word": "Geoduck",
+      "hints": [
+        "giant",
+        "pacific",
+        "clam"
+      ]
+    },
+    {
+      "word": "Tarsier",
+      "hints": [
+        "tiny",
+        "primate",
+        "enormous"
+      ]
+    },
+    {
+      "word": "Gharial",
+      "hints": [
+        "long",
+        "snouted",
+        "indian"
+      ]
+    },
+    {
+      "word": "Vampire Squid",
+      "hints": [
+        "deep",
+        "sea",
+        "cephalopod"
+      ]
+    },
+    {
+      "word": "Manatee",
+      "hints": [
+        "slow",
+        "moving",
+        "sea"
+      ]
+    },
+    {
+      "word": "Sunfish",
+      "hints": [
+        "world's",
+        "heaviest",
+        "bony"
+      ]
+    },
+    {
+      "word": "Honey Badger",
+      "hints": [
+        "fearless",
+        "african",
+        "mammal"
+      ]
+    },
+    {
+      "word": "Sloth",
+      "hints": [
+        "slow",
+        "moving",
+        "tree"
+      ]
+    },
+    {
+      "word": "Pufferfish",
+      "hints": [
+        "fish",
+        "inflates",
+        "defence"
+      ]
+    },
+    {
+      "word": "Naked Mole Rat",
+      "hints": [
+        "hairless",
+        "eusocial",
+        "underground"
+      ]
+    },
+    {
+      "word": "Star-nosed Mole",
+      "hints": [
+        "north",
+        "american",
+        "ring"
+      ]
+    },
+    {
+      "word": "Peacock Spider",
+      "hints": [
+        "australian",
+        "jumping",
+        "colourful"
+      ]
+    },
+    {
+      "word": "Mantis",
+      "hints": [
+        "insect",
+        "ambushes",
+        "prey"
+      ]
+    },
+    {
+      "word": "Yeti Crab",
+      "hints": [
+        "deep",
+        "sea",
+        "covered"
+      ]
+    },
+    {
+      "word": "Pygmy Seahorse",
+      "hints": [
+        "tiny",
+        "camouflaged",
+        "coral"
+      ]
+    },
+    {
+      "word": "Numbat",
+      "hints": [
+        "australian",
+        "marsupial",
+        "feeds"
+      ]
+    },
+    {
+      "word": "Clouded Leopard",
+      "hints": [
+        "south",
+        "east",
+        "asian"
+      ]
+    },
+    {
+      "word": "Irrawaddy Dolphin",
+      "hints": [
+        "blunt",
+        "nosed",
+        "spits"
+      ]
+    }
+  ]
+}

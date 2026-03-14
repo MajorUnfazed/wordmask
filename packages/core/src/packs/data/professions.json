@@ -1,0 +1,248 @@
+{
+  "id": "professions",
+  "name": "Professions",
+  "emoji": "👷",
+  "description": "Jobs, careers, and occupations",
+  "words": [
+    {
+      "word": "Actuary",
+      "hints": [
+        "uses",
+        "statistics",
+        "assess"
+      ]
+    },
+    {
+      "word": "Sommelier",
+      "hints": [
+        "wine",
+        "expert",
+        "advises"
+      ]
+    },
+    {
+      "word": "Taxidermist",
+      "hints": [
+        "preserves",
+        "mounts",
+        "animal"
+      ]
+    },
+    {
+      "word": "Cryptographer",
+      "hints": [
+        "designs",
+        "breaks",
+        "secret"
+      ]
+    },
+    {
+      "word": "Demographer",
+      "hints": [
+        "statistician",
+        "studies",
+        "population"
+      ]
+    },
+    {
+      "word": "Epidemiologist",
+      "hints": [
+        "studies",
+        "spread",
+        "control"
+      ]
+    },
+    {
+      "word": "UX Designer",
+      "hints": [
+        "makes",
+        "products",
+        "intuitive"
+      ]
+    },
+    {
+      "word": "Marine Biologist",
+      "hints": [
+        "studies",
+        "life",
+        "oceans"
+      ]
+    },
+    {
+      "word": "Forensic Accountant",
+      "hints": [
+        "investigates",
+        "financial",
+        "fraud"
+      ]
+    },
+    {
+      "word": "Lobbyist",
+      "hints": [
+        "advocates",
+        "politicians",
+        "behalf"
+      ]
+    },
+    {
+      "word": "Docent",
+      "hints": [
+        "volunteer",
+        "guide",
+        "leads"
+      ]
+    },
+    {
+      "word": "Ethical Hacker",
+      "hints": [
+        "paid",
+        "find",
+        "security"
+      ]
+    },
+    {
+      "word": "Curator",
+      "hints": [
+        "manages",
+        "interprets",
+        "collection"
+      ]
+    },
+    {
+      "word": "Urban Planner",
+      "hints": [
+        "designs",
+        "layout",
+        "cities"
+      ]
+    },
+    {
+      "word": "Arborist",
+      "hints": [
+        "specialist",
+        "care",
+        "maintenance"
+      ]
+    },
+    {
+      "word": "Palaeontologist",
+      "hints": [
+        "studies",
+        "prehistoric",
+        "life"
+      ]
+    },
+    {
+      "word": "Podcast Producer",
+      "hints": [
+        "plans",
+        "records",
+        "edits"
+      ]
+    },
+    {
+      "word": "Interpreter",
+      "hints": [
+        "translates",
+        "spoken",
+        "signed"
+      ]
+    },
+    {
+      "word": "Air Traffic Controller",
+      "hints": [
+        "directs",
+        "aircraft",
+        "movements"
+      ]
+    },
+    {
+      "word": "Dramaturge",
+      "hints": [
+        "provides",
+        "literary",
+        "conceptual"
+      ]
+    },
+    {
+      "word": "Meteorologist",
+      "hints": [
+        "studies",
+        "forecasts",
+        "weather"
+      ]
+    },
+    {
+      "word": "Prosthetist",
+      "hints": [
+        "designs",
+        "fits",
+        "artificial"
+      ]
+    },
+    {
+      "word": "Actuary",
+      "hints": [
+        "uses",
+        "maths",
+        "analyse"
+      ]
+    },
+    {
+      "word": "Zookeeper",
+      "hints": [
+        "cares",
+        "animals",
+        "zoo"
+      ]
+    },
+    {
+      "word": "Cartographer",
+      "hints": [
+        "creates",
+        "studies",
+        "maps"
+      ]
+    },
+    {
+      "word": "Optometrist",
+      "hints": [
+        "tests",
+        "eyesight",
+        "prescribes"
+      ]
+    },
+    {
+      "word": "Concierge",
+      "hints": [
+        "hotel",
+        "attendant",
+        "arranges"
+      ]
+    },
+    {
+      "word": "Glassblower",
+      "hints": [
+        "shapes",
+        "molten",
+        "glass"
+      ]
+    },
+    {
+      "word": "Quantum Engineer",
+      "hints": [
+        "builds",
+        "maintains",
+        "computing"
+      ]
+    },
+    {
+      "word": "Stunt Double",
+      "hints": [
+        "performs",
+        "dangerous",
+        "scenes"
+      ]
+    }
+  ]
+}

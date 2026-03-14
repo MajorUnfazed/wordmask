@@ -1,0 +1,248 @@
+{
+  "id": "science",
+  "name": "Science",
+  "emoji": "🔬",
+  "description": "Scientific concepts and discoveries",
+  "words": [
+    {
+      "word": "Black Hole",
+      "hints": [
+        "region",
+        "spacetime",
+        "gravity"
+      ]
+    },
+    {
+      "word": "CRISPR",
+      "hints": [
+        "gene",
+        "editing",
+        "tool"
+      ]
+    },
+    {
+      "word": "Photosynthesis",
+      "hints": [
+        "plants",
+        "converting",
+        "sunlight"
+      ]
+    },
+    {
+      "word": "Entropy",
+      "hints": [
+        "measure",
+        "disorder",
+        "thermodynamic"
+      ]
+    },
+    {
+      "word": "Mitochondria",
+      "hints": [
+        "organelle",
+        "nicknamed",
+        "powerhouse"
+      ]
+    },
+    {
+      "word": "Dark Matter",
+      "hints": [
+        "invisible",
+        "substance",
+        "making"
+      ]
+    },
+    {
+      "word": "Tectonic Plates",
+      "hints": [
+        "giant",
+        "rock",
+        "slabs"
+      ]
+    },
+    {
+      "word": "Doppler Effect",
+      "hints": [
+        "frequency",
+        "shift",
+        "observed"
+      ]
+    },
+    {
+      "word": "Half-Life",
+      "hints": [
+        "time",
+        "radioactive",
+        "substance"
+      ]
+    },
+    {
+      "word": "Osmosis",
+      "hints": [
+        "water",
+        "moving",
+        "membrane"
+      ]
+    },
+    {
+      "word": "Superconductor",
+      "hints": [
+        "material",
+        "zero",
+        "electrical"
+      ]
+    },
+    {
+      "word": "Antimatter",
+      "hints": [
+        "particles",
+        "opposite",
+        "charge"
+      ]
+    },
+    {
+      "word": "Neuron",
+      "hints": [
+        "nerve",
+        "cell",
+        "transmits"
+      ]
+    },
+    {
+      "word": "Catalysis",
+      "hints": [
+        "speeding",
+        "chemical",
+        "reaction"
+      ]
+    },
+    {
+      "word": "Higgs Boson",
+      "hints": [
+        "particle",
+        "gives",
+        "other"
+      ]
+    },
+    {
+      "word": "Stem Cell",
+      "hints": [
+        "undifferentiated",
+        "can",
+        "become"
+      ]
+    },
+    {
+      "word": "Plate Tectonics",
+      "hints": [
+        "theory",
+        "describing",
+        "movement"
+      ]
+    },
+    {
+      "word": "Solar Flare",
+      "hints": [
+        "intense",
+        "burst",
+        "radiation"
+      ]
+    },
+    {
+      "word": "Protein Folding",
+      "hints": [
+        "process",
+        "which",
+        "chain"
+      ]
+    },
+    {
+      "word": "Quantum Entanglement",
+      "hints": [
+        "two",
+        "particles",
+        "sharing"
+      ]
+    },
+    {
+      "word": "DNA Double Helix",
+      "hints": [
+        "watson",
+        "crick's",
+        "twisted"
+      ]
+    },
+    {
+      "word": "Event Horizon",
+      "hints": [
+        "point",
+        "return",
+        "edge"
+      ]
+    },
+    {
+      "word": "Electromagnetic Spectrum",
+      "hints": [
+        "full",
+        "range",
+        "radiation"
+      ]
+    },
+    {
+      "word": "Antibody",
+      "hints": [
+        "protein",
+        "produced",
+        "immune"
+      ]
+    },
+    {
+      "word": "Isotope",
+      "hints": [
+        "variant",
+        "element",
+        "same"
+      ]
+    },
+    {
+      "word": "Greenhouse Effect",
+      "hints": [
+        "gases",
+        "trap",
+        "heat"
+      ]
+    },
+    {
+      "word": "Absolute Zero",
+      "hints": [
+        "273",
+        "coldest",
+        "theoretically"
+      ]
+    },
+    {
+      "word": "Centrifuge",
+      "hints": [
+        "machine",
+        "spins",
+        "samples"
+      ]
+    },
+    {
+      "word": "Epigenetics",
+      "hints": [
+        "study",
+        "gene",
+        "expression"
+      ]
+    },
+    {
+      "word": "Event Horizon Telescope",
+      "hints": [
+        "array",
+        "captured",
+        "first"
+      ]
+    }
+  ]
+}

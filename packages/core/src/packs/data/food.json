@@ -1,0 +1,408 @@
+{
+  "id": "food",
+  "name": "Food",
+  "emoji": "🍔",
+  "description": "Cuisines, dishes, and ingredients",
+  "words": [
+    {
+      "word": "Pizza",
+      "hints": [
+        "italian",
+        "baked",
+        "dish"
+      ]
+    },
+    {
+      "word": "Sushi",
+      "hints": [
+        "japanese",
+        "vinegared",
+        "rice"
+      ]
+    },
+    {
+      "word": "Croissant",
+      "hints": [
+        "flaky",
+        "crescent",
+        "shaped"
+      ]
+    },
+    {
+      "word": "Taco",
+      "hints": [
+        "mexican",
+        "folded",
+        "tortilla"
+      ]
+    },
+    {
+      "word": "Ramen",
+      "hints": [
+        "japanese",
+        "noodle",
+        "soup"
+      ]
+    },
+    {
+      "word": "Paella",
+      "hints": [
+        "spanish",
+        "rice",
+        "dish"
+      ]
+    },
+    {
+      "word": "Hummus",
+      "hints": [
+        "chickpea",
+        "dip",
+        "middle"
+      ]
+    },
+    {
+      "word": "Waffle",
+      "hints": [
+        "grid",
+        "patterned",
+        "breakfast"
+      ]
+    },
+    {
+      "word": "Lasagna",
+      "hints": [
+        "layered",
+        "italian",
+        "pasta"
+      ]
+    },
+    {
+      "word": "Burrito",
+      "hints": [
+        "large",
+        "flour",
+        "tortilla"
+      ]
+    },
+    {
+      "word": "Curry",
+      "hints": [
+        "spiced",
+        "sauce",
+        "dish"
+      ]
+    },
+    {
+      "word": "Tiramisu",
+      "hints": [
+        "italian",
+        "espresso",
+        "flavoured"
+      ]
+    },
+    {
+      "word": "Dumpling",
+      "hints": [
+        "filled",
+        "dough",
+        "pocket"
+      ]
+    },
+    {
+      "word": "Baklava",
+      "hints": [
+        "layered",
+        "pastry",
+        "nuts"
+      ]
+    },
+    {
+      "word": "Pretzel",
+      "hints": [
+        "twisted",
+        "baked",
+        "bread"
+      ]
+    },
+    {
+      "word": "Mochi",
+      "hints": [
+        "japanese",
+        "sticky",
+        "rice"
+      ]
+    },
+    {
+      "word": "Falafel",
+      "hints": [
+        "fried",
+        "chickpea",
+        "balls"
+      ]
+    },
+    {
+      "word": "Gyoza",
+      "hints": [
+        "pan",
+        "fried",
+        "japanese"
+      ]
+    },
+    {
+      "word": "Churros",
+      "hints": [
+        "fried",
+        "dough",
+        "sticks"
+      ]
+    },
+    {
+      "word": "Pho",
+      "hints": [
+        "vietnamese",
+        "aromatic",
+        "noodle"
+      ]
+    },
+    {
+      "word": "Gelato",
+      "hints": [
+        "dense",
+        "italian",
+        "ice"
+      ]
+    },
+    {
+      "word": "Empanada",
+      "hints": [
+        "baked",
+        "fried",
+        "stuffed"
+      ]
+    },
+    {
+      "word": "Shakshuka",
+      "hints": [
+        "eggs",
+        "poached",
+        "spiced"
+      ]
+    },
+    {
+      "word": "Bibimbap",
+      "hints": [
+        "korean",
+        "mixed",
+        "rice"
+      ]
+    },
+    {
+      "word": "Ceviche",
+      "hints": [
+        "raw",
+        "fish",
+        "cured"
+      ]
+    },
+    {
+      "word": "Crepe",
+      "hints": [
+        "thin",
+        "french",
+        "pancake"
+      ]
+    },
+    {
+      "word": "Moussaka",
+      "hints": [
+        "greek",
+        "baked",
+        "aubergine"
+      ]
+    },
+    {
+      "word": "Pierogi",
+      "hints": [
+        "polish",
+        "stuffed",
+        "dough"
+      ]
+    },
+    {
+      "word": "Tagine",
+      "hints": [
+        "moroccan",
+        "slow",
+        "cooked"
+      ]
+    },
+    {
+      "word": "Poutine",
+      "hints": [
+        "canadian",
+        "fries",
+        "gravy"
+      ]
+    },
+    {
+      "word": "Brioche",
+      "hints": [
+        "rich",
+        "buttery",
+        "french"
+      ]
+    },
+    {
+      "word": "Kimchi",
+      "hints": [
+        "fermented",
+        "korean",
+        "spicy"
+      ]
+    },
+    {
+      "word": "Goulash",
+      "hints": [
+        "hungarian",
+        "paprika",
+        "beef"
+      ]
+    },
+    {
+      "word": "Naan",
+      "hints": [
+        "leavened",
+        "flatbread",
+        "tandoor"
+      ]
+    },
+    {
+      "word": "Soufflé",
+      "hints": [
+        "delicate",
+        "baked",
+        "french"
+      ]
+    },
+    {
+      "word": "Tempura",
+      "hints": [
+        "japanese",
+        "light",
+        "battered"
+      ]
+    },
+    {
+      "word": "Stroganoff",
+      "hints": [
+        "russian",
+        "beef",
+        "sour"
+      ]
+    },
+    {
+      "word": "Risotto",
+      "hints": [
+        "creamy",
+        "slow",
+        "cooked"
+      ]
+    },
+    {
+      "word": "Bruschetta",
+      "hints": [
+        "italian",
+        "toasted",
+        "bread"
+      ]
+    },
+    {
+      "word": "Borscht",
+      "hints": [
+        "eastern",
+        "european",
+        "beetroot"
+      ]
+    },
+    {
+      "word": "Kebab",
+      "hints": [
+        "grilled",
+        "meat",
+        "skewer"
+      ]
+    },
+    {
+      "word": "Quiche",
+      "hints": [
+        "french",
+        "egg",
+        "cream"
+      ]
+    },
+    {
+      "word": "Pad Thai",
+      "hints": [
+        "stir",
+        "fried",
+        "rice"
+      ]
+    },
+    {
+      "word": "Calzone",
+      "hints": [
+        "folded",
+        "pizza",
+        "filling"
+      ]
+    },
+    {
+      "word": "Cannoli",
+      "hints": [
+        "sicilian",
+        "pastry",
+        "tubes"
+      ]
+    },
+    {
+      "word": "Macaron",
+      "hints": [
+        "french",
+        "colourful",
+        "meringue"
+      ]
+    },
+    {
+      "word": "Fondue",
+      "hints": [
+        "swiss",
+        "melted",
+        "cheese"
+      ]
+    },
+    {
+      "word": "Croquette",
+      "hints": [
+        "breaded",
+        "fried",
+        "mashed"
+      ]
+    },
+    {
+      "word": "Samosa",
+      "hints": [
+        "fried",
+        "indian",
+        "pastry"
+      ]
+    },
+    {
+      "word": "Biryani",
+      "hints": [
+        "layered",
+        "south",
+        "asian"
+      ]
+    }
+  ]
+}

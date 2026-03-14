@@ -1,0 +1,248 @@
+{
+  "id": "geography",
+  "name": "Geography",
+  "emoji": "🗺️",
+  "description": "Countries, cities, and geographic features",
+  "words": [
+    {
+      "word": "Sahara Desert",
+      "hints": [
+        "world's",
+        "largest",
+        "hot"
+      ]
+    },
+    {
+      "word": "Amazon Basin",
+      "hints": [
+        "world's",
+        "largest",
+        "tropical"
+      ]
+    },
+    {
+      "word": "Mariana Trench",
+      "hints": [
+        "deepest",
+        "point",
+        "ocean"
+      ]
+    },
+    {
+      "word": "Fjord",
+      "hints": [
+        "narrow",
+        "coastal",
+        "inlet"
+      ]
+    },
+    {
+      "word": "Reykjavik",
+      "hints": [
+        "capital",
+        "iceland",
+        "most"
+      ]
+    },
+    {
+      "word": "Cape Town",
+      "hints": [
+        "south",
+        "african",
+        "city"
+      ]
+    },
+    {
+      "word": "Strait of Gibraltar",
+      "hints": [
+        "narrow",
+        "passage",
+        "connecting"
+      ]
+    },
+    {
+      "word": "Patagonia",
+      "hints": [
+        "vast",
+        "wilderness",
+        "southern"
+      ]
+    },
+    {
+      "word": "Gobi Desert",
+      "hints": [
+        "cold",
+        "across",
+        "northern"
+      ]
+    },
+    {
+      "word": "Great Barrier Reef",
+      "hints": [
+        "world's",
+        "largest",
+        "coral"
+      ]
+    },
+    {
+      "word": "Andes",
+      "hints": [
+        "longest",
+        "continental",
+        "mountain"
+      ]
+    },
+    {
+      "word": "Maldives",
+      "hints": [
+        "low",
+        "lying",
+        "island"
+      ]
+    },
+    {
+      "word": "Outback",
+      "hints": [
+        "remote",
+        "arid",
+        "interior"
+      ]
+    },
+    {
+      "word": "The Nile",
+      "hints": [
+        "world's",
+        "longest",
+        "river"
+      ]
+    },
+    {
+      "word": "Atacama Desert",
+      "hints": [
+        "driest",
+        "non",
+        "polar"
+      ]
+    },
+    {
+      "word": "Bosphorus",
+      "hints": [
+        "strait",
+        "divides",
+        "istanbul"
+      ]
+    },
+    {
+      "word": "Lake Titicaca",
+      "hints": [
+        "world's",
+        "highest",
+        "navigable"
+      ]
+    },
+    {
+      "word": "Svalbard",
+      "hints": [
+        "norwegian",
+        "arctic",
+        "archipelago"
+      ]
+    },
+    {
+      "word": "Dead Sea",
+      "hints": [
+        "saltiest",
+        "earth",
+        "cannot"
+      ]
+    },
+    {
+      "word": "Trans-Siberian Railway",
+      "hints": [
+        "world's",
+        "longest",
+        "line"
+      ]
+    },
+    {
+      "word": "Pangaea",
+      "hints": [
+        "supercontinent",
+        "existed",
+        "tectonic"
+      ]
+    },
+    {
+      "word": "Monsoon",
+      "hints": [
+        "seasonal",
+        "reversal",
+        "winds"
+      ]
+    },
+    {
+      "word": "Longitude",
+      "hints": [
+        "east",
+        "west",
+        "coordinate"
+      ]
+    },
+    {
+      "word": "Tundra",
+      "hints": [
+        "treeless",
+        "arctic",
+        "plain"
+      ]
+    },
+    {
+      "word": "Isthmus of Panama",
+      "hints": [
+        "narrow",
+        "land",
+        "bridge"
+      ]
+    },
+    {
+      "word": "International Date Line",
+      "hints": [
+        "180",
+        "meridian",
+        "calendar"
+      ]
+    },
+    {
+      "word": "Caspian Sea",
+      "hints": [
+        "world's",
+        "largest",
+        "landlocked"
+      ]
+    },
+    {
+      "word": "Mount Everest",
+      "hints": [
+        "highest",
+        "point",
+        "earth"
+      ]
+    },
+    {
+      "word": "Savanna",
+      "hints": [
+        "tropical",
+        "grassland",
+        "scattered"
+      ]
+    },
+    {
+      "word": "Archipelago",
+      "hints": [
+        "chain",
+        "cluster",
+        "islands"
+      ]
+    }
+  ]
+}

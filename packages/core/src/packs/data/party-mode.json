@@ -1,0 +1,248 @@
+{
+  "id": "party-mode",
+  "name": "Party Mode",
+  "emoji": "🎉",
+  "description": "Chaotic, funny, and party-game-perfect words",
+  "words": [
+    {
+      "word": "Walk of Shame",
+      "hints": [
+        "morning",
+        "journey",
+        "home"
+      ]
+    },
+    {
+      "word": "Drunk Text",
+      "hints": [
+        "message",
+        "sent",
+        "late"
+      ]
+    },
+    {
+      "word": "Bad Karaoke",
+      "hints": [
+        "off",
+        "key",
+        "singing"
+      ]
+    },
+    {
+      "word": "Photobomb",
+      "hints": [
+        "surprise",
+        "appearance",
+        "ruining"
+      ]
+    },
+    {
+      "word": "Regiftable",
+      "hints": [
+        "present",
+        "bad",
+        "gets"
+      ]
+    },
+    {
+      "word": "Dad Joke",
+      "hints": [
+        "painfully",
+        "simple",
+        "pun"
+      ]
+    },
+    {
+      "word": "Beer Pong",
+      "hints": [
+        "party",
+        "game",
+        "bouncing"
+      ]
+    },
+    {
+      "word": "Chip Bag Opening",
+      "hints": [
+        "noisy",
+        "snack",
+        "ritual"
+      ]
+    },
+    {
+      "word": "Awkward Handshake",
+      "hints": [
+        "physical",
+        "greeting",
+        "both"
+      ]
+    },
+    {
+      "word": "Karaoke Machine",
+      "hints": [
+        "sing",
+        "along",
+        "device"
+      ]
+    },
+    {
+      "word": "Conga Line",
+      "hints": [
+        "chain",
+        "people",
+        "dancing"
+      ]
+    },
+    {
+      "word": "Party Pooper",
+      "hints": [
+        "person",
+        "ruins",
+        "fun"
+      ]
+    },
+    {
+      "word": "Overstayed Welcome",
+      "hints": [
+        "guest",
+        "refuses",
+        "leave"
+      ]
+    },
+    {
+      "word": "Spin the Bottle",
+      "hints": [
+        "kissing",
+        "game",
+        "played"
+      ]
+    },
+    {
+      "word": "Truth or Dare",
+      "hints": [
+        "party",
+        "game",
+        "choosing"
+      ]
+    },
+    {
+      "word": "Surprise Party",
+      "hints": [
+        "celebration",
+        "kept",
+        "secret"
+      ]
+    },
+    {
+      "word": "Limbo",
+      "hints": [
+        "party",
+        "dance",
+        "competition"
+      ]
+    },
+    {
+      "word": "Confetti Cannon",
+      "hints": [
+        "device",
+        "blasts",
+        "paper"
+      ]
+    },
+    {
+      "word": "Piñata",
+      "hints": [
+        "paper",
+        "animal",
+        "filled"
+      ]
+    },
+    {
+      "word": "Karaoke Night",
+      "hints": [
+        "evening",
+        "event",
+        "centred"
+      ]
+    },
+    {
+      "word": "Fistbump",
+      "hints": [
+        "knuckle",
+        "greeting",
+        "gesture"
+      ]
+    },
+    {
+      "word": "Streaker",
+      "hints": [
+        "person",
+        "runs",
+        "naked"
+      ]
+    },
+    {
+      "word": "Moonwalk",
+      "hints": [
+        "michael",
+        "jackson's",
+        "signature"
+      ]
+    },
+    {
+      "word": "Photobooth",
+      "hints": [
+        "pop",
+        "enclosed",
+        "box"
+      ]
+    },
+    {
+      "word": "Glow Stick",
+      "hints": [
+        "light",
+        "snapped",
+        "activate"
+      ]
+    },
+    {
+      "word": "Bobbing for Apples",
+      "hints": [
+        "halloween",
+        "game",
+        "retrieving"
+      ]
+    },
+    {
+      "word": "Hangover",
+      "hints": [
+        "next",
+        "day",
+        "punishment"
+      ]
+    },
+    {
+      "word": "Dance-Off",
+      "hints": [
+        "head",
+        "competition",
+        "freestyle"
+      ]
+    },
+    {
+      "word": "Party Trick",
+      "hints": [
+        "impressive",
+        "talent",
+        "pulled"
+      ]
+    },
+    {
+      "word": "Streamer",
+      "hints": [
+        "coiled",
+        "coloured",
+        "paper"
+      ]
+    }
+  ]
+}

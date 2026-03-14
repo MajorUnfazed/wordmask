@@ -1,0 +1,27 @@
+{
+  "expo": {
+    "name": "Impostor Words",
+    "slug": "impostor-words",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "impostor",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0A0A14",
+    "splash": {
+      "backgroundColor": "#0A0A14"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0A14"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
