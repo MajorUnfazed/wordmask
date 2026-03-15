@@ -11,7 +11,9 @@
     "declarationMap": false,
     "types": ["vite/client", "node"],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@impostor/core": ["../../packages/core/src/index.ts"],
+      "@impostor/core/*": ["../../packages/core/src/*"]
     }
   },
   "include": ["src"]
