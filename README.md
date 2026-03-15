@@ -65,6 +65,18 @@ pnpm -r typecheck
 pnpm --filter web build
 ```
 
+## Deploying to Vercel
+
+The recommended Vercel setup for this repository is:
+
+- Framework Preset: `Vite`
+- Root Directory: `apps/web`
+- Install Command: `pnpm install`
+- Build Command: `pnpm --filter web build`
+- Output Directory: `dist`
+
+The web app also includes [apps/web/vercel.json](apps/web/vercel.json) so SPA routes resolve correctly to `index.html`.
+
 ## Gameplay Flow
 
 1. Set up players and round settings.
