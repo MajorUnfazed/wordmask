@@ -1,304 +1,89 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const PROFESSIONS_PACK: WordEntry[] = [
-  {
-    "id": "actuary",
-    "word": "Actuary",
-    "category": "Professions",
-    "hints": [
-      "uses",
-      "statistics",
-      "assess"
-    ]
-  },
-  {
-    "id": "sommelier",
-    "word": "Sommelier",
-    "category": "Professions",
-    "hints": [
-      "wine",
-      "expert",
-      "advises"
-    ]
-  },
-  {
-    "id": "taxidermist",
-    "word": "Taxidermist",
-    "category": "Professions",
-    "hints": [
-      "preserves",
-      "mounts",
-      "animal"
-    ]
-  },
-  {
-    "id": "cryptographer",
-    "word": "Cryptographer",
-    "category": "Professions",
-    "hints": [
-      "designs",
-      "breaks",
-      "secret"
-    ]
-  },
-  {
-    "id": "demographer",
-    "word": "Demographer",
-    "category": "Professions",
-    "hints": [
-      "statistician",
-      "studies",
-      "population"
-    ]
-  },
-  {
-    "id": "epidemiologist",
-    "word": "Epidemiologist",
-    "category": "Professions",
-    "hints": [
-      "studies",
-      "spread",
-      "control"
-    ]
-  },
-  {
-    "id": "ux_designer",
-    "word": "UX Designer",
-    "category": "Professions",
-    "hints": [
-      "makes",
-      "products",
-      "intuitive"
-    ]
-  },
-  {
-    "id": "marine_biologist",
-    "word": "Marine Biologist",
-    "category": "Professions",
-    "hints": [
-      "studies",
-      "life",
-      "oceans"
-    ]
-  },
-  {
-    "id": "forensic_accountant",
-    "word": "Forensic Accountant",
-    "category": "Professions",
-    "hints": [
-      "investigates",
-      "financial",
-      "fraud"
-    ]
-  },
-  {
-    "id": "lobbyist",
-    "word": "Lobbyist",
-    "category": "Professions",
-    "hints": [
-      "advocates",
-      "politicians",
-      "behalf"
-    ]
-  },
-  {
-    "id": "docent",
-    "word": "Docent",
-    "category": "Professions",
-    "hints": [
-      "volunteer",
-      "guide",
-      "leads"
-    ]
-  },
-  {
-    "id": "ethical_hacker",
-    "word": "Ethical Hacker",
-    "category": "Professions",
-    "hints": [
-      "paid",
-      "find",
-      "security"
-    ]
-  },
-  {
-    "id": "curator",
-    "word": "Curator",
-    "category": "Professions",
-    "hints": [
-      "manages",
-      "interprets",
-      "collection"
-    ]
-  },
-  {
-    "id": "urban_planner",
-    "word": "Urban Planner",
-    "category": "Professions",
-    "hints": [
-      "designs",
-      "layout",
-      "cities"
-    ]
-  },
-  {
-    "id": "arborist",
-    "word": "Arborist",
-    "category": "Professions",
-    "hints": [
-      "specialist",
-      "care",
-      "maintenance"
-    ]
-  },
-  {
-    "id": "palaeontologist",
-    "word": "Palaeontologist",
-    "category": "Professions",
-    "hints": [
-      "studies",
-      "prehistoric",
-      "life"
-    ]
-  },
-  {
-    "id": "podcast_producer",
-    "word": "Podcast Producer",
-    "category": "Professions",
-    "hints": [
-      "plans",
-      "records",
-      "edits"
-    ]
-  },
-  {
-    "id": "interpreter",
-    "word": "Interpreter",
-    "category": "Professions",
-    "hints": [
-      "translates",
-      "spoken",
-      "signed"
-    ]
-  },
-  {
-    "id": "air_traffic_controller",
-    "word": "Air Traffic Controller",
-    "category": "Professions",
-    "hints": [
-      "directs",
-      "aircraft",
-      "movements"
-    ]
-  },
-  {
-    "id": "dramaturge",
-    "word": "Dramaturge",
-    "category": "Professions",
-    "hints": [
-      "provides",
-      "literary",
-      "conceptual"
-    ]
-  },
-  {
-    "id": "meteorologist",
-    "word": "Meteorologist",
-    "category": "Professions",
-    "hints": [
-      "studies",
-      "forecasts",
-      "weather"
-    ]
-  },
-  {
-    "id": "prosthetist",
-    "word": "Prosthetist",
-    "category": "Professions",
-    "hints": [
-      "designs",
-      "fits",
-      "artificial"
-    ]
-  },
-  {
-    "id": "actuary_2",
-    "word": "Actuary",
-    "category": "Professions",
-    "hints": [
-      "uses",
-      "maths",
-      "analyse"
-    ]
-  },
-  {
-    "id": "zookeeper",
-    "word": "Zookeeper",
-    "category": "Professions",
-    "hints": [
-      "cares",
-      "animals",
-      "zoo"
-    ]
-  },
-  {
-    "id": "cartographer",
-    "word": "Cartographer",
-    "category": "Professions",
-    "hints": [
-      "creates",
-      "studies",
-      "maps"
-    ]
-  },
-  {
-    "id": "optometrist",
-    "word": "Optometrist",
-    "category": "Professions",
-    "hints": [
-      "tests",
-      "eyesight",
-      "prescribes"
-    ]
-  },
-  {
-    "id": "concierge",
-    "word": "Concierge",
-    "category": "Professions",
-    "hints": [
-      "hotel",
-      "attendant",
-      "arranges"
-    ]
-  },
-  {
-    "id": "glassblower",
-    "word": "Glassblower",
-    "category": "Professions",
-    "hints": [
-      "shapes",
-      "molten",
-      "glass"
-    ]
-  },
-  {
-    "id": "quantum_engineer",
-    "word": "Quantum Engineer",
-    "category": "Professions",
-    "hints": [
-      "builds",
-      "maintains",
-      "computing"
-    ]
-  },
-  {
-    "id": "stunt_double",
-    "word": "Stunt Double",
-    "category": "Professions",
-    "hints": [
-      "performs",
-      "dangerous",
-      "scenes"
-    ]
-  }
+  { "id": "surgeon", "word": "Surgeon", "category": "Professions", "hints": ["operating", "scalpel", "doctor"] },
+  { "id": "astronaut", "word": "Astronaut", "category": "Professions", "hints": ["space", "nasa", "suit"] },
+  { "id": "firefighter", "word": "Firefighter", "category": "Professions", "hints": ["hose", "flames", "rescue"] },
+  { "id": "pilot", "word": "Pilot", "category": "Professions", "hints": ["cockpit", "flying", "captain"] },
+  { "id": "detective", "word": "Detective", "category": "Professions", "hints": ["clues", "investigating", "badge"] },
+  { "id": "chef_p", "word": "Chef", "category": "Professions", "hints": ["kitchen", "cooking", "toque"] },
+  { "id": "lawyer", "word": "Lawyer", "category": "Professions", "hints": ["court", "defense", "objection"] },
+  { "id": "archaeologist", "word": "Archaeologist", "category": "Professions", "hints": ["digging", "ancient", "artifacts"] },
+  { "id": "veterinarian", "word": "Veterinarian", "category": "Professions", "hints": ["animal", "doctor", "clinic"] },
+  { "id": "journalist", "word": "Journalist", "category": "Professions", "hints": ["news", "reporting", "press"] },
+  { "id": "pharmacist", "word": "Pharmacist", "category": "Professions", "hints": ["medication", "prescriptions", "drugstore"] },
+  { "id": "architect", "word": "Architect", "category": "Professions", "hints": ["buildings", "blueprints", "design"] },
+  { "id": "electrician", "word": "Electrician", "category": "Professions", "hints": ["wiring", "circuits", "voltage"] },
+  { "id": "plumber_p", "word": "Plumber", "category": "Professions", "hints": ["pipes", "leaks", "wrench"] },
+  { "id": "carpenter", "word": "Carpenter", "category": "Professions", "hints": ["wood", "hammer", "building"] },
+  { "id": "dentist", "word": "Dentist", "category": "Professions", "hints": ["teeth", "drill", "cleaning"] },
+  { "id": "professor_p", "word": "Professor", "category": "Professions", "hints": ["university", "lectures", "tenure"] },
+  { "id": "marine_biologist", "word": "Marine Biologist", "category": "Professions", "hints": ["ocean", "studying", "creatures"] },
+  { "id": "paramedic", "word": "Paramedic", "category": "Professions", "hints": ["ambulance", "emergency", "first"] },
+  { "id": "diplomat", "word": "Diplomat", "category": "Professions", "hints": ["embassy", "negotiation", "international"] },
+  { "id": "ranger", "word": "Park Ranger", "category": "Professions", "hints": ["nature", "wildlife", "conservation"] },
+  { "id": "stuntman", "word": "Stunt Double", "category": "Professions", "hints": ["dangerous", "movie", "substitute"] },
+  { "id": "sommelier", "word": "Sommelier", "category": "Professions", "hints": ["wine", "tasting", "expert"] },
+  { "id": "locksmith", "word": "Locksmith", "category": "Professions", "hints": ["keys", "locks", "opening"] },
+  { "id": "translator", "word": "Translator", "category": "Professions", "hints": ["languages", "converting", "bilingual"] },
+  { "id": "meteorologist", "word": "Meteorologist", "category": "Professions", "hints": ["weather", "forecast", "storms"] },
+  { "id": "coroner", "word": "Coroner", "category": "Professions", "hints": ["death", "autopsy", "cause"] },
+  { "id": "lifeguard", "word": "Lifeguard", "category": "Professions", "hints": ["pool", "rescue", "whistle"] },
+  { "id": "tattoo_artist", "word": "Tattoo Artist", "category": "Professions", "hints": ["ink", "needle", "skin"] },
+  { "id": "barista", "word": "Barista", "category": "Professions", "hints": ["coffee", "espresso", "latte"] },
+  { "id": "librarian", "word": "Librarian", "category": "Professions", "hints": ["books", "quiet", "cataloguing"] },
+  { "id": "auctioneer", "word": "Auctioneer", "category": "Professions", "hints": ["bidding", "gavel", "fast-talking"] },
+  { "id": "florist", "word": "Florist", "category": "Professions", "hints": ["flowers", "bouquets", "arranging"] },
+  { "id": "blacksmith", "word": "Blacksmith", "category": "Professions", "hints": ["forge", "anvil", "metal"] },
+  { "id": "cartographer", "word": "Cartographer", "category": "Professions", "hints": ["maps", "drawing", "terrain"] },
+  { "id": "midwife", "word": "Midwife", "category": "Professions", "hints": ["birth", "delivery", "prenatal"] },
+  { "id": "taxidermist", "word": "Taxidermist", "category": "Professions", "hints": ["preserving", "stuffing", "animals"] },
+  { "id": "ethical_hacker", "word": "Ethical Hacker", "category": "Professions", "hints": ["cybersecurity", "testing", "vulnerabilities"] },
+  { "id": "data_scientist", "word": "Data Scientist", "category": "Professions", "hints": ["analytics", "machine", "patterns"] },
+  { "id": "ux_designer", "word": "UX Designer", "category": "Professions", "hints": ["user", "interface", "wireframes"] },
+  { "id": "game_developer", "word": "Game Developer", "category": "Professions", "hints": ["coding", "video", "studio"] },
+  { "id": "influencer_p", "word": "Content Creator", "category": "Professions", "hints": ["social", "media", "videos"] },
+  { "id": "drone_pilot", "word": "Drone Pilot", "category": "Professions", "hints": ["remote", "aerial", "flying"] },
+  { "id": "astronomer", "word": "Astronomer", "category": "Professions", "hints": ["telescope", "stars", "observing"] },
+  { "id": "geologist", "word": "Geologist", "category": "Professions", "hints": ["rocks", "minerals", "earth"] },
+  { "id": "oceanographer", "word": "Oceanographer", "category": "Professions", "hints": ["sea", "currents", "depth"] },
+  { "id": "anesthesiologist", "word": "Anesthesiologist", "category": "Professions", "hints": ["sedation", "surgery", "dosage"] },
+  { "id": "personal_trainer", "word": "Personal Trainer", "category": "Professions", "hints": ["fitness", "gym", "coaching"] },
+  { "id": "nutritionist", "word": "Nutritionist", "category": "Professions", "hints": ["diet", "health", "food-planning"] },
+  { "id": "psychologist", "word": "Psychologist", "category": "Professions", "hints": ["therapy", "mental", "counseling"] },
+  { "id": "physical_therapist", "word": "Physical Therapist", "category": "Professions", "hints": ["rehabilitation", "exercises", "recovery"] },
+  { "id": "speech_therapist", "word": "Speech Therapist", "category": "Professions", "hints": ["language", "pronunciation", "healing"] },
+  { "id": "social_worker", "word": "Social Worker", "category": "Professions", "hints": ["community", "welfare", "support"] },
+  { "id": "accountant", "word": "Accountant", "category": "Professions", "hints": ["numbers", "taxes", "balance"] },
+  { "id": "stock_broker", "word": "Stock Broker", "category": "Professions", "hints": ["trading", "market", "shares"] },
+  { "id": "real_estate_agent", "word": "Real Estate Agent", "category": "Professions", "hints": ["houses", "selling", "property"] },
+  { "id": "wedding_planner", "word": "Wedding Planner", "category": "Professions", "hints": ["ceremony", "organizing", "venue"] },
+  { "id": "tour_guide", "word": "Tour Guide", "category": "Professions", "hints": ["sightseeing", "groups", "history"] },
+  { "id": "zoologist", "word": "Zoologist", "category": "Professions", "hints": ["animals", "studying", "behavior"] },
+  { "id": "paleontologist", "word": "Paleontologist", "category": "Professions", "hints": ["fossils", "dinosaurs", "excavating"] },
+  { "id": "volcanologist", "word": "Volcanologist", "category": "Professions", "hints": ["lava", "eruptions", "studying"] },
+  { "id": "epidemiologist", "word": "Epidemiologist", "category": "Professions", "hints": ["disease", "outbreaks", "tracking"] },
+  { "id": "air_traffic_ctrl", "word": "Air Traffic Controller", "category": "Professions", "hints": ["runway", "radar", "clearance"] },
+  { "id": "food_critic", "word": "Food Critic", "category": "Professions", "hints": ["restaurant", "reviewing", "tasting"] },
+  { "id": "film_director", "word": "Film Director", "category": "Professions", "hints": ["camera", "action", "cut"] },
+  { "id": "choreographer", "word": "Choreographer", "category": "Professions", "hints": ["dance", "routines", "staging"] },
+  { "id": "sound_engineer", "word": "Sound Engineer", "category": "Professions", "hints": ["mixing", "audio", "studio"] },
+  { "id": "comedian", "word": "Comedian", "category": "Professions", "hints": ["standup", "jokes", "laughing"] },
+  { "id": "magician", "word": "Magician", "category": "Professions", "hints": ["tricks", "illusion", "stage"] },
+  { "id": "referee", "word": "Referee", "category": "Professions", "hints": ["whistle", "rules", "penalty"] },
+  { "id": "spy", "word": "Spy", "category": "Professions", "hints": ["undercover", "intelligence", "covert"] },
+  { "id": "bodyguard", "word": "Bodyguard", "category": "Professions", "hints": ["protection", "security", "vip"] },
+  { "id": "bounty_hunter", "word": "Bounty Hunter", "category": "Professions", "hints": ["fugitive", "capturing", "reward"] },
+  { "id": "private_investigator", "word": "Private Investigator", "category": "Professions", "hints": ["surveillance", "cases", "secretive"] },
+  { "id": "ceo", "word": "CEO", "category": "Professions", "hints": ["chief", "executive", "company"] },
+  { "id": "ambassador", "word": "Ambassador", "category": "Professions", "hints": ["country", "representative", "foreign"] },
+  { "id": "judge", "word": "Judge", "category": "Professions", "hints": ["gavel", "verdict", "courtroom"] },
+  { "id": "mayor", "word": "Mayor", "category": "Professions", "hints": ["city", "elected", "official"] },
+  { "id": "curator", "word": "Museum Curator", "category": "Professions", "hints": ["exhibits", "artifacts", "gallery"] },
+  { "id": "photojournalist", "word": "Photojournalist", "category": "Professions", "hints": ["camera", "news", "documentary"] },
+  { "id": "beekeeper", "word": "Beekeeper", "category": "Professions", "hints": ["hives", "honey", "suit"] },
+  { "id": "gondolier", "word": "Gondolier", "category": "Professions", "hints": ["venice", "rowing", "canals"] },
+  { "id": "sommelier_2", "word": "Voice Actor", "category": "Professions", "hints": ["dubbing", "characters", "microphone"] },
+  { "id": "ethical_officer", "word": "Forensic Scientist", "category": "Professions", "hints": ["evidence", "crime", "lab"] },
+  { "id": "cryptographer", "word": "Cryptographer", "category": "Professions", "hints": ["codes", "encryption", "breaking"] },
 ] as const

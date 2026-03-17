@@ -1,504 +1,116 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const ANIMALS_PACK: WordEntry[] = [
-  {
-    "id": "axolotl",
-    "word": "Axolotl",
-    "category": "Animals",
-    "hints": [
-      "mexican",
-      "salamander",
-      "keeps"
-    ]
-  },
-  {
-    "id": "platypus",
-    "word": "Platypus",
-    "category": "Animals",
-    "hints": [
-      "egg",
-      "laying",
-      "mammal"
-    ]
-  },
-  {
-    "id": "narwhal",
-    "word": "Narwhal",
-    "category": "Animals",
-    "hints": [
-      "arctic",
-      "whale",
-      "long"
-    ]
-  },
-  {
-    "id": "pangolin",
-    "word": "Pangolin",
-    "category": "Animals",
-    "hints": [
-      "scale",
-      "covered",
-      "mammal"
-    ]
-  },
-  {
-    "id": "quokka",
-    "word": "Quokka",
-    "category": "Animals",
-    "hints": [
-      "smiling",
-      "marsupial",
-      "western"
-    ]
-  },
-  {
-    "id": "capybara",
-    "word": "Capybara",
-    "category": "Animals",
-    "hints": [
-      "world's",
-      "largest",
-      "rodent"
-    ]
-  },
-  {
-    "id": "mantis_shrimp",
-    "word": "Mantis Shrimp",
-    "category": "Animals",
-    "hints": [
-      "crustacean",
-      "most",
-      "complex"
-    ]
-  },
-  {
-    "id": "tardigrade",
-    "word": "Tardigrade",
-    "category": "Animals",
-    "hints": [
-      "microscopic",
-      "creature",
-      "survives"
-    ]
-  },
-  {
-    "id": "okapi",
-    "word": "Okapi",
-    "category": "Animals",
-    "hints": [
-      "striped",
-      "forest",
-      "relative"
-    ]
-  },
-  {
-    "id": "fossa",
-    "word": "Fossa",
-    "category": "Animals",
-    "hints": [
-      "top",
-      "predator",
-      "madagascar"
-    ]
-  },
-  {
-    "id": "gharial",
-    "word": "Gharial",
-    "category": "Animals",
-    "hints": [
-      "long",
-      "snouted",
-      "indian"
-    ]
-  },
-  {
-    "id": "binturong",
-    "word": "Binturong",
-    "category": "Animals",
-    "hints": [
-      "bearcat",
-      "smells",
-      "like"
-    ]
-  },
-  {
-    "id": "aye_aye",
-    "word": "Aye-aye",
-    "category": "Animals",
-    "hints": [
-      "madagascar",
-      "primate",
-      "long"
-    ]
-  },
-  {
-    "id": "saiga",
-    "word": "Saiga",
-    "category": "Animals",
-    "hints": [
-      "antelope",
-      "bulbous",
-      "nose"
-    ]
-  },
-  {
-    "id": "wombat",
-    "word": "Wombat",
-    "category": "Animals",
-    "hints": [
-      "australian",
-      "marsupial",
-      "makes"
-    ]
-  },
-  {
-    "id": "manta_ray",
-    "word": "Manta Ray",
-    "category": "Animals",
-    "hints": [
-      "giant",
-      "flat",
-      "ocean"
-    ]
-  },
-  {
-    "id": "shoebill",
-    "word": "Shoebill",
-    "category": "Animals",
-    "hints": [
-      "tall",
-      "african",
-      "bird"
-    ]
-  },
-  {
-    "id": "sun_bear",
-    "word": "Sun Bear",
-    "category": "Animals",
-    "hints": [
-      "smallest",
-      "species",
-      "long"
-    ]
-  },
-  {
-    "id": "kinkajou",
-    "word": "Kinkajou",
-    "category": "Animals",
-    "hints": [
-      "honey",
-      "loving",
-      "rainforest"
-    ]
-  },
-  {
-    "id": "kakapo",
-    "word": "Kakapo",
-    "category": "Animals",
-    "hints": [
-      "critically",
-      "endangered",
-      "flightless"
-    ]
-  },
-  {
-    "id": "blue_footed_booby",
-    "word": "Blue-footed Booby",
-    "category": "Animals",
-    "hints": [
-      "seabird",
-      "famous",
-      "bright"
-    ]
-  },
-  {
-    "id": "proboscis_monkey",
-    "word": "Proboscis Monkey",
-    "category": "Animals",
-    "hints": [
-      "borneo",
-      "enormous",
-      "nose"
-    ]
-  },
-  {
-    "id": "dumbo_octopus",
-    "word": "Dumbo Octopus",
-    "category": "Animals",
-    "hints": [
-      "deep",
-      "sea",
-      "ear"
-    ]
-  },
-  {
-    "id": "red_panda",
-    "word": "Red Panda",
-    "category": "Animals",
-    "hints": [
-      "fluffy",
-      "tree",
-      "climbing"
-    ]
-  },
-  {
-    "id": "blobfish",
-    "word": "Blobfish",
-    "category": "Animals",
-    "hints": [
-      "deep",
-      "sea",
-      "fish"
-    ]
-  },
-  {
-    "id": "thorny_devil",
-    "word": "Thorny Devil",
-    "category": "Animals",
-    "hints": [
-      "australian",
-      "lizard",
-      "covered"
-    ]
-  },
-  {
-    "id": "mimic_octopus",
-    "word": "Mimic Octopus",
-    "category": "Animals",
-    "hints": [
-      "cephalopod",
-      "impersonates",
-      "other"
-    ]
-  },
-  {
-    "id": "leafy_sea_dragon",
-    "word": "Leafy Sea Dragon",
-    "category": "Animals",
-    "hints": [
-      "seahorse",
-      "relative",
-      "disguised"
-    ]
-  },
-  {
-    "id": "glass_frog",
-    "word": "Glass Frog",
-    "category": "Animals",
-    "hints": [
-      "amphibian",
-      "transparent",
-      "belly"
-    ]
-  },
-  {
-    "id": "flying_fish",
-    "word": "Flying Fish",
-    "category": "Animals",
-    "hints": [
-      "glides",
-      "above",
-      "ocean"
-    ]
-  },
-  {
-    "id": "mudskipper",
-    "word": "Mudskipper",
-    "category": "Animals",
-    "hints": [
-      "fish",
-      "walks",
-      "land"
-    ]
-  },
-  {
-    "id": "pistol_shrimp",
-    "word": "Pistol Shrimp",
-    "category": "Animals",
-    "hints": [
-      "crustacean",
-      "snaps",
-      "claw"
-    ]
-  },
-  {
-    "id": "geoduck",
-    "word": "Geoduck",
-    "category": "Animals",
-    "hints": [
-      "giant",
-      "pacific",
-      "clam"
-    ]
-  },
-  {
-    "id": "tarsier",
-    "word": "Tarsier",
-    "category": "Animals",
-    "hints": [
-      "tiny",
-      "primate",
-      "enormous"
-    ]
-  },
-  {
-    "id": "gharial_2",
-    "word": "Gharial",
-    "category": "Animals",
-    "hints": [
-      "long",
-      "snouted",
-      "indian"
-    ]
-  },
-  {
-    "id": "vampire_squid",
-    "word": "Vampire Squid",
-    "category": "Animals",
-    "hints": [
-      "deep",
-      "sea",
-      "cephalopod"
-    ]
-  },
-  {
-    "id": "manatee",
-    "word": "Manatee",
-    "category": "Animals",
-    "hints": [
-      "slow",
-      "moving",
-      "sea"
-    ]
-  },
-  {
-    "id": "sunfish",
-    "word": "Sunfish",
-    "category": "Animals",
-    "hints": [
-      "world's",
-      "heaviest",
-      "bony"
-    ]
-  },
-  {
-    "id": "honey_badger",
-    "word": "Honey Badger",
-    "category": "Animals",
-    "hints": [
-      "fearless",
-      "african",
-      "mammal"
-    ]
-  },
-  {
-    "id": "sloth",
-    "word": "Sloth",
-    "category": "Animals",
-    "hints": [
-      "slow",
-      "moving",
-      "tree"
-    ]
-  },
-  {
-    "id": "pufferfish",
-    "word": "Pufferfish",
-    "category": "Animals",
-    "hints": [
-      "fish",
-      "inflates",
-      "defence"
-    ]
-  },
-  {
-    "id": "naked_mole_rat",
-    "word": "Naked Mole Rat",
-    "category": "Animals",
-    "hints": [
-      "hairless",
-      "eusocial",
-      "underground"
-    ]
-  },
-  {
-    "id": "star_nosed_mole",
-    "word": "Star-nosed Mole",
-    "category": "Animals",
-    "hints": [
-      "north",
-      "american",
-      "ring"
-    ]
-  },
-  {
-    "id": "peacock_spider",
-    "word": "Peacock Spider",
-    "category": "Animals",
-    "hints": [
-      "australian",
-      "jumping",
-      "colourful"
-    ]
-  },
-  {
-    "id": "mantis",
-    "word": "Mantis",
-    "category": "Animals",
-    "hints": [
-      "insect",
-      "ambushes",
-      "prey"
-    ]
-  },
-  {
-    "id": "yeti_crab",
-    "word": "Yeti Crab",
-    "category": "Animals",
-    "hints": [
-      "deep",
-      "sea",
-      "covered"
-    ]
-  },
-  {
-    "id": "pygmy_seahorse",
-    "word": "Pygmy Seahorse",
-    "category": "Animals",
-    "hints": [
-      "tiny",
-      "camouflaged",
-      "coral"
-    ]
-  },
-  {
-    "id": "numbat",
-    "word": "Numbat",
-    "category": "Animals",
-    "hints": [
-      "australian",
-      "marsupial",
-      "feeds"
-    ]
-  },
-  {
-    "id": "clouded_leopard",
-    "word": "Clouded Leopard",
-    "category": "Animals",
-    "hints": [
-      "south",
-      "east",
-      "asian"
-    ]
-  },
-  {
-    "id": "irrawaddy_dolphin",
-    "word": "Irrawaddy Dolphin",
-    "category": "Animals",
-    "hints": [
-      "blunt",
-      "nosed",
-      "spits"
-    ]
-  }
+  { "id": "axolotl", "word": "Axolotl", "category": "Animals", "hints": ["mexican", "salamander", "regenerates"] },
+  { "id": "platypus", "word": "Platypus", "category": "Animals", "hints": ["egg", "laying", "mammal"] },
+  { "id": "narwhal", "word": "Narwhal", "category": "Animals", "hints": ["arctic", "whale", "tusk"] },
+  { "id": "pangolin", "word": "Pangolin", "category": "Animals", "hints": ["scale", "covered", "mammal"] },
+  { "id": "quokka", "word": "Quokka", "category": "Animals", "hints": ["smiling", "marsupial", "australian"] },
+  { "id": "capybara", "word": "Capybara", "category": "Animals", "hints": ["largest", "rodent", "friendly"] },
+  { "id": "mantis_shrimp", "word": "Mantis Shrimp", "category": "Animals", "hints": ["crustacean", "powerful", "punch"] },
+  { "id": "tardigrade", "word": "Tardigrade", "category": "Animals", "hints": ["microscopic", "indestructible", "creature"] },
+  { "id": "okapi", "word": "Okapi", "category": "Animals", "hints": ["striped", "forest", "giraffe"] },
+  { "id": "fossa", "word": "Fossa", "category": "Animals", "hints": ["top", "predator", "madagascar"] },
+  { "id": "gharial", "word": "Gharial", "category": "Animals", "hints": ["long", "snouted", "crocodilian"] },
+  { "id": "binturong", "word": "Binturong", "category": "Animals", "hints": ["bearcat", "popcorn", "scented"] },
+  { "id": "aye_aye", "word": "Aye-aye", "category": "Animals", "hints": ["madagascar", "primate", "nocturnal"] },
+  { "id": "saiga", "word": "Saiga", "category": "Animals", "hints": ["antelope", "bulbous", "nose"] },
+  { "id": "wombat", "word": "Wombat", "category": "Animals", "hints": ["australian", "marsupial", "burrowing"] },
+  { "id": "manta_ray", "word": "Manta Ray", "category": "Animals", "hints": ["giant", "flat", "ocean"] },
+  { "id": "shoebill", "word": "Shoebill", "category": "Animals", "hints": ["tall", "african", "bird"] },
+  { "id": "sun_bear", "word": "Sun Bear", "category": "Animals", "hints": ["smallest", "species", "tropical"] },
+  { "id": "kinkajou", "word": "Kinkajou", "category": "Animals", "hints": ["honey", "loving", "rainforest"] },
+  { "id": "kakapo", "word": "Kakapo", "category": "Animals", "hints": ["endangered", "flightless", "parrot"] },
+  { "id": "blue_footed_booby", "word": "Blue-footed Booby", "category": "Animals", "hints": ["seabird", "bright", "feet"] },
+  { "id": "proboscis_monkey", "word": "Proboscis Monkey", "category": "Animals", "hints": ["borneo", "enormous", "nose"] },
+  { "id": "dumbo_octopus", "word": "Dumbo Octopus", "category": "Animals", "hints": ["deep", "sea", "fins"] },
+  { "id": "red_panda", "word": "Red Panda", "category": "Animals", "hints": ["fluffy", "tree", "climbing"] },
+  { "id": "blobfish", "word": "Blobfish", "category": "Animals", "hints": ["deep", "sea", "gelatinous"] },
+  { "id": "thorny_devil", "word": "Thorny Devil", "category": "Animals", "hints": ["australian", "lizard", "spiky"] },
+  { "id": "mimic_octopus", "word": "Mimic Octopus", "category": "Animals", "hints": ["cephalopod", "impersonates", "other"] },
+  { "id": "leafy_sea_dragon", "word": "Leafy Sea Dragon", "category": "Animals", "hints": ["seahorse", "relative", "camouflaged"] },
+  { "id": "glass_frog", "word": "Glass Frog", "category": "Animals", "hints": ["amphibian", "transparent", "belly"] },
+  { "id": "flying_fish", "word": "Flying Fish", "category": "Animals", "hints": ["glides", "above", "ocean"] },
+  { "id": "mudskipper", "word": "Mudskipper", "category": "Animals", "hints": ["fish", "walks", "land"] },
+  { "id": "pistol_shrimp", "word": "Pistol Shrimp", "category": "Animals", "hints": ["crustacean", "snaps", "claw"] },
+  { "id": "tarsier", "word": "Tarsier", "category": "Animals", "hints": ["tiny", "primate", "enormous"] },
+  { "id": "vampire_squid", "word": "Vampire Squid", "category": "Animals", "hints": ["deep", "sea", "cephalopod"] },
+  { "id": "manatee", "word": "Manatee", "category": "Animals", "hints": ["gentle", "sea", "cow"] },
+  { "id": "sunfish", "word": "Sunfish", "category": "Animals", "hints": ["heaviest", "bony", "fish"] },
+  { "id": "honey_badger", "word": "Honey Badger", "category": "Animals", "hints": ["fearless", "african", "mammal"] },
+  { "id": "sloth", "word": "Sloth", "category": "Animals", "hints": ["slow", "moving", "tree"] },
+  { "id": "pufferfish", "word": "Pufferfish", "category": "Animals", "hints": ["inflates", "spiky", "defence"] },
+  { "id": "naked_mole_rat", "word": "Naked Mole Rat", "category": "Animals", "hints": ["hairless", "eusocial", "underground"] },
+  { "id": "star_nosed_mole", "word": "Star-nosed Mole", "category": "Animals", "hints": ["north", "american", "tentacles"] },
+  { "id": "peacock_spider", "word": "Peacock Spider", "category": "Animals", "hints": ["australian", "jumping", "colourful"] },
+  { "id": "mantis", "word": "Mantis", "category": "Animals", "hints": ["insect", "ambushes", "prey"] },
+  { "id": "yeti_crab", "word": "Yeti Crab", "category": "Animals", "hints": ["deep", "sea", "hairy"] },
+  { "id": "pygmy_seahorse", "word": "Pygmy Seahorse", "category": "Animals", "hints": ["tiny", "camouflaged", "coral"] },
+  { "id": "numbat", "word": "Numbat", "category": "Animals", "hints": ["australian", "marsupial", "striped"] },
+  { "id": "clouded_leopard", "word": "Clouded Leopard", "category": "Animals", "hints": ["southeast", "asian", "spotted"] },
+  { "id": "irrawaddy_dolphin", "word": "Irrawaddy Dolphin", "category": "Animals", "hints": ["blunt", "nosed", "riverine"] },
+  { "id": "emperor_penguin", "word": "Emperor Penguin", "category": "Animals", "hints": ["tallest", "antarctic", "bird"] },
+  { "id": "snow_leopard", "word": "Snow Leopard", "category": "Animals", "hints": ["mountain", "big", "cat"] },
+  { "id": "komodo_dragon", "word": "Komodo Dragon", "category": "Animals", "hints": ["largest", "lizard", "indonesian"] },
+  { "id": "chameleon", "word": "Chameleon", "category": "Animals", "hints": ["color", "changing", "reptile"] },
+  { "id": "flamingo", "word": "Flamingo", "category": "Animals", "hints": ["pink", "wading", "bird"] },
+  { "id": "toucan", "word": "Toucan", "category": "Animals", "hints": ["large", "beak", "tropical"] },
+  { "id": "orangutan", "word": "Orangutan", "category": "Animals", "hints": ["great", "ape", "borneo"] },
+  { "id": "gorilla", "word": "Gorilla", "category": "Animals", "hints": ["largest", "primate", "gentle"] },
+  { "id": "cheetah", "word": "Cheetah", "category": "Animals", "hints": ["fastest", "land", "spotted"] },
+  { "id": "jaguar", "word": "Jaguar", "category": "Animals", "hints": ["powerful", "rosette", "american"] },
+  { "id": "wolf", "word": "Wolf", "category": "Animals", "hints": ["pack", "hunter", "howling"] },
+  { "id": "otter", "word": "Otter", "category": "Animals", "hints": ["playful", "aquatic", "mammal"] },
+  { "id": "seahorse", "word": "Seahorse", "category": "Animals", "hints": ["male", "carries", "young"] },
+  { "id": "jellyfish", "word": "Jellyfish", "category": "Animals", "hints": ["tentacles", "stinging", "translucent"] },
+  { "id": "albatross", "word": "Albatross", "category": "Animals", "hints": ["largest", "wingspan", "seabird"] },
+  { "id": "pangolin_2", "word": "Armadillo", "category": "Animals", "hints": ["armored", "rolling", "mammal"] },
+  { "id": "arctic_fox", "word": "Arctic Fox", "category": "Animals", "hints": ["white", "winter", "tundra"] },
+  { "id": "tapir", "word": "Tapir", "category": "Animals", "hints": ["flexible", "snout", "herbivore"] },
+  { "id": "moose", "word": "Moose", "category": "Animals", "hints": ["largest", "deer", "antlers"] },
+  { "id": "porcupine", "word": "Porcupine", "category": "Animals", "hints": ["spiny", "rodent", "quills"] },
+  { "id": "hedgehog", "word": "Hedgehog", "category": "Animals", "hints": ["spiny", "nocturnal", "curling"] },
+  { "id": "meerkat", "word": "Meerkat", "category": "Animals", "hints": ["standing", "desert", "sentinel"] },
+  { "id": "raccoon", "word": "Raccoon", "category": "Animals", "hints": ["masked", "nocturnal", "clever"] },
+  { "id": "chinchilla", "word": "Chinchilla", "category": "Animals", "hints": ["softest", "fur", "rodent"] },
+  { "id": "iguana", "word": "Iguana", "category": "Animals", "hints": ["large", "tropical", "lizard"] },
+  { "id": "coconut_crab", "word": "Coconut Crab", "category": "Animals", "hints": ["largest", "terrestrial", "arthropod"] },
+  { "id": "blue_whale", "word": "Blue Whale", "category": "Animals", "hints": ["largest", "animal", "ever"] },
+  { "id": "hummingbird", "word": "Hummingbird", "category": "Animals", "hints": ["tiny", "hovering", "bird"] },
+  { "id": "peacock", "word": "Peacock", "category": "Animals", "hints": ["tail", "fan", "iridescent"] },
+  { "id": "firefly", "word": "Firefly", "category": "Animals", "hints": ["glowing", "night", "beetle"] },
+  { "id": "dolphin", "word": "Dolphin", "category": "Animals", "hints": ["intelligent", "playful", "marine"] },
+  { "id": "koala", "word": "Koala", "category": "Animals", "hints": ["eucalyptus", "australian", "marsupial"] },
+  { "id": "hammerhead_shark", "word": "Hammerhead Shark", "category": "Animals", "hints": ["wide", "head", "predator"] },
+  { "id": "fennec_fox", "word": "Fennec Fox", "category": "Animals", "hints": ["smallest", "fox", "big-eared"] },
+  { "id": "electric_eel", "word": "Electric Eel", "category": "Animals", "hints": ["shocking", "aquatic", "voltage"] },
+  { "id": "wolverine", "word": "Wolverine", "category": "Animals", "hints": ["fierce", "stocky", "mustelid"] },
+  { "id": "osprey", "word": "Osprey", "category": "Animals", "hints": ["fish", "hawk", "raptor"] },
+  { "id": "pangolin_real", "word": "Lemur", "category": "Animals", "hints": ["madagascar", "primate", "tailed"] },
+  { "id": "salamander", "word": "Salamander", "category": "Animals", "hints": ["amphibian", "moist", "regenerates"] },
+  { "id": "pelican", "word": "Pelican", "category": "Animals", "hints": ["large", "throat", "pouch"] },
+  { "id": "anaconda", "word": "Anaconda", "category": "Animals", "hints": ["largest", "constricting", "snake"] },
+  { "id": "poison_dart_frog", "word": "Poison Dart Frog", "category": "Animals", "hints": ["toxic", "colorful", "tropical"] },
+  { "id": "cassowary", "word": "Cassowary", "category": "Animals", "hints": ["dangerous", "flightless", "crested"] },
+  { "id": "pangolin_3", "word": "Macaroni Penguin", "category": "Animals", "hints": ["crested", "yellow", "antarctic"] },
+  { "id": "cuttlefish", "word": "Cuttlefish", "category": "Animals", "hints": ["cephalopod", "camouflage", "intelligent"] },
+  { "id": "harpy_eagle", "word": "Harpy Eagle", "category": "Animals", "hints": ["powerful", "raptor", "rainforest"] },
+  { "id": "horseshoe_crab", "word": "Horseshoe Crab", "category": "Animals", "hints": ["ancient", "blue", "blood"] },
+  { "id": "secretary_bird", "word": "Secretary Bird", "category": "Animals", "hints": ["stomping", "african", "raptor"] },
+  { "id": "snow_monkey", "word": "Snow Monkey", "category": "Animals", "hints": ["japanese", "macaque", "hot-springs"] },
+  { "id": "flying_squirrel", "word": "Flying Squirrel", "category": "Animals", "hints": ["gliding", "membrane", "nocturnal"] },
+  { "id": "star_fish", "word": "Starfish", "category": "Animals", "hints": ["five", "arms", "regenerating"] },
+  { "id": "angelfish", "word": "Angelfish", "category": "Animals", "hints": ["tropical", "striped", "reef"] },
+  { "id": "stingray", "word": "Stingray", "category": "Animals", "hints": ["flat", "venomous", "tail"] },
+  { "id": "clownfish", "word": "Clownfish", "category": "Animals", "hints": ["anemone", "orange", "striped"] },
+  { "id": "falcon", "word": "Peregrine Falcon", "category": "Animals", "hints": ["fastest", "diving", "raptor"] },
+  { "id": "owl", "word": "Snowy Owl", "category": "Animals", "hints": ["white", "arctic", "nocturnal"] },
+  { "id": "bison", "word": "Bison", "category": "Animals", "hints": ["massive", "grazing", "prairie"] },
+  { "id": "nautilus", "word": "Nautilus", "category": "Animals", "hints": ["spiral", "shell", "ancient"] },
+  { "id": "walrus", "word": "Walrus", "category": "Animals", "hints": ["tusked", "arctic", "pinniped"] },
+  { "id": "ibex", "word": "Ibex", "category": "Animals", "hints": ["mountain", "goat", "curved-horns"] },
+  { "id": "corgi", "word": "Corgi", "category": "Animals", "hints": ["royal", "short", "herding"] },
+  { "id": "panda", "word": "Giant Panda", "category": "Animals", "hints": ["bamboo", "chinese", "bear"] },
+  { "id": "rhino", "word": "Rhinoceros", "category": "Animals", "hints": ["horned", "thick-skinned", "endangered"] },
+  { "id": "hippo", "word": "Hippopotamus", "category": "Animals", "hints": ["river", "massive", "african"] },
 ] as const

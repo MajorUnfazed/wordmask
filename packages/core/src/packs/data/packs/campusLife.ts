@@ -1,304 +1,96 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const CAMPUS_LIFE_PACK: WordEntry[] = [
-  {
-    "id": "all_nighter",
-    "word": "All-Nighter",
-    "category": "Campus Life",
-    "hints": [
-      "studying",
-      "working",
-      "entire"
-    ]
-  },
-  {
-    "id": "drop_add_period",
-    "word": "Drop/Add Period",
-    "category": "Campus Life",
-    "hints": [
-      "short",
-      "window",
-      "change"
-    ]
-  },
-  {
-    "id": "dissertation",
-    "word": "Dissertation",
-    "category": "Campus Life",
-    "hints": [
-      "long",
-      "original",
-      "research"
-    ]
-  },
-  {
-    "id": "office_hours",
-    "word": "Office Hours",
-    "category": "Campus Life",
-    "hints": [
-      "scheduled",
-      "time",
-      "professor"
-    ]
-  },
-  {
-    "id": "orientation_week",
-    "word": "Orientation Week",
-    "category": "Campus Life",
-    "hints": [
-      "social",
-      "introduction",
-      "events"
-    ]
-  },
-  {
-    "id": "plagiarism",
-    "word": "Plagiarism",
-    "category": "Campus Life",
-    "hints": [
-      "presenting",
-      "someone",
-      "else's"
-    ]
-  },
-  {
-    "id": "seminar",
-    "word": "Seminar",
-    "category": "Campus Life",
-    "hints": [
-      "small",
-      "group",
-      "discussion"
-    ]
-  },
-  {
-    "id": "lecture_theatre",
-    "word": "Lecture Theatre",
-    "category": "Campus Life",
-    "hints": [
-      "large",
-      "tiered",
-      "room"
-    ]
-  },
-  {
-    "id": "fresher",
-    "word": "Fresher",
-    "category": "Campus Life",
-    "hints": [
-      "first",
-      "year",
-      "university"
-    ]
-  },
-  {
-    "id": "campus_card",
-    "word": "Campus Card",
-    "category": "Campus Life",
-    "hints": [
-      "unlocks",
-      "buildings",
-      "pays"
-    ]
-  },
-  {
-    "id": "grade_inflation",
-    "word": "Grade Inflation",
-    "category": "Campus Life",
-    "hints": [
-      "trend",
-      "higher",
-      "marks"
-    ]
-  },
-  {
-    "id": "cram_session",
-    "word": "Cram Session",
-    "category": "Campus Life",
-    "hints": [
-      "intensive",
-      "last",
-      "minute"
-    ]
-  },
-  {
-    "id": "hall_of_residence",
-    "word": "Hall of Residence",
-    "category": "Campus Life",
-    "hints": [
-      "student",
-      "accommodation",
-      "managed"
-    ]
-  },
-  {
-    "id": "common_room",
-    "word": "Common Room",
-    "category": "Campus Life",
-    "hints": [
-      "shared",
-      "space",
-      "hall"
-    ]
-  },
-  {
-    "id": "fresher_s_flu",
-    "word": "Fresher's Flu",
-    "category": "Campus Life",
-    "hints": [
-      "illness",
-      "spread",
-      "rapidly"
-    ]
-  },
-  {
-    "id": "reading_week",
-    "word": "Reading Week",
-    "category": "Campus Life",
-    "hints": [
-      "break",
-      "lectures",
-      "independent"
-    ]
-  },
-  {
-    "id": "past_papers",
-    "word": "Past Papers",
-    "category": "Campus Life",
-    "hints": [
-      "previous",
-      "years",
-      "exam"
-    ]
-  },
-  {
-    "id": "plagiarism_checker",
-    "word": "Plagiarism Checker",
-    "category": "Campus Life",
-    "hints": [
-      "software",
-      "scans",
-      "essays"
-    ]
-  },
-  {
-    "id": "student_union",
-    "word": "Student Union",
-    "category": "Campus Life",
-    "hints": [
-      "organisation",
-      "representing",
-      "students"
-    ]
-  },
-  {
-    "id": "imposter_syndrome",
-    "word": "Imposter Syndrome",
-    "category": "Campus Life",
-    "hints": [
-      "feeling",
-      "don't",
-      "deserve"
-    ]
-  },
-  {
-    "id": "library_fine",
-    "word": "Library Fine",
-    "category": "Campus Life",
-    "hints": [
-      "fee",
-      "charged",
-      "returning"
-    ]
-  },
-  {
-    "id": "extracurricular",
-    "word": "Extracurricular",
-    "category": "Campus Life",
-    "hints": [
-      "activity",
-      "outside",
-      "formal"
-    ]
-  },
-  {
-    "id": "thesis_defence",
-    "word": "Thesis Defence",
-    "category": "Campus Life",
-    "hints": [
-      "oral",
-      "examination",
-      "completed"
-    ]
-  },
-  {
-    "id": "student_loan",
-    "word": "Student Loan",
-    "category": "Campus Life",
-    "hints": [
-      "government",
-      "bank",
-      "money"
-    ]
-  },
-  {
-    "id": "matriculation",
-    "word": "Matriculation",
-    "category": "Campus Life",
-    "hints": [
-      "formal",
-      "enrolment",
-      "registration"
-    ]
-  },
-  {
-    "id": "dean_s_list",
-    "word": "Dean's List",
-    "category": "Campus Life",
-    "hints": [
-      "academic",
-      "honour",
-      "roll"
-    ]
-  },
-  {
-    "id": "pre_med",
-    "word": "Pre-Med",
-    "category": "Campus Life",
-    "hints": [
-      "undergraduate",
-      "track",
-      "preparing"
-    ]
-  },
-  {
-    "id": "retroactive_drop",
-    "word": "Retroactive Drop",
-    "category": "Campus Life",
-    "hints": [
-      "removing",
-      "failed",
-      "course"
-    ]
-  },
-  {
-    "id": "credit_hours",
-    "word": "Credit Hours",
-    "category": "Campus Life",
-    "hints": [
-      "unit",
-      "measuring",
-      "workload"
-    ]
-  },
-  {
-    "id": "cafeteria_swipe",
-    "word": "Cafeteria Swipe",
-    "category": "Campus Life",
-    "hints": [
-      "meal",
-      "plan",
-      "entry"
-    ]
-  }
+  { "id": "lecture_hall", "word": "Lecture Hall", "category": "Campus Life", "hints": ["large", "classroom", "tiered"] },
+  { "id": "dorm_room", "word": "Dorm Room", "category": "Campus Life", "hints": ["shared", "student", "housing"] },
+  { "id": "cafeteria", "word": "Cafeteria", "category": "Campus Life", "hints": ["dining", "hall", "trays"] },
+  { "id": "finals_week", "word": "Finals Week", "category": "Campus Life", "hints": ["stressful", "exams", "cramming"] },
+  { "id": "syllabus", "word": "Syllabus", "category": "Campus Life", "hints": ["course", "outline", "semester"] },
+  { "id": "gpa", "word": "GPA", "category": "Campus Life", "hints": ["grade", "point", "average"] },
+  { "id": "frat_party", "word": "Frat Party", "category": "Campus Life", "hints": ["greek", "social", "house"] },
+  { "id": "all_nighter", "word": "All-Nighter", "category": "Campus Life", "hints": ["staying", "awake", "studying"] },
+  { "id": "study_group", "word": "Study Group", "category": "Campus Life", "hints": ["collaborative", "learning", "session"] },
+  { "id": "office_hours", "word": "Office Hours", "category": "Campus Life", "hints": ["professor", "meeting", "help"] },
+  { "id": "quad", "word": "Quad", "category": "Campus Life", "hints": ["central", "grassy", "courtyard"] },
+  { "id": "library", "word": "Library", "category": "Campus Life", "hints": ["books", "quiet", "studying"] },
+  { "id": "roommate", "word": "Roommate", "category": "Campus Life", "hints": ["sharing", "living", "space"] },
+  { "id": "sorority", "word": "Sorority", "category": "Campus Life", "hints": ["female", "greek", "sisterhood"] },
+  { "id": "thesis", "word": "Thesis", "category": "Campus Life", "hints": ["research", "paper", "defense"] },
+  { "id": "tuition", "word": "Tuition", "category": "Campus Life", "hints": ["cost", "education", "fees"] },
+  { "id": "graduation", "word": "Graduation", "category": "Campus Life", "hints": ["ceremony", "cap", "gown"] },
+  { "id": "internship", "word": "Internship", "category": "Campus Life", "hints": ["work", "experience", "unpaid"] },
+  { "id": "scholarship", "word": "Scholarship", "category": "Campus Life", "hints": ["merit", "financial", "aid"] },
+  { "id": "dean_list", "word": "Dean's List", "category": "Campus Life", "hints": ["academic", "honor", "high"] },
+  { "id": "mid_terms", "word": "Midterms", "category": "Campus Life", "hints": ["halfway", "exams", "semester"] },
+  { "id": "seminar", "word": "Seminar", "category": "Campus Life", "hints": ["small", "discussion", "class"] },
+  { "id": "prerequisite", "word": "Prerequisite", "category": "Campus Life", "hints": ["required", "course", "before"] },
+  { "id": "freshman", "word": "Freshman", "category": "Campus Life", "hints": ["first", "year", "new"] },
+  { "id": "sophomore", "word": "Sophomore", "category": "Campus Life", "hints": ["second", "year", "student"] },
+  { "id": "major", "word": "Major", "category": "Campus Life", "hints": ["primary", "field", "study"] },
+  { "id": "minor", "word": "Minor", "category": "Campus Life", "hints": ["secondary", "field", "study"] },
+  { "id": "plagiarism", "word": "Plagiarism", "category": "Campus Life", "hints": ["copying", "academic", "dishonesty"] },
+  { "id": "ra", "word": "RA", "category": "Campus Life", "hints": ["resident", "advisor", "dorm"] },
+  { "id": "elective", "word": "Elective", "category": "Campus Life", "hints": ["optional", "chosen", "course"] },
+  { "id": "orientation", "word": "Orientation", "category": "Campus Life", "hints": ["welcome", "intro", "freshmen"] },
+  { "id": "homecoming", "word": "Homecoming", "category": "Campus Life", "hints": ["annual", "alumni", "celebration"] },
+  { "id": "spring_break", "word": "Spring Break", "category": "Campus Life", "hints": ["vacation", "march", "travel"] },
+  { "id": "ramen_diet", "word": "Ramen Diet", "category": "Campus Life", "hints": ["cheap", "instant", "noodles"] },
+  { "id": "campus_tour", "word": "Campus Tour", "category": "Campus Life", "hints": ["guided", "prospective", "walking"] },
+  { "id": "textbook", "word": "Textbook", "category": "Campus Life", "hints": ["expensive", "reading", "required"] },
+  { "id": "office_nap", "word": "Power Nap", "category": "Campus Life", "hints": ["short", "sleep", "recharge"] },
+  { "id": "lab_report", "word": "Lab Report", "category": "Campus Life", "hints": ["science", "experiment", "writing"] },
+  { "id": "professor", "word": "Professor", "category": "Campus Life", "hints": ["teaches", "academic", "expert"] },
+  { "id": "ta", "word": "Teaching Assistant", "category": "Campus Life", "hints": ["grad", "student", "helper"] },
+  { "id": "dean", "word": "Dean", "category": "Campus Life", "hints": ["faculty", "head", "administrator"] },
+  { "id": "honor_code", "word": "Honor Code", "category": "Campus Life", "hints": ["integrity", "academic", "pledge"] },
+  { "id": "student_loan", "word": "Student Loan", "category": "Campus Life", "hints": ["borrowed", "money", "repay"] },
+  { "id": "cap_and_gown", "word": "Cap and Gown", "category": "Campus Life", "hints": ["graduation", "regalia", "ceremony"] },
+  { "id": "alma_mater", "word": "Alma Mater", "category": "Campus Life", "hints": ["school", "anthem", "loyalty"] },
+  { "id": "campus_map", "word": "Campus Map", "category": "Campus Life", "hints": ["directions", "buildings", "navigation"] },
+  { "id": "dining_plan", "word": "Meal Plan", "category": "Campus Life", "hints": ["prepaid", "food", "dining"] },
+  { "id": "student_id", "word": "Student ID", "category": "Campus Life", "hints": ["identification", "card", "access"] },
+  { "id": "extracurricular", "word": "Extracurricular", "category": "Campus Life", "hints": ["outside", "class", "activity"] },
+  { "id": "club_fair", "word": "Club Fair", "category": "Campus Life", "hints": ["sign", "up", "organizations"] },
+  { "id": "debate_team", "word": "Debate Team", "category": "Campus Life", "hints": ["arguing", "competitive", "speaking"] },
+  { "id": "tailgate", "word": "Tailgate", "category": "Campus Life", "hints": ["pre-game", "parking", "barbecue"] },
+  { "id": "pep_rally", "word": "Pep Rally", "category": "Campus Life", "hints": ["spirit", "cheerleading", "event"] },
+  { "id": "mascot", "word": "Mascot", "category": "Campus Life", "hints": ["school", "symbol", "costume"] },
+  { "id": "greek_row", "word": "Greek Row", "category": "Campus Life", "hints": ["fraternity", "sorority", "houses"] },
+  { "id": "commencement", "word": "Commencement", "category": "Campus Life", "hints": ["graduation", "ceremony", "speech"] },
+  { "id": "cum_laude", "word": "Cum Laude", "category": "Campus Life", "hints": ["latin", "honors", "distinction"] },
+  { "id": "gap_year", "word": "Gap Year", "category": "Campus Life", "hints": ["break", "before", "college"] },
+  { "id": "cramming", "word": "Cramming", "category": "Campus Life", "hints": ["last", "minute", "studying"] },
+  { "id": "dropout", "word": "Dropout", "category": "Campus Life", "hints": ["leaving", "school", "quitting"] },
+  { "id": "valedictorian", "word": "Valedictorian", "category": "Campus Life", "hints": ["top", "graduate", "speech"] },
+  { "id": "dissertation", "word": "Dissertation", "category": "Campus Life", "hints": ["doctoral", "research", "long"] },
+  { "id": "academic_probation", "word": "Academic Probation", "category": "Campus Life", "hints": ["warning", "low", "grades"] },
+  { "id": "study_abroad", "word": "Study Abroad", "category": "Campus Life", "hints": ["foreign", "country", "exchange"] },
+  { "id": "bookstore", "word": "Bookstore", "category": "Campus Life", "hints": ["campus", "shop", "merchandise"] },
+  { "id": "rec_center", "word": "Rec Center", "category": "Campus Life", "hints": ["gym", "fitness", "campus"] },
+  { "id": "coffee_shop", "word": "Campus Coffee Shop", "category": "Campus Life", "hints": ["caffeine", "study", "spot"] },
+  { "id": "laundry_room", "word": "Laundry Room", "category": "Campus Life", "hints": ["washing", "dorm", "quarters"] },
+  { "id": "group_project", "word": "Group Project", "category": "Campus Life", "hints": ["team", "collaborative", "assignment"] },
+  { "id": "late_assignment", "word": "Late Assignment", "category": "Campus Life", "hints": ["overdue", "penalty", "submission"] },
+  { "id": "curve", "word": "Grading Curve", "category": "Campus Life", "hints": ["adjusted", "scores", "bell"] },
+  { "id": "extra_credit", "word": "Extra Credit", "category": "Campus Life", "hints": ["bonus", "points", "optional"] },
+  { "id": "double_major", "word": "Double Major", "category": "Campus Life", "hints": ["two", "fields", "ambitious"] },
+  { "id": "rush_week", "word": "Rush Week", "category": "Campus Life", "hints": ["greek", "recruitment", "pledging"] },
+  { "id": "toga_party", "word": "Toga Party", "category": "Campus Life", "hints": ["sheet", "costume", "classic"] },
+  { "id": "student_gov", "word": "Student Government", "category": "Campus Life", "hints": ["elected", "council", "representation"] },
+  { "id": "class_registration", "word": "Class Registration", "category": "Campus Life", "hints": ["enrollment", "schedule", "slots"] },
+  { "id": "waitlist", "word": "Waitlist", "category": "Campus Life", "hints": ["full", "class", "queue"] },
+  { "id": "move_in_day", "word": "Move-in Day", "category": "Campus Life", "hints": ["arrival", "boxes", "dorm"] },
+  { "id": "senior_year", "word": "Senior Year", "category": "Campus Life", "hints": ["last", "final", "fourth"] },
+  { "id": "parking_pass", "word": "Parking Pass", "category": "Campus Life", "hints": ["vehicle", "campus", "expensive"] },
+  { "id": "tutoring", "word": "Tutoring", "category": "Campus Life", "hints": ["help", "subject", "one-on-one"] },
+  { "id": "dean_speech", "word": "Convocation", "category": "Campus Life", "hints": ["opening", "assembly", "address"] },
+  { "id": "beer_pong", "word": "Beer Pong", "category": "Campus Life", "hints": ["party", "cups", "table"] },
+  { "id": "senior_thesis", "word": "Senior Thesis", "category": "Campus Life", "hints": ["capstone", "research", "presentation"] },
+  { "id": "quad_frisbee", "word": "Quad Frisbee", "category": "Campus Life", "hints": ["outdoor", "throwing", "casual"] },
+  { "id": "gym_class", "word": "PE Class", "category": "Campus Life", "hints": ["physical", "education", "required"] },
+  { "id": "student_paper", "word": "Student Newspaper", "category": "Campus Life", "hints": ["campus", "journalism", "weekly"] },
+  { "id": "honor_society", "word": "Honor Society", "category": "Campus Life", "hints": ["academic", "exclusive", "achievement"] },
+  { "id": "dean_office", "word": "Dean's Office", "category": "Campus Life", "hints": ["administrative", "serious", "meeting"] },
+  { "id": "common_room", "word": "Common Room", "category": "Campus Life", "hints": ["shared", "lounge", "socializing"] },
+  { "id": "campus_shuttle", "word": "Campus Shuttle", "category": "Campus Life", "hints": ["bus", "transport", "free"] },
 ] as const

@@ -1,304 +1,84 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const SPORTS_PACK: WordEntry[] = [
-  {
-    "id": "hat_trick",
-    "word": "Hat Trick",
-    "category": "Sports",
-    "hints": [
-      "three",
-      "goals",
-      "same"
-    ]
-  },
-  {
-    "id": "grand_slam",
-    "word": "Grand Slam",
-    "category": "Sports",
-    "hints": [
-      "winning",
-      "all",
-      "four"
-    ]
-  },
-  {
-    "id": "offside",
-    "word": "Offside",
-    "category": "Sports",
-    "hints": [
-      "football",
-      "rule",
-      "caught"
-    ]
-  },
-  {
-    "id": "love",
-    "word": "Love",
-    "category": "Sports",
-    "hints": [
-      "tennis",
-      "scoring",
-      "term"
-    ]
-  },
-  {
-    "id": "penalty_shootout",
-    "word": "Penalty Shootout",
-    "category": "Sports",
-    "hints": [
-      "football",
-      "tiebreaker",
-      "alternating"
-    ]
-  },
-  {
-    "id": "tour_de_france",
-    "word": "Tour de France",
-    "category": "Sports",
-    "hints": [
-      "gruelling",
-      "three",
-      "week"
-    ]
-  },
-  {
-    "id": "marathon",
-    "word": "Marathon",
-    "category": "Sports",
-    "hints": [
-      "mile",
-      "road",
-      "running"
-    ]
-  },
-  {
-    "id": "slam_dunk",
-    "word": "Slam Dunk",
-    "category": "Sports",
-    "hints": [
-      "powerful",
-      "basketball",
-      "shot"
-    ]
-  },
-  {
-    "id": "discus",
-    "word": "Discus",
-    "category": "Sports",
-    "hints": [
-      "heavy",
-      "disc",
-      "thrown"
-    ]
-  },
-  {
-    "id": "sumo",
-    "word": "Sumo",
-    "category": "Sports",
-    "hints": [
-      "japanese",
-      "wrestling",
-      "push"
-    ]
-  },
-  {
-    "id": "wild_card",
-    "word": "Wild Card",
-    "category": "Sports",
-    "hints": [
-      "additional",
-      "tournament",
-      "entry"
-    ]
-  },
-  {
-    "id": "yellow_card",
-    "word": "Yellow Card",
-    "category": "Sports",
-    "hints": [
-      "football",
-      "caution",
-      "foul"
-    ]
-  },
-  {
-    "id": "backstroke",
-    "word": "Backstroke",
-    "category": "Sports",
-    "hints": [
-      "swimming",
-      "back",
-      "alternating"
-    ]
-  },
-  {
-    "id": "pole_vault",
-    "word": "Pole Vault",
-    "category": "Sports",
-    "hints": [
-      "athletics",
-      "event",
-      "clearing"
-    ]
-  },
-  {
-    "id": "deuce",
-    "word": "Deuce",
-    "category": "Sports",
-    "hints": [
-      "tennis",
-      "score",
-      "both"
-    ]
-  },
-  {
-    "id": "overtime",
-    "word": "Overtime",
-    "category": "Sports",
-    "hints": [
-      "extra",
-      "playing",
-      "time"
-    ]
-  },
-  {
-    "id": "cricket_wicket",
-    "word": "Cricket Wicket",
-    "category": "Sports",
-    "hints": [
-      "three",
-      "stumps",
-      "two"
-    ]
-  },
-  {
-    "id": "own_goal",
-    "word": "Own Goal",
-    "category": "Sports",
-    "hints": [
-      "scoring",
-      "net",
-      "own"
-    ]
-  },
-  {
-    "id": "baton_pass",
-    "word": "Baton Pass",
-    "category": "Sports",
-    "hints": [
-      "relay",
-      "race",
-      "handoff"
-    ]
-  },
-  {
-    "id": "bodyboard",
-    "word": "Bodyboard",
-    "category": "Sports",
-    "hints": [
-      "short",
-      "foam",
-      "board"
-    ]
-  },
-  {
-    "id": "parallel_bars",
-    "word": "Parallel Bars",
-    "category": "Sports",
-    "hints": [
-      "men's",
-      "gymnastics",
-      "apparatus"
-    ]
-  },
-  {
-    "id": "curling",
-    "word": "Curling",
-    "category": "Sports",
-    "hints": [
-      "winter",
-      "sport",
-      "sliding"
-    ]
-  },
-  {
-    "id": "handicap",
-    "word": "Handicap",
-    "category": "Sports",
-    "hints": [
-      "golf",
-      "scoring",
-      "adjustment"
-    ]
-  },
-  {
-    "id": "pacer",
-    "word": "Pacer",
-    "category": "Sports",
-    "hints": [
-      "runner",
-      "setting",
-      "target"
-    ]
-  },
-  {
-    "id": "javelin",
-    "word": "Javelin",
-    "category": "Sports",
-    "hints": [
-      "long",
-      "metal",
-      "spear"
-    ]
-  },
-  {
-    "id": "box_set",
-    "word": "Box Set",
-    "category": "Sports",
-    "hints": [
-      "cricket",
-      "term",
-      "batsman"
-    ]
-  },
-  {
-    "id": "underdog",
-    "word": "Underdog",
-    "category": "Sports",
-    "hints": [
-      "competitor",
-      "expected",
-      "lose"
-    ]
-  },
-  {
-    "id": "sudden_death",
-    "word": "Sudden Death",
-    "category": "Sports",
-    "hints": [
-      "format",
-      "first",
-      "point"
-    ]
-  },
-  {
-    "id": "tiebreak",
-    "word": "Tiebreak",
-    "category": "Sports",
-    "hints": [
-      "final",
-      "set",
-      "decider"
-    ]
-  },
-  {
-    "id": "photo_finish",
-    "word": "Photo Finish",
-    "category": "Sports",
-    "hints": [
-      "race",
-      "decided",
-      "camera"
-    ]
-  }
+  { "id": "slam_dunk", "word": "Slam Dunk", "category": "Sports", "hints": ["basketball", "jumping", "hoop"] },
+  { "id": "hat_trick", "word": "Hat Trick", "category": "Sports", "hints": ["three", "goals", "scored"] },
+  { "id": "penalty_kick", "word": "Penalty Kick", "category": "Sports", "hints": ["football", "spot", "goalkeeper"] },
+  { "id": "marathon", "word": "Marathon", "category": "Sports", "hints": ["26", "miles", "running"] },
+  { "id": "surfing", "word": "Surfing", "category": "Sports", "hints": ["waves", "board", "ocean"] },
+  { "id": "rock_climbing", "word": "Rock Climbing", "category": "Sports", "hints": ["wall", "harness", "bouldering"] },
+  { "id": "skydiving", "word": "Skydiving", "category": "Sports", "hints": ["freefall", "parachute", "altitude"] },
+  { "id": "archery", "word": "Archery", "category": "Sports", "hints": ["bow", "arrow", "target"] },
+  { "id": "fencing", "word": "Fencing", "category": "Sports", "hints": ["sword", "epee", "duel"] },
+  { "id": "gymnastics", "word": "Gymnastics", "category": "Sports", "hints": ["flips", "balance", "beam"] },
+  { "id": "figure_skating", "word": "Figure Skating", "category": "Sports", "hints": ["ice", "spins", "blades"] },
+  { "id": "table_tennis", "word": "Table Tennis", "category": "Sports", "hints": ["ping", "pong", "paddle"] },
+  { "id": "badminton", "word": "Badminton", "category": "Sports", "hints": ["shuttlecock", "racket", "net"] },
+  { "id": "volleyball", "word": "Volleyball", "category": "Sports", "hints": ["spike", "net", "serve"] },
+  { "id": "rugby", "word": "Rugby", "category": "Sports", "hints": ["oval", "tackle", "scrum"] },
+  { "id": "cricket", "word": "Cricket", "category": "Sports", "hints": ["bat", "wickets", "overs"] },
+  { "id": "baseball", "word": "Baseball", "category": "Sports", "hints": ["bat", "diamond", "innings"] },
+  { "id": "golf", "word": "Golf", "category": "Sports", "hints": ["clubs", "holes", "fairway"] },
+  { "id": "tennis", "word": "Tennis", "category": "Sports", "hints": ["racket", "court", "serve"] },
+  { "id": "boxing", "word": "Boxing", "category": "Sports", "hints": ["gloves", "ring", "rounds"] },
+  { "id": "mma", "word": "MMA", "category": "Sports", "hints": ["mixed", "martial", "octagon"] },
+  { "id": "wrestling", "word": "Wrestling", "category": "Sports", "hints": ["grappling", "mat", "pinning"] },
+  { "id": "swimming", "word": "Swimming", "category": "Sports", "hints": ["pool", "lanes", "strokes"] },
+  { "id": "diving", "word": "Diving", "category": "Sports", "hints": ["platform", "flips", "splash"] },
+  { "id": "water_polo", "word": "Water Polo", "category": "Sports", "hints": ["pool", "treading", "throwing"] },
+  { "id": "hockey", "word": "Ice Hockey", "category": "Sports", "hints": ["puck", "rink", "sticks"] },
+  { "id": "skiing", "word": "Skiing", "category": "Sports", "hints": ["snow", "slopes", "poles"] },
+  { "id": "snowboarding", "word": "Snowboarding", "category": "Sports", "hints": ["snow", "halfpipe", "board"] },
+  { "id": "bobsled", "word": "Bobsled", "category": "Sports", "hints": ["ice", "track", "team"] },
+  { "id": "curling", "word": "Curling", "category": "Sports", "hints": ["stone", "ice", "sweeping"] },
+  { "id": "triathlon", "word": "Triathlon", "category": "Sports", "hints": ["swim", "bike", "run"] },
+  { "id": "decathlon", "word": "Decathlon", "category": "Sports", "hints": ["ten", "events", "athletics"] },
+  { "id": "pole_vault", "word": "Pole Vault", "category": "Sports", "hints": ["jumping", "bar", "pole"] },
+  { "id": "javelin", "word": "Javelin", "category": "Sports", "hints": ["throwing", "spear", "distance"] },
+  { "id": "shot_put", "word": "Shot Put", "category": "Sports", "hints": ["throwing", "heavy", "ball"] },
+  { "id": "long_jump", "word": "Long Jump", "category": "Sports", "hints": ["running", "leaping", "sand"] },
+  { "id": "hurdles", "word": "Hurdles", "category": "Sports", "hints": ["jumping", "barriers", "sprinting"] },
+  { "id": "relay", "word": "Relay Race", "category": "Sports", "hints": ["baton", "passing", "team"] },
+  { "id": "lacrosse", "word": "Lacrosse", "category": "Sports", "hints": ["stick", "net", "native"] },
+  { "id": "handball", "word": "Handball", "category": "Sports", "hints": ["court", "goal", "throwing"] },
+  { "id": "squash", "word": "Squash", "category": "Sports", "hints": ["racket", "enclosed", "court"] },
+  { "id": "rowing", "word": "Rowing", "category": "Sports", "hints": ["oars", "boat", "water"] },
+  { "id": "kayaking", "word": "Kayaking", "category": "Sports", "hints": ["paddle", "river", "rapids"] },
+  { "id": "sailing", "word": "Sailing", "category": "Sports", "hints": ["wind", "boat", "tacking"] },
+  { "id": "horseback_riding", "word": "Equestrian", "category": "Sports", "hints": ["horse", "riding", "jumping"] },
+  { "id": "formula_1_s", "word": "Formula 1", "category": "Sports", "hints": ["racing", "cars", "grand-prix"] },
+  { "id": "nascar", "word": "NASCAR", "category": "Sports", "hints": ["oval", "racing", "american"] },
+  { "id": "motocross", "word": "Motocross", "category": "Sports", "hints": ["dirt", "bikes", "jumps"] },
+  { "id": "skateboarding", "word": "Skateboarding", "category": "Sports", "hints": ["kickflip", "ollie", "ramp"] },
+  { "id": "bmx", "word": "BMX", "category": "Sports", "hints": ["bicycle", "tricks", "dirt"] },
+  { "id": "parkour", "word": "Parkour", "category": "Sports", "hints": ["freerunning", "urban", "vaulting"] },
+  { "id": "crossfit", "word": "CrossFit", "category": "Sports", "hints": ["intense", "workout", "functional"] },
+  { "id": "yoga", "word": "Yoga", "category": "Sports", "hints": ["poses", "flexibility", "breathing"] },
+  { "id": "pilates", "word": "Pilates", "category": "Sports", "hints": ["core", "stretching", "controlled"] },
+  { "id": "sumo", "word": "Sumo Wrestling", "category": "Sports", "hints": ["japanese", "heavyweight", "pushing"] },
+  { "id": "judo", "word": "Judo", "category": "Sports", "hints": ["throws", "grappling", "japanese"] },
+  { "id": "karate", "word": "Karate", "category": "Sports", "hints": ["strikes", "kata", "martial"] },
+  { "id": "taekwondo", "word": "Taekwondo", "category": "Sports", "hints": ["kicks", "korean", "martial"] },
+  { "id": "kendo", "word": "Kendo", "category": "Sports", "hints": ["bamboo", "swords", "japanese"] },
+  { "id": "darts", "word": "Darts", "category": "Sports", "hints": ["throwing", "bullseye", "board"] },
+  { "id": "bowling_s", "word": "Bowling", "category": "Sports", "hints": ["pins", "lane", "strikes"] },
+  { "id": "billiards", "word": "Billiards", "category": "Sports", "hints": ["cue", "balls", "table"] },
+  { "id": "snooker", "word": "Snooker", "category": "Sports", "hints": ["cue", "colored", "pockets"] },
+  { "id": "ultimate_frisbee", "word": "Ultimate Frisbee", "category": "Sports", "hints": ["disc", "endzone", "spirit"] },
+  { "id": "polo_s", "word": "Polo", "category": "Sports", "hints": ["horse", "mallet", "ball"] },
+  { "id": "triathlon_iron", "word": "Ironman", "category": "Sports", "hints": ["endurance", "triathlon", "brutal"] },
+  { "id": "bungee_jumping", "word": "Bungee Jumping", "category": "Sports", "hints": ["elastic", "cord", "falling"] },
+  { "id": "paragliding", "word": "Paragliding", "category": "Sports", "hints": ["flying", "canopy", "thermal"] },
+  { "id": "scuba_diving", "word": "Scuba Diving", "category": "Sports", "hints": ["underwater", "tank", "breathing"] },
+  { "id": "windsurfing", "word": "Windsurfing", "category": "Sports", "hints": ["sail", "board", "wind"] },
+  { "id": "pickleball", "word": "Pickleball", "category": "Sports", "hints": ["paddle", "court", "growing"] },
+  { "id": "arm_wrestling", "word": "Arm Wrestling", "category": "Sports", "hints": ["strength", "table", "grip"] },
+  { "id": "high_jump", "word": "High Jump", "category": "Sports", "hints": ["bar", "fosbury", "flop"] },
+  { "id": "disc_golf", "word": "Disc Golf", "category": "Sports", "hints": ["frisbee", "basket", "course"] },
+  { "id": "cheerleading", "word": "Cheerleading", "category": "Sports", "hints": ["pyramids", "stunts", "routines"] },
+  { "id": "breakdancing", "word": "Breakdancing", "category": "Sports", "hints": ["bboy", "spinning", "floor"] },
+  { "id": "trampoline", "word": "Trampolining", "category": "Sports", "hints": ["bouncing", "flips", "aerial"] },
+  { "id": "dodgeball", "word": "Dodgeball", "category": "Sports", "hints": ["throwing", "catching", "elimination"] },
+  { "id": "kickboxing", "word": "Kickboxing", "category": "Sports", "hints": ["punches", "kicks", "combat"] },
+  { "id": "luge", "word": "Luge", "category": "Sports", "hints": ["sled", "feet-first", "fast"] },
 ] as const

@@ -4,6 +4,7 @@ import { RoleCard } from '../components/game/RoleCard'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
+import { sounds } from '../lib/sounds'
 
 const CARD_FLIP_BACK_MS = 650
 
@@ -30,6 +31,8 @@ export default function RoleRevealScreen() {
   const [revealed, setRevealed] = useState(false)
   const [isAdvancing, setIsAdvancing] = useState(false)
   const advanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  useEffect(() => { sounds.roundStart() }, [])
 
   const players = currentRound?.players ?? []
 

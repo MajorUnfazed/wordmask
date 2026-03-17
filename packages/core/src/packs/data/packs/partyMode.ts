@@ -1,304 +1,80 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const PARTY_MODE_PACK: WordEntry[] = [
-  {
-    "id": "walk_of_shame",
-    "word": "Walk of Shame",
-    "category": "Party Mode",
-    "hints": [
-      "morning",
-      "journey",
-      "home"
-    ]
-  },
-  {
-    "id": "drunk_text",
-    "word": "Drunk Text",
-    "category": "Party Mode",
-    "hints": [
-      "message",
-      "sent",
-      "late"
-    ]
-  },
-  {
-    "id": "bad_karaoke",
-    "word": "Bad Karaoke",
-    "category": "Party Mode",
-    "hints": [
-      "off",
-      "key",
-      "singing"
-    ]
-  },
-  {
-    "id": "photobomb",
-    "word": "Photobomb",
-    "category": "Party Mode",
-    "hints": [
-      "surprise",
-      "appearance",
-      "ruining"
-    ]
-  },
-  {
-    "id": "regiftable",
-    "word": "Regiftable",
-    "category": "Party Mode",
-    "hints": [
-      "present",
-      "bad",
-      "gets"
-    ]
-  },
-  {
-    "id": "dad_joke",
-    "word": "Dad Joke",
-    "category": "Party Mode",
-    "hints": [
-      "painfully",
-      "simple",
-      "pun"
-    ]
-  },
-  {
-    "id": "beer_pong",
-    "word": "Beer Pong",
-    "category": "Party Mode",
-    "hints": [
-      "party",
-      "game",
-      "bouncing"
-    ]
-  },
-  {
-    "id": "chip_bag_opening",
-    "word": "Chip Bag Opening",
-    "category": "Party Mode",
-    "hints": [
-      "noisy",
-      "snack",
-      "ritual"
-    ]
-  },
-  {
-    "id": "awkward_handshake",
-    "word": "Awkward Handshake",
-    "category": "Party Mode",
-    "hints": [
-      "physical",
-      "greeting",
-      "both"
-    ]
-  },
-  {
-    "id": "karaoke_machine",
-    "word": "Karaoke Machine",
-    "category": "Party Mode",
-    "hints": [
-      "sing",
-      "along",
-      "device"
-    ]
-  },
-  {
-    "id": "conga_line",
-    "word": "Conga Line",
-    "category": "Party Mode",
-    "hints": [
-      "chain",
-      "people",
-      "dancing"
-    ]
-  },
-  {
-    "id": "party_pooper",
-    "word": "Party Pooper",
-    "category": "Party Mode",
-    "hints": [
-      "person",
-      "ruins",
-      "fun"
-    ]
-  },
-  {
-    "id": "overstayed_welcome",
-    "word": "Overstayed Welcome",
-    "category": "Party Mode",
-    "hints": [
-      "guest",
-      "refuses",
-      "leave"
-    ]
-  },
-  {
-    "id": "spin_the_bottle",
-    "word": "Spin the Bottle",
-    "category": "Party Mode",
-    "hints": [
-      "kissing",
-      "game",
-      "played"
-    ]
-  },
-  {
-    "id": "truth_or_dare",
-    "word": "Truth or Dare",
-    "category": "Party Mode",
-    "hints": [
-      "party",
-      "game",
-      "choosing"
-    ]
-  },
-  {
-    "id": "surprise_party",
-    "word": "Surprise Party",
-    "category": "Party Mode",
-    "hints": [
-      "celebration",
-      "kept",
-      "secret"
-    ]
-  },
-  {
-    "id": "limbo",
-    "word": "Limbo",
-    "category": "Party Mode",
-    "hints": [
-      "party",
-      "dance",
-      "competition"
-    ]
-  },
-  {
-    "id": "confetti_cannon",
-    "word": "Confetti Cannon",
-    "category": "Party Mode",
-    "hints": [
-      "device",
-      "blasts",
-      "paper"
-    ]
-  },
-  {
-    "id": "pinata",
-    "word": "Piñata",
-    "category": "Party Mode",
-    "hints": [
-      "paper",
-      "animal",
-      "filled"
-    ]
-  },
-  {
-    "id": "karaoke_night",
-    "word": "Karaoke Night",
-    "category": "Party Mode",
-    "hints": [
-      "evening",
-      "event",
-      "centred"
-    ]
-  },
-  {
-    "id": "fistbump",
-    "word": "Fistbump",
-    "category": "Party Mode",
-    "hints": [
-      "knuckle",
-      "greeting",
-      "gesture"
-    ]
-  },
-  {
-    "id": "streaker",
-    "word": "Streaker",
-    "category": "Party Mode",
-    "hints": [
-      "person",
-      "runs",
-      "naked"
-    ]
-  },
-  {
-    "id": "moonwalk",
-    "word": "Moonwalk",
-    "category": "Party Mode",
-    "hints": [
-      "michael",
-      "jackson's",
-      "signature"
-    ]
-  },
-  {
-    "id": "photobooth",
-    "word": "Photobooth",
-    "category": "Party Mode",
-    "hints": [
-      "pop",
-      "enclosed",
-      "box"
-    ]
-  },
-  {
-    "id": "glow_stick",
-    "word": "Glow Stick",
-    "category": "Party Mode",
-    "hints": [
-      "light",
-      "snapped",
-      "activate"
-    ]
-  },
-  {
-    "id": "bobbing_for_apples",
-    "word": "Bobbing for Apples",
-    "category": "Party Mode",
-    "hints": [
-      "halloween",
-      "game",
-      "retrieving"
-    ]
-  },
-  {
-    "id": "hangover",
-    "word": "Hangover",
-    "category": "Party Mode",
-    "hints": [
-      "next",
-      "day",
-      "punishment"
-    ]
-  },
-  {
-    "id": "dance_off",
-    "word": "Dance-Off",
-    "category": "Party Mode",
-    "hints": [
-      "head",
-      "competition",
-      "freestyle"
-    ]
-  },
-  {
-    "id": "party_trick",
-    "word": "Party Trick",
-    "category": "Party Mode",
-    "hints": [
-      "impressive",
-      "talent",
-      "pulled"
-    ]
-  },
-  {
-    "id": "streamer",
-    "word": "Streamer",
-    "category": "Party Mode",
-    "hints": [
-      "coiled",
-      "coloured",
-      "paper"
-    ]
-  }
+  { "id": "karaoke", "word": "Karaoke", "category": "Party Mode", "hints": ["singing", "lyrics", "mic"] },
+  { "id": "truth_or_dare", "word": "Truth or Dare", "category": "Party Mode", "hints": ["questions", "challenges", "choice"] },
+  { "id": "beer_pong_p", "word": "Beer Pong", "category": "Party Mode", "hints": ["cups", "throwing", "table"] },
+  { "id": "charades", "word": "Charades", "category": "Party Mode", "hints": ["acting", "no-talking", "guessing"] },
+  { "id": "spin_bottle", "word": "Spin the Bottle", "category": "Party Mode", "hints": ["spinning", "circle", "kissing"] },
+  { "id": "never_have_i", "word": "Never Have I Ever", "category": "Party Mode", "hints": ["fingers", "down", "confessions"] },
+  { "id": "pictionary", "word": "Pictionary", "category": "Party Mode", "hints": ["drawing", "guessing", "timer"] },
+  { "id": "mafia_game", "word": "Mafia", "category": "Party Mode", "hints": ["roles", "night", "elimination"] },
+  { "id": "werewolf", "word": "Werewolf", "category": "Party Mode", "hints": ["villagers", "night", "hidden"] },
+  { "id": "jenga", "word": "Jenga", "category": "Party Mode", "hints": ["blocks", "tower", "pulling"] },
+  { "id": "twister", "word": "Twister", "category": "Party Mode", "hints": ["spinner", "colors", "tangled"] },
+  { "id": "limbo", "word": "Limbo", "category": "Party Mode", "hints": ["bar", "bending", "backwards"] },
+  { "id": "musical_chairs", "word": "Musical Chairs", "category": "Party Mode", "hints": ["music", "seats", "eliminated"] },
+  { "id": "flip_cup", "word": "Flip Cup", "category": "Party Mode", "hints": ["flipping", "relay", "team"] },
+  { "id": "kings_cup", "word": "King's Cup", "category": "Party Mode", "hints": ["cards", "rules", "drinking"] },
+  { "id": "paranoia", "word": "Paranoia", "category": "Party Mode", "hints": ["whisper", "question", "flip"] },
+  { "id": "hot_seat", "word": "Hot Seat", "category": "Party Mode", "hints": ["spotlight", "questions", "answering"] },
+  { "id": "most_likely", "word": "Most Likely To", "category": "Party Mode", "hints": ["pointing", "voting", "who"] },
+  { "id": "two_truths_lie", "word": "Two Truths and a Lie", "category": "Party Mode", "hints": ["guess", "false", "statement"] },
+  { "id": "scavenger_hunt", "word": "Scavenger Hunt", "category": "Party Mode", "hints": ["clues", "finding", "items"] },
+  { "id": "escape_room", "word": "Escape Room", "category": "Party Mode", "hints": ["locked", "puzzles", "timer"] },
+  { "id": "trivia_night", "word": "Trivia Night", "category": "Party Mode", "hints": ["questions", "teams", "knowledge"] },
+  { "id": "dance_off", "word": "Dance Off", "category": "Party Mode", "hints": ["moves", "battle", "crowd"] },
+  { "id": "talent_show", "word": "Talent Show", "category": "Party Mode", "hints": ["performing", "audience", "judging"] },
+  { "id": "costume_party", "word": "Costume Party", "category": "Party Mode", "hints": ["dressing", "up", "theme"] },
+  { "id": "pool_party", "word": "Pool Party", "category": "Party Mode", "hints": ["swimming", "summer", "floats"] },
+  { "id": "bonfire", "word": "Bonfire", "category": "Party Mode", "hints": ["fire", "outdoor", "marshmallows"] },
+  { "id": "house_party", "word": "House Party", "category": "Party Mode", "hints": ["residence", "music", "gathering"] },
+  { "id": "roast_battle", "word": "Roast Battle", "category": "Party Mode", "hints": ["insults", "comedy", "burn"] },
+  { "id": "improv", "word": "Improv", "category": "Party Mode", "hints": ["spontaneous", "acting", "yes-and"] },
+  { "id": "would_you_rather", "word": "Would You Rather", "category": "Party Mode", "hints": ["choosing", "scenarios", "dilemma"] },
+  { "id": "heads_up", "word": "Heads Up!", "category": "Party Mode", "hints": ["forehead", "guessing", "app"] },
+  { "id": "cards_humanity", "word": "Cards Against Humanity", "category": "Party Mode", "hints": ["fill", "blank", "offensive"] },
+  { "id": "uno_p", "word": "UNO", "category": "Party Mode", "hints": ["cards", "colors", "reverse"] },
+  { "id": "codenames", "word": "Codenames", "category": "Party Mode", "hints": ["spymaster", "clues", "teams"] },
+  { "id": "wavelength", "word": "Wavelength", "category": "Party Mode", "hints": ["spectrum", "guessing", "dial"] },
+  { "id": "exploding_kittens", "word": "Exploding Kittens", "category": "Party Mode", "hints": ["card", "defuse", "boom"] },
+  { "id": "what_do_you_meme", "word": "What Do You Meme?", "category": "Party Mode", "hints": ["caption", "image", "funniest"] },
+  { "id": "jackbox", "word": "Jackbox Games", "category": "Party Mode", "hints": ["phone", "controller", "couch"] },
+  { "id": "taboo", "word": "Taboo", "category": "Party Mode", "hints": ["forbidden", "words", "describing"] },
+  { "id": "catchphrase", "word": "Catchphrase", "category": "Party Mode", "hints": ["clues", "passing", "buzzer"] },
+  { "id": "catan", "word": "Settlers of Catan", "category": "Party Mode", "hints": ["resources", "trading", "board"] },
+  { "id": "ticket_to_ride", "word": "Ticket to Ride", "category": "Party Mode", "hints": ["trains", "routes", "board"] },
+  { "id": "monopoly", "word": "Monopoly", "category": "Party Mode", "hints": ["property", "bankrupt", "board"] },
+  { "id": "risk", "word": "Risk", "category": "Party Mode", "hints": ["world", "domination", "armies"] },
+  { "id": "clue", "word": "Clue", "category": "Party Mode", "hints": ["murder", "mystery", "whodunit"] },
+  { "id": "scrabble", "word": "Scrabble", "category": "Party Mode", "hints": ["letters", "words", "tiles"] },
+  { "id": "apples_apples", "word": "Apples to Apples", "category": "Party Mode", "hints": ["comparison", "judging", "cards"] },
+  { "id": "guess_who", "word": "Guess Who", "category": "Party Mode", "hints": ["faces", "questions", "flipping"] },
+  { "id": "secret_santa", "word": "Secret Santa", "category": "Party Mode", "hints": ["anonymous", "gift", "christmas"] },
+  { "id": "white_elephant", "word": "White Elephant", "category": "Party Mode", "hints": ["gift", "exchange", "stealing"] },
+  { "id": "murder_mystery", "word": "Murder Mystery", "category": "Party Mode", "hints": ["whodunit", "suspects", "clues"] },
+  { "id": "lip_sync", "word": "Lip Sync Battle", "category": "Party Mode", "hints": ["mouthing", "performance", "song"] },
+  { "id": "photo_booth", "word": "Photo Booth", "category": "Party Mode", "hints": ["props", "pictures", "posing"] },
+  { "id": "piñata", "word": "Piñata", "category": "Party Mode", "hints": ["hitting", "candy", "blindfold"] },
+  { "id": "toga_party_p", "word": "Toga Party", "category": "Party Mode", "hints": ["sheet", "roman", "costume"] },
+  { "id": "glow_party", "word": "Glow Party", "category": "Party Mode", "hints": ["neon", "blacklight", "dancing"] },
+  { "id": "silent_disco", "word": "Silent Disco", "category": "Party Mode", "hints": ["headphones", "dancing", "quiet"] },
+  { "id": "themed_party", "word": "Decade Party", "category": "Party Mode", "hints": ["era", "themed", "costumes"] },
+  { "id": "pub_quiz", "word": "Pub Quiz", "category": "Party Mode", "hints": ["bar", "trivia", "teams"] },
+  { "id": "bingo", "word": "Bingo", "category": "Party Mode", "hints": ["numbers", "calling", "card"] },
+  { "id": "poker_night", "word": "Poker Night", "category": "Party Mode", "hints": ["cards", "bluffing", "chips"] },
+  { "id": "game_night", "word": "Game Night", "category": "Party Mode", "hints": ["board", "friends", "snacks"] },
+  { "id": "movie_marathon", "word": "Movie Marathon", "category": "Party Mode", "hints": ["binge", "watching", "popcorn"] },
+  { "id": "slumber_party", "word": "Sleepover", "category": "Party Mode", "hints": ["pajamas", "sleeping", "bags"] },
+  { "id": "potluck", "word": "Potluck", "category": "Party Mode", "hints": ["everyone", "brings", "dish"] },
+  { "id": "bbq_party", "word": "BBQ Party", "category": "Party Mode", "hints": ["grilling", "outdoor", "summer"] },
+  { "id": "baby_shower", "word": "Baby Shower", "category": "Party Mode", "hints": ["expecting", "gifts", "celebration"] },
+  { "id": "surprise_party", "word": "Surprise Party", "category": "Party Mode", "hints": ["hiding", "unexpected", "birthday"] },
+  { "id": "tailgate_p", "word": "Tailgate Party", "category": "Party Mode", "hints": ["pre-game", "parking", "sports"] },
+  { "id": "rave", "word": "Rave", "category": "Party Mode", "hints": ["electronic", "dancing", "lights"] },
+  { "id": "rooftop_party", "word": "Rooftop Party", "category": "Party Mode", "hints": ["skyline", "elevated", "views"] },
+  { "id": "foam_party", "word": "Foam Party", "category": "Party Mode", "hints": ["bubbles", "cannon", "dancing"] },
+  { "id": "paint_party", "word": "Paint Party", "category": "Party Mode", "hints": ["splashing", "colors", "messy"] },
+  { "id": "wine_tasting", "word": "Wine Tasting", "category": "Party Mode", "hints": ["sipping", "vineyard", "pairing"] },
+  { "id": "cocktail_party", "word": "Cocktail Party", "category": "Party Mode", "hints": ["mixed", "drinks", "elegant"] },
 ] as const

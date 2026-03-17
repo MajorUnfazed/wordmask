@@ -1,304 +1,108 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const GEOGRAPHY_PACK: WordEntry[] = [
-  {
-    "id": "sahara_desert",
-    "word": "Sahara Desert",
-    "category": "Geography",
-    "hints": [
-      "world's",
-      "largest",
-      "hot"
-    ]
-  },
-  {
-    "id": "amazon_basin",
-    "word": "Amazon Basin",
-    "category": "Geography",
-    "hints": [
-      "world's",
-      "largest",
-      "tropical"
-    ]
-  },
-  {
-    "id": "mariana_trench",
-    "word": "Mariana Trench",
-    "category": "Geography",
-    "hints": [
-      "deepest",
-      "point",
-      "ocean"
-    ]
-  },
-  {
-    "id": "fjord",
-    "word": "Fjord",
-    "category": "Geography",
-    "hints": [
-      "narrow",
-      "coastal",
-      "inlet"
-    ]
-  },
-  {
-    "id": "reykjavik",
-    "word": "Reykjavik",
-    "category": "Geography",
-    "hints": [
-      "capital",
-      "iceland",
-      "most"
-    ]
-  },
-  {
-    "id": "cape_town",
-    "word": "Cape Town",
-    "category": "Geography",
-    "hints": [
-      "south",
-      "african",
-      "city"
-    ]
-  },
-  {
-    "id": "strait_of_gibraltar",
-    "word": "Strait of Gibraltar",
-    "category": "Geography",
-    "hints": [
-      "narrow",
-      "passage",
-      "connecting"
-    ]
-  },
-  {
-    "id": "patagonia",
-    "word": "Patagonia",
-    "category": "Geography",
-    "hints": [
-      "vast",
-      "wilderness",
-      "southern"
-    ]
-  },
-  {
-    "id": "gobi_desert",
-    "word": "Gobi Desert",
-    "category": "Geography",
-    "hints": [
-      "cold",
-      "across",
-      "northern"
-    ]
-  },
-  {
-    "id": "great_barrier_reef",
-    "word": "Great Barrier Reef",
-    "category": "Geography",
-    "hints": [
-      "world's",
-      "largest",
-      "coral"
-    ]
-  },
-  {
-    "id": "andes",
-    "word": "Andes",
-    "category": "Geography",
-    "hints": [
-      "longest",
-      "continental",
-      "mountain"
-    ]
-  },
-  {
-    "id": "maldives",
-    "word": "Maldives",
-    "category": "Geography",
-    "hints": [
-      "low",
-      "lying",
-      "island"
-    ]
-  },
-  {
-    "id": "outback",
-    "word": "Outback",
-    "category": "Geography",
-    "hints": [
-      "remote",
-      "arid",
-      "interior"
-    ]
-  },
-  {
-    "id": "the_nile",
-    "word": "The Nile",
-    "category": "Geography",
-    "hints": [
-      "world's",
-      "longest",
-      "river"
-    ]
-  },
-  {
-    "id": "atacama_desert",
-    "word": "Atacama Desert",
-    "category": "Geography",
-    "hints": [
-      "driest",
-      "non",
-      "polar"
-    ]
-  },
-  {
-    "id": "bosphorus",
-    "word": "Bosphorus",
-    "category": "Geography",
-    "hints": [
-      "strait",
-      "divides",
-      "istanbul"
-    ]
-  },
-  {
-    "id": "lake_titicaca",
-    "word": "Lake Titicaca",
-    "category": "Geography",
-    "hints": [
-      "world's",
-      "highest",
-      "navigable"
-    ]
-  },
-  {
-    "id": "svalbard",
-    "word": "Svalbard",
-    "category": "Geography",
-    "hints": [
-      "norwegian",
-      "arctic",
-      "archipelago"
-    ]
-  },
-  {
-    "id": "dead_sea",
-    "word": "Dead Sea",
-    "category": "Geography",
-    "hints": [
-      "saltiest",
-      "earth",
-      "cannot"
-    ]
-  },
-  {
-    "id": "trans_siberian_railway",
-    "word": "Trans-Siberian Railway",
-    "category": "Geography",
-    "hints": [
-      "world's",
-      "longest",
-      "line"
-    ]
-  },
-  {
-    "id": "pangaea",
-    "word": "Pangaea",
-    "category": "Geography",
-    "hints": [
-      "supercontinent",
-      "existed",
-      "tectonic"
-    ]
-  },
-  {
-    "id": "monsoon",
-    "word": "Monsoon",
-    "category": "Geography",
-    "hints": [
-      "seasonal",
-      "reversal",
-      "winds"
-    ]
-  },
-  {
-    "id": "longitude",
-    "word": "Longitude",
-    "category": "Geography",
-    "hints": [
-      "east",
-      "west",
-      "coordinate"
-    ]
-  },
-  {
-    "id": "tundra",
-    "word": "Tundra",
-    "category": "Geography",
-    "hints": [
-      "treeless",
-      "arctic",
-      "plain"
-    ]
-  },
-  {
-    "id": "isthmus_of_panama",
-    "word": "Isthmus of Panama",
-    "category": "Geography",
-    "hints": [
-      "narrow",
-      "land",
-      "bridge"
-    ]
-  },
-  {
-    "id": "international_date_line",
-    "word": "International Date Line",
-    "category": "Geography",
-    "hints": [
-      "180",
-      "meridian",
-      "calendar"
-    ]
-  },
-  {
-    "id": "caspian_sea",
-    "word": "Caspian Sea",
-    "category": "Geography",
-    "hints": [
-      "world's",
-      "largest",
-      "landlocked"
-    ]
-  },
-  {
-    "id": "mount_everest",
-    "word": "Mount Everest",
-    "category": "Geography",
-    "hints": [
-      "highest",
-      "point",
-      "earth"
-    ]
-  },
-  {
-    "id": "savanna",
-    "word": "Savanna",
-    "category": "Geography",
-    "hints": [
-      "tropical",
-      "grassland",
-      "scattered"
-    ]
-  },
-  {
-    "id": "archipelago",
-    "word": "Archipelago",
-    "category": "Geography",
-    "hints": [
-      "chain",
-      "cluster",
-      "islands"
-    ]
-  }
+  { "id": "sahara", "word": "Sahara Desert", "category": "Geography", "hints": ["largest", "hot", "africa"] },
+  { "id": "amazon", "word": "Amazon Rainforest", "category": "Geography", "hints": ["largest", "jungle", "brazil"] },
+  { "id": "everest", "word": "Mount Everest", "category": "Geography", "hints": ["tallest", "peak", "nepal"] },
+  { "id": "mariana_trench", "word": "Mariana Trench", "category": "Geography", "hints": ["deepest", "ocean", "pacific"] },
+  { "id": "great_barrier_reef", "word": "Great Barrier Reef", "category": "Geography", "hints": ["coral", "australian", "marine"] },
+  { "id": "grand_canyon", "word": "Grand Canyon", "category": "Geography", "hints": ["arizona", "gorge", "colorado"] },
+  { "id": "niagara_falls", "word": "Niagara Falls", "category": "Geography", "hints": ["waterfall", "border", "powerful"] },
+  { "id": "dead_sea", "word": "Dead Sea", "category": "Geography", "hints": ["saltiest", "lowest", "floating"] },
+  { "id": "victoria_falls", "word": "Victoria Falls", "category": "Geography", "hints": ["african", "waterfall", "smoke"] },
+  { "id": "great_wall", "word": "Great Wall of China", "category": "Geography", "hints": ["ancient", "barrier", "visible"] },
+  { "id": "bermuda_triangle", "word": "Bermuda Triangle", "category": "Geography", "hints": ["mysterious", "atlantic", "disappearing"] },
+  { "id": "antarctica", "word": "Antarctica", "category": "Geography", "hints": ["frozen", "continent", "penguins"] },
+  { "id": "galapagos", "word": "Galápagos Islands", "category": "Geography", "hints": ["darwin", "ecuador", "tortoise"] },
+  { "id": "kilimanjaro", "word": "Kilimanjaro", "category": "Geography", "hints": ["african", "volcano", "tallest"] },
+  { "id": "nile", "word": "River Nile", "category": "Geography", "hints": ["longest", "african", "egypt"] },
+  { "id": "himalayas", "word": "Himalayas", "category": "Geography", "hints": ["highest", "mountain", "range"] },
+  { "id": "yellowstone", "word": "Yellowstone", "category": "Geography", "hints": ["national", "geyser", "park"] },
+  { "id": "machu_picchu", "word": "Machu Picchu", "category": "Geography", "hints": ["incan", "peru", "ruins"] },
+  { "id": "venice", "word": "Venice", "category": "Geography", "hints": ["canals", "italian", "floating"] },
+  { "id": "iceland", "word": "Iceland", "category": "Geography", "hints": ["volcanic", "nordic", "geysers"] },
+  { "id": "maldives", "word": "Maldives", "category": "Geography", "hints": ["island", "indian", "ocean"] },
+  { "id": "aurora", "word": "Northern Lights", "category": "Geography", "hints": ["aurora", "borealis", "colorful"] },
+  { "id": "death_valley", "word": "Death Valley", "category": "Geography", "hints": ["hottest", "california", "desert"] },
+  { "id": "mont_blanc", "word": "Mont Blanc", "category": "Geography", "hints": ["alps", "highest", "european"] },
+  { "id": "madagascar_g", "word": "Madagascar", "category": "Geography", "hints": ["island", "african", "lemurs"] },
+  { "id": "fiji", "word": "Fiji", "category": "Geography", "hints": ["pacific", "islands", "tropical"] },
+  { "id": "bora_bora", "word": "Bora Bora", "category": "Geography", "hints": ["french", "polynesia", "lagoon"] },
+  { "id": "santorini", "word": "Santorini", "category": "Geography", "hints": ["greek", "island", "blue"] },
+  { "id": "patagonia", "word": "Patagonia", "category": "Geography", "hints": ["south", "america", "glaciers"] },
+  { "id": "serengeti", "word": "Serengeti", "category": "Geography", "hints": ["african", "plains", "migration"] },
+  { "id": "tundra", "word": "Tundra", "category": "Geography", "hints": ["frozen", "treeless", "arctic"] },
+  { "id": "fjord", "word": "Fjord", "category": "Geography", "hints": ["narrow", "inlet", "norwegian"] },
+  { "id": "savanna", "word": "Savanna", "category": "Geography", "hints": ["grassland", "tropical", "african"] },
+  { "id": "atoll", "word": "Atoll", "category": "Geography", "hints": ["ring", "coral", "lagoon"] },
+  { "id": "delta", "word": "River Delta", "category": "Geography", "hints": ["sediment", "branching", "wetland"] },
+  { "id": "crater", "word": "Crater", "category": "Geography", "hints": ["impact", "circular", "depression"] },
+  { "id": "geyser", "word": "Geyser", "category": "Geography", "hints": ["erupting", "hot", "spring"] },
+  { "id": "glacier", "word": "Glacier", "category": "Geography", "hints": ["ice", "slow", "moving"] },
+  { "id": "mesa", "word": "Mesa", "category": "Geography", "hints": ["flat", "topped", "plateau"] },
+  { "id": "archipelago", "word": "Archipelago", "category": "Geography", "hints": ["chain", "islands", "cluster"] },
+  { "id": "strait", "word": "Strait", "category": "Geography", "hints": ["narrow", "water", "passage"] },
+  { "id": "peninsula", "word": "Peninsula", "category": "Geography", "hints": ["surrounded", "three", "sides"] },
+  { "id": "isthmus", "word": "Isthmus", "category": "Geography", "hints": ["narrow", "land", "bridge"] },
+  { "id": "reef", "word": "Coral Reef", "category": "Geography", "hints": ["underwater", "marine", "ecosystem"] },
+  { "id": "volcano", "word": "Volcano", "category": "Geography", "hints": ["erupting", "lava", "mountain"] },
+  { "id": "earthquake", "word": "Earthquake", "category": "Geography", "hints": ["seismic", "shaking", "tectonic"] },
+  { "id": "tsunami", "word": "Tsunami", "category": "Geography", "hints": ["giant", "wave", "devastating"] },
+  { "id": "oasis", "word": "Oasis", "category": "Geography", "hints": ["desert", "water", "green"] },
+  { "id": "caspian_sea", "word": "Caspian Sea", "category": "Geography", "hints": ["largest", "lake", "enclosed"] },
+  { "id": "lake_baikal", "word": "Lake Baikal", "category": "Geography", "hints": ["deepest", "siberian", "freshwater"] },
+  { "id": "suez_canal", "word": "Suez Canal", "category": "Geography", "hints": ["waterway", "egypt", "shipping"] },
+  { "id": "panama_canal", "word": "Panama Canal", "category": "Geography", "hints": ["central", "america", "locks"] },
+  { "id": "mount_fuji", "word": "Mount Fuji", "category": "Geography", "hints": ["japanese", "iconic", "symmetrical"] },
+  { "id": "hawaii_g", "word": "Hawaii", "category": "Geography", "hints": ["volcanic", "pacific", "aloha"] },
+  { "id": "easter_island", "word": "Easter Island", "category": "Geography", "hints": ["moai", "statues", "remote"] },
+  { "id": "strait_of_gibraltar", "word": "Strait of Gibraltar", "category": "Geography", "hints": ["europe", "africa", "narrow"] },
+  { "id": "cape_of_good_hope", "word": "Cape of Good Hope", "category": "Geography", "hints": ["south", "africa", "tip"] },
+  { "id": "gobi_desert", "word": "Gobi Desert", "category": "Geography", "hints": ["asian", "mongolia", "cold"] },
+  { "id": "k2", "word": "K2", "category": "Geography", "hints": ["second", "tallest", "deadly"] },
+  { "id": "angel_falls", "word": "Angel Falls", "category": "Geography", "hints": ["tallest", "waterfall", "venezuela"] },
+  { "id": "yosemite", "word": "Yosemite", "category": "Geography", "hints": ["california", "granite", "valley"] },
+  { "id": "danube", "word": "Danube River", "category": "Geography", "hints": ["european", "long", "blue"] },
+  { "id": "great_lakes", "word": "Great Lakes", "category": "Geography", "hints": ["five", "north", "america"] },
+  { "id": "silk_road", "word": "Silk Road", "category": "Geography", "hints": ["ancient", "trade", "route"] },
+  { "id": "sahel", "word": "Sahel", "category": "Geography", "hints": ["semi-arid", "african", "transition"] },
+  { "id": "rocky_mountains", "word": "Rocky Mountains", "category": "Geography", "hints": ["north", "american", "range"] },
+  { "id": "andes", "word": "Andes", "category": "Geography", "hints": ["longest", "mountain", "south"] },
+  { "id": "alps", "word": "Alps", "category": "Geography", "hints": ["european", "skiing", "peaks"] },
+  { "id": "caribbean", "word": "Caribbean Sea", "category": "Geography", "hints": ["tropical", "islands", "warm"] },
+  { "id": "bay_of_bengal", "word": "Bay of Bengal", "category": "Geography", "hints": ["indian", "ocean", "cyclones"] },
+  { "id": "black_sea", "word": "Black Sea", "category": "Geography", "hints": ["inland", "turkey", "europe"] },
+  { "id": "red_sea", "word": "Red Sea", "category": "Geography", "hints": ["egypt", "saudi", "parting"] },
+  { "id": "mount_vesuvius", "word": "Mount Vesuvius", "category": "Geography", "hints": ["pompeii", "eruption", "italian"] },
+  { "id": "petra", "word": "Petra", "category": "Geography", "hints": ["rose", "city", "jordan"] },
+  { "id": "taj_mahal", "word": "Taj Mahal", "category": "Geography", "hints": ["marble", "mausoleum", "india"] },
+  { "id": "stonehenge", "word": "Stonehenge", "category": "Geography", "hints": ["ancient", "stone", "circle"] },
+  { "id": "colosseum", "word": "Colosseum", "category": "Geography", "hints": ["roman", "amphitheater", "gladiators"] },
+  { "id": "pyramids_giza", "word": "Pyramids of Giza", "category": "Geography", "hints": ["egyptian", "ancient", "tombs"] },
+  { "id": "angkor_wat", "word": "Angkor Wat", "category": "Geography", "hints": ["cambodian", "temple", "largest"] },
+  { "id": "great_rift_valley", "word": "Great Rift Valley", "category": "Geography", "hints": ["african", "tectonic", "long"] },
+  { "id": "table_mountain", "word": "Table Mountain", "category": "Geography", "hints": ["flat", "cape", "town"] },
+  { "id": "uluru", "word": "Uluru", "category": "Geography", "hints": ["australian", "red", "monolith"] },
+  { "id": "white_cliffs_dover", "word": "White Cliffs of Dover", "category": "Geography", "hints": ["chalk", "english", "coast"] },
+  { "id": "amazon_river", "word": "Amazon River", "category": "Geography", "hints": ["south", "america", "widest"] },
+  { "id": "congo_river", "word": "Congo River", "category": "Geography", "hints": ["african", "deep", "basin"] },
+  { "id": "mississippi", "word": "Mississippi River", "category": "Geography", "hints": ["american", "long", "delta"] },
+  { "id": "yangtze", "word": "Yangtze River", "category": "Geography", "hints": ["chinese", "longest", "asia"] },
+  { "id": "ganges", "word": "Ganges River", "category": "Geography", "hints": ["sacred", "indian", "holy"] },
+  { "id": "mount_etna", "word": "Mount Etna", "category": "Geography", "hints": ["sicilian", "active", "volcano"] },
+  { "id": "cliffs_moher", "word": "Cliffs of Moher", "category": "Geography", "hints": ["irish", "coastal", "dramatic"] },
+  { "id": "halong_bay", "word": "Ha Long Bay", "category": "Geography", "hints": ["vietnamese", "limestone", "karsts"] },
+  { "id": "zhangjiajie", "word": "Zhangjiajie", "category": "Geography", "hints": ["chinese", "sandstone", "pillars"] },
+  { "id": "banff", "word": "Banff", "category": "Geography", "hints": ["canadian", "national", "park"] },
+  { "id": "amalfi_coast", "word": "Amalfi Coast", "category": "Geography", "hints": ["italian", "cliffside", "scenic"] },
+  { "id": "cappadocia", "word": "Cappadocia", "category": "Geography", "hints": ["turkish", "fairy", "chimneys"] },
+  { "id": "sahara_sand_dunes", "word": "Sand Dunes", "category": "Geography", "hints": ["wind", "shaped", "desert"] },
+  { "id": "mangrove", "word": "Mangrove Forest", "category": "Geography", "hints": ["coastal", "roots", "tropical"] },
+  { "id": "steppe", "word": "Steppe", "category": "Geography", "hints": ["vast", "grassland", "eurasian"] },
+  { "id": "plateau", "word": "Plateau", "category": "Geography", "hints": ["elevated", "flat", "tableland"] },
+  { "id": "continental_shelf", "word": "Continental Shelf", "category": "Geography", "hints": ["shallow", "underwater", "edge"] },
+  { "id": "tropic_of_cancer", "word": "Tropic of Cancer", "category": "Geography", "hints": ["latitude", "northern", "line"] },
+  { "id": "equator", "word": "Equator", "category": "Geography", "hints": ["middle", "zero", "latitude"] },
+  { "id": "international_date_line", "word": "International Date Line", "category": "Geography", "hints": ["180", "degrees", "time"] },
+  { "id": "greenwich", "word": "Prime Meridian", "category": "Geography", "hints": ["zero", "longitude", "greenwich"] },
 ] as const

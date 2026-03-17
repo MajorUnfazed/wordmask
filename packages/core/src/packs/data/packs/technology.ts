@@ -1,504 +1,104 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const TECHNOLOGY_PACK: WordEntry[] = [
-  {
-    "id": "blockchain",
-    "word": "Blockchain",
-    "category": "Technology",
-    "hints": [
-      "immutable",
-      "distributed",
-      "ledger"
-    ]
-  },
-  {
-    "id": "quantum_computing",
-    "word": "Quantum Computing",
-    "category": "Technology",
-    "hints": [
-      "uses",
-      "qubits",
-      "solve"
-    ]
-  },
-  {
-    "id": "neural_network",
-    "word": "Neural Network",
-    "category": "Technology",
-    "hints": [
-      "model",
-      "loosely",
-      "inspired"
-    ]
-  },
-  {
-    "id": "dark_web",
-    "word": "Dark Web",
-    "category": "Technology",
-    "hints": [
-      "encrypted",
-      "internet",
-      "not"
-    ]
-  },
-  {
-    "id": "kubernetes",
-    "word": "Kubernetes",
-    "category": "Technology",
-    "hints": [
-      "container",
-      "orchestration",
-      "platform"
-    ]
-  },
-  {
-    "id": "webassembly",
-    "word": "WebAssembly",
-    "category": "Technology",
-    "hints": [
-      "binary",
-      "format",
-      "runs"
-    ]
-  },
-  {
-    "id": "large_language_model",
-    "word": "Large Language Model",
-    "category": "Technology",
-    "hints": [
-      "trained",
-      "text",
-      "generate"
-    ]
-  },
-  {
-    "id": "zero_day",
-    "word": "Zero-Day",
-    "category": "Technology",
-    "hints": [
-      "security",
-      "vulnerability",
-      "unknown"
-    ]
-  },
-  {
-    "id": "deepfake",
-    "word": "Deepfake",
-    "category": "Technology",
-    "hints": [
-      "generated",
-      "synthetic",
-      "video"
-    ]
-  },
-  {
-    "id": "edge_computing",
-    "word": "Edge Computing",
-    "category": "Technology",
-    "hints": [
-      "processing",
-      "data",
-      "closer"
-    ]
-  },
-  {
-    "id": "solid_state_drive",
-    "word": "Solid-State Drive",
-    "category": "Technology",
-    "hints": [
-      "flash",
-      "memory",
-      "storage"
-    ]
-  },
-  {
-    "id": "graphql",
-    "word": "GraphQL",
-    "category": "Technology",
-    "hints": [
-      "api",
-      "query",
-      "language"
-    ]
-  },
-  {
-    "id": "fuzzing",
-    "word": "Fuzzing",
-    "category": "Technology",
-    "hints": [
-      "feeding",
-      "random",
-      "inputs"
-    ]
-  },
-  {
-    "id": "raspberry_pi",
-    "word": "Raspberry Pi",
-    "category": "Technology",
-    "hints": [
-      "credit",
-      "card",
-      "sized"
-    ]
-  },
-  {
-    "id": "haptic_feedback",
-    "word": "Haptic Feedback",
-    "category": "Technology",
-    "hints": [
-      "technology",
-      "simulates",
-      "touch"
-    ]
-  },
-  {
-    "id": "git",
-    "word": "Git",
-    "category": "Technology",
-    "hints": [
-      "distributed",
-      "version",
-      "control"
-    ]
-  },
-  {
-    "id": "docker",
-    "word": "Docker",
-    "category": "Technology",
-    "hints": [
-      "platform",
-      "packaging",
-      "applications"
-    ]
-  },
-  {
-    "id": "pixel_shader",
-    "word": "Pixel Shader",
-    "category": "Technology",
-    "hints": [
-      "gpu",
-      "program",
-      "calculates"
-    ]
-  },
-  {
-    "id": "bandwidth",
-    "word": "Bandwidth",
-    "category": "Technology",
-    "hints": [
-      "maximum",
-      "data",
-      "transfer"
-    ]
-  },
-  {
-    "id": "latency",
-    "word": "Latency",
-    "category": "Technology",
-    "hints": [
-      "delay",
-      "between",
-      "sending"
-    ]
-  },
-  {
-    "id": "risc_v",
-    "word": "RISC-V",
-    "category": "Technology",
-    "hints": [
-      "open",
-      "source",
-      "instruction"
-    ]
-  },
-  {
-    "id": "progressive_web_app",
-    "word": "Progressive Web App",
-    "category": "Technology",
-    "hints": [
-      "website",
-      "behaves",
-      "like"
-    ]
-  },
-  {
-    "id": "penetration_testing",
-    "word": "Penetration Testing",
-    "category": "Technology",
-    "hints": [
-      "authorised",
-      "simulated",
-      "cyberattack"
-    ]
-  },
-  {
-    "id": "prompt_engineering",
-    "word": "Prompt Engineering",
-    "category": "Technology",
-    "hints": [
-      "crafting",
-      "inputs",
-      "get"
-    ]
-  },
-  {
-    "id": "retrieval_augmented_generation",
-    "word": "Retrieval-Augmented Generation",
-    "category": "Technology",
-    "hints": [
-      "technique",
-      "supplements",
-      "llms"
-    ]
-  },
-  {
-    "id": "transformer",
-    "word": "Transformer",
-    "category": "Technology",
-    "hints": [
-      "neural",
-      "network",
-      "architecture"
-    ]
-  },
-  {
-    "id": "arm_chip",
-    "word": "ARM Chip",
-    "category": "Technology",
-    "hints": [
-      "low",
-      "power",
-      "processor"
-    ]
-  },
-  {
-    "id": "lidar",
-    "word": "LiDAR",
-    "category": "Technology",
-    "hints": [
-      "laser",
-      "based",
-      "depth"
-    ]
-  },
-  {
-    "id": "hypervisor",
-    "word": "Hypervisor",
-    "category": "Technology",
-    "hints": [
-      "software",
-      "creates",
-      "manages"
-    ]
-  },
-  {
-    "id": "owasp",
-    "word": "OWASP",
-    "category": "Technology",
-    "hints": [
-      "open",
-      "source",
-      "foundation"
-    ]
-  },
-  {
-    "id": "mesh_network",
-    "word": "Mesh Network",
-    "category": "Technology",
-    "hints": [
-      "each",
-      "node",
-      "relays"
-    ]
-  },
-  {
-    "id": "serverless",
-    "word": "Serverless",
-    "category": "Technology",
-    "hints": [
-      "cloud",
-      "model",
-      "run"
-    ]
-  },
-  {
-    "id": "rate_limiting",
-    "word": "Rate Limiting",
-    "category": "Technology",
-    "hints": [
-      "restricting",
-      "how",
-      "many"
-    ]
-  },
-  {
-    "id": "cache_invalidation",
-    "word": "Cache Invalidation",
-    "category": "Technology",
-    "hints": [
-      "one",
-      "two",
-      "hardest"
-    ]
-  },
-  {
-    "id": "linker",
-    "word": "Linker",
-    "category": "Technology",
-    "hints": [
-      "tool",
-      "combines",
-      "compiled"
-    ]
-  },
-  {
-    "id": "cuda",
-    "word": "CUDA",
-    "category": "Technology",
-    "hints": [
-      "nvidia's",
-      "parallel",
-      "computing"
-    ]
-  },
-  {
-    "id": "socket",
-    "word": "Socket",
-    "category": "Technology",
-    "hints": [
-      "network",
-      "endpoint",
-      "two"
-    ]
-  },
-  {
-    "id": "mutex",
-    "word": "Mutex",
-    "category": "Technology",
-    "hints": [
-      "lock",
-      "prevents",
-      "concurrent"
-    ]
-  },
-  {
-    "id": "garbage_collection",
-    "word": "Garbage Collection",
-    "category": "Technology",
-    "hints": [
-      "automatic",
-      "memory",
-      "reclamation"
-    ]
-  },
-  {
-    "id": "binary_tree",
-    "word": "Binary Tree",
-    "category": "Technology",
-    "hints": [
-      "data",
-      "structure",
-      "each"
-    ]
-  },
-  {
-    "id": "hash_collision",
-    "word": "Hash Collision",
-    "category": "Technology",
-    "hints": [
-      "two",
-      "different",
-      "inputs"
-    ]
-  },
-  {
-    "id": "idempotency",
-    "word": "Idempotency",
-    "category": "Technology",
-    "hints": [
-      "operation",
-      "produces",
-      "same"
-    ]
-  },
-  {
-    "id": "cors",
-    "word": "CORS",
-    "category": "Technology",
-    "hints": [
-      "browser",
-      "security",
-      "policy"
-    ]
-  },
-  {
-    "id": "webrtc",
-    "word": "WebRTC",
-    "category": "Technology",
-    "hints": [
-      "real",
-      "time",
-      "peer"
-    ]
-  },
-  {
-    "id": "monorepo",
-    "word": "Monorepo",
-    "category": "Technology",
-    "hints": [
-      "single",
-      "repository",
-      "housing"
-    ]
-  },
-  {
-    "id": "ci_cd",
-    "word": "CI/CD",
-    "category": "Technology",
-    "hints": [
-      "automated",
-      "pipeline",
-      "building"
-    ]
-  },
-  {
-    "id": "technical_debt",
-    "word": "Technical Debt",
-    "category": "Technology",
-    "hints": [
-      "accumulated",
-      "cost",
-      "shortcut"
-    ]
-  },
-  {
-    "id": "rubber_duck_debugging",
-    "word": "Rubber Duck Debugging",
-    "category": "Technology",
-    "hints": [
-      "explaining",
-      "code",
-      "inanimate"
-    ]
-  },
-  {
-    "id": "spaghetti_code",
-    "word": "Spaghetti Code",
-    "category": "Technology",
-    "hints": [
-      "codebase",
-      "tangled",
-      "hard"
-    ]
-  },
-  {
-    "id": "blue_green_deployment",
-    "word": "Blue-Green Deployment",
-    "category": "Technology",
-    "hints": [
-      "zero",
-      "downtime",
-      "deploy"
-    ]
-  }
+  { "id": "bluetooth", "word": "Bluetooth", "category": "Technology", "hints": ["wireless", "short", "range"] },
+  { "id": "cloud_computing", "word": "Cloud Computing", "category": "Technology", "hints": ["remote", "servers", "storage"] },
+  { "id": "blockchain", "word": "Blockchain", "category": "Technology", "hints": ["decentralized", "ledger", "crypto"] },
+  { "id": "artificial_intelligence", "word": "Artificial Intelligence", "category": "Technology", "hints": ["machine", "learning", "smart"] },
+  { "id": "chatgpt", "word": "ChatGPT", "category": "Technology", "hints": ["ai", "chatbot", "openai"] },
+  { "id": "virtual_reality", "word": "Virtual Reality", "category": "Technology", "hints": ["headset", "immersive", "simulated"] },
+  { "id": "augmented_reality", "word": "Augmented Reality", "category": "Technology", "hints": ["overlay", "real-world", "digital"] },
+  { "id": "3d_printing", "word": "3D Printing", "category": "Technology", "hints": ["additive", "manufacturing", "layer"] },
+  { "id": "self_driving", "word": "Self-Driving Car", "category": "Technology", "hints": ["autonomous", "vehicle", "sensors"] },
+  { "id": "drone_t", "word": "Drone", "category": "Technology", "hints": ["unmanned", "flying", "quadcopter"] },
+  { "id": "smart_home", "word": "Smart Home", "category": "Technology", "hints": ["connected", "automated", "iot"] },
+  { "id": "alexa", "word": "Alexa", "category": "Technology", "hints": ["amazon", "voice", "assistant"] },
+  { "id": "siri", "word": "Siri", "category": "Technology", "hints": ["apple", "voice", "assistant"] },
+  { "id": "smartwatch", "word": "Smartwatch", "category": "Technology", "hints": ["wrist", "notifications", "health"] },
+  { "id": "airpods", "word": "AirPods", "category": "Technology", "hints": ["apple", "wireless", "earbuds"] },
+  { "id": "tesla", "word": "Tesla", "category": "Technology", "hints": ["electric", "car", "musk"] },
+  { "id": "spacex", "word": "SpaceX", "category": "Technology", "hints": ["rockets", "reusable", "starship"] },
+  { "id": "starlink", "word": "Starlink", "category": "Technology", "hints": ["satellite", "internet", "constellation"] },
+  { "id": "iphone", "word": "iPhone", "category": "Technology", "hints": ["apple", "smartphone", "ios"] },
+  { "id": "android_t", "word": "Android", "category": "Technology", "hints": ["google", "mobile", "os"] },
+  { "id": "raspberry_pi", "word": "Raspberry Pi", "category": "Technology", "hints": ["tiny", "computer", "board"] },
+  { "id": "usb_c", "word": "USB-C", "category": "Technology", "hints": ["universal", "connector", "reversible"] },
+  { "id": "wifi_6", "word": "WiFi", "category": "Technology", "hints": ["wireless", "network", "internet"] },
+  { "id": "5g", "word": "5G", "category": "Technology", "hints": ["fifth", "generation", "fast"] },
+  { "id": "fiber_optic", "word": "Fiber Optic", "category": "Technology", "hints": ["light", "cable", "fast"] },
+  { "id": "vpn", "word": "VPN", "category": "Technology", "hints": ["private", "encrypted", "tunnel"] },
+  { "id": "two_factor", "word": "Two-Factor Authentication", "category": "Technology", "hints": ["security", "code", "verification"] },
+  { "id": "biometrics", "word": "Biometrics", "category": "Technology", "hints": ["fingerprint", "face", "recognition"] },
+  { "id": "api", "word": "API", "category": "Technology", "hints": ["interface", "programming", "integration"] },
+  { "id": "open_source", "word": "Open Source", "category": "Technology", "hints": ["free", "collaborative", "code"] },
+  { "id": "github_t", "word": "GitHub", "category": "Technology", "hints": ["code", "repository", "collaboration"] },
+  { "id": "docker", "word": "Docker", "category": "Technology", "hints": ["container", "deployment", "whale"] },
+  { "id": "kubernetes", "word": "Kubernetes", "category": "Technology", "hints": ["orchestration", "container", "pods"] },
+  { "id": "machine_learning", "word": "Machine Learning", "category": "Technology", "hints": ["algorithms", "training", "data"] },
+  { "id": "neural_network", "word": "Neural Network", "category": "Technology", "hints": ["layers", "brain", "deep"] },
+  { "id": "deeplearning", "word": "Deep Learning", "category": "Technology", "hints": ["neural", "complex", "patterns"] },
+  { "id": "natural_lang", "word": "Natural Language Processing", "category": "Technology", "hints": ["text", "understanding", "language"] },
+  { "id": "computer_vision", "word": "Computer Vision", "category": "Technology", "hints": ["image", "recognition", "detecting"] },
+  { "id": "robotics", "word": "Robotics", "category": "Technology", "hints": ["automated", "machines", "mechanical"] },
+  { "id": "lidar", "word": "LiDAR", "category": "Technology", "hints": ["laser", "scanning", "mapping"] },
+  { "id": "quantum_computing", "word": "Quantum Computing", "category": "Technology", "hints": ["qubits", "superposition", "exponential"] },
+  { "id": "cryptocurrency_t", "word": "Bitcoin", "category": "Technology", "hints": ["crypto", "mining", "satoshi"] },
+  { "id": "ethereum", "word": "Ethereum", "category": "Technology", "hints": ["smart", "contracts", "crypto"] },
+  { "id": "metaverse", "word": "Metaverse", "category": "Technology", "hints": ["virtual", "world", "immersive"] },
+  { "id": "deepfake_t", "word": "Deepfake", "category": "Technology", "hints": ["ai", "generated", "fake"] },
+  { "id": "firewall", "word": "Firewall", "category": "Technology", "hints": ["security", "barrier", "network"] },
+  { "id": "malware", "word": "Malware", "category": "Technology", "hints": ["malicious", "software", "virus"] },
+  { "id": "ransomware", "word": "Ransomware", "category": "Technology", "hints": ["encrypted", "demands", "payment"] },
+  { "id": "phishing", "word": "Phishing", "category": "Technology", "hints": ["fake", "email", "scam"] },
+  { "id": "dark_web", "word": "Dark Web", "category": "Technology", "hints": ["hidden", "anonymous", "tor"] },
+  { "id": "encryption", "word": "Encryption", "category": "Technology", "hints": ["scrambled", "secure", "key"] },
+  { "id": "sql", "word": "SQL", "category": "Technology", "hints": ["database", "query", "language"] },
+  { "id": "python_t", "word": "Python", "category": "Technology", "hints": ["programming", "snake", "scripting"] },
+  { "id": "javascript_t", "word": "JavaScript", "category": "Technology", "hints": ["web", "browser", "scripting"] },
+  { "id": "typescript_t", "word": "TypeScript", "category": "Technology", "hints": ["typed", "javascript", "microsoft"] },
+  { "id": "rust_t", "word": "Rust", "category": "Technology", "hints": ["memory", "safe", "systems"] },
+  { "id": "linux", "word": "Linux", "category": "Technology", "hints": ["open", "source", "penguin"] },
+  { "id": "macos", "word": "macOS", "category": "Technology", "hints": ["apple", "desktop", "unix"] },
+  { "id": "windows_t", "word": "Windows", "category": "Technology", "hints": ["microsoft", "os", "desktop"] },
+  { "id": "gpu", "word": "GPU", "category": "Technology", "hints": ["graphics", "processing", "nvidia"] },
+  { "id": "ssd", "word": "SSD", "category": "Technology", "hints": ["solid", "state", "fast"] },
+  { "id": "ram_t", "word": "RAM", "category": "Technology", "hints": ["memory", "volatile", "speed"] },
+  { "id": "cpu", "word": "CPU", "category": "Technology", "hints": ["processor", "brain", "chip"] },
+  { "id": "oled", "word": "OLED", "category": "Technology", "hints": ["organic", "display", "contrast"] },
+  { "id": "4k_resolution", "word": "4K Resolution", "category": "Technology", "hints": ["ultra", "high", "pixels"] },
+  { "id": "hdmi", "word": "HDMI", "category": "Technology", "hints": ["cable", "video", "audio"] },
+  { "id": "nfc", "word": "NFC", "category": "Technology", "hints": ["near", "field", "contactless"] },
+  { "id": "qr_code", "word": "QR Code", "category": "Technology", "hints": ["square", "scan", "encoded"] },
+  { "id": "streaming", "word": "Streaming", "category": "Technology", "hints": ["live", "buffering", "continuous"] },
+  { "id": "netflix_t", "word": "Netflix", "category": "Technology", "hints": ["streaming", "binge", "original"] },
+  { "id": "spotify_t", "word": "Spotify", "category": "Technology", "hints": ["music", "streaming", "playlists"] },
+  { "id": "notion", "word": "Notion", "category": "Technology", "hints": ["productivity", "workspace", "notes"] },
+  { "id": "figma", "word": "Figma", "category": "Technology", "hints": ["design", "collaborative", "ui"] },
+  { "id": "slack", "word": "Slack", "category": "Technology", "hints": ["messaging", "channels", "workplace"] },
+  { "id": "zoom", "word": "Zoom", "category": "Technology", "hints": ["video", "calls", "meeting"] },
+  { "id": "midjourney", "word": "Midjourney", "category": "Technology", "hints": ["ai", "image", "generation"] },
+  { "id": "dalle", "word": "DALL-E", "category": "Technology", "hints": ["ai", "image", "openai"] },
+  { "id": "copilot_t", "word": "GitHub Copilot", "category": "Technology", "hints": ["ai", "coding", "autocomplete"] },
+  { "id": "stable_diffusion", "word": "Stable Diffusion", "category": "Technology", "hints": ["ai", "open", "images"] },
+  { "id": "gpt", "word": "GPT", "category": "Technology", "hints": ["generative", "pretrained", "transformer"] },
+  { "id": "large_lang_model", "word": "Large Language Model", "category": "Technology", "hints": ["llm", "text", "ai"] },
+  { "id": "web3", "word": "Web3", "category": "Technology", "hints": ["decentralized", "internet", "ownership"] },
+  { "id": "cyber_attack", "word": "Cyber Attack", "category": "Technology", "hints": ["hacking", "breach", "intrusion"] },
+  { "id": "cloud_storage", "word": "Cloud Storage", "category": "Technology", "hints": ["dropbox", "online", "backup"] },
+  { "id": "edge_computing", "word": "Edge Computing", "category": "Technology", "hints": ["local", "processing", "proximity"] },
+  { "id": "devops", "word": "DevOps", "category": "Technology", "hints": ["development", "operations", "pipeline"] },
+  { "id": "agile", "word": "Agile", "category": "Technology", "hints": ["methodology", "sprints", "iterative"] },
+  { "id": "microservices", "word": "Microservices", "category": "Technology", "hints": ["architecture", "small", "independent"] },
+  { "id": "serverless", "word": "Serverless", "category": "Technology", "hints": ["cloud", "functions", "no-server"] },
+  { "id": "iot", "word": "Internet of Things", "category": "Technology", "hints": ["connected", "devices", "sensors"] },
+  { "id": "wearable", "word": "Wearable Tech", "category": "Technology", "hints": ["body", "fitness", "tracker"] },
+  { "id": "eink", "word": "E-Ink Display", "category": "Technology", "hints": ["kindle", "paper", "electronic"] },
+  { "id": "wireless_charging", "word": "Wireless Charging", "category": "Technology", "hints": ["pad", "induction", "cable-free"] },
+  { "id": "foldable_phone", "word": "Foldable Phone", "category": "Technology", "hints": ["bendable", "screen", "compact"] },
+  { "id": "neural_interface", "word": "Neuralink", "category": "Technology", "hints": ["brain", "chip", "implant"] },
+  { "id": "digital_twin", "word": "Digital Twin", "category": "Technology", "hints": ["virtual", "replica", "simulation"] },
+  { "id": "biohacking", "word": "Biohacking", "category": "Technology", "hints": ["body", "modification", "optimization"] },
+  { "id": "captcha", "word": "CAPTCHA", "category": "Technology", "hints": ["robot", "verification", "distorted"] },
+  { "id": "cookie_t", "word": "Browser Cookie", "category": "Technology", "hints": ["tracking", "website", "data"] },
+  { "id": "incognito", "word": "Incognito Mode", "category": "Technology", "hints": ["private", "browsing", "history"] },
 ] as const

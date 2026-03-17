@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { ParticleField } from '../components/ui/ParticleField'
+import { ThemeToggle } from '../components/ui/ThemeToggle'
 import { useUIStore } from '../store/uiStore'
 
 export default function HomeScreen() {
@@ -9,6 +10,10 @@ export default function HomeScreen() {
   return (
     <div className="relative flex h-screen flex-col items-center justify-center gap-8 px-6">
       <ParticleField />
+
+      <div className="absolute right-5 top-5 z-20">
+        <ThemeToggle />
+      </div>
 
       <motion.div
         className="flex flex-col items-center gap-4 text-center"
@@ -40,3 +45,4 @@ export default function HomeScreen() {
     </div>
   )
 }
+

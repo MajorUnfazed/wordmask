@@ -1,304 +1,104 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const EVERYDAY_PACK: WordEntry[] = [
-  {
-    "id": "elevator_pitch",
-    "word": "Elevator Pitch",
-    "category": "Everyday",
-    "hints": [
-      "second",
-      "summary",
-      "idea"
-    ]
-  },
-  {
-    "id": "alarm_clock",
-    "word": "Alarm Clock",
-    "category": "Everyday",
-    "hints": [
-      "device",
-      "wakes",
-      "set"
-    ]
-  },
-  {
-    "id": "grocery_store",
-    "word": "Grocery Store",
-    "category": "Everyday",
-    "hints": [
-      "shop",
-      "buy",
-      "food"
-    ]
-  },
-  {
-    "id": "bus_stop",
-    "word": "Bus Stop",
-    "category": "Everyday",
-    "hints": [
-      "designated",
-      "place",
-      "wait"
-    ]
-  },
-  {
-    "id": "waiting_room",
-    "word": "Waiting Room",
-    "category": "Everyday",
-    "hints": [
-      "sit",
-      "appointment",
-      "waiting"
-    ]
-  },
-  {
-    "id": "password",
-    "word": "Password",
-    "category": "Everyday",
-    "hints": [
-      "secret",
-      "string",
-      "grants"
-    ]
-  },
-  {
-    "id": "voicemail",
-    "word": "Voicemail",
-    "category": "Everyday",
-    "hints": [
-      "recorded",
-      "message",
-      "left"
-    ]
-  },
-  {
-    "id": "umbrella",
-    "word": "Umbrella",
-    "category": "Everyday",
-    "hints": [
-      "portable",
-      "shelter",
-      "rain"
-    ]
-  },
-  {
-    "id": "charging_cable",
-    "word": "Charging Cable",
-    "category": "Everyday",
-    "hints": [
-      "wire",
-      "refills",
-      "device's"
-    ]
-  },
-  {
-    "id": "doorbell",
-    "word": "Doorbell",
-    "category": "Everyday",
-    "hints": [
-      "button",
-      "visitors",
-      "press"
-    ]
-  },
-  {
-    "id": "leftovers",
-    "word": "Leftovers",
-    "category": "Everyday",
-    "hints": [
-      "yesterday's",
-      "meal",
-      "eaten"
-    ]
-  },
-  {
-    "id": "traffic_jam",
-    "word": "Traffic Jam",
-    "category": "Everyday",
-    "hints": [
-      "gridlock",
-      "vehicles",
-      "moving"
-    ]
-  },
-  {
-    "id": "laundry",
-    "word": "Laundry",
-    "category": "Everyday",
-    "hints": [
-      "clothes",
-      "waiting",
-      "washed"
-    ]
-  },
-  {
-    "id": "deadline",
-    "word": "Deadline",
-    "category": "Everyday",
-    "hints": [
-      "point",
-      "which",
-      "work"
-    ]
-  },
-  {
-    "id": "power_cut",
-    "word": "Power Cut",
-    "category": "Everyday",
-    "hints": [
-      "sudden",
-      "loss",
-      "electricity"
-    ]
-  },
-  {
-    "id": "receipt",
-    "word": "Receipt",
-    "category": "Everyday",
-    "hints": [
-      "paper",
-      "proof",
-      "purchase"
-    ]
-  },
-  {
-    "id": "flat_tyre",
-    "word": "Flat Tyre",
-    "category": "Everyday",
-    "hints": [
-      "punctured",
-      "deflated",
-      "car"
-    ]
-  },
-  {
-    "id": "spam_email",
-    "word": "Spam Email",
-    "category": "Everyday",
-    "hints": [
-      "unwanted",
-      "mass",
-      "sent"
-    ]
-  },
-  {
-    "id": "coins",
-    "word": "Coins",
-    "category": "Everyday",
-    "hints": [
-      "metal",
-      "currency",
-      "jingles"
-    ]
-  },
-  {
-    "id": "sunscreen",
-    "word": "Sunscreen",
-    "category": "Everyday",
-    "hints": [
-      "lotion",
-      "applied",
-      "protect"
-    ]
-  },
-  {
-    "id": "takeaway",
-    "word": "Takeaway",
-    "category": "Everyday",
-    "hints": [
-      "food",
-      "ordered",
-      "restaurant"
-    ]
-  },
-  {
-    "id": "parking_ticket",
-    "word": "Parking Ticket",
-    "category": "Everyday",
-    "hints": [
-      "fine",
-      "issued",
-      "illegally"
-    ]
-  },
-  {
-    "id": "wi_fi_password",
-    "word": "Wi-Fi Password",
-    "category": "Everyday",
-    "hints": [
-      "string",
-      "needed",
-      "connect"
-    ]
-  },
-  {
-    "id": "queue",
-    "word": "Queue",
-    "category": "Everyday",
-    "hints": [
-      "orderly",
-      "line",
-      "people"
-    ]
-  },
-  {
-    "id": "pothole",
-    "word": "Pothole",
-    "category": "Everyday",
-    "hints": [
-      "hole",
-      "road",
-      "surface"
-    ]
-  },
-  {
-    "id": "thermostat",
-    "word": "Thermostat",
-    "category": "Everyday",
-    "hints": [
-      "device",
-      "regulates",
-      "indoor"
-    ]
-  },
-  {
-    "id": "subscription",
-    "word": "Subscription",
-    "category": "Everyday",
-    "hints": [
-      "regular",
-      "payment",
-      "ongoing"
-    ]
-  },
-  {
-    "id": "commute",
-    "word": "Commute",
-    "category": "Everyday",
-    "hints": [
-      "daily",
-      "journey",
-      "between"
-    ]
-  },
-  {
-    "id": "nap",
-    "word": "Nap",
-    "category": "Everyday",
-    "hints": [
-      "short",
-      "daytime",
-      "sleep"
-    ]
-  },
-  {
-    "id": "notification",
-    "word": "Notification",
-    "category": "Everyday",
-    "hints": [
-      "buzz",
-      "ping",
-      "alerting"
-    ]
-  }
+  { "id": "toothbrush", "word": "Toothbrush", "category": "Everyday", "hints": ["dental", "bristles", "morning"] },
+  { "id": "alarm_clock", "word": "Alarm Clock", "category": "Everyday", "hints": ["wake", "morning", "ringing"] },
+  { "id": "umbrella", "word": "Umbrella", "category": "Everyday", "hints": ["rain", "shelter", "folding"] },
+  { "id": "wallet", "word": "Wallet", "category": "Everyday", "hints": ["pocket", "cards", "leather"] },
+  { "id": "keys", "word": "Keys", "category": "Everyday", "hints": ["door", "metal", "jingling"] },
+  { "id": "sunglasses", "word": "Sunglasses", "category": "Everyday", "hints": ["eye", "shade", "uv"] },
+  { "id": "backpack", "word": "Backpack", "category": "Everyday", "hints": ["carrying", "shoulder", "straps"] },
+  { "id": "charger", "word": "Phone Charger", "category": "Everyday", "hints": ["cable", "power", "plugging"] },
+  { "id": "earbuds", "word": "Earbuds", "category": "Everyday", "hints": ["wireless", "audio", "ears"] },
+  { "id": "coffee_mug", "word": "Coffee Mug", "category": "Everyday", "hints": ["ceramic", "handle", "hot"] },
+  { "id": "water_bottle", "word": "Water Bottle", "category": "Everyday", "hints": ["hydration", "reusable", "portable"] },
+  { "id": "notebook", "word": "Notebook", "category": "Everyday", "hints": ["writing", "pages", "spiral"] },
+  { "id": "pen", "word": "Pen", "category": "Everyday", "hints": ["ink", "writing", "clicking"] },
+  { "id": "scissors", "word": "Scissors", "category": "Everyday", "hints": ["cutting", "blades", "handles"] },
+  { "id": "mirror", "word": "Mirror", "category": "Everyday", "hints": ["reflection", "glass", "looking"] },
+  { "id": "towel", "word": "Towel", "category": "Everyday", "hints": ["drying", "bath", "soft"] },
+  { "id": "pillow", "word": "Pillow", "category": "Everyday", "hints": ["sleep", "cushion", "fluffy"] },
+  { "id": "blanket", "word": "Blanket", "category": "Everyday", "hints": ["warm", "cozy", "covering"] },
+  { "id": "lamp", "word": "Lamp", "category": "Everyday", "hints": ["light", "desk", "switch"] },
+  { "id": "remote_control", "word": "Remote Control", "category": "Everyday", "hints": ["buttons", "tv", "channel"] },
+  { "id": "soap", "word": "Soap", "category": "Everyday", "hints": ["cleaning", "lather", "fragrant"] },
+  { "id": "shampoo", "word": "Shampoo", "category": "Everyday", "hints": ["hair", "washing", "bottle"] },
+  { "id": "deodorant", "word": "Deodorant", "category": "Everyday", "hints": ["underarm", "fragrance", "roll-on"] },
+  { "id": "tissue", "word": "Tissue", "category": "Everyday", "hints": ["soft", "disposable", "nose"] },
+  { "id": "sticky_note", "word": "Sticky Note", "category": "Everyday", "hints": ["adhesive", "reminder", "yellow"] },
+  { "id": "stapler", "word": "Stapler", "category": "Everyday", "hints": ["office", "binding", "click"] },
+  { "id": "paperclip", "word": "Paperclip", "category": "Everyday", "hints": ["metal", "holding", "bent"] },
+  { "id": "rubber_band", "word": "Rubber Band", "category": "Everyday", "hints": ["elastic", "stretchy", "loop"] },
+  { "id": "tape", "word": "Tape", "category": "Everyday", "hints": ["sticky", "roll", "transparent"] },
+  { "id": "trash_can", "word": "Trash Can", "category": "Everyday", "hints": ["waste", "bin", "lid"] },
+  { "id": "broom", "word": "Broom", "category": "Everyday", "hints": ["sweeping", "floor", "bristles"] },
+  { "id": "sponge", "word": "Sponge", "category": "Everyday", "hints": ["absorbing", "kitchen", "scrubbing"] },
+  { "id": "toaster", "word": "Toaster", "category": "Everyday", "hints": ["bread", "slots", "heating"] },
+  { "id": "microwave", "word": "Microwave", "category": "Everyday", "hints": ["heating", "radiation", "kitchen"] },
+  { "id": "fridge", "word": "Refrigerator", "category": "Everyday", "hints": ["cold", "food", "preserving"] },
+  { "id": "oven", "word": "Oven", "category": "Everyday", "hints": ["baking", "hot", "kitchen"] },
+  { "id": "kettle", "word": "Kettle", "category": "Everyday", "hints": ["boiling", "water", "electric"] },
+  { "id": "cutting_board", "word": "Cutting Board", "category": "Everyday", "hints": ["chopping", "wooden", "kitchen"] },
+  { "id": "spatula", "word": "Spatula", "category": "Everyday", "hints": ["flipping", "cooking", "flat"] },
+  { "id": "whisk", "word": "Whisk", "category": "Everyday", "hints": ["mixing", "wire", "beating"] },
+  { "id": "colander", "word": "Colander", "category": "Everyday", "hints": ["draining", "holes", "pasta"] },
+  { "id": "napkin", "word": "Napkin", "category": "Everyday", "hints": ["wiping", "table", "paper"] },
+  { "id": "coaster", "word": "Coaster", "category": "Everyday", "hints": ["drink", "mat", "protecting"] },
+  { "id": "door_handle", "word": "Door Handle", "category": "Everyday", "hints": ["opening", "turning", "knob"] },
+  { "id": "light_switch", "word": "Light Switch", "category": "Everyday", "hints": ["toggle", "wall", "electricity"] },
+  { "id": "wifi_router", "word": "WiFi Router", "category": "Everyday", "hints": ["internet", "wireless", "blinking"] },
+  { "id": "battery", "word": "Battery", "category": "Everyday", "hints": ["power", "portable", "rechargeable"] },
+  { "id": "extension_cord", "word": "Extension Cord", "category": "Everyday", "hints": ["outlet", "extra", "length"] },
+  { "id": "shopping_bag", "word": "Shopping Bag", "category": "Everyday", "hints": ["carrying", "store", "reusable"] },
+  { "id": "receipt", "word": "Receipt", "category": "Everyday", "hints": ["purchase", "proof", "paper"] },
+  { "id": "coin", "word": "Coin", "category": "Everyday", "hints": ["metal", "round", "currency"] },
+  { "id": "credit_card", "word": "Credit Card", "category": "Everyday", "hints": ["plastic", "payment", "swipe"] },
+  { "id": "calendar", "word": "Calendar", "category": "Everyday", "hints": ["dates", "months", "planning"] },
+  { "id": "watch", "word": "Wristwatch", "category": "Everyday", "hints": ["time", "wrist", "ticking"] },
+  { "id": "headphones", "word": "Headphones", "category": "Everyday", "hints": ["audio", "over-ear", "listening"] },
+  { "id": "usb_drive", "word": "USB Drive", "category": "Everyday", "hints": ["storage", "portable", "plug"] },
+  { "id": "mousepad", "word": "Mouse Pad", "category": "Everyday", "hints": ["desk", "surface", "sliding"] },
+  { "id": "bookmark", "word": "Bookmark", "category": "Everyday", "hints": ["page", "marker", "reading"] },
+  { "id": "ruler", "word": "Ruler", "category": "Everyday", "hints": ["measuring", "straight", "edge"] },
+  { "id": "eraser", "word": "Eraser", "category": "Everyday", "hints": ["rubbing", "pencil", "removing"] },
+  { "id": "highlighter", "word": "Highlighter", "category": "Everyday", "hints": ["neon", "marking", "fluorescent"] },
+  { "id": "envelope", "word": "Envelope", "category": "Everyday", "hints": ["mail", "letter", "sealing"] },
+  { "id": "stamp", "word": "Postage Stamp", "category": "Everyday", "hints": ["mail", "adhesive", "small"] },
+  { "id": "clothespin", "word": "Clothespin", "category": "Everyday", "hints": ["laundry", "hanging", "clipping"] },
+  { "id": "hangar", "word": "Hanger", "category": "Everyday", "hints": ["closet", "clothes", "hook"] },
+  { "id": "doorbell", "word": "Doorbell", "category": "Everyday", "hints": ["visitor", "ringing", "entrance"] },
+  { "id": "mailbox", "word": "Mailbox", "category": "Everyday", "hints": ["letters", "outside", "postal"] },
+  { "id": "thermostat", "word": "Thermostat", "category": "Everyday", "hints": ["temperature", "control", "setting"] },
+  { "id": "smoke_detector", "word": "Smoke Detector", "category": "Everyday", "hints": ["ceiling", "beeping", "safety"] },
+  { "id": "ice_cube", "word": "Ice Cube Tray", "category": "Everyday", "hints": ["freezer", "mold", "cold"] },
+  { "id": "dish_rack", "word": "Dish Rack", "category": "Everyday", "hints": ["drying", "plates", "draining"] },
+  { "id": "plunger", "word": "Plunger", "category": "Everyday", "hints": ["suction", "clogged", "bathroom"] },
+  { "id": "shower_head", "word": "Shower Head", "category": "Everyday", "hints": ["spraying", "bathroom", "adjustable"] },
+  { "id": "curtain", "word": "Curtain", "category": "Everyday", "hints": ["window", "fabric", "blocking"] },
+  { "id": "doormat", "word": "Doormat", "category": "Everyday", "hints": ["entrance", "welcome", "wiping"] },
+  { "id": "step_stool", "word": "Step Stool", "category": "Everyday", "hints": ["reaching", "short", "climbing"] },
+  { "id": "laundry_basket", "word": "Laundry Basket", "category": "Everyday", "hints": ["dirty", "clothes", "hamper"] },
+  { "id": "lint_roller", "word": "Lint Roller", "category": "Everyday", "hints": ["sticky", "pet", "hair"] },
+  { "id": "air_freshener", "word": "Air Freshener", "category": "Everyday", "hints": ["scented", "spray", "room"] },
+  { "id": "first_aid_kit", "word": "First Aid Kit", "category": "Everyday", "hints": ["bandages", "emergency", "medical"] },
+  { "id": "sunscreen", "word": "Sunscreen", "category": "Everyday", "hints": ["spf", "lotion", "protection"] },
+  { "id": "hand_sanitizer", "word": "Hand Sanitizer", "category": "Everyday", "hints": ["gel", "alcohol", "germs"] },
+  { "id": "candle", "word": "Candle", "category": "Everyday", "hints": ["wax", "flame", "scented"] },
+  { "id": "clotheshanger", "word": "Measuring Tape", "category": "Everyday", "hints": ["flexible", "inches", "retractable"] },
+  { "id": "flashlight", "word": "Flashlight", "category": "Everyday", "hints": ["portable", "beam", "dark"] },
+  { "id": "corkscrew", "word": "Corkscrew", "category": "Everyday", "hints": ["wine", "bottle", "spiral"] },
+  { "id": "can_opener", "word": "Can Opener", "category": "Everyday", "hints": ["tin", "kitchen", "crank"] },
+  { "id": "tupperware", "word": "Tupperware", "category": "Everyday", "hints": ["container", "leftovers", "plastic"] },
+  { "id": "zipper", "word": "Zipper", "category": "Everyday", "hints": ["fastener", "teeth", "pulling"] },
+  { "id": "velcro", "word": "Velcro", "category": "Everyday", "hints": ["hook", "loop", "fastener"] },
+  { "id": "safety_pin", "word": "Safety Pin", "category": "Everyday", "hints": ["clasp", "sharp", "holding"] },
+  { "id": "q_tip", "word": "Cotton Swab", "category": "Everyday", "hints": ["ear", "cleaning", "stick"] },
+  { "id": "nail_clipper", "word": "Nail Clipper", "category": "Everyday", "hints": ["trimming", "fingernail", "small"] },
+  { "id": "comb", "word": "Comb", "category": "Everyday", "hints": ["teeth", "hair", "grooming"] },
+  { "id": "razor", "word": "Razor", "category": "Everyday", "hints": ["shaving", "blade", "smooth"] },
+  { "id": "bandaid", "word": "Band-Aid", "category": "Everyday", "hints": ["adhesive", "wound", "covering"] },
+  { "id": "thermometer", "word": "Thermometer", "category": "Everyday", "hints": ["temperature", "measuring", "fever"] },
+  { "id": "power_bank", "word": "Power Bank", "category": "Everyday", "hints": ["portable", "charging", "usb"] },
+  { "id": "popcorn", "word": "Popcorn", "category": "Everyday", "hints": ["movie", "snack", "popping"] },
+  { "id": "chewing_gum", "word": "Chewing Gum", "category": "Everyday", "hints": ["minty", "jaw", "bubble"] },
 ] as const

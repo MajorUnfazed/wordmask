@@ -1,304 +1,104 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const SCIENCE_PACK: WordEntry[] = [
-  {
-    "id": "black_hole",
-    "word": "Black Hole",
-    "category": "Science",
-    "hints": [
-      "region",
-      "spacetime",
-      "gravity"
-    ]
-  },
-  {
-    "id": "crispr",
-    "word": "CRISPR",
-    "category": "Science",
-    "hints": [
-      "gene",
-      "editing",
-      "tool"
-    ]
-  },
-  {
-    "id": "photosynthesis",
-    "word": "Photosynthesis",
-    "category": "Science",
-    "hints": [
-      "plants",
-      "converting",
-      "sunlight"
-    ]
-  },
-  {
-    "id": "entropy",
-    "word": "Entropy",
-    "category": "Science",
-    "hints": [
-      "measure",
-      "disorder",
-      "thermodynamic"
-    ]
-  },
-  {
-    "id": "mitochondria",
-    "word": "Mitochondria",
-    "category": "Science",
-    "hints": [
-      "organelle",
-      "nicknamed",
-      "powerhouse"
-    ]
-  },
-  {
-    "id": "dark_matter",
-    "word": "Dark Matter",
-    "category": "Science",
-    "hints": [
-      "invisible",
-      "substance",
-      "making"
-    ]
-  },
-  {
-    "id": "tectonic_plates",
-    "word": "Tectonic Plates",
-    "category": "Science",
-    "hints": [
-      "giant",
-      "rock",
-      "slabs"
-    ]
-  },
-  {
-    "id": "doppler_effect",
-    "word": "Doppler Effect",
-    "category": "Science",
-    "hints": [
-      "frequency",
-      "shift",
-      "observed"
-    ]
-  },
-  {
-    "id": "half_life",
-    "word": "Half-Life",
-    "category": "Science",
-    "hints": [
-      "time",
-      "radioactive",
-      "substance"
-    ]
-  },
-  {
-    "id": "osmosis",
-    "word": "Osmosis",
-    "category": "Science",
-    "hints": [
-      "water",
-      "moving",
-      "membrane"
-    ]
-  },
-  {
-    "id": "superconductor",
-    "word": "Superconductor",
-    "category": "Science",
-    "hints": [
-      "material",
-      "zero",
-      "electrical"
-    ]
-  },
-  {
-    "id": "antimatter",
-    "word": "Antimatter",
-    "category": "Science",
-    "hints": [
-      "particles",
-      "opposite",
-      "charge"
-    ]
-  },
-  {
-    "id": "neuron",
-    "word": "Neuron",
-    "category": "Science",
-    "hints": [
-      "nerve",
-      "cell",
-      "transmits"
-    ]
-  },
-  {
-    "id": "catalysis",
-    "word": "Catalysis",
-    "category": "Science",
-    "hints": [
-      "speeding",
-      "chemical",
-      "reaction"
-    ]
-  },
-  {
-    "id": "higgs_boson",
-    "word": "Higgs Boson",
-    "category": "Science",
-    "hints": [
-      "particle",
-      "gives",
-      "other"
-    ]
-  },
-  {
-    "id": "stem_cell",
-    "word": "Stem Cell",
-    "category": "Science",
-    "hints": [
-      "undifferentiated",
-      "can",
-      "become"
-    ]
-  },
-  {
-    "id": "plate_tectonics",
-    "word": "Plate Tectonics",
-    "category": "Science",
-    "hints": [
-      "theory",
-      "describing",
-      "movement"
-    ]
-  },
-  {
-    "id": "solar_flare",
-    "word": "Solar Flare",
-    "category": "Science",
-    "hints": [
-      "intense",
-      "burst",
-      "radiation"
-    ]
-  },
-  {
-    "id": "protein_folding",
-    "word": "Protein Folding",
-    "category": "Science",
-    "hints": [
-      "process",
-      "which",
-      "chain"
-    ]
-  },
-  {
-    "id": "quantum_entanglement",
-    "word": "Quantum Entanglement",
-    "category": "Science",
-    "hints": [
-      "two",
-      "particles",
-      "sharing"
-    ]
-  },
-  {
-    "id": "dna_double_helix",
-    "word": "DNA Double Helix",
-    "category": "Science",
-    "hints": [
-      "watson",
-      "crick's",
-      "twisted"
-    ]
-  },
-  {
-    "id": "event_horizon",
-    "word": "Event Horizon",
-    "category": "Science",
-    "hints": [
-      "point",
-      "return",
-      "edge"
-    ]
-  },
-  {
-    "id": "electromagnetic_spectrum",
-    "word": "Electromagnetic Spectrum",
-    "category": "Science",
-    "hints": [
-      "full",
-      "range",
-      "radiation"
-    ]
-  },
-  {
-    "id": "antibody",
-    "word": "Antibody",
-    "category": "Science",
-    "hints": [
-      "protein",
-      "produced",
-      "immune"
-    ]
-  },
-  {
-    "id": "isotope",
-    "word": "Isotope",
-    "category": "Science",
-    "hints": [
-      "variant",
-      "element",
-      "same"
-    ]
-  },
-  {
-    "id": "greenhouse_effect",
-    "word": "Greenhouse Effect",
-    "category": "Science",
-    "hints": [
-      "gases",
-      "trap",
-      "heat"
-    ]
-  },
-  {
-    "id": "absolute_zero",
-    "word": "Absolute Zero",
-    "category": "Science",
-    "hints": [
-      "273",
-      "coldest",
-      "theoretically"
-    ]
-  },
-  {
-    "id": "centrifuge",
-    "word": "Centrifuge",
-    "category": "Science",
-    "hints": [
-      "machine",
-      "spins",
-      "samples"
-    ]
-  },
-  {
-    "id": "epigenetics",
-    "word": "Epigenetics",
-    "category": "Science",
-    "hints": [
-      "study",
-      "gene",
-      "expression"
-    ]
-  },
-  {
-    "id": "event_horizon_telescope",
-    "word": "Event Horizon Telescope",
-    "category": "Science",
-    "hints": [
-      "array",
-      "captured",
-      "first"
-    ]
-  }
+  { "id": "black_hole_s", "word": "Black Hole", "category": "Science", "hints": ["gravitational", "singularity", "space"] },
+  { "id": "photosynthesis", "word": "Photosynthesis", "category": "Science", "hints": ["plants", "sunlight", "chlorophyll"] },
+  { "id": "dna", "word": "DNA", "category": "Science", "hints": ["double", "helix", "genetic"] },
+  { "id": "atom", "word": "Atom", "category": "Science", "hints": ["smallest", "particle", "nucleus"] },
+  { "id": "gravity_s", "word": "Gravity", "category": "Science", "hints": ["newton", "apple", "falling"] },
+  { "id": "big_bang", "word": "Big Bang", "category": "Science", "hints": ["universe", "origin", "expansion"] },
+  { "id": "evolution", "word": "Evolution", "category": "Science", "hints": ["darwin", "natural", "selection"] },
+  { "id": "quantum", "word": "Quantum Mechanics", "category": "Science", "hints": ["subatomic", "uncertainty", "physics"] },
+  { "id": "supernova", "word": "Supernova", "category": "Science", "hints": ["exploding", "star", "bright"] },
+  { "id": "mitosis", "word": "Mitosis", "category": "Science", "hints": ["cell", "division", "replication"] },
+  { "id": "catalyst", "word": "Catalyst", "category": "Science", "hints": ["speeds", "reaction", "unchanged"] },
+  { "id": "entropy", "word": "Entropy", "category": "Science", "hints": ["disorder", "thermodynamics", "increasing"] },
+  { "id": "electron", "word": "Electron", "category": "Science", "hints": ["negative", "charge", "orbiting"] },
+  { "id": "neutron", "word": "Neutron", "category": "Science", "hints": ["neutral", "nucleus", "particle"] },
+  { "id": "proton", "word": "Proton", "category": "Science", "hints": ["positive", "charge", "nucleus"] },
+  { "id": "periodic_table", "word": "Periodic Table", "category": "Science", "hints": ["elements", "organized", "chart"] },
+  { "id": "hydrogen", "word": "Hydrogen", "category": "Science", "hints": ["lightest", "element", "h2o"] },
+  { "id": "oxygen", "word": "Oxygen", "category": "Science", "hints": ["breathing", "element", "fire"] },
+  { "id": "carbon", "word": "Carbon", "category": "Science", "hints": ["organic", "diamond", "element"] },
+  { "id": "helium", "word": "Helium", "category": "Science", "hints": ["balloon", "light", "noble"] },
+  { "id": "osmosis", "word": "Osmosis", "category": "Science", "hints": ["membrane", "water", "diffusion"] },
+  { "id": "magnetism", "word": "Magnetism", "category": "Science", "hints": ["attract", "repel", "poles"] },
+  { "id": "tectonic_plates", "word": "Tectonic Plates", "category": "Science", "hints": ["earth", "shifting", "earthquakes"] },
+  { "id": "fossil", "word": "Fossil", "category": "Science", "hints": ["preserved", "ancient", "rock"] },
+  { "id": "nebula", "word": "Nebula", "category": "Science", "hints": ["gas", "cloud", "space"] },
+  { "id": "constellation", "word": "Constellation", "category": "Science", "hints": ["star", "pattern", "named"] },
+  { "id": "comet", "word": "Comet", "category": "Science", "hints": ["icy", "tail", "orbit"] },
+  { "id": "asteroid", "word": "Asteroid", "category": "Science", "hints": ["rocky", "space", "belt"] },
+  { "id": "solar_system", "word": "Solar System", "category": "Science", "hints": ["planets", "sun", "orbiting"] },
+  { "id": "milky_way", "word": "Milky Way", "category": "Science", "hints": ["galaxy", "spiral", "home"] },
+  { "id": "relativity", "word": "Relativity", "category": "Science", "hints": ["einstein", "spacetime", "mass"] },
+  { "id": "speed_of_light", "word": "Speed of Light", "category": "Science", "hints": ["fastest", "constant", "vacuum"] },
+  { "id": "dark_matter", "word": "Dark Matter", "category": "Science", "hints": ["invisible", "mass", "universe"] },
+  { "id": "dark_energy", "word": "Dark Energy", "category": "Science", "hints": ["universe", "expanding", "mysterious"] },
+  { "id": "nuclear_fusion", "word": "Nuclear Fusion", "category": "Science", "hints": ["sun", "combining", "atoms"] },
+  { "id": "nuclear_fission", "word": "Nuclear Fission", "category": "Science", "hints": ["splitting", "atoms", "energy"] },
+  { "id": "radiation_s", "word": "Radiation", "category": "Science", "hints": ["electromagnetic", "waves", "decay"] },
+  { "id": "vaccine", "word": "Vaccine", "category": "Science", "hints": ["immunity", "injection", "prevention"] },
+  { "id": "bacteria", "word": "Bacteria", "category": "Science", "hints": ["microscopic", "single-celled", "prokaryote"] },
+  { "id": "virus", "word": "Virus", "category": "Science", "hints": ["infectious", "replication", "host"] },
+  { "id": "antibiotic", "word": "Antibiotic", "category": "Science", "hints": ["medicine", "bacteria", "resistance"] },
+  { "id": "gene", "word": "Gene", "category": "Science", "hints": ["hereditary", "dna", "trait"] },
+  { "id": "chromosome", "word": "Chromosome", "category": "Science", "hints": ["dna", "packaged", "pairs"] },
+  { "id": "stem_cell", "word": "Stem Cell", "category": "Science", "hints": ["undifferentiated", "regeneration", "potential"] },
+  { "id": "neuron", "word": "Neuron", "category": "Science", "hints": ["brain", "nerve", "signal"] },
+  { "id": "synapse", "word": "Synapse", "category": "Science", "hints": ["nerve", "gap", "transmission"] },
+  { "id": "ecosystem", "word": "Ecosystem", "category": "Science", "hints": ["organisms", "environment", "balanced"] },
+  { "id": "food_chain", "word": "Food Chain", "category": "Science", "hints": ["predator", "prey", "energy"] },
+  { "id": "climate_change", "word": "Climate Change", "category": "Science", "hints": ["warming", "global", "emissions"] },
+  { "id": "ozone", "word": "Ozone Layer", "category": "Science", "hints": ["protective", "ultraviolet", "atmosphere"] },
+  { "id": "greenhouse_effect", "word": "Greenhouse Effect", "category": "Science", "hints": ["trapping", "heat", "atmosphere"] },
+  { "id": "ph_scale", "word": "pH Scale", "category": "Science", "hints": ["acid", "base", "neutral"] },
+  { "id": "exothermic", "word": "Exothermic Reaction", "category": "Science", "hints": ["heat", "releasing", "chemical"] },
+  { "id": "endothermic", "word": "Endothermic Reaction", "category": "Science", "hints": ["heat", "absorbing", "cold"] },
+  { "id": "molecule", "word": "Molecule", "category": "Science", "hints": ["bonded", "atoms", "compound"] },
+  { "id": "isotope", "word": "Isotope", "category": "Science", "hints": ["same", "element", "neutrons"] },
+  { "id": "crispr", "word": "CRISPR", "category": "Science", "hints": ["gene", "editing", "scissors"] },
+  { "id": "penicillin", "word": "Penicillin", "category": "Science", "hints": ["mold", "fleming", "antibiotic"] },
+  { "id": "microscope", "word": "Microscope", "category": "Science", "hints": ["magnifying", "lens", "tiny"] },
+  { "id": "telescope_s", "word": "Telescope", "category": "Science", "hints": ["distant", "space", "observing"] },
+  { "id": "hubble", "word": "Hubble Telescope", "category": "Science", "hints": ["space", "orbiting", "images"] },
+  { "id": "james_webb", "word": "James Webb Telescope", "category": "Science", "hints": ["infrared", "newest", "deep-space"] },
+  { "id": "cern", "word": "CERN", "category": "Science", "hints": ["particle", "collider", "switzerland"] },
+  { "id": "higgs_boson", "word": "Higgs Boson", "category": "Science", "hints": ["god", "particle", "mass"] },
+  { "id": "schrodinger", "word": "Schrödinger's Cat", "category": "Science", "hints": ["alive", "dead", "box"] },
+  { "id": "doppler_effect", "word": "Doppler Effect", "category": "Science", "hints": ["sound", "frequency", "approaching"] },
+  { "id": "archimedes", "word": "Archimedes Principle", "category": "Science", "hints": ["buoyancy", "displacement", "eureka"] },
+  { "id": "friction", "word": "Friction", "category": "Science", "hints": ["resistance", "surface", "heat"] },
+  { "id": "inertia", "word": "Inertia", "category": "Science", "hints": ["motion", "rest", "newton"] },
+  { "id": "momentum", "word": "Momentum", "category": "Science", "hints": ["mass", "velocity", "conserved"] },
+  { "id": "wavelength", "word": "Wavelength", "category": "Science", "hints": ["distance", "peak", "frequency"] },
+  { "id": "diffraction", "word": "Diffraction", "category": "Science", "hints": ["bending", "waves", "obstacle"] },
+  { "id": "electrolysis", "word": "Electrolysis", "category": "Science", "hints": ["electric", "splitting", "compound"] },
+  { "id": "stalactite", "word": "Stalactite", "category": "Science", "hints": ["cave", "hanging", "mineral"] },
+  { "id": "aurora_borealis", "word": "Aurora Borealis", "category": "Science", "hints": ["northern", "lights", "magnetic"] },
+  { "id": "plate_tectonics", "word": "Plate Tectonics", "category": "Science", "hints": ["continental", "drift", "mantle"] },
+  { "id": "geological_era", "word": "Jurassic Period", "category": "Science", "hints": ["dinosaurs", "mesozoic", "ancient"] },
+  { "id": "ice_age", "word": "Ice Age", "category": "Science", "hints": ["glacial", "period", "frozen"] },
+  { "id": "pangaea", "word": "Pangaea", "category": "Science", "hints": ["supercontinent", "single", "ancient"] },
+  { "id": "meteor", "word": "Meteor", "category": "Science", "hints": ["shooting", "star", "burning"] },
+  { "id": "lightyear", "word": "Light Year", "category": "Science", "hints": ["distance", "speed", "astronomical"] },
+  { "id": "exoplanet", "word": "Exoplanet", "category": "Science", "hints": ["distant", "orbiting", "star"] },
+  { "id": "mars_rover", "word": "Mars Rover", "category": "Science", "hints": ["perseverance", "red", "exploring"] },
+  { "id": "iss", "word": "International Space Station", "category": "Science", "hints": ["orbiting", "laboratory", "astronauts"] },
+  { "id": "refraction", "word": "Refraction", "category": "Science", "hints": ["light", "bending", "prism"] },
+  { "id": "combustion", "word": "Combustion", "category": "Science", "hints": ["burning", "oxygen", "heat"] },
+  { "id": "condensation", "word": "Condensation", "category": "Science", "hints": ["vapor", "liquid", "cooling"] },
+  { "id": "evaporation", "word": "Evaporation", "category": "Science", "hints": ["liquid", "gas", "heating"] },
+  { "id": "sublimation", "word": "Sublimation", "category": "Science", "hints": ["solid", "gas", "skipping"] },
+  { "id": "absolute_zero", "word": "Absolute Zero", "category": "Science", "hints": ["coldest", "temperature", "kelvin"] },
+  { "id": "superconductor", "word": "Superconductor", "category": "Science", "hints": ["zero", "resistance", "cold"] },
+  { "id": "plasma", "word": "Plasma", "category": "Science", "hints": ["fourth", "state", "matter"] },
+  { "id": "bioluminescence", "word": "Bioluminescence", "category": "Science", "hints": ["glowing", "organisms", "ocean"] },
+  { "id": "symbiosis", "word": "Symbiosis", "category": "Science", "hints": ["mutual", "benefit", "organisms"] },
+  { "id": "metamorphosis", "word": "Metamorphosis", "category": "Science", "hints": ["transformation", "butterfly", "stages"] },
+  { "id": "adaptation", "word": "Adaptation", "category": "Science", "hints": ["survival", "trait", "environment"] },
+  { "id": "camouflage_s", "word": "Camouflage", "category": "Science", "hints": ["blending", "hiding", "predator"] },
+  { "id": "dopamine", "word": "Dopamine", "category": "Science", "hints": ["pleasure", "neurotransmitter", "reward"] },
+  { "id": "serotonin", "word": "Serotonin", "category": "Science", "hints": ["mood", "happiness", "brain"] },
+  { "id": "adrenaline", "word": "Adrenaline", "category": "Science", "hints": ["fight", "flight", "rush"] },
 ] as const

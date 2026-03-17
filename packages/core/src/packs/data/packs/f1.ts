@@ -1,504 +1,91 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const F1_PACK: WordEntry[] = [
-  {
-    "id": "drs",
-    "word": "DRS",
-    "category": "F1 Motorsport",
-    "hints": [
-      "drag",
-      "reduction",
-      "system"
-    ]
-  },
-  {
-    "id": "undercut",
-    "word": "Undercut",
-    "category": "F1 Motorsport",
-    "hints": [
-      "pitting",
-      "earlier",
-      "gain"
-    ]
-  },
-  {
-    "id": "safety_car",
-    "word": "Safety Car",
-    "category": "F1 Motorsport",
-    "hints": [
-      "deployed",
-      "neutralise",
-      "race"
-    ]
-  },
-  {
-    "id": "parc_ferme",
-    "word": "Parc Fermé",
-    "category": "F1 Motorsport",
-    "hints": [
-      "restricted",
-      "area",
-      "cars"
-    ]
-  },
-  {
-    "id": "tifosi",
-    "word": "Tifosi",
-    "category": "F1 Motorsport",
-    "hints": [
-      "passionate",
-      "ferrari",
-      "fans"
-    ]
-  },
-  {
-    "id": "haas",
-    "word": "Haas",
-    "category": "F1 Motorsport",
-    "hints": [
-      "american",
-      "team",
-      "based"
-    ]
-  },
-  {
-    "id": "ayrton_senna",
-    "word": "Ayrton Senna",
-    "category": "F1 Motorsport",
-    "hints": [
-      "brazilian",
-      "triple",
-      "world"
-    ]
-  },
-  {
-    "id": "lewis_hamilton",
-    "word": "Lewis Hamilton",
-    "category": "F1 Motorsport",
-    "hints": [
-      "record",
-      "seven",
-      "time"
-    ]
-  },
-  {
-    "id": "max_verstappen",
-    "word": "Max Verstappen",
-    "category": "F1 Motorsport",
-    "hints": [
-      "dominant",
-      "dutch",
-      "champion"
-    ]
-  },
-  {
-    "id": "monaco",
-    "word": "Monaco",
-    "category": "F1 Motorsport",
-    "hints": [
-      "narrow",
-      "street",
-      "circuit"
-    ]
-  },
-  {
-    "id": "silverstone",
-    "word": "Silverstone",
-    "category": "F1 Motorsport",
-    "hints": [
-      "historic",
-      "british",
-      "grand"
-    ]
-  },
-  {
-    "id": "spa_francorchamps",
-    "word": "Spa-Francorchamps",
-    "category": "F1 Motorsport",
-    "hints": [
-      "belgian",
-      "circuit",
-      "famous"
-    ]
-  },
-  {
-    "id": "monza",
-    "word": "Monza",
-    "category": "F1 Motorsport",
-    "hints": [
-      "temple",
-      "speed",
-      "fastest"
-    ]
-  },
-  {
-    "id": "podium",
-    "word": "Podium",
-    "category": "F1 Motorsport",
-    "hints": [
-      "top",
-      "three",
-      "finishing"
-    ]
-  },
-  {
-    "id": "pole_position",
-    "word": "Pole Position",
-    "category": "F1 Motorsport",
-    "hints": [
-      "front",
-      "grid",
-      "qualifying"
-    ]
-  },
-  {
-    "id": "pit_stop",
-    "word": "Pit Stop",
-    "category": "F1 Motorsport",
-    "hints": [
-      "tyre",
-      "change",
-      "race"
-    ]
-  },
-  {
-    "id": "virtual_safety_car",
-    "word": "Virtual Safety Car",
-    "category": "F1 Motorsport",
-    "hints": [
-      "drivers",
-      "must",
-      "maintain"
-    ]
-  },
-  {
-    "id": "graining",
-    "word": "Graining",
-    "category": "F1 Motorsport",
-    "hints": [
-      "tyre",
-      "surface",
-      "rubber"
-    ]
-  },
-  {
-    "id": "blistering",
-    "word": "Blistering",
-    "category": "F1 Motorsport",
-    "hints": [
-      "tyre",
-      "heat",
-      "damage"
-    ]
-  },
-  {
-    "id": "overcut",
-    "word": "Overcut",
-    "category": "F1 Motorsport",
-    "hints": [
-      "staying",
-      "out",
-      "longer"
-    ]
-  },
-  {
-    "id": "grid_penalty",
-    "word": "Grid Penalty",
-    "category": "F1 Motorsport",
-    "hints": [
-      "starting",
-      "further",
-      "back"
-    ]
-  },
-  {
-    "id": "team_radio",
-    "word": "Team Radio",
-    "category": "F1 Motorsport",
-    "hints": [
-      "communication",
-      "channel",
-      "between"
-    ]
-  },
-  {
-    "id": "sector_time",
-    "word": "Sector Time",
-    "category": "F1 Motorsport",
-    "hints": [
-      "timing",
-      "split",
-      "one"
-    ]
-  },
-  {
-    "id": "lap_record",
-    "word": "Lap Record",
-    "category": "F1 Motorsport",
-    "hints": [
-      "fastest",
-      "ever",
-      "set"
-    ]
-  },
-  {
-    "id": "downforce",
-    "word": "Downforce",
-    "category": "F1 Motorsport",
-    "hints": [
-      "aerodynamic",
-      "force",
-      "pushing"
-    ]
-  },
-  {
-    "id": "porpoising",
-    "word": "Porpoising",
-    "category": "F1 Motorsport",
-    "hints": [
-      "bouncing",
-      "caused",
-      "ground"
-    ]
-  },
-  {
-    "id": "fia",
-    "word": "FIA",
-    "category": "F1 Motorsport",
-    "hints": [
-      "international",
-      "governing",
-      "body"
-    ]
-  },
-  {
-    "id": "stewards",
-    "word": "Stewards",
-    "category": "F1 Motorsport",
-    "hints": [
-      "officials",
-      "investigate",
-      "track"
-    ]
-  },
-  {
-    "id": "concorde_agreement",
-    "word": "Concorde Agreement",
-    "category": "F1 Motorsport",
-    "hints": [
-      "commercial",
-      "contract",
-      "between"
-    ]
-  },
-  {
-    "id": "cost_cap",
-    "word": "Cost Cap",
-    "category": "F1 Motorsport",
-    "hints": [
-      "budget",
-      "limit",
-      "introduced"
-    ]
-  },
-  {
-    "id": "sprint_race",
-    "word": "Sprint Race",
-    "category": "F1 Motorsport",
-    "hints": [
-      "short",
-      "saturday",
-      "format"
-    ]
-  },
-  {
-    "id": "michael_schumacher",
-    "word": "Michael Schumacher",
-    "category": "F1 Motorsport",
-    "hints": [
-      "german",
-      "seven",
-      "time"
-    ]
-  },
-  {
-    "id": "nico_rosberg",
-    "word": "Nico Rosberg",
-    "category": "F1 Motorsport",
-    "hints": [
-      "2016",
-      "champion",
-      "retired"
-    ]
-  },
-  {
-    "id": "jeddah_corniche",
-    "word": "Jeddah Corniche",
-    "category": "F1 Motorsport",
-    "hints": [
-      "saudi",
-      "arabian",
-      "street"
-    ]
-  },
-  {
-    "id": "suzuka",
-    "word": "Suzuka",
-    "category": "F1 Motorsport",
-    "hints": [
-      "japanese",
-      "figure",
-      "eight"
-    ]
-  },
-  {
-    "id": "kers",
-    "word": "KERS",
-    "category": "F1 Motorsport",
-    "hints": [
-      "kinetic",
-      "energy",
-      "recovery"
-    ]
-  },
-  {
-    "id": "marbles",
-    "word": "Marbles",
-    "category": "F1 Motorsport",
-    "hints": [
-      "rubber",
-      "debris",
-      "builds"
-    ]
-  },
-  {
-    "id": "kerb",
-    "word": "Kerb",
-    "category": "F1 Motorsport",
-    "hints": [
-      "raised",
-      "painted",
-      "edge"
-    ]
-  },
-  {
-    "id": "braking_point",
-    "word": "Braking Point",
-    "category": "F1 Motorsport",
-    "hints": [
-      "latest",
-      "possible",
-      "position"
-    ]
-  },
-  {
-    "id": "apex",
-    "word": "Apex",
-    "category": "F1 Motorsport",
-    "hints": [
-      "innermost",
-      "point",
-      "corner"
-    ]
-  },
-  {
-    "id": "chicane",
-    "word": "Chicane",
-    "category": "F1 Motorsport",
-    "hints": [
-      "tight",
-      "section",
-      "added"
-    ]
-  },
-  {
-    "id": "hairpin",
-    "word": "Hairpin",
-    "category": "F1 Motorsport",
-    "hints": [
-      "very",
-      "tight",
-      "slow"
-    ]
-  },
-  {
-    "id": "eau_rouge",
-    "word": "Eau Rouge",
-    "category": "F1 Motorsport",
-    "hints": [
-      "legendary",
-      "uphill",
-      "left"
-    ]
-  },
-  {
-    "id": "verstappen_lap",
-    "word": "Verstappen Lap",
-    "category": "F1 Motorsport",
-    "hints": [
-      "slang",
-      "incredibly",
-      "fast"
-    ]
-  },
-  {
-    "id": "lapped_traffic",
-    "word": "Lapped Traffic",
-    "category": "F1 Motorsport",
-    "hints": [
-      "backmarker",
-      "cars",
-      "leaders"
-    ]
-  },
-  {
-    "id": "blue_flag",
-    "word": "Blue Flag",
-    "category": "F1 Motorsport",
-    "hints": [
-      "signal",
-      "move",
-      "aside"
-    ]
-  },
-  {
-    "id": "yellow_flag",
-    "word": "Yellow Flag",
-    "category": "F1 Motorsport",
-    "hints": [
-      "danger",
-      "ahead",
-      "overtaking"
-    ]
-  },
-  {
-    "id": "red_flag",
-    "word": "Red Flag",
-    "category": "F1 Motorsport",
-    "hints": [
-      "race",
-      "suspended",
-      "all"
-    ]
-  },
-  {
-    "id": "formation_lap",
-    "word": "Formation Lap",
-    "category": "F1 Motorsport",
-    "hints": [
-      "warm",
-      "standing",
-      "start"
-    ]
-  },
-  {
-    "id": "flying_lap",
-    "word": "Flying Lap",
-    "category": "F1 Motorsport",
-    "hints": [
-      "single",
-      "timed",
-      "qualifying"
-    ]
-  }
+  { "id": "pit_stop", "word": "Pit Stop", "category": "Formula 1", "hints": ["tyre", "change", "seconds"] },
+  { "id": "drs", "word": "DRS", "category": "Formula 1", "hints": ["drag", "reduction", "overtaking"] },
+  { "id": "pole_position", "word": "Pole Position", "category": "Formula 1", "hints": ["fastest", "qualifying", "front"] },
+  { "id": "safety_car", "word": "Safety Car", "category": "Formula 1", "hints": ["yellow", "flags", "slowing"] },
+  { "id": "podium", "word": "Podium", "category": "Formula 1", "hints": ["top", "three", "champagne"] },
+  { "id": "chicane", "word": "Chicane", "category": "Formula 1", "hints": ["tight", "turns", "slowing"] },
+  { "id": "slipstream", "word": "Slipstream", "category": "Formula 1", "hints": ["drafting", "behind", "speed"] },
+  { "id": "grid_penalty", "word": "Grid Penalty", "category": "Formula 1", "hints": ["positions", "lost", "infraction"] },
+  { "id": "undercut", "word": "Undercut", "category": "Formula 1", "hints": ["pitting", "early", "strategy"] },
+  { "id": "overcut", "word": "Overcut", "category": "Formula 1", "hints": ["staying", "out", "longer"] },
+  { "id": "hamilton", "word": "Lewis Hamilton", "category": "Formula 1", "hints": ["seven", "time", "champion"] },
+  { "id": "verstappen", "word": "Max Verstappen", "category": "Formula 1", "hints": ["dutch", "red", "bull"] },
+  { "id": "leclerc", "word": "Charles Leclerc", "category": "Formula 1", "hints": ["ferrari", "monégasque", "smooth"] },
+  { "id": "norris", "word": "Lando Norris", "category": "Formula 1", "hints": ["mclaren", "british", "young"] },
+  { "id": "alonso", "word": "Fernando Alonso", "category": "Formula 1", "hints": ["spanish", "veteran", "aston"] },
+  { "id": "schumacher", "word": "Michael Schumacher", "category": "Formula 1", "hints": ["seven", "titles", "ferrari"] },
+  { "id": "senna", "word": "Ayrton Senna", "category": "Formula 1", "hints": ["brazilian", "legendary", "rain"] },
+  { "id": "prost", "word": "Alain Prost", "category": "Formula 1", "hints": ["professor", "french", "rival"] },
+  { "id": "vettel", "word": "Sebastian Vettel", "category": "Formula 1", "hints": ["four", "time", "german"] },
+  { "id": "raikkonen", "word": "Kimi Räikkönen", "category": "Formula 1", "hints": ["iceman", "finnish", "bwoah"] },
+  { "id": "ricciardo", "word": "Daniel Ricciardo", "category": "Formula 1", "hints": ["australian", "shoey", "smile"] },
+  { "id": "perez", "word": "Sergio Pérez", "category": "Formula 1", "hints": ["mexican", "red", "bull"] },
+  { "id": "sainz", "word": "Carlos Sainz", "category": "Formula 1", "hints": ["spanish", "ferrari", "smooth"] },
+  { "id": "russell", "word": "George Russell", "category": "Formula 1", "hints": ["british", "mercedes", "mr-saturday"] },
+  { "id": "piastri", "word": "Oscar Piastri", "category": "Formula 1", "hints": ["australian", "mclaren", "rookie"] },
+  { "id": "tsunoda", "word": "Yuki Tsunoda", "category": "Formula 1", "hints": ["japanese", "radio", "feisty"] },
+  { "id": "ferrari", "word": "Ferrari", "category": "Formula 1", "hints": ["scuderia", "red", "italian"] },
+  { "id": "mclaren_f1", "word": "McLaren", "category": "Formula 1", "hints": ["papaya", "british", "woking"] },
+  { "id": "red_bull_f1", "word": "Red Bull Racing", "category": "Formula 1", "hints": ["energy", "drink", "milton-keynes"] },
+  { "id": "mercedes_f1", "word": "Mercedes", "category": "Formula 1", "hints": ["silver", "arrows", "german"] },
+  { "id": "aston_martin", "word": "Aston Martin", "category": "Formula 1", "hints": ["green", "british", "silverstone"] },
+  { "id": "alpine", "word": "Alpine", "category": "Formula 1", "hints": ["french", "renault", "blue"] },
+  { "id": "williams", "word": "Williams", "category": "Formula 1", "hints": ["grove", "historic", "british"] },
+  { "id": "haas", "word": "Haas", "category": "Formula 1", "hints": ["american", "team", "gene"] },
+  { "id": "monaco_gp", "word": "Monaco Grand Prix", "category": "Formula 1", "hints": ["streets", "glamorous", "tight"] },
+  { "id": "monza", "word": "Italian Grand Prix", "category": "Formula 1", "hints": ["monza", "temple", "speed"] },
+  { "id": "silverstone", "word": "British Grand Prix", "category": "Formula 1", "hints": ["silverstone", "home", "classic"] },
+  { "id": "spa", "word": "Belgian Grand Prix", "category": "Formula 1", "hints": ["spa", "eau-rouge", "ardennes"] },
+  { "id": "suzuka", "word": "Japanese Grand Prix", "category": "Formula 1", "hints": ["suzuka", "figure-eight", "honda"] },
+  { "id": "abu_dhabi_gp", "word": "Abu Dhabi Grand Prix", "category": "Formula 1", "hints": ["yas", "marina", "finale"] },
+  { "id": "singapore_gp", "word": "Singapore Grand Prix", "category": "Formula 1", "hints": ["night", "race", "street"] },
+  { "id": "miami_gp", "word": "Miami Grand Prix", "category": "Formula 1", "hints": ["florida", "new", "american"] },
+  { "id": "las_vegas_gp", "word": "Las Vegas Grand Prix", "category": "Formula 1", "hints": ["strip", "night", "neon"] },
+  { "id": "soft_tyre", "word": "Soft Tyre", "category": "Formula 1", "hints": ["red", "grip", "fastest"] },
+  { "id": "medium_tyre", "word": "Medium Tyre", "category": "Formula 1", "hints": ["yellow", "balanced", "versatile"] },
+  { "id": "hard_tyre", "word": "Hard Tyre", "category": "Formula 1", "hints": ["white", "durable", "slow"] },
+  { "id": "wet_tyre", "word": "Wet Tyre", "category": "Formula 1", "hints": ["blue", "rain", "grooved"] },
+  { "id": "formation_lap", "word": "Formation Lap", "category": "Formula 1", "hints": ["warm", "up", "grid"] },
+  { "id": "fastest_lap", "word": "Fastest Lap", "category": "Formula 1", "hints": ["bonus", "point", "purple"] },
+  { "id": "grand_slam", "word": "Grand Slam", "category": "Formula 1", "hints": ["pole", "win", "fastest"] },
+  { "id": "black_flag", "word": "Black Flag", "category": "Formula 1", "hints": ["disqualification", "penalty", "severe"] },
+  { "id": "red_flag_f1", "word": "Red Flag", "category": "Formula 1", "hints": ["race", "stopped", "danger"] },
+  { "id": "blue_flag", "word": "Blue Flag", "category": "Formula 1", "hints": ["lapped", "car", "move"] },
+  { "id": "halo", "word": "Halo", "category": "Formula 1", "hints": ["cockpit", "protection", "titanium"] },
+  { "id": "ers", "word": "ERS", "category": "Formula 1", "hints": ["energy", "recovery", "hybrid"] },
+  { "id": "downforce", "word": "Downforce", "category": "Formula 1", "hints": ["aerodynamic", "grip", "wings"] },
+  { "id": "rear_wing", "word": "Rear Wing", "category": "Formula 1", "hints": ["back", "spoiler", "adjustable"] },
+  { "id": "front_wing", "word": "Front Wing", "category": "Formula 1", "hints": ["nose", "aerodynamic", "delicate"] },
+  { "id": "floor", "word": "Floor", "category": "Formula 1", "hints": ["ground", "effect", "underbody"] },
+  { "id": "wind_tunnel", "word": "Wind Tunnel", "category": "Formula 1", "hints": ["aero", "testing", "model"] },
+  { "id": "tire_deg", "word": "Tyre Degradation", "category": "Formula 1", "hints": ["wearing", "out", "performance"] },
+  { "id": "lockup", "word": "Lock-up", "category": "Formula 1", "hints": ["braking", "flat", "spot"] },
+  { "id": "porpoising", "word": "Porpoising", "category": "Formula 1", "hints": ["bouncing", "ground", "effect"] },
+  { "id": "team_radio", "word": "Team Radio", "category": "Formula 1", "hints": ["communication", "engineer", "driver"] },
+  { "id": "box_box", "word": "Box Box Box", "category": "Formula 1", "hints": ["pit", "come", "in"] },
+  { "id": "virtual_sc", "word": "Virtual Safety Car", "category": "Formula 1", "hints": ["speed", "limit", "caution"] },
+  { "id": "sprint_race", "word": "Sprint Race", "category": "Formula 1", "hints": ["short", "saturday", "format"] },
+  { "id": "constructors", "word": "Constructors Championship", "category": "Formula 1", "hints": ["team", "title", "points"] },
+  { "id": "drivers_champ", "word": "Drivers Championship", "category": "Formula 1", "hints": ["individual", "title", "crown"] },
+  { "id": "parc_ferme", "word": "Parc Fermé", "category": "Formula 1", "hints": ["locked", "no", "changes"] },
+  { "id": "tire_blankets", "word": "Tyre Blankets", "category": "Formula 1", "hints": ["heating", "warming", "preparation"] },
+  { "id": "hydraulic_failure", "word": "Hydraulic Failure", "category": "Formula 1", "hints": ["mechanical", "fluid", "breakdown"] },
+  { "id": "power_unit", "word": "Power Unit", "category": "Formula 1", "hints": ["engine", "hybrid", "turbo"] },
+  { "id": "turbo_lag", "word": "Turbo Lag", "category": "Formula 1", "hints": ["delay", "boost", "response"] },
+  { "id": "overtake", "word": "Overtake", "category": "Formula 1", "hints": ["passing", "ahead", "brave"] },
+  { "id": "dnf", "word": "DNF", "category": "Formula 1", "hints": ["did", "not", "finish"] },
+  { "id": "dsq", "word": "Disqualification", "category": "Formula 1", "hints": ["excluded", "rule", "breach"] },
+  { "id": "rain_master", "word": "Rain Master", "category": "Formula 1", "hints": ["wet", "conditions", "expert"] },
+  { "id": "gravel_trap", "word": "Gravel Trap", "category": "Formula 1", "hints": ["runoff", "slowing", "off-track"] },
+  { "id": "apex", "word": "Apex", "category": "Formula 1", "hints": ["corner", "inside", "point"] },
+  { "id": "tow", "word": "Tow", "category": "Formula 1", "hints": ["straight", "line", "boost"] },
+  { "id": "dirty_air", "word": "Dirty Air", "category": "Formula 1", "hints": ["turbulence", "behind", "loss"] },
+  { "id": "clean_air", "word": "Clean Air", "category": "Formula 1", "hints": ["undisturbed", "ahead", "grip"] },
+  { "id": "radio_msg", "word": "Get In There Lewis", "category": "Formula 1", "hints": ["bono", "celebration", "iconic"] },
+  { "id": "sbinalla", "word": "S🅱️inalla", "category": "Formula 1", "hints": ["spinning", "meme", "ferrari"] },
+  { "id": "smooth_operator", "word": "Smooth Operator", "category": "Formula 1", "hints": ["carlos", "radio", "song"] },
+  { "id": "lights_out", "word": "Lights Out", "category": "Formula 1", "hints": ["start", "race", "away"] },
 ] as const

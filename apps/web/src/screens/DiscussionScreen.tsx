@@ -3,6 +3,7 @@ import { CountdownTimer } from '../components/ui/CountdownTimer'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
+import { sounds } from '../lib/sounds'
 
 export default function DiscussionScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
@@ -42,7 +43,7 @@ export default function DiscussionScreen() {
         transition={{ delay: 0.15 }}
       >
         <div className="scale-75 opacity-80">
-          <CountdownTimer seconds={duration} />
+          <CountdownTimer seconds={duration} onComplete={() => sounds.timerEnd()} />
         </div>
         <p className="text-xs uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
           Optional timer

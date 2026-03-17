@@ -1,9 +1,12 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { GlassCard } from '../components/ui/GlassCard'
 import { ScoreBoard } from '../components/game/ScoreBoard'
+import { Confetti } from '../components/ui/Confetti'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
+import { sounds } from '../lib/sounds'
 
 export default function ResultsScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
@@ -12,12 +15,19 @@ export default function ResultsScreen() {
   const round = game.rounds.at(-1)
   const impostorIds = new Set(lastResult?.impostorIds ?? [])
   const impostorsCaught = lastResult?.impostorsCaught ?? false
-  const eliminated = lastResult?.voteResult.eliminatedPlayerId
 
   const impostorNames = round?.players
     .filter((p) => impostorIds.has(p.id))
     .map((p) => p.name)
     .join(', ')
+
+  useEffect(() => {
+    if (impostorsCaught) {
+      sounds.victory()
+    } else {
+      sounds.impostorReveal()
+    }
+  }, [impostorsCaught])
 
   function handleNextRound() {
     setScreen('category')
@@ -25,6 +35,8 @@ export default function ResultsScreen() {
 
   return (
     <div className="flex min-h-screen flex-col items-center gap-8 px-6 py-12 overflow-y-auto">
+      <Confetti sad={!impostorsCaught} />
+
       <motion.div
         className="text-center"
         initial={{ opacity: 0, scale: 0.8 }}

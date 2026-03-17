@@ -1,304 +1,84 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const RANDOM_OBJECTS_PACK: WordEntry[] = [
-  {
-    "id": "bubble_wrap",
-    "word": "Bubble Wrap",
-    "category": "Random Objects",
-    "hints": [
-      "plastic",
-      "packing",
-      "sheet"
-    ]
-  },
-  {
-    "id": "toothpick",
-    "word": "Toothpick",
-    "category": "Random Objects",
-    "hints": [
-      "small",
-      "wooden",
-      "sliver"
-    ]
-  },
-  {
-    "id": "staple_remover",
-    "word": "Staple Remover",
-    "category": "Random Objects",
-    "hints": [
-      "claw",
-      "shaped",
-      "tool"
-    ]
-  },
-  {
-    "id": "lava_lamp",
-    "word": "Lava Lamp",
-    "category": "Random Objects",
-    "hints": [
-      "retro",
-      "decoration",
-      "blobs"
-    ]
-  },
-  {
-    "id": "kazoo",
-    "word": "Kazoo",
-    "category": "Random Objects",
-    "hints": [
-      "humming",
-      "toy",
-      "instrument"
-    ]
-  },
-  {
-    "id": "whisk",
-    "word": "Whisk",
-    "category": "Random Objects",
-    "hints": [
-      "loop",
-      "wire",
-      "kitchen"
-    ]
-  },
-  {
-    "id": "tape_measure",
-    "word": "Tape Measure",
-    "category": "Random Objects",
-    "hints": [
-      "retractable",
-      "ruler",
-      "coiled"
-    ]
-  },
-  {
-    "id": "thimble",
-    "word": "Thimble",
-    "category": "Random Objects",
-    "hints": [
-      "metal",
-      "cap",
-      "worn"
-    ]
-  },
-  {
-    "id": "door_stopper",
-    "word": "Door Stopper",
-    "category": "Random Objects",
-    "hints": [
-      "rubber",
-      "wedge",
-      "placed"
-    ]
-  },
-  {
-    "id": "lint_roller",
-    "word": "Lint Roller",
-    "category": "Random Objects",
-    "hints": [
-      "sticky",
-      "tape",
-      "roll"
-    ]
-  },
-  {
-    "id": "rubber_duck",
-    "word": "Rubber Duck",
-    "category": "Random Objects",
-    "hints": [
-      "floating",
-      "squeaky",
-      "bath"
-    ]
-  },
-  {
-    "id": "paper_clip",
-    "word": "Paper Clip",
-    "category": "Random Objects",
-    "hints": [
-      "bent",
-      "wire",
-      "loop"
-    ]
-  },
-  {
-    "id": "egg_timer",
-    "word": "Egg Timer",
-    "category": "Random Objects",
-    "hints": [
-      "small",
-      "hourglass",
-      "shaped"
-    ]
-  },
-  {
-    "id": "corkscrew",
-    "word": "Corkscrew",
-    "category": "Random Objects",
-    "hints": [
-      "spiral",
-      "tool",
-      "extracting"
-    ]
-  },
-  {
-    "id": "chalk",
-    "word": "Chalk",
-    "category": "Random Objects",
-    "hints": [
-      "soft",
-      "white",
-      "stick"
-    ]
-  },
-  {
-    "id": "protractor",
-    "word": "Protractor",
-    "category": "Random Objects",
-    "hints": [
-      "semicircular",
-      "tool",
-      "measuring"
-    ]
-  },
-  {
-    "id": "magnet",
-    "word": "Magnet",
-    "category": "Random Objects",
-    "hints": [
-      "object",
-      "attracts",
-      "iron"
-    ]
-  },
-  {
-    "id": "bookmark",
-    "word": "Bookmark",
-    "category": "Random Objects",
-    "hints": [
-      "thin",
-      "card",
-      "placed"
-    ]
-  },
-  {
-    "id": "compass",
-    "word": "Compass",
-    "category": "Random Objects",
-    "hints": [
-      "hinged",
-      "drawing",
-      "tool"
-    ]
-  },
-  {
-    "id": "pipette",
-    "word": "Pipette",
-    "category": "Random Objects",
-    "hints": [
-      "narrow",
-      "tube",
-      "transfer"
-    ]
-  },
-  {
-    "id": "abacus",
-    "word": "Abacus",
-    "category": "Random Objects",
-    "hints": [
-      "ancient",
-      "calculating",
-      "frame"
-    ]
-  },
-  {
-    "id": "plunger",
-    "word": "Plunger",
-    "category": "Random Objects",
-    "hints": [
-      "rubber",
-      "cup",
-      "stick"
-    ]
-  },
-  {
-    "id": "sundial",
-    "word": "Sundial",
-    "category": "Random Objects",
-    "hints": [
-      "ancient",
-      "timekeeper",
-      "reads"
-    ]
-  },
-  {
-    "id": "spirit_level",
-    "word": "Spirit Level",
-    "category": "Random Objects",
-    "hints": [
-      "tool",
-      "bubble",
-      "check"
-    ]
-  },
-  {
-    "id": "hourglass",
-    "word": "Hourglass",
-    "category": "Random Objects",
-    "hints": [
-      "twin",
-      "glass",
-      "bulbs"
-    ]
-  },
-  {
-    "id": "magnifying_glass",
-    "word": "Magnifying Glass",
-    "category": "Random Objects",
-    "hints": [
-      "convex",
-      "lens",
-      "makes"
-    ]
-  },
-  {
-    "id": "metronome",
-    "word": "Metronome",
-    "category": "Random Objects",
-    "hints": [
-      "ticking",
-      "device",
-      "keeps"
-    ]
-  },
-  {
-    "id": "clamp",
-    "word": "Clamp",
-    "category": "Random Objects",
-    "hints": [
-      "tool",
-      "holds",
-      "two"
-    ]
-  },
-  {
-    "id": "squeegee",
-    "word": "Squeegee",
-    "category": "Random Objects",
-    "hints": [
-      "rubber",
-      "bladed",
-      "tool"
-    ]
-  },
-  {
-    "id": "funnel",
-    "word": "Funnel",
-    "category": "Random Objects",
-    "hints": [
-      "cone",
-      "shaped",
-      "channel"
-    ]
-  }
+  { "id": "lava_lamp", "word": "Lava Lamp", "category": "Random Objects", "hints": ["retro", "glowing", "blobs"] },
+  { "id": "snow_globe", "word": "Snow Globe", "category": "Random Objects", "hints": ["shaking", "miniature", "winter"] },
+  { "id": "rubiks_cube", "word": "Rubik's Cube", "category": "Random Objects", "hints": ["colorful", "puzzle", "twisting"] },
+  { "id": "kaleidoscope", "word": "Kaleidoscope", "category": "Random Objects", "hints": ["colorful", "patterns", "rotating"] },
+  { "id": "sundial", "word": "Sundial", "category": "Random Objects", "hints": ["shadow", "time", "ancient"] },
+  { "id": "compass_o", "word": "Compass", "category": "Random Objects", "hints": ["needle", "north", "navigation"] },
+  { "id": "telescope_o", "word": "Telescope", "category": "Random Objects", "hints": ["stars", "viewing", "lens"] },
+  { "id": "magnifying_glass", "word": "Magnifying Glass", "category": "Random Objects", "hints": ["enlarge", "detective", "lens"] },
+  { "id": "hourglass", "word": "Hourglass", "category": "Random Objects", "hints": ["sand", "timer", "flipping"] },
+  { "id": "fountain_pen", "word": "Fountain Pen", "category": "Random Objects", "hints": ["ink", "nib", "elegant"] },
+  { "id": "typewriter", "word": "Typewriter", "category": "Random Objects", "hints": ["keys", "vintage", "clicking"] },
+  { "id": "gramophone", "word": "Gramophone", "category": "Random Objects", "hints": ["vinyl", "horn", "vintage"] },
+  { "id": "snow_shoes", "word": "Snowshoes", "category": "Random Objects", "hints": ["winter", "walking", "wide"] },
+  { "id": "yo_yo", "word": "Yo-Yo", "category": "Random Objects", "hints": ["string", "spinning", "tricks"] },
+  { "id": "boomerang", "word": "Boomerang", "category": "Random Objects", "hints": ["throwing", "returning", "australian"] },
+  { "id": "kite", "word": "Kite", "category": "Random Objects", "hints": ["flying", "wind", "string"] },
+  { "id": "disco_ball", "word": "Disco Ball", "category": "Random Objects", "hints": ["mirrored", "spinning", "dance"] },
+  { "id": "dreamcatcher", "word": "Dreamcatcher", "category": "Random Objects", "hints": ["web", "feathers", "hanging"] },
+  { "id": "matryoshka", "word": "Matryoshka Doll", "category": "Random Objects", "hints": ["russian", "nesting", "wooden"] },
+  { "id": "snow_machine", "word": "Snowflake", "category": "Random Objects", "hints": ["unique", "crystal", "winter"] },
+  { "id": "monocle", "word": "Monocle", "category": "Random Objects", "hints": ["single", "lens", "fancy"] },
+  { "id": "abacus", "word": "Abacus", "category": "Random Objects", "hints": ["beads", "counting", "ancient"] },
+  { "id": "cuckoo_clock", "word": "Cuckoo Clock", "category": "Random Objects", "hints": ["bird", "hourly", "german"] },
+  { "id": "lantern", "word": "Lantern", "category": "Random Objects", "hints": ["portable", "light", "camping"] },
+  { "id": "metronome", "word": "Metronome", "category": "Random Objects", "hints": ["tempo", "ticking", "music"] },
+  { "id": "globe", "word": "Globe", "category": "Random Objects", "hints": ["earth", "sphere", "spinning"] },
+  { "id": "chess_set", "word": "Chess Set", "category": "Random Objects", "hints": ["board", "strategy", "checkmate"] },
+  { "id": "music_box", "word": "Music Box", "category": "Random Objects", "hints": ["melody", "winding", "tiny"] },
+  { "id": "pocket_watch", "word": "Pocket Watch", "category": "Random Objects", "hints": ["chain", "vintage", "time"] },
+  { "id": "windchime", "word": "Wind Chime", "category": "Random Objects", "hints": ["hanging", "tinkling", "breeze"] },
+  { "id": "swiss_army_knife", "word": "Swiss Army Knife", "category": "Random Objects", "hints": ["multi", "tool", "red"] },
+  { "id": "gumball_machine", "word": "Gumball Machine", "category": "Random Objects", "hints": ["coin", "bubble", "dispensing"] },
+  { "id": "slinky", "word": "Slinky", "category": "Random Objects", "hints": ["spring", "stairs", "stretching"] },
+  { "id": "whoopee_cushion", "word": "Whoopee Cushion", "category": "Random Objects", "hints": ["prank", "flatulence", "sitting"] },
+  { "id": "magic_eight_ball", "word": "Magic 8-Ball", "category": "Random Objects", "hints": ["fortune", "shaking", "answer"] },
+  { "id": "etch_a_sketch", "word": "Etch A Sketch", "category": "Random Objects", "hints": ["drawing", "dials", "shaking"] },
+  { "id": "lego_brick", "word": "LEGO Brick", "category": "Random Objects", "hints": ["building", "plastic", "stepping"] },
+  { "id": "fidget_spinner", "word": "Fidget Spinner", "category": "Random Objects", "hints": ["spinning", "bearing", "trend"] },
+  { "id": "stress_ball", "word": "Stress Ball", "category": "Random Objects", "hints": ["squeezing", "squishy", "anxiety"] },
+  { "id": "snow_boots", "word": "Binoculars", "category": "Random Objects", "hints": ["two", "lenses", "distant"] },
+  { "id": "harmonica", "word": "Harmonica", "category": "Random Objects", "hints": ["mouth", "organ", "blues"] },
+  { "id": "kazoo", "word": "Kazoo", "category": "Random Objects", "hints": ["humming", "buzzing", "toy"] },
+  { "id": "accordion", "word": "Accordion", "category": "Random Objects", "hints": ["squeezebox", "bellows", "folk"] },
+  { "id": "trampoline_o", "word": "Trampoline", "category": "Random Objects", "hints": ["bouncing", "jumping", "backyard"] },
+  { "id": "hammock", "word": "Hammock", "category": "Random Objects", "hints": ["swinging", "relaxing", "suspended"] },
+  { "id": "pinball_machine", "word": "Pinball Machine", "category": "Random Objects", "hints": ["flippers", "bumpers", "arcade"] },
+  { "id": "polaroid", "word": "Polaroid Camera", "category": "Random Objects", "hints": ["instant", "photo", "shaking"] },
+  { "id": "vinyl_record", "word": "Vinyl Record", "category": "Random Objects", "hints": ["spinning", "groove", "turntable"] },
+  { "id": "cassette_tape", "word": "Cassette Tape", "category": "Random Objects", "hints": ["magnetic", "rewinding", "retro"] },
+  { "id": "vhs_tape", "word": "VHS Tape", "category": "Random Objects", "hints": ["video", "recording", "rewind"] },
+  { "id": "walkman", "word": "Walkman", "category": "Random Objects", "hints": ["portable", "sony", "headphones"] },
+  { "id": "pager", "word": "Pager", "category": "Random Objects", "hints": ["beeping", "number", "90s"] },
+  { "id": "floppy_disk", "word": "Floppy Disk", "category": "Random Objects", "hints": ["save", "icon", "3.5"] },
+  { "id": "rotary_phone", "word": "Rotary Phone", "category": "Random Objects", "hints": ["dial", "spinning", "vintage"] },
+  { "id": "ant_farm", "word": "Ant Farm", "category": "Random Objects", "hints": ["tunnels", "insects", "observing"] },
+  { "id": "snow_cone", "word": "Snow Cone", "category": "Random Objects", "hints": ["shaved", "ice", "syrup"] },
+  { "id": "advent_calendar", "word": "Advent Calendar", "category": "Random Objects", "hints": ["christmas", "doors", "countdown"] },
+  { "id": "jack_in_box", "word": "Jack-in-the-Box", "category": "Random Objects", "hints": ["cranking", "surprise", "popping"] },
+  { "id": "mood_ring", "word": "Mood Ring", "category": "Random Objects", "hints": ["color", "changing", "emotion"] },
+  { "id": "beanbag_chair", "word": "Bean Bag Chair", "category": "Random Objects", "hints": ["sinking", "soft", "lounging"] },
+  { "id": "paper_airplane", "word": "Paper Airplane", "category": "Random Objects", "hints": ["folded", "flying", "throwing"] },
+  { "id": "bubble_wrap", "word": "Bubble Wrap", "category": "Random Objects", "hints": ["popping", "packaging", "satisfying"] },
+  { "id": "rubber_duck", "word": "Rubber Duck", "category": "Random Objects", "hints": ["bath", "squeaking", "yellow"] },
+  { "id": "snow_man", "word": "Snowman", "category": "Random Objects", "hints": ["carrot", "nose", "winter"] },
+  { "id": "fortune_cookie", "word": "Fortune Cookie", "category": "Random Objects", "hints": ["cracking", "message", "chinese"] },
+  { "id": "glow_stick", "word": "Glow Stick", "category": "Random Objects", "hints": ["snapping", "neon", "chemical"] },
+  { "id": "water_gun", "word": "Water Gun", "category": "Random Objects", "hints": ["squirting", "summer", "plastic"] },
+  { "id": "piggy_bank", "word": "Piggy Bank", "category": "Random Objects", "hints": ["saving", "coins", "ceramic"] },
+  { "id": "rocking_horse", "word": "Rocking Horse", "category": "Random Objects", "hints": ["wooden", "swaying", "nursery"] },
+  { "id": "novelty_mug", "word": "Novelty Mug", "category": "Random Objects", "hints": ["funny", "drinking", "gift"] },
+  { "id": "snow_angel", "word": "Snow Angel", "category": "Random Objects", "hints": ["lying", "flapping", "impression"] },
+  { "id": "cork_board", "word": "Cork Board", "category": "Random Objects", "hints": ["pinning", "notes", "pushpins"] },
+  { "id": "snow_plow", "word": "Trident", "category": "Random Objects", "hints": ["three", "pronged", "poseidon"] },
+  { "id": "crystal_ball", "word": "Crystal Ball", "category": "Random Objects", "hints": ["fortune", "telling", "sphere"] },
+  { "id": "ouija_board", "word": "Ouija Board", "category": "Random Objects", "hints": ["spirits", "planchette", "spooky"] },
+  { "id": "tarot_cards", "word": "Tarot Cards", "category": "Random Objects", "hints": ["fortune", "deck", "mystical"] },
+  { "id": "newton_cradle", "word": "Newton's Cradle", "category": "Random Objects", "hints": ["balls", "swinging", "desk"] },
+  { "id": "sand_timer", "word": "Sand Timer", "category": "Random Objects", "hints": ["hourglass", "grains", "timed"] },
+  { "id": "snow_globe_2", "word": "Bobblehead", "category": "Random Objects", "hints": ["nodding", "figurine", "oversized"] },
+  { "id": "dream_journal", "word": "Dream Journal", "category": "Random Objects", "hints": ["recording", "sleeping", "memories"] },
 ] as const

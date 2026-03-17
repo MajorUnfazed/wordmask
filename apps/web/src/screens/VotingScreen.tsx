@@ -4,6 +4,7 @@ import { PlayerAvatar } from '../components/game/PlayerAvatar'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
+import { sounds } from '../lib/sounds'
 
 const VOTE_CONFIRM_MS = 550
 
@@ -53,6 +54,7 @@ export default function VotingScreen() {
 
     setConfirmedTargetId(selectedTargetId)
     setIsTransitioning(true)
+    sounds.voteConfirm()
 
     transitionTimeoutRef.current = setTimeout(() => {
       castVote(currentVoter.id, selectedTargetId)

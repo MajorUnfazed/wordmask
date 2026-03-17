@@ -1,304 +1,102 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const INTERNET_CULTURE_PACK: WordEntry[] = [
-  {
-    "id": "doomscrolling",
-    "word": "Doomscrolling",
-    "category": "Internet Culture",
-    "hints": [
-      "compulsively",
-      "reading",
-      "bad"
-    ]
-  },
-  {
-    "id": "stan",
-    "word": "Stan",
-    "category": "Internet Culture",
-    "hints": [
-      "extremely",
-      "devoted",
-      "superfan"
-    ]
-  },
-  {
-    "id": "ratio_d",
-    "word": "Ratio'd",
-    "category": "Internet Culture",
-    "hints": [
-      "tweet's",
-      "replies",
-      "vastly"
-    ]
-  },
-  {
-    "id": "shadowban",
-    "word": "Shadowban",
-    "category": "Internet Culture",
-    "hints": [
-      "silently",
-      "restricting",
-      "account's"
-    ]
-  },
-  {
-    "id": "parasocial_relationship",
-    "word": "Parasocial Relationship",
-    "category": "Internet Culture",
-    "hints": [
-      "one",
-      "sided",
-      "bond"
-    ]
-  },
-  {
-    "id": "threadboi",
-    "word": "Threadboi",
-    "category": "Internet Culture",
-    "hints": [
-      "person",
-      "turns",
-      "every"
-    ]
-  },
-  {
-    "id": "hot_take",
-    "word": "Hot Take",
-    "category": "Internet Culture",
-    "hints": [
-      "instant",
-      "controversial",
-      "opinion"
-    ]
-  },
-  {
-    "id": "main_character_energy",
-    "word": "Main Character Energy",
-    "category": "Internet Culture",
-    "hints": [
-      "acting",
-      "like",
-      "world"
-    ]
-  },
-  {
-    "id": "no_cap",
-    "word": "No Cap",
-    "category": "Internet Culture",
-    "hints": [
-      "slang",
-      "lie",
-      "expressing"
-    ]
-  },
-  {
-    "id": "touch_grass",
-    "word": "Touch Grass",
-    "category": "Internet Culture",
-    "hints": [
-      "telling",
-      "someone",
-      "outside"
-    ]
-  },
-  {
-    "id": "astroturfing",
-    "word": "Astroturfing",
-    "category": "Internet Culture",
-    "hints": [
-      "fake",
-      "grassroots",
-      "movement"
-    ]
-  },
-  {
-    "id": "algorithm",
-    "word": "Algorithm",
-    "category": "Internet Culture",
-    "hints": [
-      "invisible",
-      "feed",
-      "ranking"
-    ]
-  },
-  {
-    "id": "clout_chasing",
-    "word": "Clout Chasing",
-    "category": "Internet Culture",
-    "hints": [
-      "doing",
-      "things",
-      "purely"
-    ]
-  },
-  {
-    "id": "slacktivism",
-    "word": "Slacktivism",
-    "category": "Internet Culture",
-    "hints": [
-      "low",
-      "effort",
-      "online"
-    ]
-  },
-  {
-    "id": "dark_pattern",
-    "word": "Dark Pattern",
-    "category": "Internet Culture",
-    "hints": [
-      "deceptive",
-      "trick",
-      "designed"
-    ]
-  },
-  {
-    "id": "vibe_check",
-    "word": "Vibe Check",
-    "category": "Internet Culture",
-    "hints": [
-      "assessing",
-      "someone's",
-      "attitude"
-    ]
-  },
-  {
-    "id": "copypasta",
-    "word": "Copypasta",
-    "category": "Internet Culture",
-    "hints": [
-      "blocks",
-      "text",
-      "repeatedly"
-    ]
-  },
-  {
-    "id": "based",
-    "word": "Based",
-    "category": "Internet Culture",
-    "hints": [
-      "slang",
-      "being",
-      "confidently"
-    ]
-  },
-  {
-    "id": "brain_rot",
-    "word": "Brain Rot",
-    "category": "Internet Culture",
-    "hints": [
-      "state",
-      "mental",
-      "degradation"
-    ]
-  },
-  {
-    "id": "oversharer",
-    "word": "Oversharer",
-    "category": "Internet Culture",
-    "hints": [
-      "someone",
-      "posts",
-      "intimate"
-    ]
-  },
-  {
-    "id": "influencer",
-    "word": "Influencer",
-    "category": "Internet Culture",
-    "hints": [
-      "professional",
-      "monetises",
-      "online"
-    ]
-  },
-  {
-    "id": "finsta",
-    "word": "Finsta",
-    "category": "Internet Culture",
-    "hints": [
-      "secondary",
-      "private",
-      "instagram"
-    ]
-  },
-  {
-    "id": "subtweet",
-    "word": "Subtweet",
-    "category": "Internet Culture",
-    "hints": [
-      "indirect",
-      "post",
-      "clearly"
-    ]
-  },
-  {
-    "id": "fomo",
-    "word": "FOMO",
-    "category": "Internet Culture",
-    "hints": [
-      "fear",
-      "missing",
-      "out"
-    ]
-  },
-  {
-    "id": "catfish",
-    "word": "Catfish",
-    "category": "Internet Culture",
-    "hints": [
-      "person",
-      "pretending",
-      "someone"
-    ]
-  },
-  {
-    "id": "cancel_culture",
-    "word": "Cancel Culture",
-    "category": "Internet Culture",
-    "hints": [
-      "public",
-      "ostracising",
-      "someone"
-    ]
-  },
-  {
-    "id": "echo_chamber",
-    "word": "Echo Chamber",
-    "category": "Internet Culture",
-    "hints": [
-      "online",
-      "bubble",
-      "only"
-    ]
-  },
-  {
-    "id": "crowdfunding",
-    "word": "Crowdfunding",
-    "category": "Internet Culture",
-    "hints": [
-      "raising",
-      "money",
-      "project"
-    ]
-  },
-  {
-    "id": "lurker",
-    "word": "Lurker",
-    "category": "Internet Culture",
-    "hints": [
-      "someone",
-      "reads",
-      "online"
-    ]
-  },
-  {
-    "id": "fandom_wiki",
-    "word": "Fandom Wiki",
-    "category": "Internet Culture",
-    "hints": [
-      "fan",
-      "maintained",
-      "website"
-    ]
-  }
+  { "id": "meme", "word": "Meme", "category": "Internet Culture", "hints": ["viral", "funny", "shared"] },
+  { "id": "rickroll", "word": "Rickroll", "category": "Internet Culture", "hints": ["never", "gonna", "give"] },
+  { "id": "tiktok", "word": "TikTok", "category": "Internet Culture", "hints": ["short", "video", "viral"] },
+  { "id": "hashtag", "word": "Hashtag", "category": "Internet Culture", "hints": ["pound", "trending", "tag"] },
+  { "id": "influencer", "word": "Influencer", "category": "Internet Culture", "hints": ["social", "media", "sponsor"] },
+  { "id": "emoji", "word": "Emoji", "category": "Internet Culture", "hints": ["digital", "face", "pictogram"] },
+  { "id": "viral", "word": "Going Viral", "category": "Internet Culture", "hints": ["spreading", "millions", "views"] },
+  { "id": "catfishing", "word": "Catfishing", "category": "Internet Culture", "hints": ["fake", "identity", "online"] },
+  { "id": "doomscrolling", "word": "Doomscrolling", "category": "Internet Culture", "hints": ["endless", "negative", "scrolling"] },
+  { "id": "cancel_culture", "word": "Cancel Culture", "category": "Internet Culture", "hints": ["boycott", "public", "shaming"] },
+  { "id": "stan", "word": "Stan", "category": "Internet Culture", "hints": ["obsessive", "fan", "eminem"] },
+  { "id": "ratio", "word": "Ratio", "category": "Internet Culture", "hints": ["replies", "exceed", "likes"] },
+  { "id": "clickbait", "word": "Clickbait", "category": "Internet Culture", "hints": ["misleading", "headline", "curiosity"] },
+  { "id": "deepfake", "word": "Deepfake", "category": "Internet Culture", "hints": ["ai", "synthetic", "video"] },
+  { "id": "nft", "word": "NFT", "category": "Internet Culture", "hints": ["digital", "token", "blockchain"] },
+  { "id": "crypto", "word": "Cryptocurrency", "category": "Internet Culture", "hints": ["bitcoin", "digital", "decentralized"] },
+  { "id": "podcast", "word": "Podcast", "category": "Internet Culture", "hints": ["audio", "episodes", "streaming"] },
+  { "id": "streamer", "word": "Streamer", "category": "Internet Culture", "hints": ["live", "twitch", "gaming"] },
+  { "id": "twitch", "word": "Twitch", "category": "Internet Culture", "hints": ["live", "streaming", "purple"] },
+  { "id": "reddit", "word": "Reddit", "category": "Internet Culture", "hints": ["upvote", "subreddit", "front"] },
+  { "id": "youtube", "word": "YouTube", "category": "Internet Culture", "hints": ["video", "subscribe", "creators"] },
+  { "id": "instagram", "word": "Instagram", "category": "Internet Culture", "hints": ["photos", "stories", "reels"] },
+  { "id": "twitter", "word": "Twitter", "category": "Internet Culture", "hints": ["tweets", "bird", "microblog"] },
+  { "id": "discord", "word": "Discord", "category": "Internet Culture", "hints": ["servers", "voice", "chat"] },
+  { "id": "copypasta", "word": "Copypasta", "category": "Internet Culture", "hints": ["copied", "text", "spammed"] },
+  { "id": "shitpost", "word": "Shitpost", "category": "Internet Culture", "hints": ["low", "effort", "absurd"] },
+  { "id": "brainrot", "word": "Brainrot", "category": "Internet Culture", "hints": ["excessive", "content", "consuming"] },
+  { "id": "sigma", "word": "Sigma", "category": "Internet Culture", "hints": ["grindset", "lone", "wolf"] },
+  { "id": "skibidi", "word": "Skibidi", "category": "Internet Culture", "hints": ["toilet", "nonsense", "gen-alpha"] },
+  { "id": "aura", "word": "Aura Points", "category": "Internet Culture", "hints": ["vibes", "scoring", "charisma"] },
+  { "id": "mogging", "word": "Mogging", "category": "Internet Culture", "hints": ["outshining", "superior", "flexing"] },
+  { "id": "slay", "word": "Slay", "category": "Internet Culture", "hints": ["killing", "it", "queen"] },
+  { "id": "touch_grass", "word": "Touch Grass", "category": "Internet Culture", "hints": ["go", "outside", "offline"] },
+  { "id": "no_cap", "word": "No Cap", "category": "Internet Culture", "hints": ["no", "lie", "truthful"] },
+  { "id": "bussin", "word": "Bussin'", "category": "Internet Culture", "hints": ["really", "good", "delicious"] },
+  { "id": "simp", "word": "Simp", "category": "Internet Culture", "hints": ["overly", "attentive", "crush"] },
+  { "id": "sus", "word": "Sus", "category": "Internet Culture", "hints": ["suspicious", "among", "us"] },
+  { "id": "ok_boomer", "word": "OK Boomer", "category": "Internet Culture", "hints": ["dismissive", "generational", "retort"] },
+  { "id": "karen", "word": "Karen", "category": "Internet Culture", "hints": ["entitled", "manager", "complaining"] },
+  { "id": "chad", "word": "Chad", "category": "Internet Culture", "hints": ["alpha", "confident", "based"] },
+  { "id": "based", "word": "Based", "category": "Internet Culture", "hints": ["unapologetically", "opinion", "bold"] },
+  { "id": "cope", "word": "Cope", "category": "Internet Culture", "hints": ["dealing", "denial", "coping"] },
+  { "id": "main_character", "word": "Main Character", "category": "Internet Culture", "hints": ["protagonist", "energy", "vibes"] },
+  { "id": "beige_flag", "word": "Beige Flag", "category": "Internet Culture", "hints": ["boring", "trait", "dating"] },
+  { "id": "red_flag_ic", "word": "Red Flag", "category": "Internet Culture", "hints": ["warning", "sign", "dating"] },
+  { "id": "green_flag", "word": "Green Flag", "category": "Internet Culture", "hints": ["positive", "trait", "dating"] },
+  { "id": "ick", "word": "Ick", "category": "Internet Culture", "hints": ["turnoff", "cringe", "dating"] },
+  { "id": "unhinged", "word": "Unhinged", "category": "Internet Culture", "hints": ["chaotic", "wild", "unpredictable"] },
+  { "id": "aesthetic", "word": "Aesthetic", "category": "Internet Culture", "hints": ["visual", "style", "vibe"] },
+  { "id": "cottagecore", "word": "Cottagecore", "category": "Internet Culture", "hints": ["rural", "cozy", "pastoral"] },
+  { "id": "dark_academia", "word": "Dark Academia", "category": "Internet Culture", "hints": ["scholarly", "gothic", "literary"] },
+  { "id": "y2k", "word": "Y2K", "category": "Internet Culture", "hints": ["2000s", "retro", "futuristic"] },
+  { "id": "vaporwave", "word": "Vaporwave", "category": "Internet Culture", "hints": ["retro", "neon", "aesthetic"] },
+  { "id": "asmr", "word": "ASMR", "category": "Internet Culture", "hints": ["tingles", "whisper", "relaxing"] },
+  { "id": "mukbang", "word": "Mukbang", "category": "Internet Culture", "hints": ["eating", "broadcast", "korean"] },
+  { "id": "reaction_video", "word": "Reaction Video", "category": "Internet Culture", "hints": ["watching", "responding", "commentary"] },
+  { "id": "vlog", "word": "Vlog", "category": "Internet Culture", "hints": ["video", "daily", "personal"] },
+  { "id": "unboxing", "word": "Unboxing", "category": "Internet Culture", "hints": ["opening", "package", "reveal"] },
+  { "id": "speedrun_ic", "word": "Speedrun Any%", "category": "Internet Culture", "hints": ["fastest", "completion", "glitches"] },
+  { "id": "bot", "word": "Bot", "category": "Internet Culture", "hints": ["automated", "fake", "scripted"] },
+  { "id": "troll", "word": "Troll", "category": "Internet Culture", "hints": ["provoking", "online", "agitating"] },
+  { "id": "doxxing", "word": "Doxxing", "category": "Internet Culture", "hints": ["exposing", "personal", "info"] },
+  { "id": "paywall", "word": "Paywall", "category": "Internet Culture", "hints": ["locked", "content", "subscription"] },
+  { "id": "algorithm", "word": "Algorithm", "category": "Internet Culture", "hints": ["feed", "recommendation", "curated"] },
+  { "id": "dark_mode", "word": "Dark Mode", "category": "Internet Culture", "hints": ["black", "theme", "screen"] },
+  { "id": "flex", "word": "Flex", "category": "Internet Culture", "hints": ["showing", "off", "bragging"] },
+  { "id": "l_plus_ratio", "word": "L + Ratio", "category": "Internet Culture", "hints": ["loser", "comeback", "roast"] },
+  { "id": "fomo", "word": "FOMO", "category": "Internet Culture", "hints": ["fear", "missing", "out"] },
+  { "id": "ghosting", "word": "Ghosting", "category": "Internet Culture", "hints": ["ignoring", "disappearing", "silent"] },
+  { "id": "fancam", "word": "Fancam", "category": "Internet Culture", "hints": ["fan", "footage", "kpop"] },
+  { "id": "ship", "word": "Shipping", "category": "Internet Culture", "hints": ["pairing", "relationship", "fictional"] },
+  { "id": "fanfic", "word": "Fanfiction", "category": "Internet Culture", "hints": ["fan", "written", "story"] },
+  { "id": "cosplay", "word": "Cosplay", "category": "Internet Culture", "hints": ["costume", "character", "convention"] },
+  { "id": "weeb", "word": "Weeb", "category": "Internet Culture", "hints": ["anime", "obsessed", "japanese"] },
+  { "id": "parasocial", "word": "Parasocial", "category": "Internet Culture", "hints": ["one-sided", "relationship", "celebrity"] },
+  { "id": "delulu", "word": "Delulu", "category": "Internet Culture", "hints": ["delusional", "fantasy", "confident"] },
+  { "id": "glazing", "word": "Glazing", "category": "Internet Culture", "hints": ["excessive", "praise", "overhyping"] },
+  { "id": "glow_up", "word": "Glow Up", "category": "Internet Culture", "hints": ["transformation", "better", "before-after"] },
+  { "id": "hot_take", "word": "Hot Take", "category": "Internet Culture", "hints": ["controversial", "opinion", "bold"] },
+  { "id": "chronically_online", "word": "Chronically Online", "category": "Internet Culture", "hints": ["always", "connected", "terminally"] },
+  { "id": "npc_behavior", "word": "NPC Behavior", "category": "Internet Culture", "hints": ["predictable", "scripted", "robotic"] },
+  { "id": "rage_bait", "word": "Rage Bait", "category": "Internet Culture", "hints": ["intentionally", "angering", "engagement"] },
+  { "id": "dank_meme", "word": "Dank Meme", "category": "Internet Culture", "hints": ["edgy", "ironic", "humor"] },
+  { "id": "wojak", "word": "Wojak", "category": "Internet Culture", "hints": ["feelsguy", "reaction", "face"] },
+  { "id": "pepe", "word": "Pepe the Frog", "category": "Internet Culture", "hints": ["green", "frog", "meme"] },
+  { "id": "stonks", "word": "Stonks", "category": "Internet Culture", "hints": ["stocks", "meme", "man"] },
+  { "id": "drip", "word": "Drip", "category": "Internet Culture", "hints": ["style", "fashion", "outfit"] },
+  { "id": "w", "word": "W (Win)", "category": "Internet Culture", "hints": ["victory", "success", "accomplishment"] },
+  { "id": "era", "word": "Era", "category": "Internet Culture", "hints": ["phase", "personality", "current"] },
+  { "id": "caught_in_4k", "word": "Caught in 4K", "category": "Internet Culture", "hints": ["exposed", "evidence", "undeniable"] },
+  { "id": "understood_assignment", "word": "Understood the Assignment", "category": "Internet Culture", "hints": ["nailed", "perfect", "execution"] },
+  { "id": "ate_that", "word": "Ate and Left No Crumbs", "category": "Internet Culture", "hints": ["slayed", "perfect", "performance"] },
+  { "id": "roman_empire", "word": "Roman Empire", "category": "Internet Culture", "hints": ["thinking", "about", "often"] },
+  { "id": "girl_math", "word": "Girl Math", "category": "Internet Culture", "hints": ["justifying", "spending", "logic"] },
+  { "id": "situationship", "word": "Situationship", "category": "Internet Culture", "hints": ["undefined", "relationship", "ambiguous"] },
+  { "id": "quiet_quitting", "word": "Quiet Quitting", "category": "Internet Culture", "hints": ["minimum", "effort", "disengaging"] },
+  { "id": "side_quest", "word": "Side Quest", "category": "Internet Culture", "hints": ["spontaneous", "adventure", "detour"] },
+  { "id": "lore", "word": "Lore", "category": "Internet Culture", "hints": ["backstory", "deep", "history"] },
 ] as const

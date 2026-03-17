@@ -1,304 +1,116 @@
 import type { WordEntry } from '../../../types/packs'
 
 export const GAMING_PACK: WordEntry[] = [
-  {
-    "id": "respawn",
-    "word": "Respawn",
-    "category": "Gaming",
-    "hints": [
-      "returning",
-      "game",
-      "character"
-    ]
-  },
-  {
-    "id": "loot_box",
-    "word": "Loot Box",
-    "category": "Gaming",
-    "hints": [
-      "randomised",
-      "game",
-      "reward"
-    ]
-  },
-  {
-    "id": "speedrun",
-    "word": "Speedrun",
-    "category": "Gaming",
-    "hints": [
-      "completing",
-      "game",
-      "fast"
-    ]
-  },
-  {
-    "id": "aggro",
-    "word": "Aggro",
-    "category": "Gaming",
-    "hints": [
-      "pulling",
-      "enemy",
-      "attention"
-    ]
-  },
-  {
-    "id": "open_world",
-    "word": "Open World",
-    "category": "Gaming",
-    "hints": [
-      "game",
-      "design",
-      "players"
-    ]
-  },
-  {
-    "id": "checkpoint",
-    "word": "Checkpoint",
-    "category": "Gaming",
-    "hints": [
-      "progress",
-      "save",
-      "point"
-    ]
-  },
-  {
-    "id": "easter_egg",
-    "word": "Easter Egg",
-    "category": "Gaming",
-    "hints": [
-      "hidden",
-      "message",
-      "joke"
-    ]
-  },
-  {
-    "id": "nerf",
-    "word": "Nerf",
-    "category": "Gaming",
-    "hints": [
-      "developer",
-      "update",
-      "weakening"
-    ]
-  },
-  {
-    "id": "buff",
-    "word": "Buff",
-    "category": "Gaming",
-    "hints": [
-      "developer",
-      "update",
-      "strengthening"
-    ]
-  },
-  {
-    "id": "gacha",
-    "word": "Gacha",
-    "category": "Gaming",
-    "hints": [
-      "japanese",
-      "monetisation",
-      "mechanic"
-    ]
-  },
-  {
-    "id": "no_hit_run",
-    "word": "No Hit Run",
-    "category": "Gaming",
-    "hints": [
-      "completing",
-      "notoriously",
-      "difficult"
-    ]
-  },
-  {
-    "id": "rage_quit",
-    "word": "Rage Quit",
-    "category": "Gaming",
-    "hints": [
-      "angrily",
-      "leaving",
-      "game"
-    ]
-  },
-  {
-    "id": "permadeath",
-    "word": "Permadeath",
-    "category": "Gaming",
-    "hints": [
-      "character",
-      "dies",
-      "permanently"
-    ]
-  },
-  {
-    "id": "dlc",
-    "word": "DLC",
-    "category": "Gaming",
-    "hints": [
-      "downloadable",
-      "additional",
-      "game"
-    ]
-  },
-  {
-    "id": "frame_rate",
-    "word": "Frame Rate",
-    "category": "Gaming",
-    "hints": [
-      "how",
-      "many",
-      "images"
-    ]
-  },
-  {
-    "id": "controller_drift",
-    "word": "Controller Drift",
-    "category": "Gaming",
-    "hints": [
-      "joystick",
-      "registers",
-      "input"
-    ]
-  },
-  {
-    "id": "hitbox",
-    "word": "Hitbox",
-    "category": "Gaming",
-    "hints": [
-      "invisible",
-      "area",
-      "around"
-    ]
-  },
-  {
-    "id": "camper",
-    "word": "Camper",
-    "category": "Gaming",
-    "hints": [
-      "player",
-      "stays",
-      "one"
-    ]
-  },
-  {
-    "id": "afk",
-    "word": "AFK",
-    "category": "Gaming",
-    "hints": [
-      "away",
-      "keyboard",
-      "player"
-    ]
-  },
-  {
-    "id": "skill_issue",
-    "word": "Skill Issue",
-    "category": "Gaming",
-    "hints": [
-      "dismissive",
-      "response",
-      "complaint"
-    ]
-  },
-  {
-    "id": "git_gud",
-    "word": "Git Gud",
-    "category": "Gaming",
-    "hints": [
-      "harsh",
-      "advice",
-      "improve"
-    ]
-  },
-  {
-    "id": "gg",
-    "word": "GG",
-    "category": "Gaming",
-    "hints": [
-      "good",
-      "game",
-      "sportsmanship"
-    ]
-  },
-  {
-    "id": "patch_notes",
-    "word": "Patch Notes",
-    "category": "Gaming",
-    "hints": [
-      "developer",
-      "changelog",
-      "describing"
-    ]
-  },
-  {
-    "id": "meta",
-    "word": "Meta",
-    "category": "Gaming",
-    "hints": [
-      "current",
-      "dominant",
-      "strategy"
-    ]
-  },
-  {
-    "id": "side_quest",
-    "word": "Side Quest",
-    "category": "Gaming",
-    "hints": [
-      "optional",
-      "mission",
-      "separate"
-    ]
-  },
-  {
-    "id": "dungeon",
-    "word": "Dungeon",
-    "category": "Gaming",
-    "hints": [
-      "enclosed",
-      "danger",
-      "area"
-    ]
-  },
-  {
-    "id": "healer",
-    "word": "Healer",
-    "category": "Gaming",
-    "hints": [
-      "support",
-      "role",
-      "rpgs"
-    ]
-  },
-  {
-    "id": "tank",
-    "word": "Tank",
-    "category": "Gaming",
-    "hints": [
-      "heavy",
-      "defensive",
-      "role"
-    ]
-  },
-  {
-    "id": "last_hit",
-    "word": "Last Hit",
-    "category": "Gaming",
-    "hints": [
-      "delivering",
-      "killing",
-      "blow"
-    ]
-  },
-  {
-    "id": "battle_pass",
-    "word": "Battle Pass",
-    "category": "Gaming",
-    "hints": [
-      "season",
-      "based",
-      "cosmetic"
-    ]
-  }
+  { "id": "minecraft", "word": "Minecraft", "category": "Gaming", "hints": ["blocks", "survival", "sandbox"] },
+  { "id": "fortnite", "word": "Fortnite", "category": "Gaming", "hints": ["battle", "royale", "building"] },
+  { "id": "mario", "word": "Mario", "category": "Gaming", "hints": ["plumber", "nintendo", "mushroom"] },
+  { "id": "zelda", "word": "Zelda", "category": "Gaming", "hints": ["legend", "hyrule", "link"] },
+  { "id": "pokemon", "word": "Pokémon", "category": "Gaming", "hints": ["catch", "creatures", "nintendo"] },
+  { "id": "gta", "word": "GTA", "category": "Gaming", "hints": ["theft", "auto", "open-world"] },
+  { "id": "call_of_duty", "word": "Call of Duty", "category": "Gaming", "hints": ["shooter", "military", "fps"] },
+  { "id": "roblox", "word": "Roblox", "category": "Gaming", "hints": ["platform", "user-made", "avatars"] },
+  { "id": "among_us", "word": "Among Us", "category": "Gaming", "hints": ["impostor", "crewmate", "sus"] },
+  { "id": "valorant", "word": "Valorant", "category": "Gaming", "hints": ["tactical", "shooter", "agents"] },
+  { "id": "overwatch", "word": "Overwatch", "category": "Gaming", "hints": ["hero", "team", "shooter"] },
+  { "id": "league_of_legends", "word": "League of Legends", "category": "Gaming", "hints": ["moba", "champions", "lanes"] },
+  { "id": "apex_legends", "word": "Apex Legends", "category": "Gaming", "hints": ["battle", "royale", "legends"] },
+  { "id": "halo", "word": "Halo", "category": "Gaming", "hints": ["master", "chief", "spartan"] },
+  { "id": "dark_souls", "word": "Dark Souls", "category": "Gaming", "hints": ["difficult", "bonfires", "dying"] },
+  { "id": "elden_ring", "word": "Elden Ring", "category": "Gaming", "hints": ["open", "world", "fromsoft"] },
+  { "id": "tetris", "word": "Tetris", "category": "Gaming", "hints": ["blocks", "falling", "rotating"] },
+  { "id": "pac_man", "word": "Pac-Man", "category": "Gaming", "hints": ["arcade", "dots", "ghosts"] },
+  { "id": "sonic", "word": "Sonic", "category": "Gaming", "hints": ["hedgehog", "fast", "rings"] },
+  { "id": "god_of_war", "word": "God of War", "category": "Gaming", "hints": ["kratos", "mythology", "axe"] },
+  { "id": "skyrim", "word": "Skyrim", "category": "Gaming", "hints": ["elder", "scrolls", "dragons"] },
+  { "id": "fifa", "word": "FIFA", "category": "Gaming", "hints": ["football", "simulation", "ea"] },
+  { "id": "rocket_league", "word": "Rocket League", "category": "Gaming", "hints": ["cars", "soccer", "aerial"] },
+  { "id": "animal_crossing", "word": "Animal Crossing", "category": "Gaming", "hints": ["island", "villagers", "relaxing"] },
+  { "id": "sims", "word": "The Sims", "category": "Gaming", "hints": ["life", "simulation", "building"] },
+  { "id": "cyberpunk", "word": "Cyberpunk 2077", "category": "Gaming", "hints": ["futuristic", "night", "city"] },
+  { "id": "red_dead", "word": "Red Dead Redemption", "category": "Gaming", "hints": ["western", "cowboy", "open-world"] },
+  { "id": "witcher", "word": "The Witcher 3", "category": "Gaming", "hints": ["geralt", "monster", "hunter"] },
+  { "id": "spider_man", "word": "Spider-Man", "category": "Gaming", "hints": ["web", "swinging", "marvel"] },
+  { "id": "stardew_valley", "word": "Stardew Valley", "category": "Gaming", "hints": ["farming", "pixel", "relaxing"] },
+  { "id": "terraria", "word": "Terraria", "category": "Gaming", "hints": ["2d", "mining", "bosses"] },
+  { "id": "hollow_knight", "word": "Hollow Knight", "category": "Gaming", "hints": ["metroidvania", "bugs", "underground"] },
+  { "id": "celeste", "word": "Celeste", "category": "Gaming", "hints": ["climbing", "mountain", "platformer"] },
+  { "id": "cuphead", "word": "Cuphead", "category": "Gaming", "hints": ["cartoon", "boss", "difficult"] },
+  { "id": "hades", "word": "Hades", "category": "Gaming", "hints": ["roguelike", "underworld", "greek"] },
+  { "id": "undertale", "word": "Undertale", "category": "Gaming", "hints": ["rpg", "mercy", "indie"] },
+  { "id": "portal", "word": "Portal", "category": "Gaming", "hints": ["puzzle", "teleport", "cake"] },
+  { "id": "half_life", "word": "Half-Life", "category": "Gaming", "hints": ["valve", "freeman", "crowbar"] },
+  { "id": "doom", "word": "DOOM", "category": "Gaming", "hints": ["demons", "slayer", "shooter"] },
+  { "id": "resident_evil", "word": "Resident Evil", "category": "Gaming", "hints": ["horror", "zombies", "raccoon"] },
+  { "id": "last_of_us", "word": "The Last of Us", "category": "Gaming", "hints": ["post", "apocalyptic", "ellie"] },
+  { "id": "uncharted", "word": "Uncharted", "category": "Gaming", "hints": ["treasure", "drake", "adventure"] },
+  { "id": "assassins_creed", "word": "Assassin's Creed", "category": "Gaming", "hints": ["hidden", "blade", "historical"] },
+  { "id": "metal_gear", "word": "Metal Gear Solid", "category": "Gaming", "hints": ["stealth", "snake", "tactical"] },
+  { "id": "final_fantasy", "word": "Final Fantasy", "category": "Gaming", "hints": ["jrpg", "square", "crystals"] },
+  { "id": "persona", "word": "Persona 5", "category": "Gaming", "hints": ["phantom", "thieves", "stylish"] },
+  { "id": "mario_kart", "word": "Mario Kart", "category": "Gaming", "hints": ["racing", "shells", "banana"] },
+  { "id": "smash_bros", "word": "Super Smash Bros", "category": "Gaming", "hints": ["fighting", "crossover", "platform"] },
+  { "id": "wii_sports", "word": "Wii Sports", "category": "Gaming", "hints": ["motion", "bowling", "tennis"] },
+  { "id": "fall_guys", "word": "Fall Guys", "category": "Gaming", "hints": ["beans", "obstacle", "party"] },
+  { "id": "splatoon", "word": "Splatoon", "category": "Gaming", "hints": ["ink", "squid", "shooter"] },
+  { "id": "kirby", "word": "Kirby", "category": "Gaming", "hints": ["pink", "inhale", "copy"] },
+  { "id": "donkey_kong", "word": "Donkey Kong", "category": "Gaming", "hints": ["banana", "ape", "barrels"] },
+  { "id": "mortal_kombat", "word": "Mortal Kombat", "category": "Gaming", "hints": ["fighting", "fatality", "brutal"] },
+  { "id": "street_fighter", "word": "Street Fighter", "category": "Gaming", "hints": ["hadouken", "fighting", "capcom"] },
+  { "id": "death_stranding", "word": "Death Stranding", "category": "Gaming", "hints": ["delivery", "strand", "kojima"] },
+  { "id": "sekiro", "word": "Sekiro", "category": "Gaming", "hints": ["samurai", "deflect", "shinobi"] },
+  { "id": "bloodborne", "word": "Bloodborne", "category": "Gaming", "hints": ["gothic", "hunters", "beasts"] },
+  { "id": "destiny", "word": "Destiny 2", "category": "Gaming", "hints": ["guardians", "loot", "space"] },
+  { "id": "borderlands", "word": "Borderlands", "category": "Gaming", "hints": ["cel-shaded", "loot", "vault"] },
+  { "id": "pubg", "word": "PUBG", "category": "Gaming", "hints": ["battleground", "parachute", "chicken"] },
+  { "id": "csgo", "word": "Counter-Strike", "category": "Gaming", "hints": ["bomb", "defuse", "tactical"] },
+  { "id": "dota", "word": "Dota 2", "category": "Gaming", "hints": ["moba", "ancient", "valve"] },
+  { "id": "world_of_warcraft", "word": "World of Warcraft", "category": "Gaming", "hints": ["mmo", "azeroth", "raids"] },
+  { "id": "diablo", "word": "Diablo", "category": "Gaming", "hints": ["loot", "hack", "dungeon"] },
+  { "id": "bioshock", "word": "BioShock", "category": "Gaming", "hints": ["rapture", "underwater", "would-you-kindly"] },
+  { "id": "mass_effect", "word": "Mass Effect", "category": "Gaming", "hints": ["space", "bioware", "shepard"] },
+  { "id": "baldurs_gate", "word": "Baldur's Gate 3", "category": "Gaming", "hints": ["dnd", "rpg", "larian"] },
+  { "id": "subnautica", "word": "Subnautica", "category": "Gaming", "hints": ["underwater", "survival", "alien"] },
+  { "id": "no_mans_sky", "word": "No Man's Sky", "category": "Gaming", "hints": ["procedural", "planets", "exploration"] },
+  { "id": "rust", "word": "Rust", "category": "Gaming", "hints": ["survival", "base", "multiplayer"] },
+  { "id": "ark", "word": "ARK", "category": "Gaming", "hints": ["dinosaurs", "survival", "taming"] },
+  { "id": "genshin_impact", "word": "Genshin Impact", "category": "Gaming", "hints": ["gacha", "anime", "open-world"] },
+  { "id": "palworld", "word": "Palworld", "category": "Gaming", "hints": ["creatures", "survival", "pals"] },
+  { "id": "lethal_company", "word": "Lethal Company", "category": "Gaming", "hints": ["horror", "scrap", "quota"] },
+  { "id": "it_takes_two", "word": "It Takes Two", "category": "Gaming", "hints": ["co-op", "couple", "adventure"] },
+  { "id": "overcooked", "word": "Overcooked", "category": "Gaming", "hints": ["cooking", "chaos", "co-op"] },
+  { "id": "disco_elysium", "word": "Disco Elysium", "category": "Gaming", "hints": ["detective", "rpg", "dialogue"] },
+  { "id": "botw", "word": "Breath of the Wild", "category": "Gaming", "hints": ["open-air", "shrines", "zelda"] },
+  { "id": "totk", "word": "Tears of the Kingdom", "category": "Gaming", "hints": ["ultrahand", "fuse", "sky"] },
+  { "id": "ghost_of_tsushima", "word": "Ghost of Tsushima", "category": "Gaming", "hints": ["samurai", "mongol", "open-world"] },
+  { "id": "horizon", "word": "Horizon Zero Dawn", "category": "Gaming", "hints": ["robot", "dinosaurs", "aloy"] },
+  { "id": "detroit", "word": "Detroit Become Human", "category": "Gaming", "hints": ["android", "choices", "narrative"] },
+  { "id": "life_is_strange", "word": "Life is Strange", "category": "Gaming", "hints": ["time", "rewind", "choices"] },
+  { "id": "plague_tale", "word": "A Plague Tale", "category": "Gaming", "hints": ["rats", "siblings", "medieval"] },
+  { "id": "ori", "word": "Ori and the Blind Forest", "category": "Gaming", "hints": ["spirit", "beautiful", "platformer"] },
+  { "id": "phasmophobia", "word": "Phasmophobia", "category": "Gaming", "hints": ["ghost", "hunting", "co-op"] },
+  { "id": "satisfactory", "word": "Satisfactory", "category": "Gaming", "hints": ["factory", "automation", "conveyor"] },
+  { "id": "factorio", "word": "Factorio", "category": "Gaming", "hints": ["factory", "aliens", "optimization"] },
+  { "id": "rimworld", "word": "RimWorld", "category": "Gaming", "hints": ["colony", "storyteller", "survival"] },
+  { "id": "cities_skylines", "word": "Cities Skylines", "category": "Gaming", "hints": ["city", "builder", "traffic"] },
+  { "id": "civilization", "word": "Civilization", "category": "Gaming", "hints": ["turn-based", "empire", "strategy"] },
+  { "id": "age_of_empires", "word": "Age of Empires", "category": "Gaming", "hints": ["rts", "historical", "wololo"] },
+  { "id": "xcom", "word": "XCOM", "category": "Gaming", "hints": ["tactical", "aliens", "permadeath"] },
+  { "id": "slay_the_spire", "word": "Slay the Spire", "category": "Gaming", "hints": ["deck", "building", "roguelike"] },
+  { "id": "dead_cells", "word": "Dead Cells", "category": "Gaming", "hints": ["roguelike", "fast", "metroidvania"] },
+  { "id": "binding_isaac", "word": "Binding of Isaac", "category": "Gaming", "hints": ["roguelike", "basement", "tears"] },
+  { "id": "vampire_survivors", "word": "Vampire Survivors", "category": "Gaming", "hints": ["horde", "cheap", "addictive"] },
+  { "id": "deep_rock", "word": "Deep Rock Galactic", "category": "Gaming", "hints": ["dwarves", "mining", "co-op"] },
+  { "id": "sea_of_thieves", "word": "Sea of Thieves", "category": "Gaming", "hints": ["pirates", "sailing", "treasure"] },
+  { "id": "game_boy", "word": "Game Boy", "category": "Gaming", "hints": ["handheld", "portable", "retro"] },
+  { "id": "nintendo_switch", "word": "Nintendo Switch", "category": "Gaming", "hints": ["hybrid", "joycon", "docked"] },
+  { "id": "playstation", "word": "PlayStation", "category": "Gaming", "hints": ["sony", "console", "dualshock"] },
+  { "id": "xbox", "word": "Xbox", "category": "Gaming", "hints": ["microsoft", "console", "gamepass"] },
+  { "id": "steam_deck", "word": "Steam Deck", "category": "Gaming", "hints": ["valve", "handheld", "portable"] },
+  { "id": "vr_headset", "word": "VR Headset", "category": "Gaming", "hints": ["virtual", "reality", "immersive"] },
+  { "id": "esports", "word": "Esports", "category": "Gaming", "hints": ["competitive", "pro", "tournament"] },
+  { "id": "speedrun", "word": "Speedrun", "category": "Gaming", "hints": ["fast", "record", "glitches"] },
+  { "id": "easter_egg_g", "word": "Easter Egg", "category": "Gaming", "hints": ["hidden", "secret", "developers"] },
+  { "id": "npc", "word": "NPC", "category": "Gaming", "hints": ["non-player", "character", "scripted"] },
+  { "id": "loot_box", "word": "Loot Box", "category": "Gaming", "hints": ["random", "microtransaction", "opening"] },
+  { "id": "ragequit", "word": "Rage Quit", "category": "Gaming", "hints": ["angry", "leaving", "frustrated"] },
 ] as const
