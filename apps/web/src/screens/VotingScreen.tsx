@@ -92,17 +92,17 @@ export default function VotingScreen() {
     >
       <div className="flex w-full max-w-[900px] flex-col items-center justify-center gap-8 text-center">
         <motion.div
-          className="flex flex-col items-center gap-3"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          className="flex flex-col items-center gap-4 mb-6"
+          initial={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
         >
-          <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-blue">
             Vote {currentVoterIndex + 1} of {totalVotes}
           </p>
-          <h2 className="font-display text-3xl font-bold">
-            {currentPlayerName}, choose who you suspect
+          <h2 className="font-display text-4xl font-black tracking-wide text-gradient">
+            {currentPlayerName}, choose a suspect
           </h2>
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+          <p className="text-base font-medium tracking-wide text-white/50">
             Pass the phone after confirming your vote.
           </p>
         </motion.div>
@@ -133,22 +133,22 @@ export default function VotingScreen() {
                   type="button"
                   disabled={isSelf || isTransitioning}
                   onClick={() => setSelectedTargetId(target.id)}
-                  className="relative flex w-full justify-center rounded-3xl border p-5 transition-all disabled:cursor-not-allowed"
+                  className="relative flex w-full justify-center rounded-[28px] border p-6 transition-all disabled:cursor-not-allowed glass-panel group overflow-hidden"
                   style={{
-                    background: isSelected ? 'rgba(124,58,237,0.2)' : 'rgba(255,255,255,0.04)',
+                    background: isSelected ? 'rgba(168,85,247,0.15)' : 'rgba(255,255,255,0.03)',
                     borderColor: isConfirmed
-                      ? 'var(--color-success)'
+                      ? 'rgba(34,197,94,0.6)'
                       : isSelected
-                        ? 'var(--color-accent)'
+                        ? 'rgba(168,85,247,0.5)'
                         : isSelf
-                          ? 'rgba(255,255,255,0.08)'
-                          : 'rgba(255,255,255,0.14)',
+                          ? 'transparent'
+                          : 'rgba(255,255,255,0.08)',
                     boxShadow: isConfirmed
-                      ? '0 0 26px rgba(34,197,94,0.35)'
+                      ? '0 0 30px rgba(34,197,94,0.25), inset 0 0 0 1px rgba(34,197,94,0.4)'
                       : isSelected
-                        ? '0 0 30px var(--color-accent-glow), inset 0 0 0 1px rgba(168,85,247,0.25)'
-                        : 'none',
-                    opacity: isSelf ? 0.45 : 1,
+                        ? '0 12px 32px rgba(168,85,247,0.3), inset 0 0 0 1px rgba(168,85,247,0.5)'
+                        : '0 8px 24px rgba(0,0,0,0.2)',
+                    opacity: isSelf ? 0.4 : 1,
                   }}
                 >
                   {isConfirmed && (
@@ -180,12 +180,12 @@ export default function VotingScreen() {
                     </div>
                   )}
 
-                  <div className="flex flex-col items-center gap-3 text-center">
+                    <div className="flex flex-col items-center gap-3 text-center relative z-10">
                     <PlayerAvatar name={target.name} size="lg" />
                     <div className="space-y-1">
-                      <p className="font-semibold text-white">{target.name}</p>
-                      <p className="text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>
-                        {isSelf ? 'You' : isConfirmed ? 'Locked in' : isSelected ? 'Ready' : 'Tap to select'}
+                      <p className={`font-display text-lg font-bold tracking-wide ${isSelected ? 'text-white' : 'text-white/80'}`}>{target.name}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
+                        {isSelf ? 'YOU' : isConfirmed ? 'LOCKED IN' : isSelected ? 'READY' : 'SELECT'}
                       </p>
                     </div>
                   </div>
@@ -194,13 +194,10 @@ export default function VotingScreen() {
             )
           })}
         </div>
-
-        <div className="flex w-full justify-center">
-          <div className="w-full max-w-sm">
-            <GlowButton onClick={handleConfirmVote} disabled={!selectedTargetId || isTransitioning}>
-              {isTransitioning ? 'Confirming...' : 'Confirm Vote'}
-            </GlowButton>
-          </div>
+        <div className="w-full max-w-sm mt-4">
+          <GlowButton onClick={handleConfirmVote} disabled={!selectedTargetId || isTransitioning}>
+            {isTransitioning ? 'CONFIRMING...' : 'CONFIRM VOTE'}
+          </GlowButton>
         </div>
       </div>
     </motion.div>

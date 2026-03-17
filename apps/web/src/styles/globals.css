@@ -36,23 +36,42 @@
     background-color: var(--color-void);
   }
 
-  .text-accent {
-    color: var(--color-accent-light);
+  .text-gradient {
+    background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .text-accent-gradient {
+    background: linear-gradient(135deg, var(--color-accent-blue) 0%, var(--color-accent-purple) 60%, var(--color-accent-magenta) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .glow-accent {
-    box-shadow: 0 0 20px var(--color-accent-glow), 0 0 60px var(--color-accent-glow);
+    box-shadow: 0 0 24px var(--color-accent-glow), 0 0 64px rgba(56, 189, 248, 0.15);
   }
 
   .glow-danger {
-    box-shadow: 0 0 20px var(--color-danger-glow), 0 0 60px var(--color-danger-glow);
+    box-shadow: 0 0 24px var(--color-danger-glow), 0 0 64px rgba(239, 68, 68, 0.15);
   }
 
   .glass {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--color-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border: 1px solid var(--color-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 var(--color-border-highlight);
+  }
+
+  .glass-panel {
+    background: linear-gradient(180deg, rgba(20,20,35,0.6) 0%, rgba(10,10,20,0.8) 100%);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid var(--color-border);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.6), inset 0 1px 0 var(--color-border-highlight);
   }
 
   /* Card flip utility */
@@ -73,9 +92,7 @@
   .focus-ring:focus-visible,
   button:focus-visible,
   [role="button"]:focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--color-accent-purple);
     outline-offset: 2px;
   }
 }
-
-

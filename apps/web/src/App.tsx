@@ -1,6 +1,6 @@
 import { Component, type ReactNode } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { AnimatedBackground } from './components/ui/AnimatedBackground'
+import { AuroraBackground } from './components/ui/AuroraBackground'
 import { useUIStore } from './store/uiStore'
 import HomeScreen from './screens/HomeScreen'
 import ModeSelectScreen from './screens/ModeSelectScreen'
@@ -31,10 +31,10 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | 
 }
 
 const pageTransition = {
-  initial: { opacity: 0, y: 16 },
-  animate: { opacity: 1, y: 0 },
-  exit: { opacity: 0, y: -12 },
-  transition: { duration: 0.3, ease: [0.16, 1, 0.3, 1] },
+  initial: { opacity: 0, scale: 0.98, filter: 'blur(8px)' },
+  animate: { opacity: 1, scale: 1, filter: 'blur(0px)' },
+  exit: { opacity: 0, scale: 1.02, filter: 'blur(8px)' },
+  transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
 }
 
 function renderScreen(screen: string) {
@@ -67,8 +67,8 @@ export default function App() {
   return (
     <ErrorBoundary>
       <div className="relative min-h-screen overflow-x-hidden bg-void text-white">
-        <AnimatedBackground />
-        <div className="relative z-10">
+        <AuroraBackground />
+        <div className="relative z-10 w-full min-h-screen">
           <AnimatePresence mode="wait">
             <motion.div
               key={screen}

@@ -38,40 +38,40 @@ export default function ResultsScreen() {
       <Confetti sad={!impostorsCaught} />
 
       <motion.div
-        className="text-center"
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
+        className="text-center mt-4"
+        initial={{ opacity: 0, scale: 0.8, filter: 'blur(8px)' }}
+        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="text-6xl mb-4">{impostorsCaught ? '🎉' : '😈'}</div>
-        <h2 className="font-display text-4xl font-bold">
-          {impostorsCaught ? 'Caught!' : 'Escaped!'}
+        <div className="text-7xl mb-6 drop-shadow-2xl">{impostorsCaught ? '🎉' : '😈'}</div>
+        <h2 className={`font-display text-5xl font-black tracking-wide ${impostorsCaught ? 'text-success' : 'text-danger'}`}>
+          {impostorsCaught ? 'CAUGHT!' : 'ESCAPED!'}
         </h2>
-        <p className="mt-2" style={{ color: 'var(--color-text-secondary)' }}>
+        <p className="mt-4 text-lg font-medium tracking-wide text-white/80">
           {impostorsCaught
-            ? `The impostor was ${impostorNames}`
-            : `${impostorNames} fooled everyone`}
+            ? <span className="text-white">The impostor was <span className="font-bold text-accent-blue">{impostorNames}</span></span>
+            : <span className="text-white"><span className="font-bold text-danger">{impostorNames}</span> fooled everyone</span>}
         </p>
       </motion.div>
 
-      <GlassCard className="w-full max-w-md p-4">
-        <p className="text-sm mb-3" style={{ color: 'var(--color-text-muted)' }}>
+      <GlassCard className="glass-panel w-full max-w-md p-6 flex flex-col items-center text-center rounded-[24px]">
+        <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/50 mb-3">
           The word was
         </p>
-        <p className="font-display text-2xl font-bold text-accent">
+        <p className="font-display text-3xl font-black text-white drop-shadow-md">
           {round?.word}
         </p>
-        <p className="text-sm mt-1" style={{ color: 'var(--color-text-secondary)' }}>
-          {round?.hint}
+        <p className="text-sm mt-3 font-medium text-white/60">
+          Hint: {round?.hint}
         </p>
       </GlassCard>
 
       <ScoreBoard scores={game.scores} players={game.players} />
 
-      <div className="flex flex-col gap-3 w-full max-w-md">
-        <GlowButton onClick={handleNextRound}>Next Round</GlowButton>
+      <div className="flex flex-col gap-4 w-full max-w-md mt-4 pb-8">
+        <GlowButton onClick={handleNextRound}>NEXT ROUND</GlowButton>
         <GlowButton variant="secondary" onClick={() => { resetGame(); setScreen('home') }}>
-          End Game
+          END GAME
         </GlowButton>
       </div>
     </div>

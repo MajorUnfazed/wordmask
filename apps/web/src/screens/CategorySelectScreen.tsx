@@ -59,22 +59,18 @@ export default function CategorySelectScreen() {
       style={{ paddingBottom: 'max(80px, env(safe-area-inset-bottom))' }}
     >
       <motion.div
-        className="max-w-2xl text-center"
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.45 }}
+        className="max-w-2xl text-center mb-4"
+        initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p
-          className="mb-3 text-xs uppercase tracking-[0.36em]"
-          style={{ color: 'var(--color-text-muted)' }}
-        >
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.36em] text-accent-blue">
           Curated Categories
         </p>
-        <h2 className="font-display text-4xl font-bold">Build your round pool</h2>
-        <p
-          className="mt-3 text-sm leading-6"
-          style={{ color: 'var(--color-text-secondary)' }}
-        >
+        <h2 className="font-display text-4xl font-bold tracking-wide text-gradient">
+          Build your round pool
+        </h2>
+        <p className="mt-4 text-base font-medium text-white/60">
           Pick one or more visual packs, or let the app choose a mix for you.
         </p>
       </motion.div>
@@ -98,20 +94,17 @@ export default function CategorySelectScreen() {
         })}
       </div>
 
-      <div className="flex w-full max-w-md flex-col items-center gap-3 pb-4">
-        <div
-          className="text-center text-sm"
-          style={{ color: 'var(--color-text-muted)' }}
-        >
+      <div className="flex w-full max-w-md flex-col items-center gap-4 pb-8 pt-4">
+        <div className="text-center text-sm font-medium tracking-wide text-white/50">
           {selectedCategories.length === 0
             ? 'Select at least one category to start.'
             : `${selectedCategories.length} categories selected`}
         </div>
         <GlowButton variant="secondary" onClick={handleSurpriseMe}>
-          🎲 Surprise Me
+          🎲 SURPRISE ME
         </GlowButton>
         <GlowButton onClick={handleStartRound} disabled={selectedCategories.length === 0}>
-          Start Game
+          START GAME
         </GlowButton>
       </div>
     </div>

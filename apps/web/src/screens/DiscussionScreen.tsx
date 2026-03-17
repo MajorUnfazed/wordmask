@@ -21,17 +21,20 @@ export default function DiscussionScreen() {
       style={{ paddingBottom: 'max(80px, env(safe-area-inset-bottom))' }}
     >
       <motion.div
-        className="flex flex-col items-center gap-4"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="flex flex-col items-center gap-4 mb-4"
+        initial={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
+        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
       >
-        <h2 className="font-display text-4xl font-bold">Discuss!</h2>
+        <h2 className="font-display text-5xl font-black tracking-wide text-gradient">
+          DISCUSS!
+        </h2>
         {currentRound?.category && (
-          <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-blue">
             Category: {currentRound.category}
           </p>
         )}
-        <p style={{ color: 'var(--color-text-secondary)' }}>
+        <p className="text-lg font-medium tracking-wide text-white/70">
           Talk it out — who's the impostor?
         </p>
       </motion.div>

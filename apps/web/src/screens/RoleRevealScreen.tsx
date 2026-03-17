@@ -122,22 +122,19 @@ export default function RoleRevealScreen() {
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
       >
         <motion.div
-          className="flex flex-col items-center gap-1 text-center"
-          initial={{ opacity: 0, y: -12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
+          className="flex flex-col items-center gap-2 text-center mb-4"
+          initial={{ opacity: 0, y: -12, filter: 'blur(4px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ delay: 0.1, duration: 0.5 }}
         >
-          <p className="text-sm" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-blue">
             Player {currentPlayerIndex + 1} of {players.length}
           </p>
-          <h2
-            className="font-display text-2xl font-bold"
-            style={{ color: 'var(--color-text-primary)' }}
-          >
+          <h2 className="font-display text-4xl font-black tracking-wide text-gradient">
             {currentRevealPlayer.name}
           </h2>
-          <p className="text-sm" style={{ color: 'var(--color-text-secondary)' }}>
-            {revealed ? 'Role revealed' : 'Hold to reveal your role'}
+          <p className="text-sm font-medium tracking-wide text-white/50">
+            {revealed ? 'ROLE REVEALED' : 'HOLD TO REVEAL ROLE'}
           </p>
         </motion.div>
 
