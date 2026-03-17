@@ -115,9 +115,9 @@ export function CategoryCard({
               style={{
                 fontSize: titleStyle.fontSize,
                 letterSpacing: titleStyle.letterSpacing,
-                whiteSpace: 'nowrap',
+                whiteSpace: name.length > 12 ? 'normal' : 'nowrap',
                 overflow: 'hidden',
-                textOverflow: 'clip',
+                textOverflow: name.length > 12 ? undefined : 'clip',
                 lineHeight: titleStyle.lineHeight,
               }}
               title={name}

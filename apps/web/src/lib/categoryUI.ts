@@ -9,15 +9,22 @@ export type RecommendedCategory = {
 
 export const RECOMMENDED_CATEGORIES: RecommendedCategory[] = [
   { id: 'animals', name: 'Animals', emoji: '🐘', engineCategory: 'Animals' },
+  { id: 'campus_life', name: 'Campus Life', emoji: '🎓', engineCategory: 'Campus Life' },
+  { id: 'everyday', name: 'Everyday', emoji: '🏠', engineCategory: 'Everyday' },
+  { id: 'f1', name: 'Formula 1', emoji: '🏎️', engineCategory: 'Formula 1' },
+  { id: 'fashion', name: 'Fashion', emoji: '👗', engineCategory: 'Fashion' },
   { id: 'food', name: 'Food', emoji: '🍕', engineCategory: 'Food' },
-  { id: 'technology', name: 'Technology', emoji: '💻', engineCategory: 'Technology' },
-  { id: 'household', name: 'Household', emoji: '🏠', engineCategory: 'Random Objects' },
-  { id: 'nature', name: 'Nature', emoji: '🌿', engineCategory: 'Science' },
+  { id: 'gaming', name: 'Gaming', emoji: '🎮', engineCategory: 'Gaming' },
   { id: 'geography', name: 'Geography', emoji: '🌍', engineCategory: 'Geography' },
-  { id: 'sports', name: 'Sports', emoji: '⚽', engineCategory: 'Sports' },
-  { id: 'clothing', name: 'Clothing', emoji: '👕', engineCategory: 'Everyday' },
-  { id: 'music', name: 'Music', emoji: '🎵', engineCategory: 'Party Mode' },
+  { id: 'internet_culture', name: 'Internet Culture', emoji: '💀', engineCategory: 'Internet Culture' },
   { id: 'movies', name: 'Movies', emoji: '🎬', engineCategory: 'Movies' },
+  { id: 'music', name: 'Music', emoji: '🎵', engineCategory: 'Music' },
+  { id: 'party_mode', name: 'Party Mode', emoji: '🎉', engineCategory: 'Party Mode' },
+  { id: 'professions', name: 'Professions', emoji: '👨‍⚕️', engineCategory: 'Professions' },
+  { id: 'random_objects', name: 'Random Objects', emoji: '🎲', engineCategory: 'Random Objects' },
+  { id: 'science', name: 'Science', emoji: '🔬', engineCategory: 'Science' },
+  { id: 'sports', name: 'Sports', emoji: '⚽', engineCategory: 'Sports' },
+  { id: 'technology', name: 'Technology', emoji: '💻', engineCategory: 'Technology' },
 ] as const
 
 const categoryNameByEngineCategory = new Map(

@@ -79,7 +79,7 @@ export default function CategorySelectScreen() {
         </p>
       </motion.div>
 
-      <div className="grid w-full max-w-5xl grid-cols-[repeat(auto-fit,minmax(160px,1fr))] gap-4">
+      <div className="grid w-full max-w-5xl grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] sm:gap-4">
         {RECOMMENDED_CATEGORIES.map((category, index) => {
           const selected = isSelected(category.engineCategory)
           const wordCount = wordCountByEngineCategory.get(category.engineCategory) ?? 0
