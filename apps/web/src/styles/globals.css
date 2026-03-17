@@ -78,20 +78,4 @@
   }
 }
 
-/* Light theme overrides for glass and special elements */
-[data-theme="light"] {
-  color-scheme: light;
-}
 
-[data-theme="light"] .glass {
-  background: rgba(255, 255, 255, 0.7);
-  border-color: rgba(124, 58, 237, 0.15);
-}
-
-[data-theme="light"] .bg-void {
-  background-color: var(--color-void);
-}
-
-[data-theme="light"] .text-white {
-  color: var(--color-text-primary);
-}

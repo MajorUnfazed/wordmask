@@ -62,24 +62,3 @@
   --radius-full: 9999px;
 }
 
-/* Light theme overrides */
-[data-theme="light"] {
-  --color-void: #f8f9fc;
-  --color-void-2: #eef0f6;
-  --color-surface: #ffffff;
-  --color-border: rgba(124, 58, 237, 0.2);
-
-  --color-accent: #7c3aed;
-  --color-accent-light: #6d28d9;
-  --color-accent-glow: rgba(124, 58, 237, 0.25);
-
-  --color-danger: #dc2626;
-  --color-danger-glow: rgba(220, 38, 38, 0.3);
-
-  --color-success: #16a34a;
-  --color-warning: #d97706;
-
-  --color-text-primary: #1e293b;
-  --color-text-secondary: #475569;
-  --color-text-muted: #94a3b8;
-}
