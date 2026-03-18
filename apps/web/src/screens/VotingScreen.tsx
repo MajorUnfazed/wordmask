@@ -86,9 +86,13 @@ export default function VotingScreen() {
       key={currentVoter.id}
       className="flex min-h-screen items-start justify-center overflow-y-auto px-6 pt-12 md:items-center"
       style={{ paddingBottom: 'max(80px, env(safe-area-inset-bottom))' }}
-      initial={{ opacity: 0, y: 18 }}
-      animate={{ opacity: isTransitioning ? 0 : 1, y: isTransitioning ? -12 : 0 }}
-      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
+      animate={{ 
+        opacity: isTransitioning ? 0 : 1, 
+        y: isTransitioning ? -12 : 0,
+        filter: isTransitioning ? 'blur(10px)' : 'blur(0px)'
+      }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="flex w-full max-w-[900px] flex-col items-center justify-center gap-8 text-center">
         <motion.div
@@ -116,18 +120,21 @@ export default function VotingScreen() {
             return (
               <motion.div
                 key={target.id}
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -20, y: 0, rotate: 0 }}
                 animate={{
-                  opacity: isTransitioning && !isConfirmed ? 0.35 : 1,
+                  opacity: isTransitioning && !isConfirmed ? 0 : 1,
                   x: 0,
-                  scale: isConfirmed ? [1, 1.04, 0.99, 1.02] : isSelected ? 1.05 : 1,
+                  y: isConfirmed ? -20 : (isTransitioning && !isSelected) ? 100 : 0,
+                  rotate: (isTransitioning && !isConfirmed) ? (index % 2 === 0 ? 12 : -12) : 0,
+                  scale: isConfirmed ? [1, 1.04, 0.99, 1.05] : isSelected ? 1.05 : 1,
                 }}
                 transition={{
                   delay: index * 0.04,
-                  duration: isConfirmed ? 0.38 : 0.24,
-                  ease: [0.16, 1, 0.3, 1],
+                  duration: isTransitioning ? 0.6 : 0.24,
+                  ease: isTransitioning ? [0.32, 0, 0.67, 0] : [0.16, 1, 0.3, 1],
                 }}
                 className="flex w-[180px] justify-center"
+                style={{ zIndex: isConfirmed ? 50 : 1 }}
               >
                 <button
                   type="button"
@@ -194,11 +201,14 @@ export default function VotingScreen() {
             )
           })}
         </div>
-        <div className="w-full max-w-sm mt-4">
-          <GlowButton onClick={handleConfirmVote} disabled={!selectedTargetId || isTransitioning}>
-            {isTransitioning ? 'CONFIRMING...' : 'CONFIRM VOTE'}
-          </GlowButton>
-        </div>
+          <motion.div 
+            className="w-full max-w-sm mt-4"
+            animate={{ opacity: isTransitioning ? 0 : 1, y: isTransitioning ? 20 : 0 }}
+          >
+            <GlowButton onClick={handleConfirmVote} disabled={!selectedTargetId || isTransitioning}>
+              {isTransitioning ? 'CONFIRMING...' : 'CONFIRM VOTE'}
+            </GlowButton>
+          </motion.div>
       </div>
     </motion.div>
   )

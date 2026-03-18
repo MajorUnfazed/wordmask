@@ -30,34 +30,37 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | 
   }
 }
 
-const pageTransition = {
-  initial: { opacity: 0, scale: 0.98, filter: 'blur(8px)' },
-  animate: { opacity: 1, scale: 1, filter: 'blur(0px)' },
-  exit: { opacity: 0, scale: 1.02, filter: 'blur(8px)' },
-  transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+const pageVariants = {
+  initial: (screen: string) => {
+    if (screen === 'category') return { opacity: 0, y: 40, scale: 0.95, filter: 'blur(10px)' }
+    return { opacity: 0, scale: 0.98, filter: 'blur(8px)' }
+  },
+  animate: (screen: string) => ({ 
+    opacity: 1, 
+    scale: 1, 
+    y: 0, 
+    filter: 'blur(0px)',
+    transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] }
+  }),
+  exit: (screen: string) => {
+    if (screen === 'setup') return { opacity: 0, scale: 0.7, y: -50, filter: 'blur(12px)', transition: { duration: 0.5, ease: [0.32, 0, 0.67, 0] } }
+    if (screen === 'voting') return { opacity: 0, scale: 1.1, filter: 'blur(10px)', transition: { duration: 0.4 } }
+    return { opacity: 0, scale: 1.02, filter: 'blur(8px)', transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] } }
+  }
 }
 
 function renderScreen(screen: string) {
   switch (screen) {
-    case 'mode':
-      return <ModeSelectScreen />
-    case 'setup':
-      return <OfflineSetupScreen />
-    case 'category':
-      return <CategorySelectScreen />
-    case 'round-transition':
-      return <RoundTransitionScreen />
-    case 'role-reveal':
-      return <RoleRevealScreen />
-    case 'discussion':
-      return <DiscussionScreen />
-    case 'voting':
-      return <VotingScreen />
-    case 'results':
-      return <ResultsScreen />
+    case 'mode': return <ModeSelectScreen />
+    case 'setup': return <OfflineSetupScreen />
+    case 'category': return <CategorySelectScreen />
+    case 'round-transition': return <RoundTransitionScreen />
+    case 'role-reveal': return <RoleRevealScreen />
+    case 'discussion': return <DiscussionScreen />
+    case 'voting': return <VotingScreen />
+    case 'results': return <ResultsScreen />
     case 'home':
-    default:
-      return <HomeScreen />
+    default: return <HomeScreen />
   }
 }
 
@@ -72,7 +75,12 @@ export default function App() {
           <AnimatePresence mode="wait">
             <motion.div
               key={screen}
-              {...pageTransition}
+              custom={screen}
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              className="w-full min-h-screen"
             >
               {renderScreen(screen)}
             </motion.div>

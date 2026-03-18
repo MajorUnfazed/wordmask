@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useUIStore } from '../../store/uiStore'
 
 export function AuroraBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -16,9 +17,9 @@ export function AuroraBackground() {
     canvas.height = h
 
     const orbs = [
-      { x: w * 0.2, y: h * 0.3, r: Math.max(w, h) * 0.6, color: 'rgba(124, 58, 237, 0.15)', vx: 0.2, vy: -0.1 }, // Purple
-      { x: w * 0.8, y: h * 0.2, r: Math.max(w, h) * 0.5, color: 'rgba(56, 189, 248, 0.12)', vx: -0.15, vy: 0.2 }, // Blue
-      { x: w * 0.5, y: h * 0.8, r: Math.max(w, h) * 0.55, color: 'rgba(232, 121, 249, 0.1)', vx: 0.1, vy: -0.15 }, // Magenta
+      { x: w * 0.2, y: h * 0.3, r: Math.max(w, h) * 0.6, baseColor: [124, 58, 237] as const, baseOpacity: 0.15, vx: 0.2, vy: -0.1 }, // Purple
+      { x: w * 0.8, y: h * 0.2, r: Math.max(w, h) * 0.5, baseColor: [56, 189, 248] as const, baseOpacity: 0.12, vx: -0.15, vy: 0.2 }, // Blue
+      { x: w * 0.5, y: h * 0.8, r: Math.max(w, h) * 0.55, baseColor: [232, 121, 249] as const, baseOpacity: 0.1, vx: 0.1, vy: -0.15 }, // Magenta
     ]
 
     let frameId: number
@@ -26,21 +27,35 @@ export function AuroraBackground() {
     function animate() {
       ctx!.clearRect(0, 0, w, h)
       
+      // Tension scaling effects
+      const tension = useUIStore.getState().tension
+      const tensionMultiplier = 1 + (tension * 5) // Accelerate orbs under tension
+      const targetRgb = [220, 38, 38] as const // Danger red
+
       // Draw deepest void background
       ctx!.fillStyle = '#030308'
       ctx!.fillRect(0, 0, w, h)
 
       // Update and draw orbs
       orbs.forEach(orb => {
-        orb.x += orb.vx
-        orb.y += orb.vy
+        orb.x += orb.vx * tensionMultiplier
+        orb.y += orb.vy * tensionMultiplier
 
         // Gentle boundary bounce
         if (orb.x < -w * 0.2 || orb.x > w * 1.2) orb.vx *= -1
         if (orb.y < -h * 0.2 || orb.y > h * 1.2) orb.vy *= -1
 
+        // Interpolate color based on tension
+        const r = Math.round(orb.baseColor[0] + (targetRgb[0] - orb.baseColor[0]) * tension)
+        const g = Math.round(orb.baseColor[1] + (targetRgb[1] - orb.baseColor[1]) * tension)
+        const b = Math.round(orb.baseColor[2] + (targetRgb[2] - orb.baseColor[2]) * tension)
+        
+        // Add heartbeat pulse at high tension
+        const pulse = tension > 0 ? Math.sin(Date.now() / 150) * 0.08 * tension : 0
+        const opacity = orb.baseOpacity + pulse + (tension * 0.1)
+
         const gradient = ctx!.createRadialGradient(orb.x, orb.y, 0, orb.x, orb.y, orb.r)
-        gradient.addColorStop(0, orb.color)
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${opacity})`)
         gradient.addColorStop(1, 'rgba(0,0,0,0)')
 
         ctx!.fillStyle = gradient

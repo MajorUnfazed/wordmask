@@ -1,5 +1,5 @@
-import type { ButtonHTMLAttributes } from 'react'
-import { motion } from 'framer-motion'
+import { type ButtonHTMLAttributes, useRef } from 'react'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 
 interface GlowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'danger'
@@ -49,12 +49,45 @@ export function GlowButton({
   ...props
 }: GlowButtonProps) {
   const styles = variantStyles[variant]
+  const ref = useRef<HTMLButtonElement>(null)
+  
+  const x = useMotionValue(0)
+  const y = useMotionValue(0)
+
+  const mouseXSpring = useSpring(x, { stiffness: 150, damping: 15 })
+  const mouseYSpring = useSpring(y, { stiffness: 150, damping: 15 })
+
+  const translateX = useTransform(mouseXSpring, [-0.5, 0.5], ["-6px", "6px"])
+  const translateY = useTransform(mouseYSpring, [-0.5, 0.5], ["-6px", "6px"])
+
+  function handleMouseMove(e: React.MouseEvent<HTMLButtonElement>) {
+    if (disabled || !ref.current) return
+    const rect = ref.current.getBoundingClientRect()
+    const width = rect.width
+    const height = rect.height
+    const mouseX = e.clientX - rect.left
+    const mouseY = e.clientY - rect.top
+    const xPct = mouseX / width - 0.5
+    const yPct = mouseY / height - 0.5
+    x.set(xPct)
+    y.set(yPct)
+  }
+
+  function handleMouseLeave() {
+    x.set(0)
+    y.set(0)
+  }
 
   return (
     <motion.button
-      whileHover={disabled ? {} : { scale: 1.02, ...styles.hover }}
+      ref={ref}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      whileHover={disabled ? {} : { scale: 1.03, ...styles.hover }}
       whileTap={disabled ? {} : { scale: 0.96 }}
       style={{
+        x: translateX,
+        y: translateY,
         background: styles.background,
         boxShadow: styles.boxShadow,
         border: styles.border,

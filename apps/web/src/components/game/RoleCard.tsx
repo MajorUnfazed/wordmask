@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react"
-import { motion, useMotionValue, useTransform, PanInfo } from "framer-motion"
+import { motion, useMotionValue, useTransform, useSpring, PanInfo } from "framer-motion"
 import type { PlayerRole } from "@impostor/core"
 import { sounds } from "../../lib/sounds"
 
@@ -40,6 +40,11 @@ export function RoleCard({
   const dragRotateX = useTransform(y, [0, REVEAL_THRESHOLD], [0, 45])
   const dragOpacity = useTransform(y, [0, REVEAL_THRESHOLD / 2], [1, 0])
 
+  // Sub-layer interactive particle physics
+  const trail1y = useSpring(y, { stiffness: 200, damping: 20 })
+  const trail2y = useSpring(y, { stiffness: 100, damping: 25 })
+  const trail3y = useSpring(y, { stiffness: 50,  damping: 30 })
+
   useEffect(() => {
     if (previousRevealed.current !== revealed) {
       sounds.cardFlip()
@@ -71,6 +76,14 @@ export function RoleCard({
         className="relative z-20 select-none"
         style={{ perspective: "1200px", width: 280, height: 440 }}
       >
+        {!revealed && !disabled && (
+          <div className="absolute bottom-[-10px] left-1/2 -z-10 flex -translate-x-1/2 flex-col items-center pointer-events-none gap-2">
+            <motion.div style={{ y: trail1y, opacity: dragOpacity }} className="w-5 h-5 rounded-full bg-accent-purple blur-md opacity-60" />
+            <motion.div style={{ y: trail2y, opacity: dragOpacity }} className="w-3 h-3 rounded-full bg-accent-blue blur-sm opacity-50" />
+            <motion.div style={{ y: trail3y, opacity: dragOpacity }} className="w-2 h-2 rounded-full bg-white blur-[2px] opacity-40" />
+          </div>
+        )}
+
         <motion.div
           drag={!revealed && !disabled ? "y" : false}
           dragConstraints={{ top: 0, bottom: 0 }}

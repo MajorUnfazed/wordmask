@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useUIStore } from '../../store/uiStore'
 
 interface CountdownTimerProps {
   seconds: number
@@ -8,6 +9,21 @@ interface CountdownTimerProps {
 
 export function CountdownTimer({ seconds, onComplete }: CountdownTimerProps) {
   const [remaining, setRemaining] = useState(seconds)
+  const setTension = useUIStore((s) => s.setTension)
+
+  useEffect(() => {
+    if (remaining <= 15 && remaining > 0) {
+      setTension(1 - (remaining / 15))
+    } else if (remaining === 0) {
+      setTension(1)
+    } else {
+      setTension(0)
+    }
+  }, [remaining, setTension])
+
+  useEffect(() => {
+    return () => setTension(0)
+  }, [setTension])
 
   useEffect(() => {
     if (remaining <= 0) {
