@@ -28,6 +28,9 @@ export default function OnlineDiscussionScreen() {
           Online Discussion
         </p>
         <h2 className="font-display text-4xl font-bold">Talk it out</h2>
+        <p className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/55">
+          {round.readyToDiscussCount}/{round.readyToDiscussTotal} players revealed
+        </p>
         <p style={{ color: 'var(--color-text-secondary)' }}>
           Trade clues, pressure the room, and decide who does not belong.
         </p>
@@ -56,7 +59,7 @@ export default function OnlineDiscussionScreen() {
           <CountdownTimer seconds={round.discussionDuration} />
         </div>
         <p className="text-xs uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
-          Local timer for the room
+          Discussion open
         </p>
       </motion.div>
 
@@ -72,7 +75,7 @@ export default function OnlineDiscussionScreen() {
           </GlowButton>
         ) : (
           <p className="text-sm text-white/50">
-            Waiting for the host to open voting…
+            Host opening voting soon…
           </p>
         )}
       </div>

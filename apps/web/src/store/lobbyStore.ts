@@ -12,12 +12,15 @@ interface LobbyStore {
   hostPlayerId: string | null
   status: 'waiting' | 'playing' | 'finished'
   currentRoundId: string | null
+  lastKnownPhase: string | null
   displayName: string | null
   selectedCategories: string[]
+  events: OnlineLobbySnapshot['events']
 
   setDisplayName: (name: string) => void
   setLocalPlayerId: (id: string | null) => void
   setSelectedCategories: (categories: string[]) => void
+  updatePlayer: (playerId: string, updates: Partial<LobbyPlayer>) => void
   hydrateLobby: (snapshot: OnlineLobbySnapshot) => void
   setStatus: (status: LobbyStore['status']) => void
   setCurrentRoundId: (id: string | null) => void
@@ -32,8 +35,10 @@ const initialState = {
   hostPlayerId: null,
   status: 'waiting' as const,
   currentRoundId: null,
+  lastKnownPhase: null,
   displayName: null,
   selectedCategories: ['Everyday'],
+  events: [] as OnlineLobbySnapshot['events'],
 }
 
 export const useLobbyStore = create<LobbyStore>()(
@@ -54,6 +59,14 @@ export const useLobbyStore = create<LobbyStore>()(
         set({ selectedCategories: normalized.length > 0 ? normalized : ['Everyday'] })
       },
 
+      updatePlayer(playerId, updates) {
+        set((state) => ({
+          players: state.players.map((player) =>
+            player.id === playerId ? { ...player, ...updates } : player,
+          ),
+        }))
+      },
+
       hydrateLobby(snapshot) {
         set({
           lobbyId: snapshot.lobbyId,
@@ -62,6 +75,9 @@ export const useLobbyStore = create<LobbyStore>()(
           hostPlayerId: snapshot.hostPlayerId,
           status: snapshot.status,
           currentRoundId: snapshot.currentRound?.id ?? null,
+          lastKnownPhase: snapshot.currentRound?.phase ?? null,
+          selectedCategories: snapshot.selectedCategories,
+          events: snapshot.events,
         })
       },
 
@@ -90,6 +106,7 @@ export const useLobbyStore = create<LobbyStore>()(
         hostPlayerId: state.hostPlayerId,
         status: state.status,
         currentRoundId: state.currentRoundId,
+        lastKnownPhase: state.lastKnownPhase,
         displayName: state.displayName,
         selectedCategories: state.selectedCategories,
       }),

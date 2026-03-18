@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import {
-  ONLINE_DEFAULT_CATEGORY,
   ONLINE_IMPOSTOR_COUNT,
+  ONLINE_START_COUNTDOWN_SECONDS,
   getOnlineCategoryOptions,
   normalizeLobbySnapshot,
   normalizeRolePayload,
@@ -16,7 +16,6 @@ import {
 import {
   ensureAnonymousSession,
   getSupabaseClient,
-  getSupabaseRestConfig,
   isSupabaseConfigured,
 } from '../lib/supabase'
 import { useLobbyStore } from '../store/lobbyStore'
@@ -24,6 +23,7 @@ import { useOnlineRoundStore } from '../store/onlineRoundStore'
 import { useUIStore, type AppScreen } from '../store/uiStore'
 
 const onlineGameScreens = new Set<AppScreen>([
+  'online-round-starting',
   'online-role-reveal',
   'online-discussion',
   'online-voting',
@@ -35,12 +35,28 @@ function getErrorMessage(error: unknown): string {
     return error.message
   }
 
+  if (
+    typeof error === 'object' &&
+    error !== null &&
+    'message' in error &&
+    typeof (error as { message?: unknown }).message === 'string'
+  ) {
+    return (error as { message: string }).message
+  }
+
   return 'Something went wrong.'
 }
 
 function screenForRound(round: OnlineRoundSnapshot | null): AppScreen | null {
   if (!round) {
     return null
+  }
+
+  if (round.phase === 'role_reveal') {
+    const startedAt = Date.parse(round.startedAt)
+    if (!Number.isNaN(startedAt) && Date.now() - startedAt < ONLINE_START_COUNTDOWN_SECONDS * 1000) {
+      return 'online-round-starting'
+    }
   }
 
   switch (round.phase) {
@@ -57,6 +73,19 @@ function screenForRound(round: OnlineRoundSnapshot | null): AppScreen | null {
   }
 }
 
+function areCategoriesEqual(left: string[], right: string[]): boolean {
+  if (left.length !== right.length) {
+    return false
+  }
+
+  return left.every((category, index) => category === right[index])
+}
+
+function isMissingFunctionError(error: unknown, functionName: string): boolean {
+  const message = getErrorMessage(error)
+  return message.includes(`Could not find the function public.${functionName}`)
+}
+
 export function useLobby() {
   const {
     lobbyId,
@@ -66,10 +95,12 @@ export function useLobby() {
     hostPlayerId,
     status,
     currentRoundId,
+    events,
     selectedCategories,
     hydrateLobby,
     clearLobby,
     setSelectedCategories,
+    updatePlayer,
   } = useLobbyStore()
   const setScreen = useUIStore((state) => state.setScreen)
   const setRound = useOnlineRoundStore((state) => state.setRound)
@@ -79,14 +110,21 @@ export function useLobby() {
   )
   const setResult = useOnlineRoundStore((state) => state.setResult)
   const clearRound = useOnlineRoundStore((state) => state.clearRound)
+  const setHasAcknowledgedReadyToDiscuss = useOnlineRoundStore(
+    (state) => state.setHasAcknowledgedReadyToDiscuss,
+  )
   const round = useOnlineRoundStore((state) => state.round)
   const result = useOnlineRoundStore((state) => state.result)
+  const hasAcknowledgedReadyToDiscuss = useOnlineRoundStore(
+    (state) => state.hasAcknowledgedReadyToDiscuss,
+  )
   const submittedVoteTargetId = useOnlineRoundStore(
     (state) => state.submittedVoteTargetId,
   )
   const role = useOnlineRoundStore((state) => state.role)
   const [error, setError] = useState<string | null>(null)
   const [isBusy, setIsBusy] = useState(false)
+  const pendingSelectedCategoriesRef = useRef<string[] | null>(null)
 
   const leaveLobbyRemotely = useCallback(async () => {
     if (!lobbyId) {
@@ -106,6 +144,18 @@ export function useLobby() {
   }, [hostPlayerId, localPlayerId])
 
   const onlineCategoryOptions = useMemo(() => getOnlineCategoryOptions(), [])
+  const connectedPlayers = useMemo(
+    () => players.filter((player) => player.presenceStatus !== 'away'),
+    [players],
+  )
+  const allConnectedPlayersReady = useMemo(
+    () => connectedPlayers.length > 0 && connectedPlayers.every((player) => player.isReady),
+    [connectedPlayers],
+  )
+  const canStartRound = useMemo(
+    () => isHost && status === 'waiting' && connectedPlayers.length >= 3 && allConnectedPlayersReady,
+    [allConnectedPlayersReady, connectedPlayers.length, isHost, status],
+  )
 
   const loadRoundResult = useCallback(async (roundId?: string) => {
     try {
@@ -157,6 +207,25 @@ export function useLobby() {
     }
 
     const snapshot = normalizeLobbySnapshot(data as Record<string, unknown>)
+    const existingRoundId = useOnlineRoundStore.getState().round?.id ?? null
+    const nextRoundId = snapshot.currentRound?.id ?? null
+    const pendingSelectedCategories = pendingSelectedCategoriesRef.current
+
+    if (pendingSelectedCategories) {
+      if (areCategoriesEqual(snapshot.selectedCategories, pendingSelectedCategories)) {
+        pendingSelectedCategoriesRef.current = null
+      } else {
+        snapshot.selectedCategories = pendingSelectedCategories
+      }
+    }
+
+    if (existingRoundId !== nextRoundId) {
+      setRole(null)
+      setResult(null)
+      setSubmittedVoteTargetId(null)
+      setHasAcknowledgedReadyToDiscuss(false)
+    }
+
     hydrateLobby(snapshot)
     setRound(snapshot.currentRound)
 
@@ -164,6 +233,7 @@ export function useLobby() {
       if (!useOnlineRoundStore.getState().result) {
         setRole(null)
         setSubmittedVoteTargetId(null)
+        setHasAcknowledgedReadyToDiscuss(false)
 
         const currentScreen = useUIStore.getState().screen
         if (onlineGameScreens.has(currentScreen)) {
@@ -201,6 +271,7 @@ export function useLobby() {
     setRound,
     setScreen,
     setSubmittedVoteTargetId,
+    setHasAcknowledgedReadyToDiscuss,
   ])
 
   // Keep a ref to the latest refreshLobby so the subscription effect below can
@@ -220,7 +291,11 @@ export function useLobby() {
         await refreshLobbyRef.current()
         setError(null)
       } catch (refreshError) {
-        setError(getErrorMessage(refreshError))
+        if (useLobbyStore.getState().players.length === 0) {
+          setError(getErrorMessage(refreshError))
+        } else {
+          console.error('Background lobby refresh failed:', refreshError)
+        }
       }
     }
   }, [setError])
@@ -281,6 +356,18 @@ export function useLobby() {
               void requestLobbyRefreshRef.current()
             },
           )
+          .on(
+            'postgres_changes',
+            {
+              event: '*',
+              schema: 'public',
+              table: 'lobby_events',
+              filter: `lobby_id=eq.${lobbyId}`,
+            },
+            () => {
+              void requestLobbyRefreshRef.current()
+            },
+          )
           .subscribe()
       } catch (syncError) {
         if (isActive) {
@@ -317,53 +404,116 @@ export function useLobby() {
   }, [code, lobbyId])
 
   useEffect(() => {
-    if (!lobbyId || status !== 'waiting') {
+    if (!lobbyId || !isSupabaseConfigured) {
       return
     }
 
-    const handlePageHide = () => {
-      const currentScreen = useUIStore.getState().screen
-      if (currentScreen !== 'online-lobby') {
-        return
-      }
-
-      const restConfig = getSupabaseRestConfig()
-      const client = getSupabaseClient()
-      if (!restConfig || !client) {
-        return
-      }
-
-      const sessionPromise = client.auth.getSession()
-      void sessionPromise.then(({ data }) => {
-        const accessToken = data.session?.access_token
-        if (!accessToken) {
-          return
-        }
-
-        void fetch(`${restConfig.url}/rest/v1/rpc/leave_lobby`, {
-          method: 'POST',
-          keepalive: true,
-          headers: {
-            'Content-Type': 'application/json',
-            apikey: restConfig.anonKey,
-            Authorization: `Bearer ${accessToken}`,
-          },
-          body: JSON.stringify({ p_lobby_id: lobbyId }),
+    const heartbeat = async () => {
+      try {
+        const client = await ensureAnonymousSession()
+        await client.rpc('heartbeat_player', {
+          p_lobby_id: lobbyId,
         })
-      })
+      } catch {
+        // Background heartbeat should not hard-fail the UI.
+      }
     }
 
-    window.addEventListener('pagehide', handlePageHide)
+    void heartbeat()
+    const heartbeatInterval = window.setInterval(() => {
+      void heartbeat()
+    }, 5000)
 
     return () => {
-      window.removeEventListener('pagehide', handlePageHide)
+      window.clearInterval(heartbeatInterval)
     }
-  }, [lobbyId, status])
+  }, [lobbyId])
 
-  const startGame = useCallback(async () => {
+  useEffect(() => {
+    setHasAcknowledgedReadyToDiscuss(false)
+  }, [round?.id, setHasAcknowledgedReadyToDiscuss])
+
+  const updateSelectedCategories = useCallback(async (categories: string[]) => {
+    if (!lobbyId) {
+      return
+    }
+
+    const normalized = categories.map((category) => category.trim()).filter(Boolean)
+    const nextCategories = normalized.length > 0 ? normalized : ['Everyday']
+    const previousCategories = selectedCategories
+    pendingSelectedCategoriesRef.current = nextCategories
+    setSelectedCategories(nextCategories)
+    setError(null)
+
+    try {
+      const client = await ensureAnonymousSession()
+      const { data, error: rpcError } = await client.rpc('set_lobby_categories', {
+        p_lobby_id: lobbyId,
+        p_categories: nextCategories,
+      })
+
+      if (rpcError) {
+        throw rpcError
+      }
+
+      if (
+        data &&
+        typeof data === 'object' &&
+        Array.isArray((data as { selected_categories?: unknown }).selected_categories)
+      ) {
+        const confirmedCategories = (
+          data as { selected_categories: unknown[] }
+        ).selected_categories.map((value) => String(value))
+
+        pendingSelectedCategoriesRef.current = confirmedCategories
+        setSelectedCategories(confirmedCategories)
+      }
+
+      setError(null)
+      void requestLobbyRefreshRef.current()
+    } catch (categoryError) {
+      pendingSelectedCategoriesRef.current = null
+      setSelectedCategories(previousCategories)
+      setError(getErrorMessage(categoryError))
+    }
+  }, [lobbyId, selectedCategories, setSelectedCategories])
+
+  const setReady = useCallback(async (ready: boolean) => {
+    if (!lobbyId) {
+      return
+    }
+
+    try {
+      setError(null)
+      const client = await ensureAnonymousSession()
+      const { error: rpcError } = await client.rpc('set_player_ready', {
+        p_lobby_id: lobbyId,
+        p_ready: ready,
+      })
+
+      if (rpcError) {
+        throw rpcError
+      }
+
+      if (localPlayerId) {
+        updatePlayer(localPlayerId, {
+          isReady: ready,
+          presenceStatus: 'active',
+          lastSeenAt: new Date().toISOString(),
+        })
+      }
+
+      setError(null)
+      void requestLobbyRefreshRef.current()
+    } catch (readyError) {
+      setError(getErrorMessage(readyError))
+    }
+  }, [localPlayerId, lobbyId, updatePlayer])
+
+  const runRoundStart = useCallback(async (rpcNames: Array<'start_round' | 'start_next_round'>) => {
     if (!lobbyId) {
       setError('Lobby not found.')
-      return
+      return null
     }
 
     setIsBusy(true)
@@ -371,28 +521,72 @@ export function useLobby() {
 
     try {
       const client = await ensureAnonymousSession()
-      const nextWord = pickOnlineRoundWordForCategories(selectedCategories)
-      const { error: rpcError } = await client.rpc('start_round', {
-        p_lobby_id: lobbyId,
-        p_word: nextWord.word,
-        p_hint: nextWord.hint,
-        p_pack_id: nextWord.packId,
-        p_impostor_count: ONLINE_IMPOSTOR_COUNT,
-      })
+      const latestSnapshot = await refreshLobby()
+      const categoriesForRound =
+        latestSnapshot?.selectedCategories?.length
+          ? latestSnapshot.selectedCategories
+          : selectedCategories
+      const nextWord = pickOnlineRoundWordForCategories(categoriesForRound)
+      let lastRpcError: unknown = null
 
-      if (rpcError) {
-        throw rpcError
+      for (const rpcName of rpcNames) {
+        const { error: rpcError } = await client.rpc(rpcName, {
+          p_lobby_id: lobbyId,
+          p_word: nextWord.word,
+          p_hint: nextWord.hint,
+          p_pack_id: nextWord.packId,
+          p_impostor_count: ONLINE_IMPOSTOR_COUNT,
+        })
+
+        if (!rpcError) {
+          lastRpcError = null
+          break
+        }
+
+        lastRpcError = rpcError
+
+        if (rpcName !== 'start_next_round' || !isMissingFunctionError(rpcError, 'start_next_round')) {
+          throw rpcError
+        }
+      }
+
+      if (lastRpcError) {
+        throw lastRpcError
       }
 
       setResult(null)
+      setRole(null)
+      setSubmittedVoteTargetId(null)
+      setHasAcknowledgedReadyToDiscuss(false)
       await refreshLobby()
-      setScreen('online-role-reveal')
+      setScreen('online-round-starting')
+
+      return true
     } catch (startError) {
       setError(getErrorMessage(startError))
+      return null
     } finally {
       setIsBusy(false)
     }
-  }, [lobbyId, refreshLobby, selectedCategories, setResult, setScreen])
+  }, [
+    lobbyId,
+    refreshLobby,
+    selectedCategories,
+    setResult,
+    setRole,
+    setScreen,
+    setSubmittedVoteTargetId,
+    setHasAcknowledgedReadyToDiscuss,
+  ])
+
+  const startGame = useCallback(async () => {
+    if (!canStartRound) {
+      setError('At least 3 connected players are required and everyone must be ready.')
+      return
+    }
+
+    await runRoundStart(['start_round'])
+  }, [canStartRound, runRoundStart])
 
   const loadRole = useCallback(async (): Promise<OnlineRolePayload | null> => {
     try {
@@ -477,10 +671,11 @@ export function useLobby() {
       }
 
       setSubmittedVoteTargetId(targetId)
+      await refreshLobby()
     } catch (voteError) {
       setError(getErrorMessage(voteError))
     }
-  }, [setSubmittedVoteTargetId])
+  }, [refreshLobby, setSubmittedVoteTargetId])
 
   const finishRound = useCallback(async (): Promise<OnlineRoundResult | null> => {
     const activeRoundId = useOnlineRoundStore.getState().round?.id
@@ -523,9 +718,41 @@ export function useLobby() {
 
   const returnToLobby = useCallback(() => {
     setRole(null)
+    setResult(null)
     setSubmittedVoteTargetId(null)
+    setHasAcknowledgedReadyToDiscuss(false)
     setScreen('online-lobby')
-  }, [setRole, setScreen, setSubmittedVoteTargetId])
+  }, [setHasAcknowledgedReadyToDiscuss, setResult, setRole, setScreen, setSubmittedVoteTargetId])
+
+  const markReadyToDiscuss = useCallback(async () => {
+    const activeRoundId = useOnlineRoundStore.getState().round?.id
+
+    if (!activeRoundId) {
+      setError('Round not found.')
+      return
+    }
+
+    try {
+      setError(null)
+      const client = await ensureAnonymousSession()
+      const { error: rpcError } = await client.rpc('mark_ready_to_discuss', {
+        p_round_id: activeRoundId,
+      })
+
+      if (rpcError) {
+        throw rpcError
+      }
+
+      setHasAcknowledgedReadyToDiscuss(true)
+      await refreshLobby()
+    } catch (readyError) {
+      setError(getErrorMessage(readyError))
+    }
+  }, [refreshLobby, setHasAcknowledgedReadyToDiscuss])
+
+  const startNextRound = useCallback(async () => {
+    await runRoundStart(['start_next_round', 'start_round'])
+  }, [runRoundStart])
 
   const disconnectLobby = useCallback(() => {
     void (async () => {
@@ -549,21 +776,29 @@ export function useLobby() {
     hostPlayerId,
     status,
     currentRoundId,
+    events,
     selectedCategories,
     round,
     role,
     result,
+    hasAcknowledgedReadyToDiscuss,
     submittedVoteTargetId,
     isHost,
+    connectedPlayers,
+    allConnectedPlayersReady,
+    canStartRound,
     isBusy,
     error,
     setError,
     onlineCategoryOptions,
-    setSelectedCategories,
+    setSelectedCategories: updateSelectedCategories,
+    setReady,
     refreshLobby,
     startGame,
+    startNextRound,
     loadRole,
     loadRoundResult,
+    markReadyToDiscuss,
     startDiscussion: () => setRoundPhase('discussion'),
     startVoting: () => setRoundPhase('voting'),
     submitVote,

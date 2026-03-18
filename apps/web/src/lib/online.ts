@@ -5,13 +5,32 @@ export const ONLINE_PACK_ID = 'everyday'
 export const ONLINE_DISCUSSION_DURATION = 60
 export const ONLINE_IMPOSTOR_COUNT = 1
 export const ONLINE_DEFAULT_CATEGORY = 'Everyday'
+export const ONLINE_START_COUNTDOWN_SECONDS = 3
+
+export type OnlinePresenceStatus = 'active' | 'reconnecting' | 'away'
+
+export interface LobbyEvent {
+  id: string
+  type: string
+  actorName: string | null
+  targetName: string | null
+  createdAt: string
+  message: string
+}
 
 export interface OnlineLobbyPlayer {
   id: string
   name: string
   isHost: boolean
   isReady: boolean
+  presenceStatus: OnlinePresenceStatus
+  lastSeenAt: string | null
   score?: number
+}
+
+export interface OnlineVoteProgress {
+  submitted: number
+  total: number
 }
 
 export interface OnlineRoundSnapshot {
@@ -21,6 +40,9 @@ export interface OnlineRoundSnapshot {
   packId: string
   startedAt: string
   discussionDuration: number
+  readyToDiscussCount: number
+  readyToDiscussTotal: number
+  voteProgress: OnlineVoteProgress | null
 }
 
 export interface OnlineLobbySnapshot {
@@ -29,6 +51,8 @@ export interface OnlineLobbySnapshot {
   status: 'waiting' | 'playing' | 'finished'
   hostPlayerId: string | null
   players: OnlineLobbyPlayer[]
+  selectedCategories: string[]
+  events: LobbyEvent[]
   currentRound: OnlineRoundSnapshot | null
 }
 
@@ -62,6 +86,9 @@ function normalizeLobbyPlayer(player: Record<string, unknown>): OnlineLobbyPlaye
     name: String(player['name'] ?? 'Player'),
     isHost: Boolean(player['is_host']),
     isReady: Boolean(player['is_ready']),
+    presenceStatus:
+      (player['presence_status'] as OnlinePresenceStatus | undefined) ?? 'active',
+    lastSeenAt: player['last_seen_at'] ? String(player['last_seen_at']) : null,
     score:
       typeof player['score'] === 'number'
         ? player['score']
@@ -69,10 +96,25 @@ function normalizeLobbyPlayer(player: Record<string, unknown>): OnlineLobbyPlaye
   }
 }
 
+function normalizeLobbyEvent(payload: Record<string, unknown>): LobbyEvent {
+  return {
+    id: String(payload['id'] ?? ''),
+    type: String(payload['type'] ?? 'info'),
+    actorName: payload['actor_name'] ? String(payload['actor_name']) : null,
+    targetName: payload['target_name'] ? String(payload['target_name']) : null,
+    createdAt: String(payload['created_at'] ?? ''),
+    message: String(payload['message'] ?? ''),
+  }
+}
+
 export function normalizeLobbySnapshot(payload: Record<string, unknown>): OnlineLobbySnapshot {
   const currentRoundRaw =
     payload['current_round'] && typeof payload['current_round'] === 'object'
       ? (payload['current_round'] as Record<string, unknown>)
+      : null
+  const voteProgressRaw =
+    currentRoundRaw?.['vote_progress'] && typeof currentRoundRaw['vote_progress'] === 'object'
+      ? (currentRoundRaw['vote_progress'] as Record<string, unknown>)
       : null
 
   return {
@@ -85,6 +127,12 @@ export function normalizeLobbySnapshot(payload: Record<string, unknown>): Online
           normalizeLobbyPlayer(player as Record<string, unknown>),
         )
       : [],
+    selectedCategories: Array.isArray(payload['selected_categories'])
+      ? payload['selected_categories'].map((value) => String(value))
+      : [ONLINE_DEFAULT_CATEGORY],
+    events: Array.isArray(payload['events'])
+      ? payload['events'].map((event) => normalizeLobbyEvent(event as Record<string, unknown>))
+      : [],
     currentRound: currentRoundRaw
       ? {
           id: String(currentRoundRaw['id'] ?? ''),
@@ -96,6 +144,14 @@ export function normalizeLobbySnapshot(payload: Record<string, unknown>): Online
           discussionDuration: Number(
             currentRoundRaw['discussion_duration'] ?? ONLINE_DISCUSSION_DURATION,
           ),
+          readyToDiscussCount: Number(currentRoundRaw['ready_to_discuss_count'] ?? 0),
+          readyToDiscussTotal: Number(currentRoundRaw['ready_to_discuss_total'] ?? 0),
+          voteProgress: voteProgressRaw
+            ? {
+                submitted: Number(voteProgressRaw['submitted'] ?? 0),
+                total: Number(voteProgressRaw['total'] ?? 0),
+              }
+            : null,
         }
       : null,
   }

@@ -10,6 +10,8 @@ interface MobileLobbyStore {
   status: 'waiting' | 'playing' | 'finished'
   currentRoundId: string | null
   displayName: string | null
+  selectedCategories: string[]
+  events: MobileLobbySnapshot['events']
 
   setDisplayName: (name: string) => void
   setLocalPlayerId: (id: string | null) => void
@@ -26,6 +28,8 @@ const initialState = {
   status: 'waiting' as const,
   currentRoundId: null,
   displayName: null,
+  selectedCategories: ['Everyday'],
+  events: [] as MobileLobbySnapshot['events'],
 }
 
 export const useMobileLobbyStore = create<MobileLobbyStore>((set) => ({
@@ -47,6 +51,8 @@ export const useMobileLobbyStore = create<MobileLobbyStore>((set) => ({
       hostPlayerId: snapshot.hostPlayerId,
       status: snapshot.status,
       currentRoundId: snapshot.currentRound?.id ?? null,
+      selectedCategories: snapshot.selectedCategories,
+      events: snapshot.events,
     })
   },
 

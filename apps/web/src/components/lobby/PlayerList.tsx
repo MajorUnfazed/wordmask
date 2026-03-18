@@ -7,6 +7,17 @@ interface PlayerListProps {
 }
 
 export function PlayerList({ players, localPlayerId }: PlayerListProps) {
+  function getPresenceLabel(player: LobbyPlayer) {
+    switch (player.presenceStatus) {
+      case 'away':
+        return { label: 'Away', color: '#fca5a5', background: 'rgba(239,68,68,0.16)' }
+      case 'reconnecting':
+        return { label: 'Reconnecting', color: '#fde68a', background: 'rgba(234,179,8,0.16)' }
+      default:
+        return { label: 'Active', color: '#86efac', background: 'rgba(34,197,94,0.16)' }
+    }
+  }
+
   return (
     <div className="flex flex-col gap-2">
       <AnimatePresence>
@@ -41,8 +52,23 @@ export function PlayerList({ players, localPlayerId }: PlayerListProps) {
                   Host
                 </span>
               )}
-              <span style={{ color: player.isReady ? 'var(--color-success)' : 'var(--color-text-muted)' }}>
-                {player.isReady ? '●' : '○'}
+              <span
+                className="px-2 py-0.5 rounded-full"
+                style={{
+                  background: player.isReady ? 'rgba(34,197,94,0.16)' : 'rgba(148,163,184,0.14)',
+                  color: player.isReady ? '#86efac' : 'var(--color-text-muted)',
+                }}
+              >
+                {player.isReady ? 'Ready' : 'Not Ready'}
+              </span>
+              <span
+                className="px-2 py-0.5 rounded-full"
+                style={{
+                  background: getPresenceLabel(player).background,
+                  color: getPresenceLabel(player).color,
+                }}
+              >
+                {getPresenceLabel(player).label}
               </span>
             </div>
           </motion.div>

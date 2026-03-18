@@ -5,7 +5,7 @@ import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
 
 export default function OnlineResultsScreen() {
-  const { round, result, players, error, loadRoundResult, returnToLobby } = useLobby()
+  const { round, result, players, error, isHost, loadRoundResult, returnToLobby, startNextRound } = useLobby()
 
   useEffect(() => {
     if (!result && round?.id) {
@@ -92,8 +92,19 @@ export default function OnlineResultsScreen() {
         </div>
       </GlassCard>
 
-      <div className="w-full max-w-md">
-        <GlowButton onClick={returnToLobby}>Back to Lobby</GlowButton>
+      <div className="flex w-full max-w-md flex-col gap-3">
+        {isHost && (
+          <GlowButton
+            onClick={() => {
+              void startNextRound()
+            }}
+          >
+            Next Round
+          </GlowButton>
+        )}
+        <GlowButton variant={isHost ? 'secondary' : 'primary'} onClick={returnToLobby}>
+          Back to Lobby
+        </GlowButton>
       </div>
     </div>
   )

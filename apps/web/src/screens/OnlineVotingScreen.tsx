@@ -8,6 +8,7 @@ export default function OnlineVotingScreen() {
   const {
     players,
     localPlayerId,
+    round,
     submittedVoteTargetId,
     isHost,
     isBusy,
@@ -42,6 +43,11 @@ export default function OnlineVotingScreen() {
           <p style={{ color: 'var(--color-text-secondary)' }}>
             You can change your vote until the host reveals the result.
           </p>
+          {round?.voteProgress && (
+            <p className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/55">
+              {round.voteProgress.submitted}/{round.voteProgress.total} votes submitted
+            </p>
+          )}
         </motion.div>
 
         {error && (
@@ -117,15 +123,28 @@ export default function OnlineVotingScreen() {
           )}
 
           {isHost ? (
-            <GlowButton
-              variant="secondary"
-              onClick={() => {
-                void finishRound()
-              }}
-              disabled={isBusy}
-            >
-              {isBusy ? 'Revealing…' : 'Reveal Results'}
-            </GlowButton>
+            round?.voteProgress &&
+            round.voteProgress.submitted >= round.voteProgress.total ? (
+              <GlowButton
+                variant="secondary"
+                onClick={() => {
+                  void finishRound()
+                }}
+                disabled={isBusy}
+              >
+                {isBusy ? 'Revealing…' : 'Reveal Results'}
+              </GlowButton>
+            ) : (
+              <GlowButton
+                variant="secondary"
+                onClick={() => {
+                  void finishRound()
+                }}
+                disabled={isBusy}
+              >
+                {isBusy ? 'Revealing…' : 'Reveal Anyway'}
+              </GlowButton>
+            )
           ) : (
             <p className="text-sm text-white/50">
               Waiting for the host to reveal the results…

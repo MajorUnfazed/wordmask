@@ -3,6 +3,17 @@ export interface MobileLobbyPlayer {
   name: string
   isHost: boolean
   isReady: boolean
+  presenceStatus: 'active' | 'reconnecting' | 'away'
+  lastSeenAt: string | null
+}
+
+export interface MobileLobbyEvent {
+  id: string
+  type: string
+  actorName: string | null
+  targetName: string | null
+  createdAt: string
+  message: string
 }
 
 export interface MobileRoundSnapshot {
@@ -20,6 +31,8 @@ export interface MobileLobbySnapshot {
   status: 'waiting' | 'playing' | 'finished'
   hostPlayerId: string | null
   players: MobileLobbyPlayer[]
+  selectedCategories: string[]
+  events: MobileLobbyEvent[]
   currentRound: MobileRoundSnapshot | null
 }
 
@@ -42,6 +55,32 @@ export function normalizeLobbySnapshot(
           name: String((player as Record<string, unknown>)['name'] ?? 'Player'),
           isHost: Boolean((player as Record<string, unknown>)['is_host']),
           isReady: Boolean((player as Record<string, unknown>)['is_ready']),
+          presenceStatus:
+            ((player as Record<string, unknown>)['presence_status'] as
+              | 'active'
+              | 'reconnecting'
+              | 'away'
+              | undefined) ?? 'active',
+          lastSeenAt: (player as Record<string, unknown>)['last_seen_at']
+            ? String((player as Record<string, unknown>)['last_seen_at'])
+            : null,
+        }))
+      : [],
+    selectedCategories: Array.isArray(payload['selected_categories'])
+      ? payload['selected_categories'].map((value) => String(value))
+      : ['Everyday'],
+    events: Array.isArray(payload['events'])
+      ? payload['events'].map((event) => ({
+          id: String((event as Record<string, unknown>)['id'] ?? ''),
+          type: String((event as Record<string, unknown>)['type'] ?? 'info'),
+          actorName: (event as Record<string, unknown>)['actor_name']
+            ? String((event as Record<string, unknown>)['actor_name'])
+            : null,
+          targetName: (event as Record<string, unknown>)['target_name']
+            ? String((event as Record<string, unknown>)['target_name'])
+            : null,
+          createdAt: String((event as Record<string, unknown>)['created_at'] ?? ''),
+          message: String((event as Record<string, unknown>)['message'] ?? ''),
         }))
       : [],
     currentRound: currentRoundRaw

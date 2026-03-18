@@ -21,6 +21,7 @@ export default function LobbyRoomScreen() {
     hostPlayerId,
     status,
     displayName,
+    selectedCategories,
     hydrateLobby,
     clearLobby,
   } = useMobileLobbyStore()
@@ -30,6 +31,10 @@ export default function LobbyRoomScreen() {
     [code, routeCode],
   )
   const isHost = Boolean(localPlayerId && hostPlayerId && localPlayerId === hostPlayerId)
+  const localPlayer = useMemo(
+    () => players.find((player) => player.id === localPlayerId) ?? null,
+    [localPlayerId, players],
+  )
 
   const refreshLobby = useCallback(async () => {
     if (!resolvedCode) {
@@ -117,6 +122,18 @@ export default function LobbyRoomScreen() {
               void refreshLobby()
             },
           )
+          .on(
+            'postgres_changes',
+            {
+              event: '*',
+              schema: 'public',
+              table: 'lobby_events',
+              filter: `lobby_id=eq.${activeLobbyId}`,
+            },
+            () => {
+              void refreshLobby()
+            },
+          )
           .subscribe()
       } catch (syncError) {
         if (isActive) {
@@ -125,13 +142,55 @@ export default function LobbyRoomScreen() {
       }
     })()
 
+    const pollInterval = setInterval(() => {
+      void refreshLobby()
+    }, 4000)
+
     return () => {
       isActive = false
+      clearInterval(pollInterval)
       if (channel && client) {
         void client.removeChannel(channel)
       }
     }
   }, [lobbyId, refreshLobby, resolvedCode])
+
+  useEffect(() => {
+    if (!lobbyId || !isSupabaseConfigured) {
+      return
+    }
+
+    const heartbeat = async () => {
+      try {
+        const client = await ensureAnonymousSession()
+        await client.rpc('heartbeat_player', {
+          p_lobby_id: lobbyId,
+        })
+      } catch {
+        // Background heartbeat should not block mobile lobby UI.
+      }
+    }
+
+    void heartbeat()
+    const heartbeatInterval = setInterval(() => {
+      void heartbeat()
+    }, 5000)
+
+    return () => {
+      clearInterval(heartbeatInterval)
+    }
+  }, [lobbyId])
+
+  function getPresenceText(presenceStatus: 'active' | 'reconnecting' | 'away') {
+    switch (presenceStatus) {
+      case 'away':
+        return 'Away'
+      case 'reconnecting':
+        return 'Reconnecting'
+      default:
+        return 'Active'
+    }
+  }
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -149,6 +208,17 @@ export default function LobbyRoomScreen() {
 
       {error && <Text style={styles.error}>{error}</Text>}
 
+      <View style={styles.categoryCard}>
+        <Text style={styles.sectionLabel}>Round Categories</Text>
+        <View style={styles.categoryWrap}>
+          {selectedCategories.map((category) => (
+            <View key={category} style={styles.categoryChip}>
+              <Text style={styles.categoryChipText}>{category}</Text>
+            </View>
+          ))}
+        </View>
+      </View>
+
       {status === 'playing' ? (
         <View style={styles.banner}>
           <Text style={styles.bannerTitle}>Round Started</Text>
@@ -162,6 +232,33 @@ export default function LobbyRoomScreen() {
             ? 'Players are joining. Start the round from the web client when ready.'
             : 'Waiting for the host to start the round…'}
         </Text>
+      )}
+
+      {status === 'waiting' && localPlayer && (
+        <Pressable
+          style={[
+            styles.readyButton,
+            localPlayer.isReady && styles.readyButtonActive,
+          ]}
+          onPress={() => {
+            void (async () => {
+              try {
+                const client = await ensureAnonymousSession()
+                await client.rpc('set_player_ready', {
+                  p_lobby_id: useMobileLobbyStore.getState().lobbyId,
+                  p_ready: !localPlayer.isReady,
+                })
+                await refreshLobby()
+              } catch (readyError) {
+                setError(getErrorMessage(readyError))
+              }
+            })()
+          }}
+        >
+          <Text style={styles.readyButtonText}>
+            {localPlayer.isReady ? 'Not Ready' : 'Ready Up'}
+          </Text>
+        </Pressable>
       )}
 
       <View style={styles.playerList}>
@@ -181,7 +278,24 @@ export default function LobbyRoomScreen() {
                 {player.id === localPlayerId ? ' (you)' : ''}
               </Text>
             </View>
-            {player.isHost && <Text style={styles.hostTag}>Host</Text>}
+            <View style={styles.playerTags}>
+              {player.isHost && <Text style={styles.hostTag}>Host</Text>}
+              <Text style={[styles.tag, player.isReady ? styles.tagReady : styles.tagMuted]}>
+                {player.isReady ? 'Ready' : 'Not Ready'}
+              </Text>
+              <Text
+                style={[
+                  styles.tag,
+                  player.presenceStatus === 'away'
+                    ? styles.tagAway
+                    : player.presenceStatus === 'reconnecting'
+                      ? styles.tagReconnect
+                      : styles.tagActive,
+                ]}
+              >
+                {getPresenceText(player.presenceStatus)}
+              </Text>
+            </View>
           </View>
         ))}
       </View>
@@ -253,6 +367,40 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     maxWidth: 320,
   },
+  sectionLabel: {
+    color: '#94a3b8',
+    fontSize: 12,
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+  },
+  categoryCard: {
+    width: '100%',
+    maxWidth: 340,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    padding: 16,
+    gap: 12,
+  },
+  categoryWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  categoryChip: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(124,58,237,0.35)',
+    backgroundColor: 'rgba(124,58,237,0.12)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  categoryChipText: {
+    color: '#ddd6fe',
+    fontSize: 12,
+    fontWeight: '600',
+  },
   banner: {
     width: '100%',
     maxWidth: 340,
@@ -286,6 +434,10 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     backgroundColor: 'rgba(255,255,255,0.05)',
   },
+  playerTags: {
+    alignItems: 'flex-end',
+    gap: 6,
+  },
   playerLeft: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -315,6 +467,52 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
     textTransform: 'uppercase',
+  },
+  tag: {
+    fontSize: 11,
+    fontWeight: '700',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+    borderRadius: 999,
+    overflow: 'hidden',
+  },
+  tagReady: {
+    color: '#86efac',
+    backgroundColor: 'rgba(34,197,94,0.16)',
+  },
+  tagMuted: {
+    color: '#cbd5e1',
+    backgroundColor: 'rgba(148,163,184,0.16)',
+  },
+  tagActive: {
+    color: '#86efac',
+    backgroundColor: 'rgba(34,197,94,0.16)',
+  },
+  tagReconnect: {
+    color: '#fde68a',
+    backgroundColor: 'rgba(234,179,8,0.16)',
+  },
+  tagAway: {
+    color: '#fca5a5',
+    backgroundColor: 'rgba(239,68,68,0.16)',
+  },
+  readyButton: {
+    width: '100%',
+    maxWidth: 340,
+    backgroundColor: '#7c3aed',
+    borderRadius: 20,
+    paddingVertical: 16,
+    alignItems: 'center',
+  },
+  readyButtonActive: {
+    backgroundColor: 'rgba(255,255,255,0.08)',
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.12)',
+  },
+  readyButtonText: {
+    color: '#fff',
+    fontSize: 16,
+    fontWeight: '700',
   },
   secondaryButton: {
     width: '100%',

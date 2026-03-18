@@ -12,14 +12,18 @@ export default function LobbyScreen() {
     localPlayerId,
     isHost,
     status,
+    canStartRound,
+    connectedPlayers,
     isBusy,
     error,
     selectedCategories,
     onlineCategoryOptions,
     setSelectedCategories,
+    setReady,
     startGame,
     disconnectLobby,
   } = useLobby()
+  const localPlayer = players.find((player) => player.id === localPlayerId)
 
   function toggleCategory(category: string) {
     const nextCategories = selectedCategories.includes(category)
@@ -63,22 +67,35 @@ export default function LobbyScreen() {
         <PlayerList players={players} localPlayerId={localPlayerId ?? ''} />
       </div>
 
-      {isHost && status === 'waiting' && (
-        <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-5">
-          <div className="flex items-center justify-between gap-3">
-            <div>
-              <p className="text-sm uppercase tracking-[0.2em] text-white/40">Round Category</p>
-              <h3 className="mt-1 font-display text-2xl font-bold">
-                {selectedCategories.length === 1
-                  ? getDisplayCategoryName(selectedCategories[0])
-                  : `${selectedCategories.length} categories selected`}
-              </h3>
-              <p className="mt-2 text-sm text-white/55">
-                Pick one or more categories. The round word will be drawn from that combined pool.
-              </p>
-            </div>
+      <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-5">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="text-sm uppercase tracking-[0.2em] text-white/40">Round Categories</p>
+            <h3 className="mt-1 font-display text-2xl font-bold">
+              {selectedCategories.length === 1
+                ? getDisplayCategoryName(selectedCategories[0])
+                : `${selectedCategories.length} categories selected`}
+            </h3>
+            <p className="mt-2 text-sm text-white/55">
+              {isHost
+                ? 'Pick one or more categories. The round word will be drawn from that combined pool.'
+                : 'The host controls the category pool. Everyone can see the current selection.'}
+            </p>
           </div>
+        </div>
 
+        <div className="mt-4 flex flex-wrap gap-2">
+          {selectedCategories.map((category) => (
+            <div
+              key={category}
+              className="rounded-full border border-accent/30 bg-accent/10 px-3 py-1 text-sm text-accent-light"
+            >
+              {getDisplayCategoryName(category)}
+            </div>
+          ))}
+        </div>
+
+        {isHost && status === 'waiting' && (
           <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3">
             {onlineCategoryOptions.map((category) => {
               const isSelected = selectedCategories.includes(category.engineCategory)
@@ -101,6 +118,31 @@ export default function LobbyScreen() {
               )
             })}
           </div>
+        )}
+      </div>
+
+      {status === 'waiting' && localPlayer && (
+        <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-5">
+          <div className="flex items-center justify-between gap-4">
+            <div>
+              <p className="text-sm uppercase tracking-[0.2em] text-white/40">Your Status</p>
+              <h3 className="mt-1 font-display text-2xl font-bold">
+                {localPlayer.isReady ? 'Ready to play' : 'Waiting for you'}
+              </h3>
+              <p className="mt-2 text-sm text-white/55">
+                Connected players: {connectedPlayers.length}. Everyone who is not away must be ready before the host can start.
+              </p>
+            </div>
+
+            <GlowButton
+              onClick={() => {
+                void setReady(!localPlayer.isReady)
+              }}
+              variant={localPlayer.isReady ? 'secondary' : 'primary'}
+            >
+              {localPlayer.isReady ? 'Not Ready' : 'Ready Up'}
+            </GlowButton>
+          </div>
         </div>
       )}
 
@@ -110,13 +152,15 @@ export default function LobbyScreen() {
             onClick={() => {
               void startGame()
             }}
-            disabled={players.length < 3 || selectedCategories.length === 0 || isBusy}
+            disabled={!canStartRound || selectedCategories.length === 0 || isBusy}
           >
-            {isBusy ? 'Starting…' : 'Start Round'}
+            {isBusy ? 'Starting…' : 'Start Countdown'}
           </GlowButton>
         ) : (
           <p className="text-center text-sm" style={{ color: 'var(--color-text-muted)' }}>
-            Waiting for the host to start the round…
+            {status === 'waiting'
+              ? 'Waiting for the host to start the round…'
+              : 'A round is currently in progress.'}
           </p>
         )}
 

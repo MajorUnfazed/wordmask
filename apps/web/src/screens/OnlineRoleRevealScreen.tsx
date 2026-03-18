@@ -14,7 +14,9 @@ export default function OnlineRoleRevealScreen() {
     isHost,
     isBusy,
     error,
+    hasAcknowledgedReadyToDiscuss,
     loadRole,
+    markReadyToDiscuss,
     startDiscussion,
   } = useLobby()
   const [revealed, setRevealed] = useState(false)
@@ -82,6 +84,11 @@ export default function OnlineRoleRevealScreen() {
                 Drag the card upward until it flips.
               </p>
             )}
+            {revealed && (
+              <p className="text-sm text-white/50">
+                Ready check-ins: {round.readyToDiscussCount}/{round.readyToDiscussTotal}
+              </p>
+            )}
           </div>
         ) : (
           <div className="py-8 text-white/60">Loading your role…</div>
@@ -90,15 +97,32 @@ export default function OnlineRoleRevealScreen() {
 
       {revealed && (
         <div className="w-full max-w-md">
-          {isHost ? (
+          {!hasAcknowledgedReadyToDiscuss ? (
             <GlowButton
               onClick={() => {
-                void startDiscussion()
+                void markReadyToDiscuss()
               }}
-              disabled={isBusy}
             >
-              {isBusy ? 'Starting…' : 'Open Discussion'}
+              Ready to Discuss
             </GlowButton>
+          ) : isHost ? (
+            <div className="flex flex-col gap-3">
+              <GlowButton
+                onClick={() => {
+                  void startDiscussion()
+                }}
+                disabled={isBusy}
+              >
+                {isBusy
+                  ? 'Starting…'
+                  : round.readyToDiscussCount >= round.readyToDiscussTotal
+                    ? 'Open Discussion'
+                    : 'Open Discussion Anyway'}
+              </GlowButton>
+              <p className="text-center text-sm text-white/50">
+                {round.readyToDiscussCount}/{round.readyToDiscussTotal} players have finished revealing.
+              </p>
+            </div>
           ) : (
             <p className="text-center text-sm text-white/50">
               Waiting for the host to start the discussion…

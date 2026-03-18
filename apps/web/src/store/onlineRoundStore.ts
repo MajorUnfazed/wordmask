@@ -10,11 +10,13 @@ interface OnlineRoundStore {
   role: OnlineRolePayload | null
   submittedVoteTargetId: string | null
   result: OnlineRoundResult | null
+  hasAcknowledgedReadyToDiscuss: boolean
 
   setRound: (round: OnlineRoundSnapshot | null) => void
   setRole: (role: OnlineRolePayload | null) => void
   setSubmittedVoteTargetId: (targetId: string | null) => void
   setResult: (result: OnlineRoundResult | null) => void
+  setHasAcknowledgedReadyToDiscuss: (value: boolean) => void
   clearRound: () => void
 }
 
@@ -23,6 +25,7 @@ const initialState = {
   role: null,
   submittedVoteTargetId: null,
   result: null,
+  hasAcknowledgedReadyToDiscuss: false,
 }
 
 export const useOnlineRoundStore = create<OnlineRoundStore>((set) => ({
@@ -42,6 +45,10 @@ export const useOnlineRoundStore = create<OnlineRoundStore>((set) => ({
 
   setResult(result) {
     set({ result })
+  },
+
+  setHasAcknowledgedReadyToDiscuss(value) {
+    set({ hasAcknowledgedReadyToDiscuss: value })
   },
 
   clearRound() {
