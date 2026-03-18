@@ -30,17 +30,14 @@ export default function RoundTransitionScreen() {
     <div className="flex min-h-screen items-center justify-center px-6">
       <motion.div
         className="w-full max-w-xl rounded-[32px] border border-white/10 px-8 py-14 text-center"
-        initial={{ opacity: 0, scale: 0.9, filter: 'blur(10px)' }}
+        initial={{ opacity: 0, scale: 0.9 }}
         animate={{
           opacity: [0, 1, 1, 0],
           scale: [0.9, 1, 1.03, 1.08],
-          filter: ['blur(10px)', 'blur(0px)', 'blur(0px)', 'blur(8px)'],
         }}
         transition={{ duration: 1.25, times: [0, 0.28, 0.76, 1], ease: 'easeInOut' }}
         style={{
-          background:
-            'radial-gradient(circle at top, rgba(168,85,247,0.28), rgba(15,15,25,0.96) 55%)',
-          boxShadow: '0 0 40px rgba(168,85,247,0.18), 0 28px 80px rgba(0,0,0,0.35)',
+          background: 'rgba(255,255,255,0.02)',
         }}
       >
         <motion.p
@@ -53,13 +50,12 @@ export default function RoundTransitionScreen() {
           Round Start
         </motion.p>
         <motion.h2
-          className="mt-5 font-display text-5xl font-bold"
+          className="mt-5 font-display text-5xl font-bold text-accent"
           initial={{ opacity: 0, scale: 0.94 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.18, duration: 0.45 }}
-          style={{ textShadow: '0 0 30px rgba(168,85,247,0.35)' }}
         >
-          ROUND {roundNumber}
+          Round {roundNumber}
         </motion.h2>
         <motion.div
           className="mt-8 rounded-2xl border border-white/10 px-5 py-4"

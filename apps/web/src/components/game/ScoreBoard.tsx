@@ -13,25 +13,31 @@ export function ScoreBoard({ scores, players }: ScoreBoardProps) {
   )
 
   return (
-    <GlassCard className="glass-panel w-full max-w-md p-6 flex flex-col gap-5 rounded-[24px]">
-      <h3 className="font-display text-xl font-bold tracking-wide text-white">Leaderboard</h3>
-      <div className="flex flex-col gap-3">
+    <GlassCard className="w-full max-w-md p-4 flex flex-col gap-3">
+      <h3 className="font-display text-lg font-bold">Scores</h3>
+      <div className="flex flex-col gap-2">
         {ranked.map((player, index) => (
           <motion.div
             key={player.id}
-            className="flex items-center justify-between bg-white/[0.03] border border-white/5 rounded-xl px-4 py-3"
+            className="flex items-center justify-between"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.07 }}
           >
-            <div className="flex items-center gap-4">
-              <span className="text-[11px] font-bold uppercase text-white/40 w-4 text-center">
-                #{index + 1}
+            <div className="flex items-center gap-3">
+              <span className="w-5 text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                {index + 1}
               </span>
-              <span className="font-semibold text-white/90 text-base">{player.name}</span>
+              <div className="flex items-center gap-2">
+                {player.emoji && <span className="text-xl">{player.emoji}</span>}
+                <span className="font-medium text-sm" style={{ color: player.color || 'var(--color-text)' }}>
+                  {player.name}
+                </span>
+              </div>
             </div>
             <span
-              className="font-display font-black text-xl text-accent-blue"
+              className="font-display font-bold text-lg"
+              style={{ color: 'var(--color-accent-light)' }}
             >
               {scores[player.id] ?? 0}
             </span>

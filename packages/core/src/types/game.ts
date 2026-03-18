@@ -13,6 +13,8 @@ export interface Player {
   id: string
   name: string
   avatar?: string
+  emoji?: string
+  color?: string
   score: number
   isEliminated: boolean
 }
@@ -42,6 +44,10 @@ export interface GameConfig {
   /** Discussion timer in seconds */
   discussionDuration: number
   maxRounds: number
+  mutators?: {
+    bluffMode?: boolean | undefined
+    anonymousVoting?: boolean | undefined
+  }
 }
 
 export interface GameState {

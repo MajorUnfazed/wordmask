@@ -1,0 +1,4 @@
+﻿src/screens/VotingScreen.tsx(182,22): error TS2375: Type '{ name: string; emoji: string | undefined; color: string | undefined; size: "lg"; }' is not assignable to type 'PlayerAvatarProps' with 'exactOptionalPropertyTypes: true'. Consider adding 'undefined' to the types of the target's properties.
+  Types of property 'emoji' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.

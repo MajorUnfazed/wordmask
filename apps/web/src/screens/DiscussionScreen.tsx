@@ -3,7 +3,6 @@ import { CountdownTimer } from '../components/ui/CountdownTimer'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
-import { sounds } from '../lib/sounds'
 
 export default function DiscussionScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
@@ -21,20 +20,17 @@ export default function DiscussionScreen() {
       style={{ paddingBottom: 'max(80px, env(safe-area-inset-bottom))' }}
     >
       <motion.div
-        className="flex flex-col items-center gap-4 mb-4"
-        initial={{ opacity: 0, y: -20, filter: 'blur(8px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        className="flex flex-col items-center gap-4"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
       >
-        <h2 className="font-display text-5xl font-black tracking-wide text-gradient">
-          DISCUSS!
-        </h2>
+        <h2 className="font-display text-4xl font-bold">Discuss!</h2>
         {currentRound?.category && (
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-blue">
+          <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
             Category: {currentRound.category}
           </p>
         )}
-        <p className="text-lg font-medium tracking-wide text-white/70">
+        <p style={{ color: 'var(--color-text-secondary)' }}>
           Talk it out — who's the impostor?
         </p>
       </motion.div>
@@ -46,7 +42,7 @@ export default function DiscussionScreen() {
         transition={{ delay: 0.15 }}
       >
         <div className="scale-75 opacity-80">
-          <CountdownTimer seconds={duration} onComplete={() => sounds.timerEnd()} />
+          <CountdownTimer seconds={duration} />
         </div>
         <p className="text-xs uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
           Optional timer

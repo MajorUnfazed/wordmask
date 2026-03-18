@@ -1,14 +1,9 @@
 import { useState, useRef, useEffect } from "react"
-import { motion, useMotionValue, useTransform, useSpring, PanInfo } from "framer-motion"
+import { motion, useMotionValue, useTransform, PanInfo } from "framer-motion"
 import type { PlayerRole } from "@impostor/core"
-import { sounds } from "../../lib/sounds"
 
-const FLIP_DURATION = 0.6
-const REVEAL_THRESHOLD = -130
-
-const HIDDEN_SHADOW = "0 16px 40px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.15)"
-const REVEALED_SHADOW = "0 24px 60px rgba(168,85,247,0.4), inset 0 1px 0 rgba(255,255,255,0.2)"
-const REVEALED_GLOW = "drop-shadow(0 0 30px rgba(168,85,247,0.6))"
+const FLIP_DURATION = 0.5
+const REVEAL_THRESHOLD = -100
 
 interface RoleCardProps {
   playerName: string
@@ -17,6 +12,7 @@ interface RoleCardProps {
   hint: string
   revealed: boolean
   disabled?: boolean
+  bluffMode?: boolean
   onReveal?: () => void
 }
 
@@ -27,30 +23,18 @@ export function RoleCard({
   hint,
   revealed,
   disabled = false,
+  bluffMode = false,
   onReveal,
 }: RoleCardProps) {
-  const previousRevealed = useRef(revealed)
   const isImpostor = role === "IMPOSTOR"
 
   // Drag physics
   const y = useMotionValue(0)
   
-  // Map negative drag distance to visual progress and card tilt
+  // Map negative drag distance to visual progress
   const dragProgressWidth = useTransform(y, [0, REVEAL_THRESHOLD], ["0%", "100%"])
   const dragRotateX = useTransform(y, [0, REVEAL_THRESHOLD], [0, 45])
   const dragOpacity = useTransform(y, [0, REVEAL_THRESHOLD / 2], [1, 0])
-
-  // Sub-layer interactive particle physics
-  const trail1y = useSpring(y, { stiffness: 200, damping: 20 })
-  const trail2y = useSpring(y, { stiffness: 100, damping: 25 })
-  const trail3y = useSpring(y, { stiffness: 50,  damping: 30 })
-
-  useEffect(() => {
-    if (previousRevealed.current !== revealed) {
-      sounds.cardFlip()
-      previousRevealed.current = revealed
-    }
-  }, [revealed])
 
   const handleDragEnd = (_: any, info: PanInfo) => {
     if (!revealed && !disabled && info.offset.y <= REVEAL_THRESHOLD) {
@@ -64,26 +48,18 @@ export function RoleCard({
       <motion.div
         className="fixed inset-0 z-10 pointer-events-none"
         animate={{ opacity: revealed ? 1 : 0 }}
-        transition={{ duration: 0.4 }}
+        transition={{ duration: 0.3 }}
         style={{
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
         }}
       />
 
       {/* Perspective container */}
       <div
         className="relative z-20 select-none"
-        style={{ perspective: "1200px", width: 280, height: 440 }}
+        style={{ perspective: "1000px", width: 260, height: 400 }}
       >
-        {!revealed && !disabled && (
-          <div className="absolute bottom-[-10px] left-1/2 -z-10 flex -translate-x-1/2 flex-col items-center pointer-events-none gap-2">
-            <motion.div style={{ y: trail1y, opacity: dragOpacity }} className="w-5 h-5 rounded-full bg-accent-purple blur-md opacity-60" />
-            <motion.div style={{ y: trail2y, opacity: dragOpacity }} className="w-3 h-3 rounded-full bg-accent-blue blur-sm opacity-50" />
-            <motion.div style={{ y: trail3y, opacity: dragOpacity }} className="w-2 h-2 rounded-full bg-white blur-[2px] opacity-40" />
-          </div>
-        )}
-
         <motion.div
           drag={!revealed && !disabled ? "y" : false}
           dragConstraints={{ top: 0, bottom: 0 }}
@@ -99,11 +75,9 @@ export function RoleCard({
           }}
           whileDrag={{ cursor: "grabbing" }}
           animate={{
-            boxShadow: revealed ? REVEALED_SHADOW : HIDDEN_SHADOW,
-            filter: revealed ? REVEALED_GLOW : "none",
+            filter: revealed ? "drop-shadow(0 0 20px rgba(124,58,237,0.4))" : "drop-shadow(0 8px 16px rgba(0,0,0,0.3))",
           }}
           transition={{
-            boxShadow: { duration: FLIP_DURATION, ease: "easeInOut" },
             filter: { duration: FLIP_DURATION, ease: "easeInOut" },
           }}
         >
@@ -119,7 +93,7 @@ export function RoleCard({
             transition={{ duration: FLIP_DURATION, ease: "easeInOut" }}
           >
             <div
-              className="rounded-[32px] flex flex-col items-center justify-center gap-6 overflow-hidden glass-panel"
+              className="rounded-3xl flex flex-col items-center justify-center gap-6 overflow-hidden bg-surface border border-white/10"
               style={{
                 position: "absolute",
                 inset: 0,
@@ -129,13 +103,13 @@ export function RoleCard({
                 WebkitBackfaceVisibility: "hidden",
               }}
             >
-              <div className="text-7xl drop-shadow-lg">🂠</div>
+              <div className="text-6xl">🂠</div>
 
               <div className="flex flex-col items-center gap-1">
-                <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-accent-blue">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>
                   Secret Role
                 </p>
-                <p className="text-xl font-medium tracking-wide text-white">{playerName}</p>
+                <p className="text-xl font-semibold text-white">{playerName}</p>
               </div>
 
               <motion.p 
@@ -149,14 +123,14 @@ export function RoleCard({
                 <motion.div
                   className="absolute bottom-8 rounded-full overflow-hidden"
                   style={{
-                    width: 120,
-                    height: 3,
+                    width: 100,
+                    height: 4,
                     background: "rgba(255,255,255,0.1)",
                     opacity: dragOpacity
                   }}
                 >
                   <motion.div
-                    className="h-full rounded-full bg-accent-purple"
+                    className="h-full rounded-full bg-accent"
                     style={{ width: dragProgressWidth }}
                   />
                 </motion.div>
@@ -164,7 +138,7 @@ export function RoleCard({
             </div>
 
             <div
-              className="rounded-[32px] flex flex-col items-center justify-center gap-5 overflow-hidden p-8 text-center"
+              className="rounded-3xl flex flex-col items-center justify-center gap-5 overflow-hidden p-8 text-center bg-surface border border-white/10"
               style={{
                 position: "absolute",
                 inset: 0,
@@ -173,33 +147,35 @@ export function RoleCard({
                 transform: "rotateY(180deg)",
                 backfaceVisibility: "hidden",
                 WebkitBackfaceVisibility: "hidden",
-                background: isImpostor
-                  ? "linear-gradient(135deg, rgba(30,10,40,0.9) 0%, rgba(80,10,60,0.95) 100%)"
-                  : "linear-gradient(135deg, rgba(10,20,40,0.9) 0%, rgba(10,40,80,0.95) 100%)",
-                boxShadow: "inset 0 1px 1px rgba(255,255,255,0.2)",
-                backdropFilter: "blur(24px)",
               }}
             >
-              <div className="text-6xl drop-shadow-xl mb-2">{isImpostor ? "😈" : "🕵️"}</div>
+              <div className="text-5xl mb-2">{isImpostor ? "😈" : "🕵️"}</div>
 
-              <h3 className={`font-display text-4xl font-black tracking-wide ${isImpostor ? 'text-danger' : 'text-accent-blue'}`}>
+              <h3 className={`font-display text-3xl font-bold tracking-wide ${isImpostor ? 'text-danger' : 'text-accent'}`}>
                 {isImpostor ? "IMPOSTOR" : "PLAYER"}
               </h3>
 
               {isImpostor ? (
                 <div className="flex flex-col gap-2 mt-4">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/50">Your only clue</p>
-                  <p className="font-display text-3xl font-bold text-white drop-shadow-md">
-                    {hint}
-                  </p>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-danger mt-2">
-                    Blend in. Don't get caught.
-                  </p>
+                  {bluffMode ? (
+                    <>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>The word is</p>
+                      <p className="font-display text-2xl font-bold text-white">{word}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-yellow-400 mt-2">⚡ Bluff Mode — category hidden</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-danger">Blend in. Don't get caught.</p>
+                    </>
+                  ) : (
+                    <>
+                      <p className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>Your only clue</p>
+                      <p className="font-display text-2xl font-bold text-white">{hint}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-danger mt-2">Blend in. Don't get caught.</p>
+                    </>
+                  )}
                 </div>
               ) : (
                 <div className="flex flex-col gap-2 mt-4">
-                  <p className="text-[11px] font-bold uppercase tracking-[0.3em] text-white/50">The word is</p>
-                  <p className="font-display text-3xl font-bold text-white drop-shadow-md">
+                  <p className="text-[11px] font-bold uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>The word is</p>
+                  <p className="font-display text-2xl font-bold text-white">
                     {word}
                   </p>
                 </div>

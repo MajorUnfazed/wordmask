@@ -32,11 +32,7 @@ export class GameEngine {
 
   /** Dispatch an event and update state. */
   dispatch(event: GameEvent): void {
-    try {
-      this.state = gameReducer(this.state, event)
-    } catch (err) {
-      console.error(`[GameEngine] Failed to dispatch ${event.type}:`, err)
-    }
+    this.state = gameReducer(this.state, event)
   }
 
   // ========== Convenience Methods ==========

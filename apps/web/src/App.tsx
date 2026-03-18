@@ -1,6 +1,5 @@
 import { Component, type ReactNode } from 'react'
 import { motion } from 'framer-motion'
-import { AuroraBackground } from './components/ui/AuroraBackground'
 import { useUIStore } from './store/uiStore'
 import HomeScreen from './screens/HomeScreen'
 import ModeSelectScreen from './screens/ModeSelectScreen'
@@ -51,13 +50,12 @@ export default function App() {
   return (
     <ErrorBoundary>
       <div className="relative min-h-screen overflow-x-hidden bg-void text-white">
-        <AuroraBackground />
-        <div className="relative z-10 w-full min-h-screen">
+        <div className="relative w-full min-h-screen">
           <motion.div
             key={screen}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
+            transition={{ duration: 0.25, ease: 'easeOut' }}
             className="w-full min-h-screen"
           >
             {renderScreen(screen)}

@@ -60,14 +60,14 @@ export default function CategorySelectScreen() {
     >
       <motion.div
         className="max-w-2xl text-center mb-4"
-        initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
-        animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        initial={{ opacity: 0, y: 18 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <p className="mb-3 text-xs font-bold uppercase tracking-[0.36em] text-accent-blue">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.36em]" style={{ color: 'var(--color-text-muted)' }}>
           Curated Categories
         </p>
-        <h2 className="font-display text-4xl font-bold tracking-wide text-gradient">
+        <h2 className="font-display text-4xl font-bold tracking-wide">
           Build your round pool
         </h2>
         <p className="mt-4 text-base font-medium text-white/60">

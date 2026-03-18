@@ -3,8 +3,8 @@ import { motion } from 'framer-motion'
 import { PlayerAvatar } from '../components/game/PlayerAvatar'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useOfflineGame } from '../hooks/useOfflineGame'
+import { useGameStore } from '../store/gameStore'
 import { useUIStore } from '../store/uiStore'
-import { sounds } from '../lib/sounds'
 
 const VOTE_CONFIRM_MS = 550
 
@@ -16,6 +16,8 @@ function formatPlayerName(name: string): string {
 
 export default function VotingScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
+  const gameState = useGameStore((s) => s.getGame())
+  const anonymousVoting = gameState.config.mutators?.anonymousVoting ?? false
   const {
     currentRound,
     currentVoter,
@@ -54,7 +56,6 @@ export default function VotingScreen() {
 
     setConfirmedTargetId(selectedTargetId)
     setIsTransitioning(true)
-    sounds.voteConfirm()
 
     transitionTimeoutRef.current = setTimeout(() => {
       castVote(currentVoter.id, selectedTargetId)
@@ -86,30 +87,35 @@ export default function VotingScreen() {
       key={currentVoter.id}
       className="flex min-h-screen items-start justify-center overflow-y-auto px-6 pt-12 md:items-center"
       style={{ paddingBottom: 'max(80px, env(safe-area-inset-bottom))' }}
-      initial={{ opacity: 0, y: 18, filter: 'blur(8px)' }}
-      animate={{ 
-        opacity: isTransitioning ? 0 : 1, 
-        y: isTransitioning ? -12 : 0,
-        filter: isTransitioning ? 'blur(10px)' : 'blur(0px)'
-      }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: isTransitioning ? 0 : 1, y: isTransitioning ? -12 : 0 }}
+      transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
     >
       <div className="flex w-full max-w-[900px] flex-col items-center justify-center gap-8 text-center">
         <motion.div
-          className="flex flex-col items-center gap-4 mb-6"
-          initial={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          className="flex flex-col items-center gap-3"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
         >
-          <p className="text-xs font-bold uppercase tracking-[0.3em] text-accent-blue">
+          <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
             Vote {currentVoterIndex + 1} of {totalVotes}
           </p>
-          <h2 className="font-display text-4xl font-black tracking-wide text-gradient">
-            {currentPlayerName}, choose a suspect
+          <h2 className="font-display text-3xl font-bold">
+            {currentPlayerName}, choose who you suspect
           </h2>
-          <p className="text-base font-medium tracking-wide text-white/50">
+          <p style={{ color: 'var(--color-text-secondary)' }}>
             Pass the phone after confirming your vote.
           </p>
         </motion.div>
+
+        {anonymousVoting && (
+          <div
+            className="flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-[0.18em]"
+            style={{ background: 'rgba(234,179,8,0.12)', border: '1px solid rgba(234,179,8,0.3)', color: 'rgb(234,179,8)' }}
+          >
+            🕵️ Anonymous Voting — identities hidden
+          </div>
+        )}
 
         <div className="flex w-full flex-wrap items-center justify-center gap-5">
           {players.map((target, index) => {
@@ -120,42 +126,39 @@ export default function VotingScreen() {
             return (
               <motion.div
                 key={target.id}
-                initial={{ opacity: 0, x: -20, y: 0, rotate: 0 }}
+                initial={{ opacity: 0, x: -20 }}
                 animate={{
-                  opacity: isTransitioning && !isConfirmed ? 0 : 1,
+                  opacity: isTransitioning && !isConfirmed ? 0.35 : 1,
                   x: 0,
-                  y: isConfirmed ? -20 : (isTransitioning && !isSelected) ? 100 : 0,
-                  rotate: (isTransitioning && !isConfirmed) ? (index % 2 === 0 ? 12 : -12) : 0,
-                  scale: isConfirmed ? [1, 1.04, 0.99, 1.05] : isSelected ? 1.05 : 1,
+                  scale: isConfirmed ? [1, 1.04, 0.99, 1.02] : isSelected ? 1.05 : 1,
                 }}
                 transition={{
                   delay: index * 0.04,
-                  duration: isTransitioning ? 0.6 : 0.24,
-                  ease: isTransitioning ? [0.32, 0, 0.67, 0] : [0.16, 1, 0.3, 1],
+                  duration: isConfirmed ? 0.38 : 0.24,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
                 className="flex w-[180px] justify-center"
-                style={{ zIndex: isConfirmed ? 50 : 1 }}
               >
                 <button
                   type="button"
                   disabled={isSelf || isTransitioning}
                   onClick={() => setSelectedTargetId(target.id)}
-                  className="relative flex w-full justify-center rounded-[28px] border p-6 transition-all disabled:cursor-not-allowed glass-panel group overflow-hidden"
+                  className="relative flex w-full justify-center rounded-3xl border p-5 transition-all disabled:cursor-not-allowed"
                   style={{
-                    background: isSelected ? 'rgba(168,85,247,0.15)' : 'rgba(255,255,255,0.03)',
+                    background: isSelected ? 'rgba(124,58,237,0.2)' : 'rgba(255,255,255,0.04)',
                     borderColor: isConfirmed
-                      ? 'rgba(34,197,94,0.6)'
+                      ? 'var(--color-success)'
                       : isSelected
-                        ? 'rgba(168,85,247,0.5)'
+                        ? 'var(--color-accent)'
                         : isSelf
-                          ? 'transparent'
-                          : 'rgba(255,255,255,0.08)',
+                          ? 'rgba(255,255,255,0.08)'
+                          : 'rgba(255,255,255,0.14)',
                     boxShadow: isConfirmed
-                      ? '0 0 30px rgba(34,197,94,0.25), inset 0 0 0 1px rgba(34,197,94,0.4)'
+                      ? '0 0 26px rgba(34,197,94,0.35)'
                       : isSelected
-                        ? '0 12px 32px rgba(168,85,247,0.3), inset 0 0 0 1px rgba(168,85,247,0.5)'
-                        : '0 8px 24px rgba(0,0,0,0.2)',
-                    opacity: isSelf ? 0.4 : 1,
+                        ? '0 0 30px var(--color-accent-glow), inset 0 0 0 1px rgba(168,85,247,0.25)'
+                        : 'none',
+                    opacity: isSelf ? 0.45 : 1,
                   }}
                 >
                   {isConfirmed && (
@@ -187,12 +190,28 @@ export default function VotingScreen() {
                     </div>
                   )}
 
-                    <div className="flex flex-col items-center gap-3 text-center relative z-10">
-                    <PlayerAvatar name={target.name} size="lg" />
+                  <div className="flex flex-col items-center gap-3 text-center">
+                    {anonymousVoting && !isSelf ? (
+                      <div
+                        className="flex h-12 w-12 items-center justify-center rounded-full border text-xl"
+                        style={{ background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(255,255,255,0.14)' }}
+                      >
+                        ?
+                      </div>
+                    ) : (
+                      <PlayerAvatar
+                        name={target.name}
+                        emoji={target.emoji}
+                        color={target.color}
+                        size="lg"
+                      />
+                    )}
                     <div className="space-y-1">
-                      <p className={`font-display text-lg font-bold tracking-wide ${isSelected ? 'text-white' : 'text-white/80'}`}>{target.name}</p>
-                      <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40">
-                        {isSelf ? 'YOU' : isConfirmed ? 'LOCKED IN' : isSelected ? 'READY' : 'SELECT'}
+                      <p className="font-semibold text-white">
+                        {anonymousVoting && !isSelf ? `Seat ${index + 1}` : target.name}
+                      </p>
+                      <p className="text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>
+                        {isSelf ? 'You' : isConfirmed ? 'Locked in' : isSelected ? 'Ready' : 'Tap to select'}
                       </p>
                     </div>
                   </div>
@@ -201,14 +220,14 @@ export default function VotingScreen() {
             )
           })}
         </div>
-          <motion.div 
-            className="w-full max-w-sm mt-4"
-            animate={{ opacity: isTransitioning ? 0 : 1, y: isTransitioning ? 20 : 0 }}
-          >
+
+        <div className="flex w-full justify-center">
+          <div className="w-full max-w-sm">
             <GlowButton onClick={handleConfirmVote} disabled={!selectedTargetId || isTransitioning}>
-              {isTransitioning ? 'CONFIRMING...' : 'CONFIRM VOTE'}
+              {isTransitioning ? 'Confirming...' : 'Confirm Vote'}
             </GlowButton>
-          </motion.div>
+          </div>
+        </div>
       </div>
     </motion.div>
   )

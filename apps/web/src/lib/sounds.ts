@@ -4,7 +4,6 @@
  */
 
 let ctx: AudioContext | null = null
-let _soundEnabled = true
 
 function getContext(): AudioContext {
   if (!ctx) ctx = new AudioContext()
@@ -18,7 +17,6 @@ function playTone(
   type: OscillatorType = 'sine',
   gainValue = 0.15,
 ): void {
-  if (!_soundEnabled) return
   try {
     const c = getContext()
     const osc = c.createOscillator()
@@ -48,37 +46,4 @@ export const sounds = {
     setTimeout(() => playTone(659, 0.15, 'sine', 0.12), 150)
     setTimeout(() => playTone(784, 0.3, 'sine', 0.14), 300)
   },
-  timerEnd: () => {
-    playTone(880, 0.15, 'square', 0.08)
-    setTimeout(() => playTone(880, 0.15, 'square', 0.08), 200)
-    setTimeout(() => playTone(880, 0.25, 'square', 0.1), 400)
-  },
-  buttonClick: () => playTone(600, 0.06, 'triangle', 0.06),
-  transition: () => {
-    playTone(330, 0.08, 'sine', 0.05)
-    setTimeout(() => playTone(440, 0.1, 'sine', 0.06), 80)
-  },
-  impostorReveal: () => {
-    playTone(150, 0.3, 'sawtooth', 0.12)
-    setTimeout(() => playTone(120, 0.4, 'sawtooth', 0.1), 300)
-  },
-
-  get enabled() {
-    return _soundEnabled
-  },
-  setEnabled(v: boolean) {
-    _soundEnabled = v
-    try {
-      localStorage.setItem('wordmask-sound', v ? '1' : '0')
-    } catch { /* noop */ }
-  },
-  init() {
-    try {
-      const stored = localStorage.getItem('wordmask-sound')
-      if (stored !== null) _soundEnabled = stored === '1'
-    } catch { /* noop */ }
-  },
 }
-
-// Auto-init on load
-sounds.init()

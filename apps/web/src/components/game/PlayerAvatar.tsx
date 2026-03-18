@@ -2,19 +2,23 @@ import { motion } from 'framer-motion'
 
 interface PlayerAvatarProps {
   name: string
+  emoji?: string | undefined
+  color?: string | undefined
   isEliminated?: boolean
   isImpostor?: boolean
   size?: 'sm' | 'md' | 'lg'
 }
 
 const sizes = {
-  sm: { outer: 'w-10 h-10 text-sm', inner: 'text-lg' },
-  md: { outer: 'w-14 h-14 text-base', inner: 'text-2xl' },
-  lg: { outer: 'w-20 h-20 text-lg', inner: 'text-3xl' },
+  sm: { outer: 'w-10 h-10', inner: 'text-xl' },
+  md: { outer: 'w-14 h-14', inner: 'text-3xl' },
+  lg: { outer: 'w-20 h-20', inner: 'text-5xl' },
 }
 
 export function PlayerAvatar({
   name,
+  emoji,
+  color,
   isEliminated = false,
   isImpostor = false,
   size = 'md',
@@ -28,27 +32,29 @@ export function PlayerAvatar({
 
   return (
     <motion.div
-      className="flex flex-col items-center gap-1"
+      className="flex flex-col items-center gap-2"
       animate={{ opacity: isEliminated ? 0.35 : 1 }}
     >
       <div
         className={`${sizes[size].outer} rounded-full flex items-center justify-center font-bold glass relative`}
         style={{
           boxShadow: isImpostor ? '0 0 16px var(--color-accent-glow)' : undefined,
-          border: isImpostor ? '1px solid var(--color-accent)' : undefined,
-          textDecoration: isEliminated ? 'line-through' : undefined,
+          border: color ? `1px solid ${color}` : isImpostor ? '1px solid var(--color-accent)' : undefined,
+          backgroundColor: color ? `${color}30` : undefined, // 30 is roughly 20% opacity in hex
         }}
       >
-        {initials}
+        <span className={`${sizes[size].inner} ${isEliminated ? 'opacity-50 grayscale' : ''}`}>
+          {emoji || initials}
+        </span>
         {isEliminated && (
-          <div className="absolute inset-0 rounded-full flex items-center justify-center bg-black/50">
-            ✕
+          <div className="absolute inset-0 rounded-full flex items-center justify-center bg-black/60">
+            <span className="text-danger font-black text-2xl drop-shadow-md">✕</span>
           </div>
         )}
       </div>
       <span
-        className="text-xs font-medium truncate max-w-16 text-center"
-        style={{ color: 'var(--color-text-secondary)' }}
+        className="text-sm font-medium truncate max-w-[5rem] text-center"
+        style={{ color: 'var(--color-text-secondary)', textDecoration: isEliminated ? 'line-through' : undefined }}
       >
         {name}
       </span>
