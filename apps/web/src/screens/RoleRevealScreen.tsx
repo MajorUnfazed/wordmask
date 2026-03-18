@@ -20,7 +20,7 @@ const CARD_FLIP_BACK_MS = 650
 export default function RoleRevealScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
   const gameState = useGameStore((s) => s.getGame())
-  const bluffMode = gameState.config.mutators?.bluffMode ?? false
+  const bluffMode = false
   const {
     currentRound,
     currentRevealPlayer,

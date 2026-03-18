@@ -46,8 +46,8 @@ create policy "rounds_update_host"
   );
 
 -- RPC: get_my_role — returns the caller's role for a round without leaking the full impostor list.
--- Crewmates: receive the word + hint.
--- Impostors: receive their role only (no word).
+-- Crewmates: receive the word only.
+-- Impostors: receive the hint only (no word).
 create or replace function get_my_role(p_round_id uuid)
 returns json
 language plpgsql security definer
@@ -78,13 +78,13 @@ begin
     return json_build_object(
       'role', 'IMPOSTOR',
       'word', null,
-      'hint', null
+      'hint', v_round.hint
     );
   else
     return json_build_object(
       'role', 'CREWMATE',
       'word', v_round.word,
-      'hint', v_round.hint
+      'hint', null
     );
   end if;
 end;

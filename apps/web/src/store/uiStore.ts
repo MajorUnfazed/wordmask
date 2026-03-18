@@ -11,6 +11,12 @@ export type AppScreen =
   | 'discussion'
   | 'voting'
   | 'results'
+  | 'online-create'
+  | 'online-lobby'
+  | 'online-role-reveal'
+  | 'online-discussion'
+  | 'online-voting'
+  | 'online-results'
 
 interface UIStore {
   screen: AppScreen

@@ -24,16 +24,11 @@ export function ScoreBoard({ scores, players }: ScoreBoardProps) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: index * 0.07 }}
           >
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <span className="w-5 text-sm" style={{ color: 'var(--color-text-muted)' }}>
                 {index + 1}
               </span>
-              <div className="flex items-center gap-2">
-                {player.emoji && <span className="text-xl">{player.emoji}</span>}
-                <span className="font-medium text-sm" style={{ color: player.color || 'var(--color-text)' }}>
-                  {player.name}
-                </span>
-              </div>
+              <span className="font-medium text-sm">{player.name}</span>
             </div>
             <span
               className="font-display font-bold text-lg"

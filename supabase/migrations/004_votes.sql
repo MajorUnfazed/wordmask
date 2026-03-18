@@ -88,13 +88,22 @@ create or replace function get_vote_summary(p_round_id uuid)
 returns json
 language sql security definer
 as $$
-  select json_agg(
-    json_build_object(
-      'target_id', target_id,
-      'vote_count', count(*)
-    )
-  )
-  from votes
-  where round_id = p_round_id
-  group by target_id;
+  select coalesce(
+    (
+      select json_agg(
+        json_build_object(
+          'target_id', grouped.target_id,
+          'vote_count', grouped.vote_count
+        )
+        order by grouped.vote_count desc, grouped.target_id asc
+      )
+      from (
+        select target_id, count(*)::int as vote_count
+        from votes
+        where round_id = p_round_id
+        group by target_id
+      ) grouped
+    ),
+    '[]'::json
+  );
 $$;

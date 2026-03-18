@@ -17,7 +17,21 @@ export default function HomeScreen() {
           style={styles.button}
           onPress={() => router.push('/(game)/offline-setup')}
         >
-          <Text style={styles.buttonText}>Play</Text>
+          <Text style={styles.buttonText}>Play Local</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.secondaryButton}
+          onPress={() => router.push('/(lobby)/create')}
+        >
+          <Text style={styles.secondaryButtonText}>Host Online</Text>
+        </Pressable>
+
+        <Pressable
+          style={styles.secondaryButton}
+          onPress={() => router.push('/(lobby)/join')}
+        >
+          <Text style={styles.secondaryButtonText}>Join Online</Text>
         </Pressable>
       </Animated.View>
     </View>
@@ -55,6 +69,7 @@ const styles = StyleSheet.create({
   actions: {
     width: '100%',
     maxWidth: 320,
+    gap: 12,
   },
   button: {
     backgroundColor: '#7c3aed',
@@ -71,5 +86,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
     letterSpacing: 0.5,
+  },
+  secondaryButton: {
+    backgroundColor: 'rgba(255,255,255,0.06)',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.1)',
+    paddingVertical: 16,
+    alignItems: 'center',
+  },
+  secondaryButtonText: {
+    color: '#e2e8f0',
+    fontSize: 16,
+    fontWeight: '600',
   },
 })

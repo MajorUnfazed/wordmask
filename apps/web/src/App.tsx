@@ -1,4 +1,9 @@
-import { Component, type ReactNode } from 'react'
+import {
+  Component,
+  Suspense,
+  lazy,
+  type ReactNode,
+} from 'react'
 import { motion } from 'framer-motion'
 import { useUIStore } from './store/uiStore'
 import HomeScreen from './screens/HomeScreen'
@@ -10,6 +15,14 @@ import RoleRevealScreen from './screens/RoleRevealScreen'
 import DiscussionScreen from './screens/DiscussionScreen'
 import VotingScreen from './screens/VotingScreen'
 import ResultsScreen from './screens/ResultsScreen'
+import type { AppScreen } from './store/uiStore'
+
+const OnlineCreateScreen = lazy(() => import('./screens/OnlineCreateScreen'))
+const LobbyScreen = lazy(() => import('./screens/LobbyScreen'))
+const OnlineRoleRevealScreen = lazy(() => import('./screens/OnlineRoleRevealScreen'))
+const OnlineDiscussionScreen = lazy(() => import('./screens/OnlineDiscussionScreen'))
+const OnlineVotingScreen = lazy(() => import('./screens/OnlineVotingScreen'))
+const OnlineResultsScreen = lazy(() => import('./screens/OnlineResultsScreen'))
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
   override state = { error: null }
@@ -29,7 +42,7 @@ class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | 
   }
 }
 
-function renderScreen(screen: string) {
+function renderScreen(screen: AppScreen) {
   switch (screen) {
     case 'mode': return <ModeSelectScreen />
     case 'setup': return <OfflineSetupScreen />
@@ -39,6 +52,12 @@ function renderScreen(screen: string) {
     case 'discussion': return <DiscussionScreen />
     case 'voting': return <VotingScreen />
     case 'results': return <ResultsScreen />
+    case 'online-create': return <OnlineCreateScreen />
+    case 'online-lobby': return <LobbyScreen />
+    case 'online-role-reveal': return <OnlineRoleRevealScreen />
+    case 'online-discussion': return <OnlineDiscussionScreen />
+    case 'online-voting': return <OnlineVotingScreen />
+    case 'online-results': return <OnlineResultsScreen />
     case 'home':
     default: return <HomeScreen />
   }
@@ -51,15 +70,23 @@ export default function App() {
     <ErrorBoundary>
       <div className="relative min-h-screen overflow-x-hidden bg-void text-white">
         <div className="relative w-full min-h-screen">
-          <motion.div
-            key={screen}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="w-full min-h-screen"
+          <Suspense
+            fallback={
+              <div className="flex min-h-screen items-center justify-center text-white/60">
+                Loading…
+              </div>
+            }
           >
-            {renderScreen(screen)}
-          </motion.div>
+            <motion.div
+              key={screen}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="w-full min-h-screen"
+            >
+              {renderScreen(screen)}
+            </motion.div>
+          </Suspense>
         </div>
       </div>
     </ErrorBoundary>

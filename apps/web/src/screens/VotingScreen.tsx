@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { PlayerAvatar } from '../components/game/PlayerAvatar'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useOfflineGame } from '../hooks/useOfflineGame'
-import { useGameStore } from '../store/gameStore'
 import { useUIStore } from '../store/uiStore'
 
 const VOTE_CONFIRM_MS = 550
@@ -16,8 +15,6 @@ function formatPlayerName(name: string): string {
 
 export default function VotingScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
-  const gameState = useGameStore((s) => s.getGame())
-  const anonymousVoting = gameState.config.mutators?.anonymousVoting ?? false
   const {
     currentRound,
     currentVoter,
@@ -108,15 +105,6 @@ export default function VotingScreen() {
           </p>
         </motion.div>
 
-        {anonymousVoting && (
-          <div
-            className="flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-bold uppercase tracking-[0.18em]"
-            style={{ background: 'rgba(234,179,8,0.12)', border: '1px solid rgba(234,179,8,0.3)', color: 'rgb(234,179,8)' }}
-          >
-            🕵️ Anonymous Voting — identities hidden
-          </div>
-        )}
-
         <div className="flex w-full flex-wrap items-center justify-center gap-5">
           {players.map((target, index) => {
             const isSelf = target.id === currentVoter.id
@@ -191,25 +179,9 @@ export default function VotingScreen() {
                   )}
 
                   <div className="flex flex-col items-center gap-3 text-center">
-                    {anonymousVoting && !isSelf ? (
-                      <div
-                        className="flex h-12 w-12 items-center justify-center rounded-full border text-xl"
-                        style={{ background: 'rgba(255,255,255,0.06)', borderColor: 'rgba(255,255,255,0.14)' }}
-                      >
-                        ?
-                      </div>
-                    ) : (
-                      <PlayerAvatar
-                        name={target.name}
-                        emoji={target.emoji}
-                        color={target.color}
-                        size="lg"
-                      />
-                    )}
+                    <PlayerAvatar name={target.name} size="lg" />
                     <div className="space-y-1">
-                      <p className="font-semibold text-white">
-                        {anonymousVoting && !isSelf ? `Seat ${index + 1}` : target.name}
-                      </p>
+                      <p className="font-semibold text-white">{target.name}</p>
                       <p className="text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>
                         {isSelf ? 'You' : isConfirmed ? 'Locked in' : isSelected ? 'Ready' : 'Tap to select'}
                       </p>

@@ -3,24 +3,27 @@ import { motion } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useUIStore } from '../store/uiStore'
 import { useGameStore } from '../store/gameStore'
+import { useLobbyStore } from '../store/lobbyStore'
 
 export default function HomeScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
   const savedScreen = useUIStore((s) => s.savedScreen)
   const restoreSavedScreen = useUIStore((s) => s.restoreSavedScreen)
+  const onlineLobbyCode = useLobbyStore((s) => s.code)
   
   const resetGame = useGameStore((s) => s.resetGame)
-  const hasActiveGame = useGameStore((s) => {
+  const hasOfflineGame = useGameStore((s) => {
     const phase = s.engine?.getState()?.phase
     return phase && phase !== 'IDLE' && phase !== 'SETUP'
   })
+  const hasResumeTarget = Boolean(savedScreen && (hasOfflineGame || onlineLobbyCode || savedScreen === 'online-create'))
 
   // Avoid hydration mismatch flashing
   const [mounted, setMounted] = useState(false)
   useEffect(() => { setMounted(true) }, [])
 
   function handleNewGame() {
-    if (hasActiveGame) {
+    if (hasOfflineGame) {
       resetGame()
     }
     setScreen('mode')
@@ -56,7 +59,7 @@ export default function HomeScreen() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
       >
-        {mounted && hasActiveGame && savedScreen ? (
+        {mounted && hasResumeTarget ? (
           <>
             <GlowButton onClick={handleResumeGame}>
               Resume Game
