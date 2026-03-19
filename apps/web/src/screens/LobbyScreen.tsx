@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { LobbyCode } from '../components/lobby/LobbyCode'
 import { PlayerList } from '../components/lobby/PlayerList'
+import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { GlowButton } from '../components/ui/GlowButton'
 import { getDisplayCategoryName } from '../lib/categoryUI'
 import { useLobby } from '../hooks/useLobby'
@@ -12,6 +13,8 @@ export default function LobbyScreen() {
     localPlayerId,
     isHost,
     status,
+    pendingJoinRequests,
+    canModeratePlayers,
     canStartRound,
     connectedPlayers,
     isBusy,
@@ -21,9 +24,15 @@ export default function LobbyScreen() {
     setSelectedCategories,
     setReady,
     startGame,
+    kickPlayer,
+    reviewJoinRequest,
+    repairPresence,
     disconnectLobby,
   } = useLobby()
   const localPlayer = players.find((player) => player.id === localPlayerId)
+  const canRepairRoom = isHost && players.some(
+    (player) => player.presenceStatus === 'away' || player.presenceStatus === 'reconnecting',
+  )
 
   function toggleCategory(category: string) {
     const nextCategories = selectedCategories.includes(category)
@@ -64,8 +73,54 @@ export default function LobbyScreen() {
       )}
 
       <div className="w-full max-w-md">
-        <PlayerList players={players} localPlayerId={localPlayerId ?? ''} />
+        <PlayerList
+          players={players}
+          localPlayerId={localPlayerId ?? ''}
+          canModerate={canModeratePlayers}
+          onRemove={(playerId) => {
+            void kickPlayer(playerId)
+          }}
+        />
       </div>
+
+      {isHost && pendingJoinRequests.length > 0 && (
+        <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-5">
+          <p className="text-sm uppercase tracking-[0.2em] text-white/40">Pending Rejoin Requests</p>
+          <div className="mt-4 flex flex-col gap-3">
+            {pendingJoinRequests.map((request) => (
+              <div
+                key={request.id}
+                className="flex items-center justify-between rounded-2xl border border-white/8 bg-black/10 px-4 py-3"
+              >
+                <div>
+                  <p className="font-medium text-white">{request.requestedName}</p>
+                  <p className="text-xs text-white/40">Waiting for approval</p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      void reviewJoinRequest(request.id, 'deny')
+                    }}
+                    className="rounded-full border border-white/10 px-3 py-1 text-xs text-white/70"
+                  >
+                    Deny
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      void reviewJoinRequest(request.id, 'approve')
+                    }}
+                    className="rounded-full border border-accent/35 bg-accent/12 px-3 py-1 text-xs text-accent-light"
+                  >
+                    Approve
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-5">
         <div className="flex items-center justify-between gap-3">
@@ -148,14 +203,27 @@ export default function LobbyScreen() {
 
       <div className="flex w-full max-w-md flex-col gap-3">
         {isHost ? (
-          <GlowButton
-            onClick={() => {
-              void startGame()
-            }}
-            disabled={!canStartRound || selectedCategories.length === 0 || isBusy}
-          >
-            {isBusy ? 'Starting…' : 'Start Countdown'}
-          </GlowButton>
+          <>
+            <GlowButton
+              onClick={() => {
+                void startGame()
+              }}
+              disabled={!canStartRound || selectedCategories.length === 0 || isBusy}
+            >
+              {isBusy ? 'Starting…' : 'Start Countdown'}
+            </GlowButton>
+            {canRepairRoom && (
+              <GlowButton
+                variant="secondary"
+                onClick={() => {
+                  void repairPresence()
+                }}
+                disabled={isBusy}
+              >
+                Repair Room
+              </GlowButton>
+            )}
+          </>
         ) : (
           <p className="text-center text-sm" style={{ color: 'var(--color-text-muted)' }}>
             {status === 'waiting'
@@ -168,6 +236,8 @@ export default function LobbyScreen() {
           Leave Lobby
         </GlowButton>
       </div>
+
+      <RoomChatPanel />
     </div>
   )
 }

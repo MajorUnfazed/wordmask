@@ -10,6 +10,7 @@ export default function HomeScreen() {
   const savedScreen = useUIStore((s) => s.savedScreen)
   const restoreSavedScreen = useUIStore((s) => s.restoreSavedScreen)
   const onlineLobbyCode = useLobbyStore((s) => s.code)
+  const onlineAccessState = useLobbyStore((s) => s.accessState)
   
   const resetGame = useGameStore((s) => s.resetGame)
   const hasOfflineGame = useGameStore((s) => {
@@ -30,7 +31,11 @@ export default function HomeScreen() {
   }
 
   function handleResumeGame() {
-    if (savedScreen) {
+    if (onlineLobbyCode && onlineAccessState !== 'member') {
+      setScreen('online-pending-approval')
+    } else if (onlineLobbyCode) {
+      setScreen('online-lobby')
+    } else if (savedScreen) {
       restoreSavedScreen()
     } else {
       setScreen('mode')

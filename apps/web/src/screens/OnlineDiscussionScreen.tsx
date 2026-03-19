@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import { OnlineRoundHeader } from '../components/game/OnlineRoundHeader'
+import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { CountdownTimer } from '../components/ui/CountdownTimer'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
@@ -24,10 +26,11 @@ export default function OnlineDiscussionScreen() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
-          Online Discussion
-        </p>
-        <h2 className="font-display text-4xl font-bold">Talk it out</h2>
+        <OnlineRoundHeader
+          roundNumber={round.roundNumber}
+          phaseLabel="Online Discussion"
+          categories={round.sourceCategories}
+        />
         <p className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs uppercase tracking-[0.22em] text-white/55">
           {round.readyToDiscussCount}/{round.readyToDiscussTotal} players revealed
         </p>
@@ -79,6 +82,8 @@ export default function OnlineDiscussionScreen() {
           </p>
         )}
       </div>
+
+      <RoomChatPanel />
     </div>
   )
 }

@@ -2,7 +2,12 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { GlassCard } from '../components/ui/GlassCard'
 import { GlowButton } from '../components/ui/GlowButton'
-import { normalizeLobbySnapshot } from '../lib/online'
+import {
+  getOnlineSchemaMismatchMessage,
+  isOnlineSchemaCompatible,
+  normalizeJoinLobbyResult,
+  normalizeBootstrapPayload,
+} from '../lib/online'
 import {
   ensureAnonymousSession,
   isSupabaseConfigured,
@@ -24,6 +29,7 @@ export default function OnlineCreateScreen() {
   const hydrateLobby = useLobbyStore((state) => state.hydrateLobby)
   const setLocalPlayerId = useLobbyStore((state) => state.setLocalPlayerId)
   const setDisplayName = useLobbyStore((state) => state.setDisplayName)
+  const setPendingAccessState = useLobbyStore((state) => state.setPendingAccessState)
   const clearRound = useOnlineRoundStore((state) => state.clearRound)
   const [createName, setCreateName] = useState('')
   const [joinName, setJoinName] = useState('')
@@ -34,7 +40,7 @@ export default function OnlineCreateScreen() {
 
   async function hydrateByCode(code: string) {
     const client = await ensureAnonymousSession()
-    const { data, error: rpcError } = await client.rpc('get_lobby_state', {
+    const { data, error: rpcError } = await client.rpc('get_online_bootstrap', {
       p_code: code,
     })
 
@@ -46,7 +52,16 @@ export default function OnlineCreateScreen() {
       throw new Error('Lobby not found.')
     }
 
-    const snapshot = normalizeLobbySnapshot(data as Record<string, unknown>)
+    const bootstrap = normalizeBootstrapPayload(data as Record<string, unknown>)
+    if (!isOnlineSchemaCompatible(bootstrap.schemaVersion)) {
+      throw new Error(getOnlineSchemaMismatchMessage(bootstrap.schemaVersion))
+    }
+
+    if (!bootstrap.lobby) {
+      throw new Error('Lobby not found.')
+    }
+
+    const snapshot = bootstrap.lobby
     hydrateLobby(snapshot)
     return snapshot
   }
@@ -138,11 +153,18 @@ export default function OnlineCreateScreen() {
         throw new Error('Could not join the lobby.')
       }
 
-      const payload = data as Record<string, unknown>
-      const playerId = String(payload['player_id'] ?? '')
+      const joinResult = normalizeJoinLobbyResult(data as Record<string, unknown>)
 
       setDisplayName(trimmedName)
-      setLocalPlayerId(playerId)
+
+      if (joinResult.status === 'pending_approval') {
+        clearRound()
+        setPendingAccessState(trimmedCode, 'pending_approval', joinResult.requestId)
+        setScreen('online-pending-approval')
+        return
+      }
+
+      setLocalPlayerId(joinResult.playerId)
       clearRound()
       await hydrateByCode(trimmedCode)
       setScreen('online-lobby')

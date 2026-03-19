@@ -1,9 +1,10 @@
-import { useState, useCallback } from 'react'
+import { useEffect } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
+  runOnJS,
 } from 'react-native-reanimated'
 import { Gesture, GestureDetector } from 'react-native-gesture-handler'
 import * as Haptics from 'expo-haptics'
@@ -12,17 +13,32 @@ import type { PlayerRole } from '@impostor/core'
 interface RoleCardNativeProps {
   playerName: string
   role: PlayerRole
-  word: string
-  hint: string
+  word: string | null
+  hint: string | null
+  revealed?: boolean
+  onReveal?: () => void
 }
 
 /**
  * Native RoleCard — press and hold to reveal.
  * Uses Reanimated 3 rotateY + Expo Haptics.
  */
-export function RoleCardNative({ playerName, role, word, hint }: RoleCardNativeProps) {
+export function RoleCardNative({
+  playerName,
+  role,
+  word,
+  hint,
+  revealed = false,
+  onReveal,
+}: RoleCardNativeProps) {
   const rotation = useSharedValue(0)
   const isImpostor = role === 'IMPOSTOR'
+
+  useEffect(() => {
+    rotation.value = withTiming(revealed ? 180 : 0, {
+      duration: revealed ? 350 : 250,
+    })
+  }, [revealed, rotation])
 
   const frontStyle = useAnimatedStyle(() => ({
     transform: [{ rotateY: `${rotation.value}deg` }],
@@ -37,11 +53,19 @@ export function RoleCardNative({ playerName, role, word, hint }: RoleCardNativeP
   const gesture = Gesture.LongPress()
     .minDuration(100)
     .onBegin(() => {
+      if (revealed) {
+        return
+      }
       rotation.value = withTiming(180, { duration: 500 })
-      Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium)
+      if (onReveal) {
+        runOnJS(onReveal)()
+      }
+      runOnJS(Haptics.impactAsync)(Haptics.ImpactFeedbackStyle.Medium)
     })
     .onFinalize(() => {
-      rotation.value = withTiming(0, { duration: 400 })
+      if (!revealed) {
+        rotation.value = withTiming(0, { duration: 400 })
+      }
     })
 
   return (
@@ -67,12 +91,15 @@ export function RoleCardNative({ playerName, role, word, hint }: RoleCardNativeP
           {!isImpostor && (
             <>
               <Text style={styles.wordLabel}>The word is</Text>
-              <Text style={styles.word}>{word}</Text>
-              <Text style={styles.hint}>Hint: {hint}</Text>
+              <Text style={styles.word}>{word ?? 'Unknown'}</Text>
             </>
           )}
           {isImpostor && (
-            <Text style={styles.impostorText}>Blend in. Don't get caught.</Text>
+            <>
+              <Text style={styles.wordLabel}>Your only clue</Text>
+              <Text style={styles.word}>{hint ?? 'No clue'}</Text>
+              <Text style={styles.impostorText}>Blend in. Don't get caught.</Text>
+            </>
           )}
         </Animated.View>
       </View>

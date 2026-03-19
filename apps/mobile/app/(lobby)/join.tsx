@@ -1,18 +1,27 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, TextInput, Pressable } from 'react-native'
 import { useRouter } from 'expo-router'
-import { getErrorMessage, normalizeLobbySnapshot } from '../../lib/online'
+import {
+  getErrorMessage,
+  getOnlineSchemaMismatchMessage,
+  isOnlineSchemaCompatible,
+  normalizeJoinLobbyResult,
+  normalizeBootstrapPayload,
+} from '../../lib/online'
 import {
   ensureAnonymousSession,
   isSupabaseConfigured,
 } from '../../lib/supabase'
 import { useMobileLobbyStore } from '../../store/lobbyStore'
+import { useMobileOnlineRoundStore } from '../../store/onlineRoundStore'
 
 export default function JoinLobbyScreen() {
   const router = useRouter()
   const hydrateLobby = useMobileLobbyStore((state) => state.hydrateLobby)
   const setDisplayName = useMobileLobbyStore((state) => state.setDisplayName)
   const setLocalPlayerId = useMobileLobbyStore((state) => state.setLocalPlayerId)
+  const setPendingAccessState = useMobileLobbyStore((state) => state.setPendingAccessState)
+  const clearRound = useMobileOnlineRoundStore((state) => state.clearRound)
   const [code, setCode] = useState('')
   const [name, setName] = useState('')
   const [error, setError] = useState<string | null>(null)
@@ -20,7 +29,7 @@ export default function JoinLobbyScreen() {
 
   async function hydrateByCode(codeValue: string) {
     const client = await ensureAnonymousSession()
-    const { data, error: rpcError } = await client.rpc('get_lobby_state', {
+    const { data, error: rpcError } = await client.rpc('get_online_bootstrap', {
       p_code: codeValue,
     })
 
@@ -32,7 +41,16 @@ export default function JoinLobbyScreen() {
       throw new Error('Lobby not found.')
     }
 
-    hydrateLobby(normalizeLobbySnapshot(data as Record<string, unknown>))
+    const bootstrap = normalizeBootstrapPayload(data as Record<string, unknown>)
+    if (!isOnlineSchemaCompatible(bootstrap.schemaVersion)) {
+      throw new Error(getOnlineSchemaMismatchMessage(bootstrap.schemaVersion))
+    }
+
+    if (!bootstrap.lobby) {
+      throw new Error('Lobby not found.')
+    }
+
+    hydrateLobby(bootstrap.lobby)
   }
 
   async function handleJoin() {
@@ -82,11 +100,19 @@ export default function JoinLobbyScreen() {
         throw new Error('Could not join the lobby.')
       }
 
-      const payload = data as Record<string, unknown>
-      const playerId = String(payload['player_id'] ?? '')
+      const joinResult = normalizeJoinLobbyResult(data as Record<string, unknown>)
 
       setDisplayName(trimmedName)
-      setLocalPlayerId(playerId)
+
+      if (joinResult.status === 'pending_approval') {
+        clearRound()
+        setPendingAccessState(trimmedCode, 'pending_approval', joinResult.requestId)
+        router.push('/(lobby)/pending')
+        return
+      }
+
+      setLocalPlayerId(joinResult.playerId)
+      clearRound()
       await hydrateByCode(trimmedCode)
       router.push(`/(lobby)/${trimmedCode}`)
     } catch (joinError) {

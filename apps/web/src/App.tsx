@@ -19,6 +19,7 @@ import type { AppScreen } from './store/uiStore'
 
 const OnlineCreateScreen = lazy(() => import('./screens/OnlineCreateScreen'))
 const LobbyScreen = lazy(() => import('./screens/LobbyScreen'))
+const OnlinePendingApprovalScreen = lazy(() => import('./screens/OnlinePendingApprovalScreen'))
 const OnlineRoundStartingScreen = lazy(() => import('./screens/OnlineRoundStartingScreen'))
 const OnlineRoleRevealScreen = lazy(() => import('./screens/OnlineRoleRevealScreen'))
 const OnlineDiscussionScreen = lazy(() => import('./screens/OnlineDiscussionScreen'))
@@ -55,6 +56,7 @@ function renderScreen(screen: AppScreen) {
     case 'results': return <ResultsScreen />
     case 'online-create': return <OnlineCreateScreen />
     case 'online-lobby': return <LobbyScreen />
+    case 'online-pending-approval': return <OnlinePendingApprovalScreen />
     case 'online-round-starting': return <OnlineRoundStartingScreen />
     case 'online-role-reveal': return <OnlineRoleRevealScreen />
     case 'online-discussion': return <OnlineDiscussionScreen />

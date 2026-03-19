@@ -656,29 +656,35 @@ begin
         r.started_at desc
       limit 1
     ),
-    round_progress as (
+    active_players as (
       select
         ar.id as round_id,
+        p.id as player_id
+      from latest_round ar
+      join players p on p.lobby_id = ar.lobby_id
+      where p.presence_status <> 'away'
+    ),
+    ready_progress as (
+      select
+        ap.round_id,
+        count(*)::int as ready_to_discuss_total,
         count(*) filter (
           where rps.ready_to_discuss_at is not null
-            and p.presence_status <> 'away'
-        )::int as ready_to_discuss_count,
-        count(*) filter (
-          where p.presence_status <> 'away'
-        )::int as ready_to_discuss_total,
-        count(distinct v.voter_id) filter (
-          where voter.presence_status <> 'away'
-        )::int as submitted_votes,
-        count(*) filter (
-          where p.presence_status <> 'away'
-        )::int as eligible_votes
-      from latest_round ar
-      left join players p on p.lobby_id = ar.lobby_id
+        )::int as ready_to_discuss_count
+      from active_players ap
       left join round_player_states rps
-        on rps.round_id = ar.id and rps.player_id = p.id
-      left join votes v on v.round_id = ar.id
-      left join players voter on voter.id = v.voter_id
-      group by ar.id
+        on rps.round_id = ap.round_id and rps.player_id = ap.player_id
+      group by ap.round_id
+    ),
+    vote_progress as (
+      select
+        ap.round_id,
+        count(distinct ap.player_id)::int as eligible_votes,
+        count(distinct v.voter_id)::int as submitted_votes
+      from active_players ap
+      left join votes v
+        on v.round_id = ap.round_id and v.voter_id = ap.player_id
+      group by ap.round_id
     )
     select json_build_object(
       'lobby_id', v_lobby.id,
@@ -738,19 +744,20 @@ begin
             'pack_id', ar.pack_id,
             'started_at', ar.started_at,
             'discussion_duration', 60,
-            'ready_to_discuss_count', coalesce(rp.ready_to_discuss_count, 0),
-            'ready_to_discuss_total', coalesce(rp.ready_to_discuss_total, 0),
+            'ready_to_discuss_count', coalesce(rdp.ready_to_discuss_count, 0),
+            'ready_to_discuss_total', coalesce(rdp.ready_to_discuss_total, 0),
             'vote_progress', case
               when ar.phase in ('voting', 'results') then json_build_object(
-                'submitted', coalesce(rp.submitted_votes, 0),
-                'total', coalesce(rp.eligible_votes, 0)
+                'submitted', coalesce(vp.submitted_votes, 0),
+                'total', coalesce(vp.eligible_votes, 0)
               )
               else null
             end
           )
         end
         from latest_round ar
-        left join round_progress rp on rp.round_id = ar.id
+        left join ready_progress rdp on rdp.round_id = ar.id
+        left join vote_progress vp on vp.round_id = ar.id
         limit 1
       )
     )

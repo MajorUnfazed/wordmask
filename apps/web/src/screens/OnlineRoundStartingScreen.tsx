@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ONLINE_START_COUNTDOWN_SECONDS } from '../lib/online'
+import { OnlineRoundHeader } from '../components/game/OnlineRoundHeader'
 import { useLobby } from '../hooks/useLobby'
 import { useUIStore } from '../store/uiStore'
 
@@ -44,13 +45,18 @@ export default function OnlineRoundStartingScreen() {
     }
   }, [round, setScreen])
 
-  const categoryLabel = useMemo(() => {
-    if (!round) {
-      return ''
-    }
+  const categoryLabel = useMemo(
+    () => (round?.sourceCategories.length ? round.sourceCategories.join(' • ') : round?.packId ?? ''),
+    [round],
+  )
 
-    return round.packId
-  }, [round])
+  if (!round) {
+    return (
+      <div className="flex min-h-screen items-center justify-center px-6 text-white/60">
+        Loading round…
+      </div>
+    )
+  }
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 px-6 py-12 text-center">
@@ -59,10 +65,11 @@ export default function OnlineRoundStartingScreen() {
         animate={{ opacity: 1, y: 0 }}
         className="space-y-4"
       >
-        <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
-          Round Starting
-        </p>
-        <h2 className="font-display text-5xl font-bold">Get ready</h2>
+        <OnlineRoundHeader
+          roundNumber={round.roundNumber}
+          phaseLabel="Round Starting"
+          categories={round.sourceCategories}
+        />
         <p className="mx-auto max-w-md text-white/60">
           The next round is about to begin. Keep your screen private when the card appears.
         </p>

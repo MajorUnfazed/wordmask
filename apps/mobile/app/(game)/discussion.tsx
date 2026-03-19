@@ -1,23 +1,55 @@
 import { View, Text, StyleSheet, Pressable } from 'react-native'
 import { useRouter } from 'expo-router'
-import Animated, { FadeIn } from 'react-native-reanimated'
+import { RoomChatSheet } from '../../components/RoomChatSheet'
+import { useOnlineMultiplayer } from '../../hooks/useOnlineMultiplayer'
 
 export default function DiscussionScreen() {
   const router = useRouter()
+  const { round, isHost, isBusy, error, startVoting } = useOnlineMultiplayer()
+
+  if (!round) {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.title}>Discuss!</Text>
+        <Text style={styles.subtitle}>Who is the impostor?</Text>
+        <Pressable style={styles.primaryButton} onPress={() => router.push('/(game)/voting')}>
+          <Text style={styles.primaryButtonText}>Vote Now</Text>
+        </Pressable>
+      </View>
+    )
+  }
 
   return (
     <View style={styles.container}>
-      <Animated.View entering={FadeIn.duration(600)} style={styles.content}>
-        <Text style={styles.title}>Discuss!</Text>
-        <Text style={styles.subtitle}>Who is the impostor?</Text>
-      </Animated.View>
+      <Text style={styles.label}>Round {round.roundNumber}</Text>
+      <Text style={styles.title}>Discussion Open</Text>
+      <Text style={styles.subtitle}>Trade clues and pressure the room.</Text>
+      <Text style={styles.helper}>
+        Category pool: {round.sourceCategories.join(' • ')}
+      </Text>
+      <Text style={styles.progress}>
+        {round.readyToDiscussCount}/{round.readyToDiscussTotal} players revealed
+      </Text>
 
-      <Pressable
-        style={styles.voteButton}
-        onPress={() => router.push('/(game)/voting')}
-      >
-        <Text style={styles.voteButtonText}>Vote Now</Text>
-      </Pressable>
+      {error && <Text style={styles.error}>{error}</Text>}
+
+      {isHost ? (
+        <Pressable
+          style={[styles.primaryButton, isBusy && styles.buttonDisabled]}
+          onPress={() => {
+            void startVoting()
+          }}
+          disabled={isBusy}
+        >
+          <Text style={styles.primaryButtonText}>
+            {isBusy ? 'Opening…' : 'Open Voting'}
+          </Text>
+        </Pressable>
+      ) : (
+        <Text style={styles.helper}>Host opening voting soon…</Text>
+      )}
+
+      <RoomChatSheet />
     </View>
   )
 }
@@ -27,35 +59,65 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 48,
+    gap: 18,
     padding: 24,
     backgroundColor: '#0A0A14',
   },
-  content: {
-    alignItems: 'center',
-    gap: 12,
+  label: {
+    color: '#94a3b8',
+    fontSize: 12,
+    textTransform: 'uppercase',
+    letterSpacing: 2,
   },
   title: {
-    fontSize: 48,
+    color: '#f8fafc',
+    fontSize: 40,
     fontWeight: '900',
-    color: '#f1f5f9',
     fontFamily: 'serif',
+    textAlign: 'center',
   },
   subtitle: {
-    fontSize: 16,
-    color: '#94a3b8',
+    color: '#cbd5e1',
+    textAlign: 'center',
   },
-  voteButton: {
-    backgroundColor: 'rgba(255,255,255,0.08)',
-    paddingVertical: 16,
-    paddingHorizontal: 48,
+  helper: {
+    color: '#94a3b8',
+    textAlign: 'center',
+  },
+  progress: {
+    color: '#e2e8f0',
+    fontSize: 14,
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 999,
+    overflow: 'hidden',
+    backgroundColor: 'rgba(255,255,255,0.06)',
+  },
+  error: {
+    width: '100%',
+    maxWidth: 340,
+    color: '#fca5a5',
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.12)',
+    borderColor: 'rgba(239,68,68,0.3)',
+    backgroundColor: 'rgba(239,68,68,0.08)',
+    padding: 16,
+    overflow: 'hidden',
   },
-  voteButtonText: {
-    color: '#f1f5f9',
+  primaryButton: {
+    width: '100%',
+    maxWidth: 340,
+    backgroundColor: '#7c3aed',
+    borderRadius: 20,
+    paddingVertical: 16,
+    alignItems: 'center',
+  },
+  primaryButtonText: {
+    color: '#fff',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
+  },
+  buttonDisabled: {
+    opacity: 0.45,
   },
 })

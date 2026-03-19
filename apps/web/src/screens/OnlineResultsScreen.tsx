@@ -1,5 +1,7 @@
 import { useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { OnlineRoundHeader } from '../components/game/OnlineRoundHeader'
+import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { GlassCard } from '../components/ui/GlassCard'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
@@ -29,6 +31,11 @@ export default function OnlineResultsScreen() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
       >
+        <OnlineRoundHeader
+          roundNumber={round?.roundNumber ?? 1}
+          phaseLabel="Round Results"
+          categories={round?.sourceCategories ?? []}
+        />
         <div className="mb-4 text-6xl">{result.impostorsCaught ? '🎉' : '😈'}</div>
         <h2 className="font-display text-4xl font-bold">
           {result.impostorsCaught ? 'Caught!' : result.isTie ? 'Stalemate' : 'Escaped!'}
@@ -106,6 +113,8 @@ export default function OnlineResultsScreen() {
           Back to Lobby
         </GlowButton>
       </div>
+
+      <RoomChatPanel />
     </div>
   )
 }

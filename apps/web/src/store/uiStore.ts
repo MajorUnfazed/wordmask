@@ -13,6 +13,7 @@ export type AppScreen =
   | 'results'
   | 'online-create'
   | 'online-lobby'
+  | 'online-pending-approval'
   | 'online-round-starting'
   | 'online-role-reveal'
   | 'online-discussion'

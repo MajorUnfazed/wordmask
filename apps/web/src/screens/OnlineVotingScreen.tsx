@@ -1,5 +1,7 @@
 import { useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
+import { OnlineRoundHeader } from '../components/game/OnlineRoundHeader'
+import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { PlayerAvatar } from '../components/game/PlayerAvatar'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
@@ -34,12 +36,11 @@ export default function OnlineVotingScreen() {
     >
       <div className="flex w-full max-w-[900px] flex-col items-center justify-center gap-8 text-center">
         <motion.div className="flex flex-col items-center gap-3" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
-            Online Voting
-          </p>
-          <h2 className="font-display text-3xl font-bold">
-            Choose the player you suspect
-          </h2>
+          <OnlineRoundHeader
+            roundNumber={round?.roundNumber ?? 1}
+            phaseLabel="Online Voting"
+            categories={round?.sourceCategories ?? []}
+          />
           <p style={{ color: 'var(--color-text-secondary)' }}>
             You can change your vote until the host reveals the result.
           </p>
@@ -151,6 +152,8 @@ export default function OnlineVotingScreen() {
             </p>
           )}
         </div>
+
+        <RoomChatPanel />
       </div>
     </motion.div>
   )

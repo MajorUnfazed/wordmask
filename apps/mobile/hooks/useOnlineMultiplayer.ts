@@ -1,83 +1,72 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { usePathname, useRouter } from 'expo-router'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import {
   ONLINE_IMPOSTOR_COUNT,
+  ONLINE_SCHEMA_VERSION,
   ONLINE_START_COUNTDOWN_SECONDS,
+  getErrorMessage,
   getOnlineSchemaMismatchMessage,
-  getOnlineCategoryOptions,
+  getMobileOnlineCategoryOptions,
   isOnlineSchemaCompatible,
-  normalizeJoinLobbyResult,
   normalizeBootstrapPayload,
+  normalizeJoinLobbyResult,
   normalizeRolePayload,
   normalizeRoundResult,
   normalizeRoundSnapshotPayload,
-  pickOnlineRoundWordForCategories,
-  type OnlineLobbySnapshot,
-  type OnlineRolePayload,
-  type OnlineRoundResult,
-  type OnlineRoundSnapshot,
+  pickMobileOnlineRoundWordForCategories,
+  type MobileBootstrapPayload,
+  type MobileLobbySnapshot,
+  type MobileRolePayload,
+  type MobileRoundResult,
+  type MobileRoundSnapshot,
 } from '../lib/online'
 import {
   ensureAnonymousSession,
   getSupabaseClient,
   isSupabaseConfigured,
 } from '../lib/supabase'
-import { useLobbyStore } from '../store/lobbyStore'
-import { useOnlineRoundStore } from '../store/onlineRoundStore'
-import { useUIStore, type AppScreen } from '../store/uiStore'
+import { useMobileLobbyStore } from '../store/lobbyStore'
+import { useMobileOnlineRoundStore } from '../store/onlineRoundStore'
 
-const onlineGameScreens = new Set<AppScreen>([
-  'online-round-starting',
-  'online-role-reveal',
-  'online-discussion',
-  'online-voting',
-  'online-results',
+const onlineGameRoutes = new Set([
+  '/(game)/round-starting',
+  '/(game)/role-reveal',
+  '/(game)/discussion',
+  '/(game)/voting',
+  '/(game)/results',
 ])
 
-function getErrorMessage(error: unknown): string {
-  if (error instanceof Error && error.message) {
-    return error.message
-  }
-
-  if (
-    typeof error === 'object' &&
-    error !== null &&
-    'message' in error &&
-    typeof (error as { message?: unknown }).message === 'string'
-  ) {
-    return (error as { message: string }).message
-  }
-
-  return 'Something went wrong.'
-}
-
-function screenForRound(round: OnlineRoundSnapshot | null): AppScreen | null {
+function routeForRound(round: MobileRoundSnapshot | null) {
   if (!round) {
     return null
   }
 
   if (round.phase === 'role_reveal') {
     const startedAt = Date.parse(round.startedAt)
-    if (!Number.isNaN(startedAt) && Date.now() - startedAt < ONLINE_START_COUNTDOWN_SECONDS * 1000) {
-      return 'online-round-starting'
+    if (
+      !Number.isNaN(startedAt) &&
+      Date.now() - startedAt < ONLINE_START_COUNTDOWN_SECONDS * 1000
+    ) {
+      return '/(game)/round-starting'
     }
   }
 
   switch (round.phase) {
     case 'role_reveal':
-      return 'online-role-reveal'
+      return '/(game)/role-reveal'
     case 'discussion':
-      return 'online-discussion'
+      return '/(game)/discussion'
     case 'voting':
-      return 'online-voting'
+      return '/(game)/voting'
     case 'results':
-      return 'online-results'
+      return '/(game)/results'
     default:
-      return 'online-lobby'
+      return null
   }
 }
 
-function areCategoriesEqual(left: string[], right: string[]): boolean {
+function areCategoriesEqual(left: string[], right: string[]) {
   if (left.length !== right.length) {
     return false
   }
@@ -85,12 +74,9 @@ function areCategoriesEqual(left: string[], right: string[]): boolean {
   return left.every((category, index) => category === right[index])
 }
 
-function isMissingFunctionError(error: unknown, functionName: string): boolean {
-  const message = getErrorMessage(error)
-  return message.includes(`Could not find the function public.${functionName}`)
-}
-
-export function useLobby() {
+export function useOnlineMultiplayer(resolvedCode?: string) {
+  const router = useRouter()
+  const pathname = usePathname()
   const {
     lobbyId,
     code,
@@ -98,12 +84,10 @@ export function useLobby() {
     localPlayerId,
     hostPlayerId,
     status,
-    currentRoundId,
-    events,
-    messages,
-    pendingJoinRequests,
     selectedCategories,
     displayName,
+    messages,
+    pendingJoinRequests,
     accessState,
     pendingJoinRequestId,
     lastSeenMessageId,
@@ -115,50 +99,55 @@ export function useLobby() {
     setAccessState,
     setPendingAccessState,
     setLastSeenMessageId,
-    updatePlayer,
-  } = useLobbyStore()
-  const setScreen = useUIStore((state) => state.setScreen)
-  const setRound = useOnlineRoundStore((state) => state.setRound)
-  const setRole = useOnlineRoundStore((state) => state.setRole)
-  const setSubmittedVoteTargetId = useOnlineRoundStore(
-    (state) => state.setSubmittedVoteTargetId,
-  )
-  const setResult = useOnlineRoundStore((state) => state.setResult)
-  const clearRound = useOnlineRoundStore((state) => state.clearRound)
-  const setHasAcknowledgedReadyToDiscuss = useOnlineRoundStore(
-    (state) => state.setHasAcknowledgedReadyToDiscuss,
-  )
-  const round = useOnlineRoundStore((state) => state.round)
-  const result = useOnlineRoundStore((state) => state.result)
-  const hasAcknowledgedReadyToDiscuss = useOnlineRoundStore(
-    (state) => state.hasAcknowledgedReadyToDiscuss,
-  )
-  const submittedVoteTargetId = useOnlineRoundStore(
+  } = useMobileLobbyStore()
+  const round = useMobileOnlineRoundStore((state) => state.round)
+  const role = useMobileOnlineRoundStore((state) => state.role)
+  const result = useMobileOnlineRoundStore((state) => state.result)
+  const submittedVoteTargetId = useMobileOnlineRoundStore(
     (state) => state.submittedVoteTargetId,
   )
-  const role = useOnlineRoundStore((state) => state.role)
+  const hasAcknowledgedReadyToDiscuss = useMobileOnlineRoundStore(
+    (state) => state.hasAcknowledgedReadyToDiscuss,
+  )
+  const setRound = useMobileOnlineRoundStore((state) => state.setRound)
+  const setRole = useMobileOnlineRoundStore((state) => state.setRole)
+  const setResult = useMobileOnlineRoundStore((state) => state.setResult)
+  const clearRound = useMobileOnlineRoundStore((state) => state.clearRound)
+  const setSubmittedVoteTargetId = useMobileOnlineRoundStore(
+    (state) => state.setSubmittedVoteTargetId,
+  )
+  const setHasAcknowledgedReadyToDiscuss = useMobileOnlineRoundStore(
+    (state) => state.setHasAcknowledgedReadyToDiscuss,
+  )
   const [error, setError] = useState<string | null>(null)
   const [isBusy, setIsBusy] = useState(false)
   const pendingSelectedCategoriesRef = useRef<string[] | null>(null)
 
-  const leaveLobbyRemotely = useCallback(async () => {
-    if (!lobbyId) {
-      return
-    }
-
-    const client = await ensureAnonymousSession()
-    await client.rpc('leave_lobby', { p_lobby_id: lobbyId })
-  }, [lobbyId])
-
-  const isHost = useMemo(() => {
-    if (!localPlayerId || !hostPlayerId) {
-      return false
-    }
-
-    return localPlayerId === hostPlayerId
-  }, [hostPlayerId, localPlayerId])
-
-  const onlineCategoryOptions = useMemo(() => getOnlineCategoryOptions(), [])
+  const effectiveCode = useMemo(
+    () => (resolvedCode ?? code ?? '').trim().toUpperCase(),
+    [code, resolvedCode],
+  )
+  const isHost = Boolean(localPlayerId && hostPlayerId && localPlayerId === hostPlayerId)
+  const localPlayer = useMemo(
+    () => players.find((player) => player.id === localPlayerId) ?? null,
+    [localPlayerId, players],
+  )
+  const connectedPlayers = useMemo(
+    () => players.filter((player) => player.presenceStatus !== 'away'),
+    [players],
+  )
+  const allConnectedPlayersReady = useMemo(
+    () => connectedPlayers.length > 0 && connectedPlayers.every((player) => player.isReady),
+    [connectedPlayers],
+  )
+  const canStartRound = useMemo(
+    () => isHost && status === 'waiting' && connectedPlayers.length >= 3 && allConnectedPlayersReady,
+    [allConnectedPlayersReady, connectedPlayers.length, isHost, status],
+  )
+  const canModeratePlayers = useMemo(
+    () => isHost && status === 'waiting',
+    [isHost, status],
+  )
   const latestMessageId = useMemo(
     () => messages[messages.length - 1]?.id ?? null,
     [messages],
@@ -179,99 +168,50 @@ export function useLobby() {
 
     return Math.max(messages.length - lastSeenIndex - 1, 0)
   }, [lastSeenMessageId, latestMessageId, messages])
-  const connectedPlayers = useMemo(
-    () => players.filter((player) => player.presenceStatus !== 'away'),
-    [players],
-  )
-  const allConnectedPlayersReady = useMemo(
-    () => connectedPlayers.length > 0 && connectedPlayers.every((player) => player.isReady),
-    [connectedPlayers],
-  )
-  const canStartRound = useMemo(
-    () => isHost && status === 'waiting' && connectedPlayers.length >= 3 && allConnectedPlayersReady,
-    [allConnectedPlayersReady, connectedPlayers.length, isHost, status],
-  )
-  const canModeratePlayers = useMemo(
-    () => isHost && status === 'waiting',
-    [isHost, status],
-  )
+  const onlineCategoryOptions = useMemo(() => getMobileOnlineCategoryOptions(), [])
 
-  const loadRoundResult = useCallback(async (roundId?: string) => {
-    try {
-      const targetRoundId = roundId ?? useOnlineRoundStore.getState().round?.id
-
-      if (!targetRoundId) {
-        return null
-      }
-
-      const client = await ensureAnonymousSession()
-      const { data, error: rpcError } = await client.rpc('get_round_result', {
-        p_round_id: targetRoundId,
-      })
-
-      if (rpcError) {
-        throw rpcError
-      }
-
-      if (!data || typeof data !== 'object') {
-        throw new Error('Results are not available yet.')
-      }
-
-      const normalized = normalizeRoundResult(data as Record<string, unknown>)
-      setResult(normalized)
-
-      return normalized
-    } catch (resultError) {
-      setError(getErrorMessage(resultError))
-      return null
-    }
-  }, [setResult])
-
-  const refreshLobby = useCallback(async (): Promise<OnlineLobbySnapshot | null> => {
-    if (!code) {
-      return null
+  const assertSchemaCompatible = useCallback((payload: MobileBootstrapPayload) => {
+    if (!isOnlineSchemaCompatible(payload.schemaVersion)) {
+      throw new Error(getOnlineSchemaMismatchMessage(payload.schemaVersion))
     }
 
-    const client = await ensureAnonymousSession()
-    const { data, error: rpcError } = await client.rpc('get_online_bootstrap', {
-      p_code: code,
-    })
+    if (!payload.capabilities.mobileFullGameplay) {
+      throw new Error('Online mobile gameplay is not enabled on this backend yet.')
+    }
+  }, [])
 
-    if (rpcError) {
-      throw rpcError
+  const navigateFromSnapshot = useCallback((snapshot: MobileLobbySnapshot | null) => {
+    if (!snapshot) {
+      return
     }
 
-    if (!data || typeof data !== 'object') {
-      throw new Error('Lobby not found.')
+    const nextRoute = snapshot.currentRound
+      ? routeForRound(snapshot.currentRound)
+      : snapshot.code
+        ? `/(lobby)/${snapshot.code}`
+        : null
+
+    if (!nextRoute || pathname === nextRoute) {
+      return
     }
 
-    const bootstrap = normalizeBootstrapPayload(data as Record<string, unknown>)
-    if (!isOnlineSchemaCompatible(bootstrap.schemaVersion)) {
-      throw new Error(getOnlineSchemaMismatchMessage(bootstrap.schemaVersion))
+    if (!snapshot.currentRound && onlineGameRoutes.has(pathname)) {
+      router.replace(nextRoute)
+      return
     }
 
-    if (!bootstrap.lobby) {
-      if (
-        bootstrap.accessState === 'blocked' ||
-        bootstrap.accessState === 'pending_approval'
-      ) {
-        setPendingAccessState(code, bootstrap.accessState, bootstrap.requestId)
-        clearRound()
-        setRound(null)
-        setRole(null)
-        setResult(null)
-        setSubmittedVoteTargetId(null)
-        setHasAcknowledgedReadyToDiscuss(false)
-        setScreen('online-pending-approval')
-        return null
-      }
-
-      throw new Error('Lobby not found.')
+    if (snapshot.currentRound && pathname !== nextRoute) {
+      router.replace(nextRoute)
+      return
     }
 
-    setAccessState('member')
-    const snapshot = bootstrap.lobby
-    const existingRoundId = useOnlineRoundStore.getState().round?.id ?? null
+    if (pathname !== nextRoute && nextRoute.startsWith('/(lobby)/')) {
+      router.replace(nextRoute)
+    }
+  }, [pathname, router])
+
+  const applySnapshot = useCallback((snapshot: MobileLobbySnapshot) => {
+    const existingRoundId = useMobileOnlineRoundStore.getState().round?.id ?? null
     const nextRoundId = snapshot.currentRound?.id ?? null
     const pendingSelectedCategories = pendingSelectedCategoriesRef.current
 
@@ -279,7 +219,10 @@ export function useLobby() {
       if (areCategoriesEqual(snapshot.selectedCategories, pendingSelectedCategories)) {
         pendingSelectedCategoriesRef.current = null
       } else {
-        snapshot.selectedCategories = pendingSelectedCategories
+        snapshot = {
+          ...snapshot,
+          selectedCategories: pendingSelectedCategories,
+        }
       }
     }
 
@@ -291,84 +234,95 @@ export function useLobby() {
     }
 
     hydrateLobby(snapshot)
+    setAccessState('member')
     setRound(snapshot.currentRound)
 
     if (!snapshot.currentRound) {
-      if (!useOnlineRoundStore.getState().result) {
+      if (!useMobileOnlineRoundStore.getState().result) {
         setRole(null)
         setSubmittedVoteTargetId(null)
         setHasAcknowledgedReadyToDiscuss(false)
-
-        const currentScreen = useUIStore.getState().screen
-        if (onlineGameScreens.has(currentScreen)) {
-          setScreen('online-lobby')
-        }
       }
-
-      return snapshot
+    } else if (snapshot.currentRound.phase !== 'results') {
+      setResult(null)
     }
 
-    if (snapshot.currentRound.phase === 'results') {
-      if (useUIStore.getState().screen !== 'online-lobby') {
-        await loadRoundResult(snapshot.currentRound.id)
-        setScreen('online-results')
-      }
-
-      return snapshot
-    }
-
-    setResult(null)
-    setSubmittedVoteTargetId(null)
-
-    const nextScreen = screenForRound(snapshot.currentRound)
-    if (nextScreen && useUIStore.getState().screen !== nextScreen) {
-      setScreen(nextScreen)
-    }
-
-    return snapshot
+    navigateFromSnapshot(snapshot)
   }, [
-    clearRound,
-    code,
     hydrateLobby,
-    loadRoundResult,
+    navigateFromSnapshot,
     setAccessState,
+    setHasAcknowledgedReadyToDiscuss,
+    setResult,
+    setRole,
+    setRound,
+    setSubmittedVoteTargetId,
+  ])
+
+  const refreshLobby = useCallback(async (codeOverride?: string) => {
+    const bootstrapCode = (codeOverride ?? effectiveCode).trim() || null
+    const client = await ensureAnonymousSession()
+    const { data, error: rpcError } = await client.rpc('get_online_bootstrap', {
+      p_code: bootstrapCode,
+    })
+
+    if (rpcError) {
+      throw rpcError
+    }
+
+    if (!data || typeof data !== 'object') {
+      throw new Error('Online multiplayer is unavailable.')
+    }
+
+    const bootstrap = normalizeBootstrapPayload(data as Record<string, unknown>)
+    assertSchemaCompatible(bootstrap)
+
+    if (!bootstrap.lobby) {
+      if (
+        bootstrap.accessState === 'blocked' ||
+        bootstrap.accessState === 'pending_approval'
+      ) {
+        setPendingAccessState(
+          bootstrapCode ?? '',
+          bootstrap.accessState,
+          bootstrap.requestId,
+        )
+        clearRound()
+        setRound(null)
+        setRole(null)
+        setResult(null)
+        setSubmittedVoteTargetId(null)
+        setHasAcknowledgedReadyToDiscuss(false)
+        router.replace('/(lobby)/pending')
+        return null
+      }
+
+      throw new Error('Lobby not found.')
+    }
+
+    applySnapshot(bootstrap.lobby)
+    return bootstrap.lobby
+  }, [
+    applySnapshot,
+    assertSchemaCompatible,
+    clearRound,
+    effectiveCode,
+    router,
+    setHasAcknowledgedReadyToDiscuss,
     setPendingAccessState,
     setResult,
     setRole,
     setRound,
-    setScreen,
     setSubmittedVoteTargetId,
-    setHasAcknowledgedReadyToDiscuss,
   ])
 
-  // Keep a ref to the latest refreshLobby so the subscription effect below can
-  // call it without listing it as a dependency. If refreshLobby were a
-  // dependency, every lobby-state change would recreate the callback, tear
-  // down the Supabase channel, and re-subscribe – creating a window where
-  // real-time inserts/updates are silently dropped.
   const refreshLobbyRef = useRef(refreshLobby)
   useEffect(() => {
     refreshLobbyRef.current = refreshLobby
-  })
-
-  const requestLobbyRefreshRef = useRef<() => Promise<void>>(async () => {})
-  useEffect(() => {
-    requestLobbyRefreshRef.current = async () => {
-      try {
-        await refreshLobbyRef.current()
-        setError(null)
-      } catch (refreshError) {
-        if (useLobbyStore.getState().players.length === 0) {
-          setError(getErrorMessage(refreshError))
-        } else {
-          console.error('Background lobby refresh failed:', refreshError)
-        }
-      }
-    }
-  }, [setError])
+  }, [refreshLobby])
 
   useEffect(() => {
-    if (!isSupabaseConfigured || !code || !lobbyId) {
+    if (!isSupabaseConfigured || (!effectiveCode && !lobbyId)) {
       return
     }
 
@@ -383,20 +337,24 @@ export function useLobby() {
           return
         }
 
-        await refreshLobbyRef.current()
+        const snapshot = await refreshLobbyRef.current()
+        const activeLobbyId = snapshot?.lobbyId ?? useMobileLobbyStore.getState().lobbyId
+        if (!activeLobbyId) {
+          return
+        }
 
         channel = client
-          .channel(`online-lobby:${lobbyId}`)
+          .channel(`mobile-online:${activeLobbyId}`)
           .on(
             'postgres_changes',
             {
               event: '*',
               schema: 'public',
               table: 'players',
-              filter: `lobby_id=eq.${lobbyId}`,
+              filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              void refreshLobbyRef.current().catch(() => undefined)
             },
           )
           .on(
@@ -405,10 +363,10 @@ export function useLobby() {
               event: '*',
               schema: 'public',
               table: 'lobbies',
-              filter: `id=eq.${lobbyId}`,
+              filter: `id=eq.${activeLobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              void refreshLobbyRef.current().catch(() => undefined)
             },
           )
           .on(
@@ -417,22 +375,10 @@ export function useLobby() {
               event: '*',
               schema: 'public',
               table: 'rounds',
-              filter: `lobby_id=eq.${lobbyId}`,
+              filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
-            },
-          )
-          .on(
-            'postgres_changes',
-            {
-              event: '*',
-              schema: 'public',
-              table: 'lobby_events',
-              filter: `lobby_id=eq.${lobbyId}`,
-            },
-            () => {
-              void requestLobbyRefreshRef.current()
+              void refreshLobbyRef.current().catch(() => undefined)
             },
           )
           .on(
@@ -441,10 +387,10 @@ export function useLobby() {
               event: '*',
               schema: 'public',
               table: 'room_messages',
-              filter: `lobby_id=eq.${lobbyId}`,
+              filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              void refreshLobbyRef.current().catch(() => undefined)
             },
           )
           .on(
@@ -455,7 +401,7 @@ export function useLobby() {
               table: 'room_message_reactions',
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              void refreshLobbyRef.current().catch(() => undefined)
             },
           )
           .on(
@@ -464,10 +410,10 @@ export function useLobby() {
               event: '*',
               schema: 'public',
               table: 'lobby_join_requests',
-              filter: `lobby_id=eq.${lobbyId}`,
+              filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              void refreshLobbyRef.current().catch(() => undefined)
             },
           )
           .subscribe()
@@ -478,32 +424,18 @@ export function useLobby() {
       }
     })()
 
-    const handleVisibilityRefresh = () => {
-      if (document.visibilityState === 'visible') {
-        void requestLobbyRefreshRef.current()
-      }
-    }
-
-    window.addEventListener('focus', handleVisibilityRefresh)
-    document.addEventListener('visibilitychange', handleVisibilityRefresh)
-
-    // Polling fallback: postgres_changes with row-level filters is not reliable
-    // enough on this project, so poll aggressively while the lobby is open.
     const pollInterval = setInterval(() => {
-      void requestLobbyRefreshRef.current()
-    }, 1000)
+      void refreshLobbyRef.current().catch(() => undefined)
+    }, 1500)
 
     return () => {
       isActive = false
       clearInterval(pollInterval)
-      window.removeEventListener('focus', handleVisibilityRefresh)
-      document.removeEventListener('visibilitychange', handleVisibilityRefresh)
       if (channel && client) {
         void client.removeChannel(channel)
       }
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [code, lobbyId])
+  }, [effectiveCode, lobbyId])
 
   useEffect(() => {
     if (!lobbyId || !isSupabaseConfigured) {
@@ -517,68 +449,23 @@ export function useLobby() {
           p_lobby_id: lobbyId,
         })
       } catch {
-        // Background heartbeat should not hard-fail the UI.
+        // Background heartbeat should not block multiplayer play.
       }
     }
 
     void heartbeat()
-    const heartbeatInterval = window.setInterval(() => {
+    const heartbeatInterval = setInterval(() => {
       void heartbeat()
     }, 5000)
 
     return () => {
-      window.clearInterval(heartbeatInterval)
+      clearInterval(heartbeatInterval)
     }
   }, [lobbyId])
 
   useEffect(() => {
     setHasAcknowledgedReadyToDiscuss(false)
   }, [round?.id, setHasAcknowledgedReadyToDiscuss])
-
-  const updateSelectedCategories = useCallback(async (categories: string[]) => {
-    if (!lobbyId) {
-      return
-    }
-
-    const normalized = categories.map((category) => category.trim()).filter(Boolean)
-    const nextCategories = normalized.length > 0 ? normalized : ['Everyday']
-    const previousCategories = selectedCategories
-    pendingSelectedCategoriesRef.current = nextCategories
-    setSelectedCategories(nextCategories)
-    setError(null)
-
-    try {
-      const client = await ensureAnonymousSession()
-      const { data, error: rpcError } = await client.rpc('set_lobby_categories', {
-        p_lobby_id: lobbyId,
-        p_categories: nextCategories,
-      })
-
-      if (rpcError) {
-        throw rpcError
-      }
-
-      if (
-        data &&
-        typeof data === 'object' &&
-        Array.isArray((data as { selected_categories?: unknown }).selected_categories)
-      ) {
-        const confirmedCategories = (
-          data as { selected_categories: unknown[] }
-        ).selected_categories.map((value) => String(value))
-
-        pendingSelectedCategoriesRef.current = confirmedCategories
-        setSelectedCategories(confirmedCategories)
-      }
-
-      setError(null)
-      void requestLobbyRefreshRef.current()
-    } catch (categoryError) {
-      pendingSelectedCategoriesRef.current = null
-      setSelectedCategories(previousCategories)
-      setError(getErrorMessage(categoryError))
-    }
-  }, [lobbyId, selectedCategories, setSelectedCategories])
 
   const setReady = useCallback(async (ready: boolean) => {
     if (!lobbyId) {
@@ -597,23 +484,14 @@ export function useLobby() {
         throw rpcError
       }
 
-      if (localPlayerId) {
-        updatePlayer(localPlayerId, {
-          isReady: ready,
-          presenceStatus: 'active',
-          lastSeenAt: new Date().toISOString(),
-        })
-      }
-
-      setError(null)
-      void requestLobbyRefreshRef.current()
+      await refreshLobby()
     } catch (readyError) {
       setError(getErrorMessage(readyError))
     }
-  }, [localPlayerId, lobbyId, updatePlayer])
+  }, [lobbyId, refreshLobby])
 
   const requestRejoinApproval = useCallback(async () => {
-    const trimmedCode = (code ?? '').trim().toUpperCase()
+    const trimmedCode = (effectiveCode ?? '').trim().toUpperCase()
     const trimmedName = (displayName ?? '').trim()
 
     if (!trimmedCode || !trimmedName) {
@@ -622,8 +500,8 @@ export function useLobby() {
     }
 
     try {
-      setIsBusy(true)
       setError(null)
+      setIsBusy(true)
       const client = await ensureAnonymousSession()
       const { data: lookupData, error: lookupError } = await client.rpc('get_lobby_by_code', {
         p_code: trimmedCode,
@@ -652,18 +530,17 @@ export function useLobby() {
       }
 
       const joinResult = normalizeJoinLobbyResult(data as Record<string, unknown>)
-
       if (joinResult.status === 'pending_approval') {
         setPendingAccessState(trimmedCode, 'pending_approval', joinResult.requestId)
-        setScreen('online-pending-approval')
+        router.replace('/(lobby)/pending')
         return joinResult
       }
 
       setDisplayName(trimmedName)
       setLocalPlayerId(joinResult.playerId)
       clearRound()
-      await refreshLobby()
-      setScreen('online-lobby')
+      await refreshLobby(trimmedCode)
+      router.replace(`/(lobby)/${trimmedCode}`)
       return joinResult
     } catch (joinError) {
       setError(getErrorMessage(joinError))
@@ -673,13 +550,13 @@ export function useLobby() {
     }
   }, [
     clearRound,
-    code,
     displayName,
+    effectiveCode,
     refreshLobby,
+    router,
     setDisplayName,
     setLocalPlayerId,
     setPendingAccessState,
-    setScreen,
   ])
 
   const refreshPendingJoinRequest = useCallback(async () => {
@@ -703,7 +580,7 @@ export function useLobby() {
       }
 
       if (status === 'denied') {
-        setPendingAccessState(code ?? '', 'blocked', null)
+        setPendingAccessState(effectiveCode, 'blocked', null)
       }
 
       return status
@@ -711,7 +588,7 @@ export function useLobby() {
       setError(getErrorMessage(statusError))
       return null
     }
-  }, [code, pendingJoinRequestId, requestRejoinApproval, setPendingAccessState])
+  }, [effectiveCode, pendingJoinRequestId, requestRejoinApproval, setPendingAccessState])
 
   const sendMessage = useCallback(async (body: string) => {
     if (!lobbyId) {
@@ -821,7 +698,38 @@ export function useLobby() {
     }
   }, [latestMessageId, setLastSeenMessageId])
 
-  const runRoundStart = useCallback(async (rpcNames: Array<'start_round' | 'start_next_round'>) => {
+  const updateSelectedCategories = useCallback(async (categories: string[]) => {
+    if (!lobbyId) {
+      return
+    }
+
+    const normalized = categories.map((category) => category.trim()).filter(Boolean)
+    const nextCategories = normalized.length > 0 ? normalized : ['Everyday']
+    const previousCategories = selectedCategories
+    pendingSelectedCategoriesRef.current = nextCategories
+    setSelectedCategories(nextCategories)
+    setError(null)
+
+    try {
+      const client = await ensureAnonymousSession()
+      const { error: rpcError } = await client.rpc('set_lobby_categories', {
+        p_lobby_id: lobbyId,
+        p_categories: nextCategories,
+      })
+
+      if (rpcError) {
+        throw rpcError
+      }
+
+      await refreshLobby()
+    } catch (categoryError) {
+      pendingSelectedCategoriesRef.current = null
+      setSelectedCategories(previousCategories)
+      setError(getErrorMessage(categoryError))
+    }
+  }, [lobbyId, refreshLobby, selectedCategories, setSelectedCategories])
+
+  const runRoundStart = useCallback(async (rpcName: 'start_round' | 'start_next_round') => {
     if (!lobbyId) {
       setError('Lobby not found.')
       return null
@@ -866,53 +774,40 @@ export function useLobby() {
         latestSnapshot?.selectedCategories?.length
           ? latestSnapshot.selectedCategories
           : selectedCategories
-      const nextWord = pickOnlineRoundWordForCategories(categoriesForRound)
-      let lastRpcError: unknown = null
+      const nextWord = pickMobileOnlineRoundWordForCategories(categoriesForRound)
+      const { data, error: rpcError } = await client.rpc(rpcName, {
+        p_lobby_id: lobbyId,
+        p_word: nextWord.word,
+        p_hint: nextWord.hint,
+        p_pack_id: nextWord.packId,
+        p_impostor_count: ONLINE_IMPOSTOR_COUNT,
+      })
 
-      for (const rpcName of rpcNames) {
-        const { data, error: rpcError } = await client.rpc(rpcName, {
-          p_lobby_id: lobbyId,
-          p_word: nextWord.word,
-          p_hint: nextWord.hint,
-          p_pack_id: nextWord.packId,
-          p_impostor_count: ONLINE_IMPOSTOR_COUNT,
-        })
-
-        if (!rpcError) {
-          const roundRaw =
-            data &&
-            typeof data === 'object' &&
-            (data as { round?: unknown }).round &&
-            typeof (data as { round?: unknown }).round === 'object'
-              ? ((data as { round: Record<string, unknown> }).round)
-              : null
-
-          if (roundRaw) {
-            setRound(normalizeRoundSnapshotPayload(roundRaw, categoriesForRound))
-          }
-
-          lastRpcError = null
-          break
-        }
-
-        lastRpcError = rpcError
-
-        if (rpcName !== 'start_next_round' || !isMissingFunctionError(rpcError, 'start_next_round')) {
-          throw rpcError
-        }
-      }
-
-      if (lastRpcError) {
-        throw lastRpcError
+      if (rpcError) {
+        throw rpcError
       }
 
       setResult(null)
       setRole(null)
       setSubmittedVoteTargetId(null)
       setHasAcknowledgedReadyToDiscuss(false)
-      await refreshLobby()
-      setScreen('online-round-starting')
 
+      if (data && typeof data === 'object') {
+        const roundRaw =
+          (data as { round?: unknown }).round &&
+          typeof (data as { round?: unknown }).round === 'object'
+            ? ((data as { round: Record<string, unknown> }).round)
+            : null
+
+        if (roundRaw) {
+          setRound(
+            normalizeRoundSnapshotPayload(roundRaw, categoriesForRound),
+          )
+          router.replace('/(game)/round-starting')
+        }
+      }
+
+      await refreshLobby()
       return true
     } catch (startError) {
       setError(getErrorMessage(startError))
@@ -921,14 +816,16 @@ export function useLobby() {
       setIsBusy(false)
     }
   }, [
+    connectedPlayers.length,
     lobbyId,
     refreshLobby,
+    router,
     selectedCategories,
+    setHasAcknowledgedReadyToDiscuss,
     setResult,
     setRole,
-    setScreen,
+    setRound,
     setSubmittedVoteTargetId,
-    setHasAcknowledgedReadyToDiscuss,
   ])
 
   const startGame = useCallback(async () => {
@@ -937,13 +834,16 @@ export function useLobby() {
       return
     }
 
-    await runRoundStart(['start_round'])
+    await runRoundStart('start_round')
   }, [canStartRound, runRoundStart])
 
-  const loadRole = useCallback(async (): Promise<OnlineRolePayload | null> => {
-    try {
-      const activeRoundId = useOnlineRoundStore.getState().round?.id
+  const startNextRound = useCallback(async () => {
+    await runRoundStart('start_next_round')
+  }, [runRoundStart])
 
+  const loadRole = useCallback(async (): Promise<MobileRolePayload | null> => {
+    try {
+      const activeRoundId = useMobileOnlineRoundStore.getState().round?.id
       if (!activeRoundId) {
         return null
       }
@@ -963,7 +863,6 @@ export function useLobby() {
 
       const normalized = normalizeRolePayload(data as Record<string, unknown>)
       setRole(normalized)
-
       return normalized
     } catch (roleError) {
       setError(getErrorMessage(roleError))
@@ -971,9 +870,33 @@ export function useLobby() {
     }
   }, [setRole])
 
-  const setRoundPhase = useCallback(async (phase: 'discussion' | 'voting') => {
-    const activeRoundId = useOnlineRoundStore.getState().round?.id
+  const markReadyToDiscuss = useCallback(async () => {
+    const activeRoundId = useMobileOnlineRoundStore.getState().round?.id
+    if (!activeRoundId) {
+      setError('Round not found.')
+      return
+    }
 
+    try {
+      setError(null)
+      const client = await ensureAnonymousSession()
+      const { error: rpcError } = await client.rpc('mark_ready_to_discuss', {
+        p_round_id: activeRoundId,
+      })
+
+      if (rpcError) {
+        throw rpcError
+      }
+
+      setHasAcknowledgedReadyToDiscuss(true)
+      await refreshLobby()
+    } catch (readyError) {
+      setError(getErrorMessage(readyError))
+    }
+  }, [refreshLobby, setHasAcknowledgedReadyToDiscuss])
+
+  const setRoundPhase = useCallback(async (phase: 'discussion' | 'voting') => {
+    const activeRoundId = useMobileOnlineRoundStore.getState().round?.id
     if (!activeRoundId) {
       setError('Round not found.')
       return
@@ -994,17 +917,15 @@ export function useLobby() {
       }
 
       await refreshLobby()
-      setScreen(phase === 'discussion' ? 'online-discussion' : 'online-voting')
     } catch (phaseError) {
       setError(getErrorMessage(phaseError))
     } finally {
       setIsBusy(false)
     }
-  }, [refreshLobby, setScreen])
+  }, [refreshLobby])
 
   const submitVote = useCallback(async (targetId: string) => {
-    const activeRoundId = useOnlineRoundStore.getState().round?.id
-
+    const activeRoundId = useMobileOnlineRoundStore.getState().round?.id
     if (!activeRoundId) {
       setError('Round not found.')
       return
@@ -1029,9 +950,8 @@ export function useLobby() {
     }
   }, [refreshLobby, setSubmittedVoteTargetId])
 
-  const finishRound = useCallback(async (): Promise<OnlineRoundResult | null> => {
-    const activeRoundId = useOnlineRoundStore.getState().round?.id
-
+  const finishRound = useCallback(async (): Promise<MobileRoundResult | null> => {
+    const activeRoundId = useMobileOnlineRoundStore.getState().round?.id
     if (!activeRoundId) {
       setError('Round not found.')
       return null
@@ -1057,8 +977,6 @@ export function useLobby() {
       const normalized = normalizeRoundResult(data as Record<string, unknown>)
       setResult(normalized)
       await refreshLobby()
-      setScreen('online-results')
-
       return normalized
     } catch (finishError) {
       setError(getErrorMessage(finishError))
@@ -1066,28 +984,17 @@ export function useLobby() {
     } finally {
       setIsBusy(false)
     }
-  }, [refreshLobby, setResult, setScreen])
+  }, [refreshLobby, setResult])
 
-  const returnToLobby = useCallback(() => {
-    setRole(null)
-    setResult(null)
-    setSubmittedVoteTargetId(null)
-    setHasAcknowledgedReadyToDiscuss(false)
-    setScreen('online-lobby')
-  }, [setHasAcknowledgedReadyToDiscuss, setResult, setRole, setScreen, setSubmittedVoteTargetId])
-
-  const markReadyToDiscuss = useCallback(async () => {
-    const activeRoundId = useOnlineRoundStore.getState().round?.id
-
-    if (!activeRoundId) {
-      setError('Round not found.')
-      return
-    }
-
+  const loadRoundResult = useCallback(async (roundId?: string) => {
     try {
-      setError(null)
+      const activeRoundId = roundId ?? useMobileOnlineRoundStore.getState().round?.id
+      if (!activeRoundId) {
+        return null
+      }
+
       const client = await ensureAnonymousSession()
-      const { error: rpcError } = await client.rpc('mark_ready_to_discuss', {
+      const { data, error: rpcError } = await client.rpc('get_round_result', {
         p_round_id: activeRoundId,
       })
 
@@ -1095,26 +1002,27 @@ export function useLobby() {
         throw rpcError
       }
 
-      setHasAcknowledgedReadyToDiscuss(true)
-      await refreshLobby()
-    } catch (readyError) {
-      setError(getErrorMessage(readyError))
-    }
-  }, [refreshLobby, setHasAcknowledgedReadyToDiscuss])
+      if (!data || typeof data !== 'object') {
+        throw new Error('Results are unavailable.')
+      }
 
-  const startNextRound = useCallback(async () => {
-    await runRoundStart(['start_next_round', 'start_round'])
-  }, [runRoundStart])
+      const normalized = normalizeRoundResult(data as Record<string, unknown>)
+      setResult(normalized)
+      return normalized
+    } catch (resultError) {
+      setError(getErrorMessage(resultError))
+      return null
+    }
+  }, [setResult])
 
   const repairPresence = useCallback(async () => {
     if (!lobbyId) {
-      setError('Lobby not found.')
       return
     }
 
     try {
-      setIsBusy(true)
       setError(null)
+      setIsBusy(true)
       const client = await ensureAnonymousSession()
       const { error: rpcError } = await client.rpc('repair_lobby_presence', {
         p_lobby_id: lobbyId,
@@ -1132,72 +1040,84 @@ export function useLobby() {
     }
   }, [lobbyId, refreshLobby])
 
-  const disconnectLobby = useCallback(() => {
-    void (async () => {
-      try {
-        await leaveLobbyRemotely()
-      } catch {
-        // Best effort cleanup. The user can still leave locally if the RPC fails.
-      } finally {
-        clearLobby()
-        clearRound()
-        useUIStore.getState().setSavedScreen(null)
-        setScreen('home')
+  const leaveLobby = useCallback(async () => {
+    try {
+      if (useMobileLobbyStore.getState().lobbyId) {
+        const client = await ensureAnonymousSession()
+        await client.rpc('leave_lobby', {
+          p_lobby_id: useMobileLobbyStore.getState().lobbyId,
+        })
       }
-    })()
-  }, [clearLobby, clearRound, leaveLobbyRemotely, setScreen])
+    } catch {
+      // Best effort cleanup.
+    } finally {
+      clearLobby()
+      clearRound()
+      router.replace('/')
+    }
+  }, [clearLobby, clearRound, router])
+
+  const returnToLobby = useCallback(async () => {
+    setRole(null)
+    setSubmittedVoteTargetId(null)
+    setHasAcknowledgedReadyToDiscuss(false)
+    await refreshLobby()
+    if (useMobileLobbyStore.getState().code) {
+      router.replace(`/(lobby)/${useMobileLobbyStore.getState().code}`)
+    }
+  }, [refreshLobby, router, setHasAcknowledgedReadyToDiscuss, setRole, setSubmittedVoteTargetId])
 
   return {
-    code,
+    code: effectiveCode,
+    displayName,
     players,
+    messages,
+    pendingJoinRequests,
     localPlayerId,
     hostPlayerId,
     status,
-    currentRoundId,
-    events,
-    messages,
-    pendingJoinRequests,
-    selectedCategories,
-    displayName,
-    accessState,
-    pendingJoinRequestId,
     round,
     role,
     result,
-    hasAcknowledgedReadyToDiscuss,
-    submittedVoteTargetId,
+    localPlayer,
     isHost,
+    isBusy,
+    error,
+    accessState,
+    pendingJoinRequestId,
     connectedPlayers,
     allConnectedPlayersReady,
     canStartRound,
     canModeratePlayers,
-    isBusy,
-    error,
-    setError,
+    selectedCategories,
     onlineCategoryOptions,
+    submittedVoteTargetId,
+    hasAcknowledgedReadyToDiscuss,
     chatUnreadCount,
+    setError,
     markChatRead,
-    setSelectedCategories: updateSelectedCategories,
-    setReady,
     refreshLobby,
+    setReady,
+    setSelectedCategories: updateSelectedCategories,
     requestRejoinApproval,
     refreshPendingJoinRequest,
     startGame,
     startNextRound,
-    repairPresence,
     loadRole,
-    loadRoundResult,
     markReadyToDiscuss,
+    startDiscussion: () => setRoundPhase('discussion'),
+    startVoting: () => setRoundPhase('voting'),
+    submitVote,
+    finishRound,
+    loadRoundResult,
     sendMessage,
     toggleMessageReaction,
     deleteMessage,
     kickPlayer,
     reviewJoinRequest,
-    startDiscussion: () => setRoundPhase('discussion'),
-    startVoting: () => setRoundPhase('voting'),
-    submitVote,
-    finishRound,
+    repairPresence,
+    leaveLobby,
     returnToLobby,
-    disconnectLobby,
+    schemaVersion: useMobileLobbyStore.getState().schemaVersion || ONLINE_SCHEMA_VERSION,
   }
 }

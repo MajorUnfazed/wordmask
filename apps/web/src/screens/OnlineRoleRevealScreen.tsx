@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { OnlineRoleCard } from '../components/game/OnlineRoleCard'
+import { OnlineRoundHeader } from '../components/game/OnlineRoundHeader'
 import { GlassCard } from '../components/ui/GlassCard'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
@@ -29,7 +30,11 @@ export default function OnlineRoleRevealScreen() {
     if (!role) {
       void loadRole()
     }
-  }, [loadRole, role])
+  }, [loadRole, role, round?.id])
+
+  useEffect(() => {
+    setRevealed(false)
+  }, [round?.id])
 
   if (!round) {
     return (
@@ -46,10 +51,11 @@ export default function OnlineRoleRevealScreen() {
         initial={{ opacity: 0, y: -18 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <p className="text-sm uppercase tracking-[0.25em]" style={{ color: 'var(--color-text-muted)' }}>
-          Round {round.roundNumber}
-        </p>
-        <h2 className="mt-2 font-display text-4xl font-bold">Private Role Reveal</h2>
+        <OnlineRoundHeader
+          roundNumber={round.roundNumber}
+          phaseLabel="Private Role Reveal"
+          categories={round.sourceCategories}
+        />
         <p className="mt-3 text-white/60">
           Swipe up to reveal your role on your device. Nobody else should be looking.
         </p>

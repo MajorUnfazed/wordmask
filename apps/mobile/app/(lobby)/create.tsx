@@ -1,25 +1,32 @@
 import { useState } from 'react'
 import { View, Text, StyleSheet, Pressable, TextInput } from 'react-native'
 import { useRouter } from 'expo-router'
-import { normalizeLobbySnapshot, getErrorMessage } from '../../lib/online'
+import {
+  getErrorMessage,
+  getOnlineSchemaMismatchMessage,
+  isOnlineSchemaCompatible,
+  normalizeBootstrapPayload,
+} from '../../lib/online'
 import {
   ensureAnonymousSession,
   isSupabaseConfigured,
 } from '../../lib/supabase'
 import { useMobileLobbyStore } from '../../store/lobbyStore'
+import { useMobileOnlineRoundStore } from '../../store/onlineRoundStore'
 
 export default function CreateLobbyScreen() {
   const router = useRouter()
   const hydrateLobby = useMobileLobbyStore((state) => state.hydrateLobby)
   const setDisplayName = useMobileLobbyStore((state) => state.setDisplayName)
   const setLocalPlayerId = useMobileLobbyStore((state) => state.setLocalPlayerId)
+  const clearRound = useMobileOnlineRoundStore((state) => state.clearRound)
   const [name, setName] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [isCreating, setIsCreating] = useState(false)
 
   async function hydrateByCode(code: string) {
     const client = await ensureAnonymousSession()
-    const { data, error: rpcError } = await client.rpc('get_lobby_state', {
+    const { data, error: rpcError } = await client.rpc('get_online_bootstrap', {
       p_code: code,
     })
 
@@ -31,7 +38,16 @@ export default function CreateLobbyScreen() {
       throw new Error('Lobby not found.')
     }
 
-    hydrateLobby(normalizeLobbySnapshot(data as Record<string, unknown>))
+    const bootstrap = normalizeBootstrapPayload(data as Record<string, unknown>)
+    if (!isOnlineSchemaCompatible(bootstrap.schemaVersion)) {
+      throw new Error(getOnlineSchemaMismatchMessage(bootstrap.schemaVersion))
+    }
+
+    if (!bootstrap.lobby) {
+      throw new Error('Lobby not found.')
+    }
+
+    hydrateLobby(bootstrap.lobby)
   }
 
   async function handleCreate() {
@@ -64,6 +80,7 @@ export default function CreateLobbyScreen() {
 
       setDisplayName(trimmedName)
       setLocalPlayerId(playerId)
+      clearRound()
       await hydrateByCode(code)
       router.push(`/(lobby)/${code}`)
     } catch (createError) {

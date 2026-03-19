@@ -1,185 +1,51 @@
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { View, Text, StyleSheet, Pressable, ScrollView } from 'react-native'
-import { useLocalSearchParams, useRouter } from 'expo-router'
-import type { RealtimeChannel } from '@supabase/supabase-js'
-import { getErrorMessage, normalizeLobbySnapshot } from '../../lib/online'
-import {
-  ensureAnonymousSession,
-  getSupabaseClient,
-  isSupabaseConfigured,
-} from '../../lib/supabase'
-import { useMobileLobbyStore } from '../../store/lobbyStore'
+import { useMemo } from 'react'
+import { ScrollView, View, Text, StyleSheet, Pressable } from 'react-native'
+import { useLocalSearchParams } from 'expo-router'
+import { RoomChatSheet } from '../../components/RoomChatSheet'
+import { useOnlineMultiplayer } from '../../hooks/useOnlineMultiplayer'
 
 export default function LobbyRoomScreen() {
-  const { code: routeCode } = useLocalSearchParams<{ code: string }>()
-  const router = useRouter()
+  const { code } = useLocalSearchParams<{ code: string }>()
   const {
-    lobbyId,
-    code,
     players,
     localPlayerId,
-    hostPlayerId,
+    localPlayer,
+    isHost,
     status,
-    displayName,
+    pendingJoinRequests,
+    error,
+    isBusy,
+    connectedPlayers,
+    canModeratePlayers,
+    canStartRound,
     selectedCategories,
-    hydrateLobby,
-    clearLobby,
-  } = useMobileLobbyStore()
-  const [error, setError] = useState<string | null>(null)
-  const resolvedCode = useMemo(
-    () => (code ?? routeCode ?? '').toUpperCase(),
-    [code, routeCode],
+    onlineCategoryOptions,
+    setSelectedCategories,
+    setReady,
+    startGame,
+    kickPlayer,
+    reviewJoinRequest,
+    repairPresence,
+    leaveLobby,
+  } = useOnlineMultiplayer(code)
+
+  const showRepairButton = useMemo(
+    () =>
+      isHost &&
+      players.some(
+        (player) =>
+          player.presenceStatus === 'away' || player.presenceStatus === 'reconnecting',
+      ),
+    [isHost, players],
   )
-  const isHost = Boolean(localPlayerId && hostPlayerId && localPlayerId === hostPlayerId)
-  const localPlayer = useMemo(
-    () => players.find((player) => player.id === localPlayerId) ?? null,
-    [localPlayerId, players],
-  )
 
-  const refreshLobby = useCallback(async () => {
-    if (!resolvedCode) {
-      return
-    }
+  function toggleCategory(category: string) {
+    const nextCategories = selectedCategories.includes(category)
+      ? selectedCategories.filter((value) => value !== category)
+      : [...selectedCategories, category]
 
-    const client = await ensureAnonymousSession()
-    const { data, error: rpcError } = await client.rpc('get_lobby_state', {
-      p_code: resolvedCode,
-    })
-
-    if (rpcError) {
-      throw rpcError
-    }
-
-    if (!data || typeof data !== 'object') {
-      throw new Error('Lobby not found.')
-    }
-
-    hydrateLobby(normalizeLobbySnapshot(data as Record<string, unknown>))
-  }, [hydrateLobby, resolvedCode])
-
-  useEffect(() => {
-    if (!isSupabaseConfigured || !resolvedCode) {
-      return
-    }
-
-    let isActive = true
-    let channel: RealtimeChannel | null = null
-    let client = getSupabaseClient()
-
-    void (async () => {
-      try {
-        client = await ensureAnonymousSession()
-        if (!isActive) {
-          return
-        }
-
-        await refreshLobby()
-
-        if (!lobbyId && !useMobileLobbyStore.getState().lobbyId) {
-          return
-        }
-
-        const activeLobbyId = useMobileLobbyStore.getState().lobbyId
-        if (!activeLobbyId) {
-          return
-        }
-
-        channel = client
-          .channel(`mobile-lobby:${activeLobbyId}`)
-          .on(
-            'postgres_changes',
-            {
-              event: '*',
-              schema: 'public',
-              table: 'players',
-              filter: `lobby_id=eq.${activeLobbyId}`,
-            },
-            () => {
-              void refreshLobby()
-            },
-          )
-          .on(
-            'postgres_changes',
-            {
-              event: '*',
-              schema: 'public',
-              table: 'lobbies',
-              filter: `id=eq.${activeLobbyId}`,
-            },
-            () => {
-              void refreshLobby()
-            },
-          )
-          .on(
-            'postgres_changes',
-            {
-              event: '*',
-              schema: 'public',
-              table: 'rounds',
-              filter: `lobby_id=eq.${activeLobbyId}`,
-            },
-            () => {
-              void refreshLobby()
-            },
-          )
-          .on(
-            'postgres_changes',
-            {
-              event: '*',
-              schema: 'public',
-              table: 'lobby_events',
-              filter: `lobby_id=eq.${activeLobbyId}`,
-            },
-            () => {
-              void refreshLobby()
-            },
-          )
-          .subscribe()
-      } catch (syncError) {
-        if (isActive) {
-          setError(getErrorMessage(syncError))
-        }
-      }
-    })()
-
-    const pollInterval = setInterval(() => {
-      void refreshLobby()
-    }, 4000)
-
-    return () => {
-      isActive = false
-      clearInterval(pollInterval)
-      if (channel && client) {
-        void client.removeChannel(channel)
-      }
-    }
-  }, [lobbyId, refreshLobby, resolvedCode])
-
-  useEffect(() => {
-    if (!lobbyId || !isSupabaseConfigured) {
-      return
-    }
-
-    const heartbeat = async () => {
-      try {
-        const client = await ensureAnonymousSession()
-        await client.rpc('heartbeat_player', {
-          p_lobby_id: lobbyId,
-        })
-      } catch {
-        // Background heartbeat should not block mobile lobby UI.
-      }
-    }
-
-    void heartbeat()
-    const heartbeatInterval = setInterval(() => {
-      void heartbeat()
-    }, 5000)
-
-    return () => {
-      clearInterval(heartbeatInterval)
-    }
-  }, [lobbyId])
+    void setSelectedCategories(nextCategories)
+  }
 
   function getPresenceText(presenceStatus: 'active' | 'reconnecting' | 'away') {
     switch (presenceStatus) {
@@ -196,70 +62,15 @@ export default function LobbyRoomScreen() {
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.codeCard}>
         <Text style={styles.codeLabel}>Room code</Text>
-        <Text style={styles.code}>{resolvedCode}</Text>
-        {displayName && <Text style={styles.youLabel}>You are {displayName}</Text>}
-      </View>
-
-      {!isSupabaseConfigured && (
-        <Text style={styles.error}>
-          Add EXPO_PUBLIC_SUPABASE_URL and EXPO_PUBLIC_SUPABASE_ANON_KEY to enable online play.
+        <Text style={styles.code}>{(code ?? '').toUpperCase()}</Text>
+        <Text style={styles.youLabel}>
+          {status === 'playing'
+            ? 'A round is in progress.'
+            : 'Share the code and wait for everyone to join.'}
         </Text>
-      )}
+      </View>
 
       {error && <Text style={styles.error}>{error}</Text>}
-
-      <View style={styles.categoryCard}>
-        <Text style={styles.sectionLabel}>Round Categories</Text>
-        <View style={styles.categoryWrap}>
-          {selectedCategories.map((category) => (
-            <View key={category} style={styles.categoryChip}>
-              <Text style={styles.categoryChipText}>{category}</Text>
-            </View>
-          ))}
-        </View>
-      </View>
-
-      {status === 'playing' ? (
-        <View style={styles.banner}>
-          <Text style={styles.bannerTitle}>Round Started</Text>
-          <Text style={styles.bannerText}>
-            Mobile gameplay is not included in this phase. Keep this lobby open or switch to the web client.
-          </Text>
-        </View>
-      ) : (
-        <Text style={styles.waiting}>
-          {isHost
-            ? 'Players are joining. Start the round from the web client when ready.'
-            : 'Waiting for the host to start the round…'}
-        </Text>
-      )}
-
-      {status === 'waiting' && localPlayer && (
-        <Pressable
-          style={[
-            styles.readyButton,
-            localPlayer.isReady && styles.readyButtonActive,
-          ]}
-          onPress={() => {
-            void (async () => {
-              try {
-                const client = await ensureAnonymousSession()
-                await client.rpc('set_player_ready', {
-                  p_lobby_id: useMobileLobbyStore.getState().lobbyId,
-                  p_ready: !localPlayer.isReady,
-                })
-                await refreshLobby()
-              } catch (readyError) {
-                setError(getErrorMessage(readyError))
-              }
-            })()
-          }}
-        >
-          <Text style={styles.readyButtonText}>
-            {localPlayer.isReady ? 'Not Ready' : 'Ready Up'}
-          </Text>
-        </Pressable>
-      )}
 
       <View style={styles.playerList}>
         {players.map((player) => (
@@ -295,33 +106,173 @@ export default function LobbyRoomScreen() {
               >
                 {getPresenceText(player.presenceStatus)}
               </Text>
+              {canModeratePlayers && player.id !== localPlayerId && !player.isHost && (
+                <Pressable
+                  style={styles.removeTag}
+                  onPress={() => {
+                    void kickPlayer(player.id)
+                  }}
+                >
+                  <Text style={styles.removeTagText}>Remove</Text>
+                </Pressable>
+              )}
             </View>
           </View>
         ))}
       </View>
 
-      <Pressable
-        style={styles.secondaryButton}
-        onPress={() => {
-          void (async () => {
-            try {
-              if (useMobileLobbyStore.getState().lobbyId) {
-                const client = await ensureAnonymousSession()
-                await client.rpc('leave_lobby', {
-                  p_lobby_id: useMobileLobbyStore.getState().lobbyId,
-                })
-              }
-            } catch {
-              // Best effort cleanup.
-            } finally {
-              clearLobby()
-              router.replace('/')
-            }
-          })()
-        }}
-      >
-        <Text style={styles.secondaryButtonText}>Leave Lobby</Text>
-      </Pressable>
+      {isHost && pendingJoinRequests.length > 0 && (
+        <View style={styles.categoryCard}>
+          <Text style={styles.sectionLabel}>Pending Rejoin Requests</Text>
+          <View style={styles.pendingList}>
+            {pendingJoinRequests.map((request) => (
+              <View key={request.id} style={styles.pendingRow}>
+                <View>
+                  <Text style={styles.pendingName}>{request.requestedName}</Text>
+                  <Text style={styles.pendingMeta}>Waiting for approval</Text>
+                </View>
+                <View style={styles.pendingActions}>
+                  <Pressable
+                    style={styles.pendingSecondary}
+                    onPress={() => {
+                      void reviewJoinRequest(request.id, 'deny')
+                    }}
+                  >
+                    <Text style={styles.pendingSecondaryText}>Deny</Text>
+                  </Pressable>
+                  <Pressable
+                    style={styles.pendingPrimary}
+                    onPress={() => {
+                      void reviewJoinRequest(request.id, 'approve')
+                    }}
+                  >
+                    <Text style={styles.pendingPrimaryText}>Approve</Text>
+                  </Pressable>
+                </View>
+              </View>
+            ))}
+          </View>
+        </View>
+      )}
+
+      <View style={styles.categoryCard}>
+        <Text style={styles.sectionLabel}>Round Categories</Text>
+        <Text style={styles.sectionTitle}>
+          {selectedCategories.length === 1
+            ? selectedCategories[0]
+            : `${selectedCategories.length} categories selected`}
+        </Text>
+        <Text style={styles.sectionText}>
+          {isHost
+            ? 'Pick one or more categories. The round word will be drawn from that combined pool.'
+            : 'The host controls the category pool. Everyone can see the current selection.'}
+        </Text>
+
+        <View style={styles.categoryWrap}>
+          {selectedCategories.map((category) => (
+            <View key={category} style={styles.categoryChip}>
+              <Text style={styles.categoryChipText}>{category}</Text>
+            </View>
+          ))}
+        </View>
+
+        {isHost && status === 'waiting' && (
+          <View style={styles.categoryGrid}>
+            {onlineCategoryOptions.map((category) => {
+              const isSelected = selectedCategories.includes(category.engineCategory)
+
+              return (
+                <Pressable
+                  key={category.id}
+                  style={[
+                    styles.categoryOption,
+                    isSelected && styles.categoryOptionSelected,
+                  ]}
+                  onPress={() => toggleCategory(category.engineCategory)}
+                >
+                  <Text style={styles.categoryEmoji}>{category.emoji}</Text>
+                  <Text style={styles.categoryName}>{category.name}</Text>
+                </Pressable>
+              )
+            })}
+          </View>
+        )}
+      </View>
+
+      {status === 'waiting' && localPlayer && (
+        <View style={styles.statusCard}>
+          <View style={styles.statusCopy}>
+            <Text style={styles.sectionLabel}>Your Status</Text>
+            <Text style={styles.sectionTitle}>
+              {localPlayer.isReady ? 'Ready to Play' : 'Waiting for You'}
+            </Text>
+            <Text style={styles.sectionText}>
+              Connected players: {connectedPlayers.length}. Everyone who is not away must be ready before the host can start.
+            </Text>
+          </View>
+
+          <Pressable
+            style={[
+              styles.primaryButton,
+              localPlayer.isReady && styles.secondaryButton,
+            ]}
+            onPress={() => {
+              void setReady(!localPlayer.isReady)
+            }}
+          >
+            <Text
+              style={[
+                styles.primaryButtonText,
+                localPlayer.isReady && styles.secondaryButtonText,
+              ]}
+            >
+              {localPlayer.isReady ? 'Not Ready' : 'Ready Up'}
+            </Text>
+          </Pressable>
+        </View>
+      )}
+
+      <View style={styles.actions}>
+        {isHost ? (
+          <Pressable
+            style={[
+              styles.primaryButton,
+              (!canStartRound || isBusy || status !== 'waiting') && styles.buttonDisabled,
+            ]}
+            onPress={() => {
+              void startGame()
+            }}
+            disabled={!canStartRound || isBusy || status !== 'waiting'}
+          >
+            <Text style={styles.primaryButtonText}>
+              {isBusy ? 'Starting…' : 'Start Countdown'}
+            </Text>
+          </Pressable>
+        ) : (
+          <Text style={styles.waiting}>
+            {status === 'waiting'
+              ? 'Waiting for the host to start the round…'
+              : 'Joining the active round…'}
+          </Text>
+        )}
+
+        {showRepairButton && (
+          <Pressable
+            style={styles.secondaryButton}
+            onPress={() => {
+              void repairPresence()
+            }}
+          >
+            <Text style={styles.secondaryButtonText}>Repair Room</Text>
+          </Pressable>
+        )}
+
+        <Pressable style={styles.secondaryButton} onPress={() => void leaveLobby()}>
+          <Text style={styles.secondaryButtonText}>Leave Lobby</Text>
+        </Pressable>
+      </View>
+
+      <RoomChatSheet />
     </ScrollView>
   )
 }
@@ -330,21 +281,20 @@ const styles = StyleSheet.create({
   container: {
     minHeight: '100%',
     alignItems: 'center',
-    justifyContent: 'center',
     gap: 24,
     padding: 24,
     backgroundColor: '#0A0A14',
   },
   codeCard: {
+    width: '100%',
+    maxWidth: 360,
     alignItems: 'center',
     padding: 24,
     borderRadius: 24,
     backgroundColor: 'rgba(255,255,255,0.04)',
     borderWidth: 1,
     borderColor: 'rgba(124,58,237,0.4)',
-    gap: 6,
-    width: '100%',
-    maxWidth: 340,
+    gap: 8,
   },
   codeLabel: {
     color: '#94a3b8',
@@ -354,75 +304,28 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontWeight: '900',
     color: '#a855f7',
-    letterSpacing: 10,
+    letterSpacing: 8,
     fontFamily: 'serif',
   },
   youLabel: {
-    color: '#e2e8f0',
-    fontSize: 14,
-  },
-  waiting: {
-    color: '#94a3b8',
+    color: '#cbd5e1',
     fontSize: 14,
     textAlign: 'center',
-    maxWidth: 320,
   },
-  sectionLabel: {
-    color: '#94a3b8',
-    fontSize: 12,
-    textTransform: 'uppercase',
-    letterSpacing: 1.2,
-  },
-  categoryCard: {
+  error: {
     width: '100%',
-    maxWidth: 340,
+    maxWidth: 360,
+    color: '#fca5a5',
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.08)',
-    backgroundColor: 'rgba(255,255,255,0.04)',
+    borderColor: 'rgba(239,68,68,0.3)',
+    backgroundColor: 'rgba(239,68,68,0.08)',
     padding: 16,
-    gap: 12,
-  },
-  categoryWrap: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 8,
-  },
-  categoryChip: {
-    borderRadius: 999,
-    borderWidth: 1,
-    borderColor: 'rgba(124,58,237,0.35)',
-    backgroundColor: 'rgba(124,58,237,0.12)',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
-  },
-  categoryChipText: {
-    color: '#ddd6fe',
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  banner: {
-    width: '100%',
-    maxWidth: 340,
-    borderRadius: 20,
-    borderWidth: 1,
-    borderColor: 'rgba(250,204,21,0.3)',
-    backgroundColor: 'rgba(250,204,21,0.08)',
-    padding: 16,
-    gap: 8,
-  },
-  bannerTitle: {
-    color: '#fde68a',
-    fontSize: 16,
-    fontWeight: '700',
-  },
-  bannerText: {
-    color: '#f8fafc',
-    lineHeight: 20,
+    overflow: 'hidden',
   },
   playerList: {
     width: '100%',
-    maxWidth: 340,
+    maxWidth: 360,
     gap: 12,
   },
   playerRow: {
@@ -433,10 +336,6 @@ const styles = StyleSheet.create({
     paddingVertical: 14,
     borderRadius: 18,
     backgroundColor: 'rgba(255,255,255,0.05)',
-  },
-  playerTags: {
-    alignItems: 'flex-end',
-    gap: 6,
   },
   playerLeft: {
     flexDirection: 'row',
@@ -461,6 +360,22 @@ const styles = StyleSheet.create({
   playerName: {
     color: '#f8fafc',
     fontSize: 15,
+  },
+  playerTags: {
+    alignItems: 'flex-end',
+    gap: 6,
+  },
+  removeTag: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(248,113,113,0.25)',
+    paddingHorizontal: 8,
+    paddingVertical: 4,
+  },
+  removeTagText: {
+    color: '#fecaca',
+    fontSize: 11,
+    fontWeight: '700',
   },
   hostTag: {
     color: '#c4b5fd',
@@ -496,27 +411,159 @@ const styles = StyleSheet.create({
     color: '#fca5a5',
     backgroundColor: 'rgba(239,68,68,0.16)',
   },
-  readyButton: {
+  categoryCard: {
     width: '100%',
-    maxWidth: 340,
+    maxWidth: 360,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    padding: 18,
+    gap: 12,
+  },
+  sectionLabel: {
+    color: '#94a3b8',
+    fontSize: 12,
+    textTransform: 'uppercase',
+    letterSpacing: 1.2,
+  },
+  sectionTitle: {
+    color: '#f8fafc',
+    fontSize: 28,
+    fontWeight: '900',
+    fontFamily: 'serif',
+  },
+  sectionText: {
+    color: '#94a3b8',
+    lineHeight: 20,
+  },
+  categoryWrap: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 8,
+  },
+  categoryChip: {
+    borderRadius: 999,
+    borderWidth: 1,
+    borderColor: 'rgba(124,58,237,0.35)',
+    backgroundColor: 'rgba(124,58,237,0.12)',
+    paddingHorizontal: 12,
+    paddingVertical: 6,
+  },
+  categoryChipText: {
+    color: '#ddd6fe',
+    fontSize: 12,
+    fontWeight: '600',
+  },
+  categoryGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    gap: 10,
+  },
+  pendingList: {
+    gap: 10,
+  },
+  pendingRow: {
+    borderRadius: 18,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: 'rgba(0,0,0,0.12)',
+    padding: 14,
+    gap: 12,
+  },
+  pendingName: {
+    color: '#f8fafc',
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  pendingMeta: {
+    color: '#94a3b8',
+    marginTop: 4,
+  },
+  pendingActions: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  pendingPrimary: {
+    flex: 1,
+    backgroundColor: '#7c3aed',
+    borderRadius: 16,
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  pendingPrimaryText: {
+    color: '#fff',
+    fontWeight: '700',
+  },
+  pendingSecondary: {
+    flex: 1,
+    borderRadius: 16,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.1)',
+    backgroundColor: 'rgba(255,255,255,0.05)',
+    paddingVertical: 10,
+    alignItems: 'center',
+  },
+  pendingSecondaryText: {
+    color: '#e2e8f0',
+    fontWeight: '600',
+  },
+  categoryOption: {
+    width: '47%',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: 'rgba(255,255,255,0.03)',
+    padding: 14,
+    gap: 8,
+  },
+  categoryOptionSelected: {
+    borderColor: 'rgba(124,58,237,0.7)',
+    backgroundColor: 'rgba(124,58,237,0.18)',
+  },
+  categoryEmoji: {
+    fontSize: 18,
+  },
+  categoryName: {
+    color: '#fff',
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  statusCard: {
+    width: '100%',
+    maxWidth: 360,
+    borderRadius: 24,
+    borderWidth: 1,
+    borderColor: 'rgba(255,255,255,0.08)',
+    backgroundColor: 'rgba(255,255,255,0.04)',
+    padding: 18,
+    gap: 16,
+  },
+  statusCopy: {
+    gap: 6,
+  },
+  actions: {
+    width: '100%',
+    maxWidth: 360,
+    gap: 12,
+  },
+  waiting: {
+    color: '#94a3b8',
+    fontSize: 14,
+    textAlign: 'center',
+  },
+  primaryButton: {
     backgroundColor: '#7c3aed',
     borderRadius: 20,
     paddingVertical: 16,
     alignItems: 'center',
   },
-  readyButtonActive: {
-    backgroundColor: 'rgba(255,255,255,0.08)',
-    borderWidth: 1,
-    borderColor: 'rgba(255,255,255,0.12)',
-  },
-  readyButtonText: {
+  primaryButtonText: {
     color: '#fff',
     fontSize: 16,
     fontWeight: '700',
   },
   secondaryButton: {
-    width: '100%',
-    maxWidth: 340,
     backgroundColor: 'rgba(255,255,255,0.06)',
     borderRadius: 20,
     borderWidth: 1,
@@ -529,9 +576,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: '600',
   },
-  error: {
-    maxWidth: 340,
-    color: '#fca5a5',
-    textAlign: 'center',
+  buttonDisabled: {
+    opacity: 0.45,
   },
 })

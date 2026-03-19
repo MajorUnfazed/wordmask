@@ -4,9 +4,16 @@ import type { LobbyPlayer } from '../../store/lobbyStore'
 interface PlayerListProps {
   players: LobbyPlayer[]
   localPlayerId: string
+  canModerate?: boolean
+  onRemove?: (playerId: string) => void
 }
 
-export function PlayerList({ players, localPlayerId }: PlayerListProps) {
+export function PlayerList({
+  players,
+  localPlayerId,
+  canModerate = false,
+  onRemove,
+}: PlayerListProps) {
   function getPresenceLabel(player: LobbyPlayer) {
     switch (player.presenceStatus) {
       case 'away':
@@ -70,6 +77,15 @@ export function PlayerList({ players, localPlayerId }: PlayerListProps) {
               >
                 {getPresenceLabel(player).label}
               </span>
+              {canModerate && player.id !== localPlayerId && !player.isHost && onRemove && (
+                <button
+                  type="button"
+                  onClick={() => onRemove(player.id)}
+                  className="rounded-full border border-red-400/30 bg-red-500/10 px-2 py-0.5 text-[11px] text-red-200 transition hover:bg-red-500/15"
+                >
+                  Remove
+                </button>
+              )}
             </div>
           </motion.div>
         ))}
