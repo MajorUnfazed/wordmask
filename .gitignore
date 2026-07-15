@@ -13,6 +13,8 @@ build/
 # Supabase
 supabase/.branches
 supabase/.temp
+# One-time bootstrap artifacts (see supabase/_fresh_project_bootstrap.sql)
+supabase/_*.sql
 
 # Environment
 .env
