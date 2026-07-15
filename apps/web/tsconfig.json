@@ -9,7 +9,7 @@
     "noEmit": true,
     "declaration": false,
     "declarationMap": false,
-    "types": ["vite/client", "node"],
+    "types": [],
     "paths": {
       "@/*": ["./src/*"],
       "@impostor/core": ["../../packages/core/src/index.ts"],

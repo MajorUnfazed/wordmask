@@ -10,7 +10,7 @@
     "declaration": false,
     "declarationMap": false,
     "allowSyntheticDefaultImports": true,
-    "types": ["node"],
+    "types": [],
     "paths": {}
   },
   "include": ["app", "components", "lib"]
