@@ -2,246 +2,966 @@
   "id": "internet-culture",
   "name": "Internet Culture",
   "emoji": "🌐",
-  "description": "Viral trends, platforms, and online phenomena",
+  "description": "Memes, viral trends, and social media",
   "words": [
     {
-      "word": "Doomscrolling",
+      "word": "Rickroll",
       "hints": [
-        "compulsively",
-        "reading",
-        "bad"
+        "Astley",
+        "Bait",
+        "Video"
       ]
     },
     {
-      "word": "Stan",
+      "word": "Doge",
       "hints": [
-        "extremely",
-        "devoted",
-        "superfan"
+        "Shiba",
+        "Coin",
+        "Much"
       ]
     },
     {
-      "word": "Ratio'd",
+      "word": "Pepe",
       "hints": [
-        "tweet's",
-        "replies",
-        "vastly"
+        "Frog",
+        "Meme",
+        "Green"
       ]
     },
     {
-      "word": "Shadowban",
+      "word": "Trollface",
       "hints": [
-        "silently",
-        "restricting",
-        "account's"
+        "Problem",
+        "Mad",
+        "Comic"
       ]
     },
     {
-      "word": "Parasocial Relationship",
+      "word": "Nyan Cat",
       "hints": [
-        "one",
-        "sided",
-        "bond"
+        "Pop-Tart",
+        "Rainbow",
+        "Space"
       ]
     },
     {
-      "word": "Threadboi",
+      "word": "Harambe",
       "hints": [
-        "person",
-        "turns",
-        "every"
+        "Gorilla",
+        "Zoo",
+        "Cincinnati"
       ]
     },
     {
-      "word": "Hot Take",
+      "word": "Distracted Boyfriend",
       "hints": [
-        "instant",
-        "controversial",
-        "opinion"
+        "Looking",
+        "Meme",
+        "Girlfriend"
       ]
     },
     {
-      "word": "Main Character Energy",
+      "word": "Woman Yelling",
       "hints": [
-        "acting",
-        "like",
-        "world"
+        "Cat",
+        "Table",
+        "Dinner"
       ]
     },
     {
-      "word": "No Cap",
+      "word": "This is Fine",
       "hints": [
-        "slang",
-        "lie",
-        "expressing"
+        "Dog",
+        "Fire",
+        "Coffee"
       ]
     },
     {
-      "word": "Touch Grass",
+      "word": "Drake Hotline",
       "hints": [
-        "telling",
-        "someone",
-        "outside"
+        "Bling",
+        "Approves",
+        "Reject"
       ]
     },
     {
-      "word": "Astroturfing",
+      "word": "Two Buttons",
       "hints": [
-        "fake",
-        "grassroots",
-        "movement"
+        "Sweating",
+        "Choice",
+        "Red"
       ]
     },
     {
-      "word": "Algorithm",
+      "word": "Is This A Pigeon",
       "hints": [
-        "invisible",
-        "feed",
-        "ranking"
+        "Anime",
+        "Butterfly",
+        "Confusion"
       ]
     },
     {
-      "word": "Clout Chasing",
+      "word": "Arthur Fist",
       "hints": [
-        "doing",
-        "things",
-        "purely"
+        "Angry",
+        "Clenched",
+        "Cartoon"
       ]
     },
     {
-      "word": "Slacktivism",
+      "word": "Mocking Spongebob",
       "hints": [
-        "low",
-        "effort",
-        "online"
+        "Alternating",
+        "Caps",
+        "Chicken"
       ]
     },
     {
-      "word": "Dark Pattern",
+      "word": "Surprised Pikachu",
       "hints": [
-        "deceptive",
-        "trick",
-        "designed"
+        "Mouth",
+        "Open",
+        "Shock"
       ]
     },
     {
-      "word": "Vibe Check",
+      "word": "Hide the Pain",
       "hints": [
-        "assessing",
-        "someone's",
-        "attitude"
+        "Harold",
+        "Smile",
+        "Stock"
+      ]
+    },
+    {
+      "word": "Success Kid",
+      "hints": [
+        "Sand",
+        "Fist",
+        "Beach"
+      ]
+    },
+    {
+      "word": "Bad Luck Brian",
+      "hints": [
+        "Braces",
+        "Vest",
+        "School"
+      ]
+    },
+    {
+      "word": "Overly Attached",
+      "hints": [
+        "Girlfriend",
+        "Stare",
+        "Creepy"
+      ]
+    },
+    {
+      "word": "Grumpy Cat",
+      "hints": [
+        "Tardar",
+        "Sauce",
+        "Frown"
+      ]
+    },
+    {
+      "word": "Dat Boi",
+      "hints": [
+        "Frog",
+        "Unicycle",
+        "Rolling"
+      ]
+    },
+    {
+      "word": "Ugandan Knuckles",
+      "hints": [
+        "Way",
+        "Clicking",
+        "Echidna"
+      ]
+    },
+    {
+      "word": "Big Chungus",
+      "hints": [
+        "Bugs",
+        "Bunny",
+        "Fat"
+      ]
+    },
+    {
+      "word": "Stonks",
+      "hints": [
+        "Meme",
+        "Market",
+        "Arrow"
+      ]
+    },
+    {
+      "word": "Karen",
+      "hints": [
+        "Manager",
+        "Haircut",
+        "Complain"
+      ]
+    },
+    {
+      "word": "Ok Boomer",
+      "hints": [
+        "Generation",
+        "Dismissive",
+        "Reply"
+      ]
+    },
+    {
+      "word": "Simp",
+      "hints": [
+        "Twitch",
+        "Donation",
+        "Desperate"
+      ]
+    },
+    {
+      "word": "Chad",
+      "hints": [
+        "Alpha",
+        "Jawline",
+        "Meme"
+      ]
+    },
+    {
+      "word": "Virgin vs Chad",
+      "hints": [
+        "Comparison",
+        "Meme",
+        "Walk"
+      ]
+    },
+    {
+      "word": "Gigachad",
+      "hints": [
+        "Black",
+        "White",
+        "Muscle"
+      ]
+    },
+    {
+      "word": "Sigma Male",
+      "hints": [
+        "Grindset",
+        "Lone",
+        "Wolf"
+      ]
+    },
+    {
+      "word": "Cheems",
+      "hints": [
+        "Doge",
+        "Speech",
+        "Impediment"
+      ]
+    },
+    {
+      "word": "Swole Doge",
+      "hints": [
+        "Muscle",
+        "Compare",
+        "Meme"
+      ]
+    },
+    {
+      "word": "Amogus",
+      "hints": [
+        "Sus",
+        "Impostor",
+        "Among"
+      ]
+    },
+    {
+      "word": "Shitpost",
+      "hints": [
+        "Low",
+        "Quality",
+        "Humor"
       ]
     },
     {
       "word": "Copypasta",
       "hints": [
-        "blocks",
-        "text",
-        "repeatedly"
+        "Text",
+        "Block",
+        "Navy"
+      ]
+    },
+    {
+      "word": "Yeet",
+      "hints": [
+        "Throw",
+        "Distance",
+        "Force"
+      ]
+    },
+    {
+      "word": "Skrrt",
+      "hints": [
+        "Car",
+        "Tires",
+        "Drift"
+      ]
+    },
+    {
+      "word": "Cap",
+      "hints": [
+        "Lie",
+        "Truth",
+        "Hat"
       ]
     },
     {
       "word": "Based",
       "hints": [
-        "slang",
-        "being",
-        "confidently"
+        "Opinion",
+        "Controversial",
+        "Truth"
       ]
     },
     {
-      "word": "Brain Rot",
+      "word": "Cringe",
       "hints": [
-        "state",
-        "mental",
-        "degradation"
+        "Uncomfortable",
+        "Embarrassing",
+        "Awkward"
       ]
     },
     {
-      "word": "Oversharer",
+      "word": "Sus",
       "hints": [
-        "someone",
-        "posts",
-        "intimate"
+        "Suspicious",
+        "Impostor",
+        "Among"
       ]
     },
     {
-      "word": "Influencer",
+      "word": "Ratio",
       "hints": [
-        "professional",
-        "monetises",
-        "online"
+        "Twitter",
+        "Likes",
+        "Replies"
       ]
     },
     {
-      "word": "Finsta",
+      "word": "L",
       "hints": [
-        "secondary",
-        "private",
-        "instagram"
+        "Loss",
+        "Take",
+        "Alphabet"
       ]
     },
     {
-      "word": "Subtweet",
+      "word": "W",
       "hints": [
-        "indirect",
-        "post",
-        "clearly"
+        "Win",
+        "Boss",
+        "Take"
       ]
     },
     {
-      "word": "FOMO",
+      "word": "Glow Up",
       "hints": [
-        "fear",
-        "missing",
-        "out"
+        "Transformation",
+        "Better",
+        "Puberty"
       ]
     },
     {
-      "word": "Catfish",
+      "word": "Rizz",
       "hints": [
-        "person",
-        "pretending",
-        "someone"
+        "Charisma",
+        "Flirting",
+        "Game"
       ]
     },
     {
-      "word": "Cancel Culture",
+      "word": "Bussin",
       "hints": [
-        "public",
-        "ostracising",
-        "someone"
+        "Food",
+        "Good",
+        "Delicious"
       ]
     },
     {
-      "word": "Echo Chamber",
+      "word": "Sheesh",
       "hints": [
-        "online",
-        "bubble",
-        "only"
+        "Hype",
+        "Ice",
+        "Veins"
       ]
     },
     {
-      "word": "Crowdfunding",
+      "word": "Poggers",
       "hints": [
-        "raising",
-        "money",
-        "project"
+        "Twitch",
+        "Excitement",
+        "Emote"
       ]
     },
     {
-      "word": "Lurker",
+      "word": "MonkaS",
       "hints": [
-        "someone",
-        "reads",
-        "online"
+        "Sweat",
+        "Nervous",
+        "Twitch"
       ]
     },
     {
-      "word": "Fandom Wiki",
+      "word": "Kappa",
       "hints": [
-        "fan",
-        "maintained",
-        "website"
+        "Sarcasm",
+        "Twitch",
+        "Face"
+      ]
+    },
+    {
+      "word": "KekW",
+      "hints": [
+        "Laugh",
+        "Twitch",
+        "Spanish"
+      ]
+    },
+    {
+      "word": "Pepega",
+      "hints": [
+        "Dumb",
+        "Twitch",
+        "Frog"
+      ]
+    },
+    {
+      "word": "LUL",
+      "hints": [
+        "Laugh",
+        "Twitch",
+        "Bain"
+      ]
+    },
+    {
+      "word": "F in the Chat",
+      "hints": [
+        "Respects",
+        "Press",
+        "Twitch"
+      ]
+    },
+    {
+      "word": "Vibe Check",
+      "hints": [
+        "Energy",
+        "Test",
+        "Mood"
+      ]
+    },
+    {
+      "word": "Main Character",
+      "hints": [
+        "Energy",
+        "Protagonist",
+        "Syndrome"
+      ]
+    },
+    {
+      "word": "NPC",
+      "hints": [
+        "Non",
+        "Player",
+        "Brainless"
+      ]
+    },
+    {
+      "word": "Touch Grass",
+      "hints": [
+        "Outside",
+        "Reality",
+        "Offline"
+      ]
+    },
+    {
+      "word": "Gatekeep",
+      "hints": [
+        "Exclude",
+        "Fans",
+        "Girlboss"
+      ]
+    },
+    {
+      "word": "Gaslight",
+      "hints": [
+        "Manipulate",
+        "Crazy",
+        "Girlboss"
+      ]
+    },
+    {
+      "word": "Girlboss",
+      "hints": [
+        "Feminism",
+        "Hustle",
+        "Gaslight"
+      ]
+    },
+    {
+      "word": "Slap",
+      "hints": [
+        "Will",
+        "Smith",
+        "Oscars"
+      ]
+    },
+    {
+      "word": "Area 51",
+      "hints": [
+        "Raid",
+        "Aliens",
+        "Run"
+      ]
+    },
+    {
+      "word": "Tide Pods",
+      "hints": [
+        "Snack",
+        "Laundry",
+        "Challenge"
+      ]
+    },
+    {
+      "word": "Ice Bucket",
+      "hints": [
+        "Challenge",
+        "ALS",
+        "Water"
+      ]
+    },
+    {
+      "word": "Harlem Shake",
+      "hints": [
+        "Dance",
+        "Drop",
+        "Video"
+      ]
+    },
+    {
+      "word": "Mannequin",
+      "hints": [
+        "Challenge",
+        "Still",
+        "Freeze"
+      ]
+    },
+    {
+      "word": "Planking",
+      "hints": [
+        "Lie",
+        "Flat",
+        "Stiff"
+      ]
+    },
+    {
+      "word": "Rick and Morty",
+      "hints": [
+        "IQ",
+        "Pickle",
+        "Sauce"
+      ]
+    },
+    {
+      "word": "Shrek",
+      "hints": [
+        "Ogre",
+        "Swamp",
+        "Onions"
+      ]
+    },
+    {
+      "word": "Bee Movie",
+      "hints": [
+        "Jazz",
+        "Script",
+        "Seinfeld"
+      ]
+    },
+    {
+      "word": "Shaggy",
+      "hints": [
+        "Power",
+        "Percent",
+        "Scooby"
+      ]
+    },
+    {
+      "word": "Matt",
+      "hints": [
+        "Wii",
+        "Sports",
+        "Boxing"
+      ]
+    },
+    {
+      "word": "Waluigi",
+      "hints": [
+        "Smash",
+        "Assist",
+        "Wah"
+      ]
+    },
+    {
+      "word": "Bowsette",
+      "hints": [
+        "Crown",
+        "Super",
+        "Mario"
+      ]
+    },
+    {
+      "word": "Loss",
+      "hints": [
+        "Comic",
+        "Lines",
+        "Four"
+      ]
+    },
+    {
+      "word": "Is This",
+      "hints": [
+        "Loss",
+        "Lines",
+        "Comic"
+      ]
+    },
+    {
+      "word": "E",
+      "hints": [
+        "Mark",
+        "iplier",
+        "Farquaad"
+      ]
+    },
+    {
+      "word": "B",
+      "hints": [
+        "Emoji",
+        "Red",
+        "Blood"
+      ]
+    },
+    {
+      "word": "Deep Fried",
+      "hints": [
+        "Meme",
+        "Filter",
+        "Nuked"
+      ]
+    },
+    {
+      "word": "Surreal",
+      "hints": [
+        "Memes",
+        "Meme",
+        "Man"
+      ]
+    },
+    {
+      "word": "Meme Man",
+      "hints": [
+        "Stonks",
+        "Head",
+        "3D"
+      ]
+    },
+    {
+      "word": "Orang",
+      "hints": [
+        "Citrus",
+        "Surreal",
+        "Enemy"
+      ]
+    },
+    {
+      "word": "Rage Comics",
+      "hints": [
+        "Derp",
+        "Troll",
+        "Me"
+      ]
+    },
+    {
+      "word": "Derp",
+      "hints": [
+        "Face",
+        "Stupid",
+        "Eyes"
+      ]
+    },
+    {
+      "word": "Me Gusta",
+      "hints": [
+        "Face",
+        "Pleasure",
+        "Weird"
+      ]
+    },
+    {
+      "word": "Forever Alone",
+      "hints": [
+        "Face",
+        "Sad",
+        "Single"
+      ]
+    },
+    {
+      "word": "Y U NO",
+      "hints": [
+        "Guy",
+        "Hands",
+        "Face"
+      ]
+    },
+    {
+      "word": "Philosoraptor",
+      "hints": [
+        "Dinosaur",
+        "Think",
+        "Question"
+      ]
+    },
+    {
+      "word": "Socially Awkward",
+      "hints": [
+        "Penguin",
+        "Red",
+        "Blue"
+      ]
+    },
+    {
+      "word": "Advice Animals",
+      "hints": [
+        "Text",
+        "Top",
+        "Bottom"
+      ]
+    },
+    {
+      "word": "Good Guy Greg",
+      "hints": [
+        "Joint",
+        "Smile",
+        "Nice"
+      ]
+    },
+    {
+      "word": "Scumbag Steve",
+      "hints": [
+        "Hat",
+        "Jacket",
+        "Mean"
+      ]
+    },
+    {
+      "word": "Nyan",
+      "hints": [
+        "Cat",
+        "Space",
+        "Rainbow"
+      ]
+    },
+    {
+      "word": "Keyboard Cat",
+      "hints": [
+        "Piano",
+        "Play",
+        "Off"
+      ]
+    },
+    {
+      "word": "Numa Numa",
+      "hints": [
+        "Dance",
+        "Fat",
+        "Webcam"
+      ]
+    },
+    {
+      "word": "Star Wars Kid",
+      "hints": [
+        "Golf",
+        "Ball",
+        "Retrieval"
+      ]
+    },
+    {
+      "word": "Chocolate Rain",
+      "hints": [
+        "Tay",
+        "Zonday",
+        "Mic"
+      ]
+    },
+    {
+      "word": "Leave Britney",
+      "hints": [
+        "Alone",
+        "Cry",
+        "Chris"
+      ]
+    },
+    {
+      "word": "Leeroy Jenkins",
+      "hints": [
+        "WoW",
+        "Charge",
+        "Chicken"
+      ]
+    },
+    {
+      "word": "Sneezing Panda",
+      "hints": [
+        "Baby",
+        "Shock",
+        "Mom"
+      ]
+    },
+    {
+      "word": "Charlie Bit Me",
+      "hints": [
+        "Finger",
+        "Baby",
+        "Brother"
+      ]
+    },
+    {
+      "word": "David After",
+      "hints": [
+        "Dentist",
+        "Real",
+        "Life"
+      ]
+    },
+    {
+      "word": "Double Rainbow",
+      "hints": [
+        "Sky",
+        "Tears",
+        "Mean"
+      ]
+    },
+    {
+      "word": "Bed Intruder",
+      "hints": [
+        "Hide",
+        "Kids",
+        "Wife"
+      ]
+    },
+    {
+      "word": "Ain't Nobody",
+      "hints": [
+        "Got",
+        "Time",
+        "That"
+      ]
+    },
+    {
+      "word": "Sweet Brown",
+      "hints": [
+        "Cold",
+        "Bronchitis",
+        "Pop"
+      ]
+    },
+    {
+      "word": "Alex from Target",
+      "hints": [
+        "Bag",
+        "Boy",
+        "Viral"
+      ]
+    },
+    {
+      "word": "Damn Daniel",
+      "hints": [
+        "White",
+        "Vans",
+        "Shoes"
+      ]
+    },
+    {
+      "word": "What Are Those",
+      "hints": [
+        "Shoes",
+        "Point",
+        "Question"
+      ]
+    },
+    {
+      "word": "Do It For The Vine",
+      "hints": [
+        "Video",
+        "App",
+        "Loop"
+      ]
+    },
+    {
+      "word": "Cash Me Outside",
+      "hints": [
+        "Bow",
+        "Dah",
+        "Dr. Phil"
+      ]
+    },
+    {
+      "word": "Walmart Yodeling",
+      "hints": [
+        "Kid",
+        "Aisle",
+        "Country"
+      ]
+    },
+    {
+      "word": "Backpack Kid",
+      "hints": [
+        "Floss",
+        "Dance",
+        "Katy"
+      ]
+    },
+    {
+      "word": "Moth",
+      "hints": [
+        "Lamp",
+        "Light",
+        "Insects"
+      ]
+    },
+    {
+      "word": "Cats Can Have",
+      "hints": [
+        "Little",
+        "Salami",
+        "Treat"
+      ]
+    },
+    {
+      "word": "Bingus",
+      "hints": [
+        "Hairless",
+        "Cat",
+        "Smooth"
+      ]
+    },
+    {
+      "word": "Floppa",
+      "hints": [
+        "Caracal",
+        "Ears",
+        "Cat"
       ]
     }
   ]

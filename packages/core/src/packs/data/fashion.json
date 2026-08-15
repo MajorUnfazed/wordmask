@@ -1,0 +1,968 @@
+{
+  "id": "fashion",
+  "name": "Fashion",
+  "emoji": "👗",
+  "description": "Clothing, style, and luxury brands",
+  "words": [
+    {
+      "word": "Vogue",
+      "hints": [
+        "Magazine",
+        "Style",
+        "Trend"
+      ]
+    },
+    {
+      "word": "Runway",
+      "hints": [
+        "Walk",
+        "Model",
+        "Show"
+      ]
+    },
+    {
+      "word": "Model",
+      "hints": [
+        "Pose",
+        "Walk",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Couture",
+      "hints": [
+        "High",
+        "Custom",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Denim",
+      "hints": [
+        "Jeans",
+        "Blue",
+        "Fabric"
+      ]
+    },
+    {
+      "word": "Velvet",
+      "hints": [
+        "Soft",
+        "Plush",
+        "Fabric"
+      ]
+    },
+    {
+      "word": "Silk",
+      "hints": [
+        "Smooth",
+        "Shiny",
+        "Worm"
+      ]
+    },
+    {
+      "word": "Cotton",
+      "hints": [
+        "Soft",
+        "Plant",
+        "Shirt"
+      ]
+    },
+    {
+      "word": "Leather",
+      "hints": [
+        "Cow",
+        "Jacket",
+        "Boots"
+      ]
+    },
+    {
+      "word": "Suede",
+      "hints": [
+        "Soft",
+        "Leather",
+        "Shoes"
+      ]
+    },
+    {
+      "word": "Boots",
+      "hints": [
+        "Tall",
+        "Shoes",
+        "Winter"
+      ]
+    },
+    {
+      "word": "Heels",
+      "hints": [
+        "Tall",
+        "Shoes",
+        "Women"
+      ]
+    },
+    {
+      "word": "Sneakers",
+      "hints": [
+        "Laces",
+        "Run",
+        "Casual"
+      ]
+    },
+    {
+      "word": "Sandals",
+      "hints": [
+        "Toes",
+        "Summer",
+        "Shoes"
+      ]
+    },
+    {
+      "word": "Scarf",
+      "hints": [
+        "Neck",
+        "Warm",
+        "Wrap"
+      ]
+    },
+    {
+      "word": "Hat",
+      "hints": [
+        "Head",
+        "Brim",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Gloves",
+      "hints": [
+        "Hands",
+        "Warm",
+        "Fingers"
+      ]
+    },
+    {
+      "word": "Belt",
+      "hints": [
+        "Waist",
+        "Buckle",
+        "Hold"
+      ]
+    },
+    {
+      "word": "Tie",
+      "hints": [
+        "Neck",
+        "Suit",
+        "Knot"
+      ]
+    },
+    {
+      "word": "Suit",
+      "hints": [
+        "Jacket",
+        "Pants",
+        "Formal"
+      ]
+    },
+    {
+      "word": "Dress",
+      "hints": [
+        "Skirt",
+        "Women",
+        "Formal"
+      ]
+    },
+    {
+      "word": "Skirt",
+      "hints": [
+        "Legs",
+        "Women",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Blouse",
+      "hints": [
+        "Shirt",
+        "Women",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Sweater",
+      "hints": [
+        "Knit",
+        "Warm",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Cardigan",
+      "hints": [
+        "Button",
+        "Sweater",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Coat",
+      "hints": [
+        "Outer",
+        "Warm",
+        "Winter"
+      ]
+    },
+    {
+      "word": "Jacket",
+      "hints": [
+        "Outer",
+        "Zip",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Blazer",
+      "hints": [
+        "Jacket",
+        "Formal",
+        "Suit"
+      ]
+    },
+    {
+      "word": "Vest",
+      "hints": [
+        "Sleeveless",
+        "Suit",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Tuxedo",
+      "hints": [
+        "Formal",
+        "Black",
+        "Suit"
+      ]
+    },
+    {
+      "word": "Gown",
+      "hints": [
+        "Long",
+        "Dress",
+        "Ball"
+      ]
+    },
+    {
+      "word": "Corset",
+      "hints": [
+        "Lace",
+        "Tight",
+        "Waist"
+      ]
+    },
+    {
+      "word": "Lingerie",
+      "hints": [
+        "Under",
+        "Lace",
+        "Women"
+      ]
+    },
+    {
+      "word": "Underwear",
+      "hints": [
+        "Briefs",
+        "Wear",
+        "Bottom"
+      ]
+    },
+    {
+      "word": "Bra",
+      "hints": [
+        "Support",
+        "Wear",
+        "Women"
+      ]
+    },
+    {
+      "word": "Socks",
+      "hints": [
+        "Feet",
+        "Wear",
+        "Shoes"
+      ]
+    },
+    {
+      "word": "Tights",
+      "hints": [
+        "Legs",
+        "Nylon",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Leggings",
+      "hints": [
+        "Tight",
+        "Pants",
+        "Stretch"
+      ]
+    },
+    {
+      "word": "Jeans",
+      "hints": [
+        "Blue",
+        "Denim",
+        "Pants"
+      ]
+    },
+    {
+      "word": "Trousers",
+      "hints": [
+        "Pants",
+        "Formal",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Shorts",
+      "hints": [
+        "Legs",
+        "Summer",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Swimsuit",
+      "hints": [
+        "Pool",
+        "Beach",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Bikini",
+      "hints": [
+        "Two",
+        "Piece",
+        "Swim"
+      ]
+    },
+    {
+      "word": "Trunks",
+      "hints": [
+        "Swim",
+        "Men",
+        "Shorts"
+      ]
+    },
+    {
+      "word": "Pajamas",
+      "hints": [
+        "Sleep",
+        "Bed",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Robe",
+      "hints": [
+        "Bath",
+        "Tie",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Slippers",
+      "hints": [
+        "Feet",
+        "House",
+        "Soft"
+      ]
+    },
+    {
+      "word": "Jewelry",
+      "hints": [
+        "Gold",
+        "Silver",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Necklace",
+      "hints": [
+        "Neck",
+        "Chain",
+        "Pendant"
+      ]
+    },
+    {
+      "word": "Bracelet",
+      "hints": [
+        "Wrist",
+        "Chain",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Ring",
+      "hints": [
+        "Finger",
+        "Band",
+        "Gold"
+      ]
+    },
+    {
+      "word": "Earrings",
+      "hints": [
+        "Ears",
+        "Studs",
+        "Hoops"
+      ]
+    },
+    {
+      "word": "Watch",
+      "hints": [
+        "Wrist",
+        "Time",
+        "Tick"
+      ]
+    },
+    {
+      "word": "Brooch",
+      "hints": [
+        "Pin",
+        "Jacket",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Cufflinks",
+      "hints": [
+        "Shirt",
+        "Wrist",
+        "Formal"
+      ]
+    },
+    {
+      "word": "Sunglasses",
+      "hints": [
+        "Eyes",
+        "Shades",
+        "Sun"
+      ]
+    },
+    {
+      "word": "Glasses",
+      "hints": [
+        "See",
+        "Frames",
+        "Eyes"
+      ]
+    },
+    {
+      "word": "Purse",
+      "hints": [
+        "Bag",
+        "Carry",
+        "Women"
+      ]
+    },
+    {
+      "word": "Handbag",
+      "hints": [
+        "Bag",
+        "Carry",
+        "Leather"
+      ]
+    },
+    {
+      "word": "Clutch",
+      "hints": [
+        "Small",
+        "Bag",
+        "Hold"
+      ]
+    },
+    {
+      "word": "Backpack",
+      "hints": [
+        "Straps",
+        "Carry",
+        "Bag"
+      ]
+    },
+    {
+      "word": "Briefcase",
+      "hints": [
+        "Work",
+        "Bag",
+        "Handle"
+      ]
+    },
+    {
+      "word": "Wallet",
+      "hints": [
+        "Cash",
+        "Cards",
+        "Pocket"
+      ]
+    },
+    {
+      "word": "Umbrella",
+      "hints": [
+        "Rain",
+        "Hold",
+        "Dry"
+      ]
+    },
+    {
+      "word": "Makeup",
+      "hints": [
+        "Face",
+        "Beauty",
+        "Paint"
+      ]
+    },
+    {
+      "word": "Lipstick",
+      "hints": [
+        "Lips",
+        "Color",
+        "Tube"
+      ]
+    },
+    {
+      "word": "Mascara",
+      "hints": [
+        "Lashes",
+        "Black",
+        "Wand"
+      ]
+    },
+    {
+      "word": "Eyeshadow",
+      "hints": [
+        "Lids",
+        "Color",
+        "Powder"
+      ]
+    },
+    {
+      "word": "Blush",
+      "hints": [
+        "Cheeks",
+        "Pink",
+        "Powder"
+      ]
+    },
+    {
+      "word": "Foundation",
+      "hints": [
+        "Face",
+        "Base",
+        "Liquid"
+      ]
+    },
+    {
+      "word": "Concealer",
+      "hints": [
+        "Hide",
+        "Spots",
+        "Face"
+      ]
+    },
+    {
+      "word": "Powder",
+      "hints": [
+        "Face",
+        "Set",
+        "Dust"
+      ]
+    },
+    {
+      "word": "Perfume",
+      "hints": [
+        "Scent",
+        "Spray",
+        "Women"
+      ]
+    },
+    {
+      "word": "Cologne",
+      "hints": [
+        "Scent",
+        "Spray",
+        "Men"
+      ]
+    },
+    {
+      "word": "Manicure",
+      "hints": [
+        "Nails",
+        "Polish",
+        "Hands"
+      ]
+    },
+    {
+      "word": "Pedicure",
+      "hints": [
+        "Nails",
+        "Polish",
+        "Feet"
+      ]
+    },
+    {
+      "word": "Haircut",
+      "hints": [
+        "Scissors",
+        "Trim",
+        "Style"
+      ]
+    },
+    {
+      "word": "Dye",
+      "hints": [
+        "Color",
+        "Hair",
+        "Change"
+      ]
+    },
+    {
+      "word": "Wig",
+      "hints": [
+        "Fake",
+        "Hair",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Extensions",
+      "hints": [
+        "Long",
+        "Hair",
+        "Clip"
+      ]
+    },
+    {
+      "word": "Braid",
+      "hints": [
+        "Weave",
+        "Hair",
+        "Plait"
+      ]
+    },
+    {
+      "word": "Ponytail",
+      "hints": [
+        "Tie",
+        "Hair",
+        "Back"
+      ]
+    },
+    {
+      "word": "Bun",
+      "hints": [
+        "Up",
+        "Hair",
+        "Round"
+      ]
+    },
+    {
+      "word": "Barrette",
+      "hints": [
+        "Clip",
+        "Hair",
+        "Hold"
+      ]
+    },
+    {
+      "word": "Headband",
+      "hints": [
+        "Hair",
+        "Push",
+        "Band"
+      ]
+    },
+    {
+      "word": "Scrunchie",
+      "hints": [
+        "Tie",
+        "Hair",
+        "Fabric"
+      ]
+    },
+    {
+      "word": "Fabric",
+      "hints": [
+        "Material",
+        "Sew",
+        "Cloth"
+      ]
+    },
+    {
+      "word": "Thread",
+      "hints": [
+        "Sew",
+        "Needle",
+        "Spool"
+      ]
+    },
+    {
+      "word": "Needle",
+      "hints": [
+        "Sew",
+        "Sharp",
+        "Eye"
+      ]
+    },
+    {
+      "word": "Pins",
+      "hints": [
+        "Hold",
+        "Fabric",
+        "Sharp"
+      ]
+    },
+    {
+      "word": "Scissors",
+      "hints": [
+        "Cut",
+        "Fabric",
+        "Shears"
+      ]
+    },
+    {
+      "word": "Thimble",
+      "hints": [
+        "Finger",
+        "Protect",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Mannequin",
+      "hints": [
+        "Dummy",
+        "Wear",
+        "Pose"
+      ]
+    },
+    {
+      "word": "Pattern",
+      "hints": [
+        "Paper",
+        "Guide",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Stitch",
+      "hints": [
+        "Sew",
+        "Loop",
+        "Thread"
+      ]
+    },
+    {
+      "word": "Hem",
+      "hints": [
+        "Bottom",
+        "Fold",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Seam",
+      "hints": [
+        "Join",
+        "Fabric",
+        "Line"
+      ]
+    },
+    {
+      "word": "Zipper",
+      "hints": [
+        "Teeth",
+        "Pull",
+        "Close"
+      ]
+    },
+    {
+      "word": "Button",
+      "hints": [
+        "Hole",
+        "Sew",
+        "Round"
+      ]
+    },
+    {
+      "word": "Snap",
+      "hints": [
+        "Press",
+        "Close",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Hook",
+      "hints": [
+        "Eye",
+        "Close",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Velcro",
+      "hints": [
+        "Rip",
+        "Sticky",
+        "Fasten"
+      ]
+    },
+    {
+      "word": "Lace",
+      "hints": [
+        "Net",
+        "Pattern",
+        "Fabric"
+      ]
+    },
+    {
+      "word": "Embroidery",
+      "hints": [
+        "Stitch",
+        "Design",
+        "Art"
+      ]
+    },
+    {
+      "word": "Beads",
+      "hints": [
+        "Small",
+        "Hole",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Sequins",
+      "hints": [
+        "Shiny",
+        "Flat",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Applique",
+      "hints": [
+        "Patch",
+        "Sew",
+        "Design"
+      ]
+    },
+    {
+      "word": "Drape",
+      "hints": [
+        "Hang",
+        "Fabric",
+        "Style"
+      ]
+    },
+    {
+      "word": "Pleat",
+      "hints": [
+        "Fold",
+        "Skirt",
+        "Fabric"
+      ]
+    },
+    {
+      "word": "Ruffle",
+      "hints": [
+        "Gather",
+        "Fabric",
+        "Frill"
+      ]
+    },
+    {
+      "word": "Fringe",
+      "hints": [
+        "Hang",
+        "Strings",
+        "Edge"
+      ]
+    },
+    {
+      "word": "Tassel",
+      "hints": [
+        "Hang",
+        "Strings",
+        "Knot"
+      ]
+    },
+    {
+      "word": "Trim",
+      "hints": [
+        "Edge",
+        "Decorate",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Collar",
+      "hints": [
+        "Neck",
+        "Shirt",
+        "Fold"
+      ]
+    },
+    {
+      "word": "Cuff",
+      "hints": [
+        "Wrist",
+        "Shirt",
+        "Fold"
+      ]
+    },
+    {
+      "word": "Lapel",
+      "hints": [
+        "Jacket",
+        "Fold",
+        "Front"
+      ]
+    },
+    {
+      "word": "Pocket",
+      "hints": [
+        "Hold",
+        "Things",
+        "Sew"
+      ]
+    },
+    {
+      "word": "Sleeve",
+      "hints": [
+        "Arm",
+        "Shirt",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Hemline",
+      "hints": [
+        "Bottom",
+        "Skirt",
+        "Length"
+      ]
+    },
+    {
+      "word": "Silhouette",
+      "hints": [
+        "Shape",
+        "Outline",
+        "Style"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,968 @@
+{
+  "id": "music",
+  "name": "Music",
+  "emoji": "🎵",
+  "description": "Artists, genres, and instruments",
+  "words": [
+    {
+      "word": "Guitar",
+      "hints": [
+        "Strings",
+        "Strum",
+        "Frets"
+      ]
+    },
+    {
+      "word": "Piano",
+      "hints": [
+        "Keys",
+        "Grand",
+        "Pedals"
+      ]
+    },
+    {
+      "word": "Drums",
+      "hints": [
+        "Sticks",
+        "Snare",
+        "Kick"
+      ]
+    },
+    {
+      "word": "Bass",
+      "hints": [
+        "Low",
+        "Four",
+        "Groove"
+      ]
+    },
+    {
+      "word": "Violin",
+      "hints": [
+        "Bow",
+        "Chin",
+        "Orchestra"
+      ]
+    },
+    {
+      "word": "Cello",
+      "hints": [
+        "Bow",
+        "Seated",
+        "Large"
+      ]
+    },
+    {
+      "word": "Flute",
+      "hints": [
+        "Woodwind",
+        "Blow",
+        "Silver"
+      ]
+    },
+    {
+      "word": "Trumpet",
+      "hints": [
+        "Brass",
+        "Valves",
+        "Jazz"
+      ]
+    },
+    {
+      "word": "Saxophone",
+      "hints": [
+        "Jazz",
+        "Brass",
+        "Reed"
+      ]
+    },
+    {
+      "word": "Microphone",
+      "hints": [
+        "Sing",
+        "Stand",
+        "Vocal"
+      ]
+    },
+    {
+      "word": "Synthesizer",
+      "hints": [
+        "Electronic",
+        "Keys",
+        "Knobs"
+      ]
+    },
+    {
+      "word": "Turntable",
+      "hints": [
+        "Vinyl",
+        "Scratch",
+        "DJ"
+      ]
+    },
+    {
+      "word": "The Beatles",
+      "hints": [
+        "John",
+        "Paul",
+        "Abbey"
+      ]
+    },
+    {
+      "word": "Elvis Presley",
+      "hints": [
+        "King",
+        "Rock",
+        "Hips"
+      ]
+    },
+    {
+      "word": "Michael Jackson",
+      "hints": [
+        "Moonwalk",
+        "Thriller",
+        "Pop"
+      ]
+    },
+    {
+      "word": "Madonna",
+      "hints": [
+        "Material",
+        "Girl",
+        "Pop"
+      ]
+    },
+    {
+      "word": "Queen",
+      "hints": [
+        "Bohemian",
+        "Freddie",
+        "Rock"
+      ]
+    },
+    {
+      "word": "David Bowie",
+      "hints": [
+        "Starman",
+        "Ziggy",
+        "Space"
+      ]
+    },
+    {
+      "word": "Prince",
+      "hints": [
+        "Purple",
+        "Rain",
+        "Symbol"
+      ]
+    },
+    {
+      "word": "Elton John",
+      "hints": [
+        "Rocket",
+        "Glasses",
+        "Piano"
+      ]
+    },
+    {
+      "word": "Bob Dylan",
+      "hints": [
+        "Folk",
+        "Harmonica",
+        "Tambourine"
+      ]
+    },
+    {
+      "word": "Rolling Stones",
+      "hints": [
+        "Mick",
+        "Lips",
+        "Satisfaction"
+      ]
+    },
+    {
+      "word": "Led Zeppelin",
+      "hints": [
+        "Stairway",
+        "Rock",
+        "Blimp"
+      ]
+    },
+    {
+      "word": "Pink Floyd",
+      "hints": [
+        "Wall",
+        "Prism",
+        "Moon"
+      ]
+    },
+    {
+      "word": "Nirvana",
+      "hints": [
+        "Grunge",
+        "Teen",
+        "Spirit"
+      ]
+    },
+    {
+      "word": "Eminem",
+      "hints": [
+        "Rap",
+        "Slim",
+        "Shady"
+      ]
+    },
+    {
+      "word": "Tupac",
+      "hints": [
+        "Rap",
+        "Hologram",
+        "West"
+      ]
+    },
+    {
+      "word": "Biggie",
+      "hints": [
+        "Smalls",
+        "Notorious",
+        "Brooklyn"
+      ]
+    },
+    {
+      "word": "Jay-Z",
+      "hints": [
+        "Brooklyn",
+        "Empire",
+        "State"
+      ]
+    },
+    {
+      "word": "Kanye West",
+      "hints": [
+        "Yeezy",
+        "College",
+        "Dropout"
+      ]
+    },
+    {
+      "word": "Drake",
+      "hints": [
+        "Canadian",
+        "Views",
+        "Hotline"
+      ]
+    },
+    {
+      "word": "Kendrick Lamar",
+      "hints": [
+        "Compton",
+        "Pulitzer",
+        "DNA"
+      ]
+    },
+    {
+      "word": "Beyonce",
+      "hints": [
+        "Queen",
+        "Destiny",
+        "Lemonade"
+      ]
+    },
+    {
+      "word": "Rihanna",
+      "hints": [
+        "Umbrella",
+        "Diamonds",
+        "Fenty"
+      ]
+    },
+    {
+      "word": "Taylor Swift",
+      "hints": [
+        "Eras",
+        "Folklore",
+        "Red"
+      ]
+    },
+    {
+      "word": "Adele",
+      "hints": [
+        "Hello",
+        "British",
+        "Vocal"
+      ]
+    },
+    {
+      "word": "Ed Sheeran",
+      "hints": [
+        "Ginger",
+        "Loop",
+        "Math"
+      ]
+    },
+    {
+      "word": "Justin Bieber",
+      "hints": [
+        "Baby",
+        "Canadian",
+        "Purpose"
+      ]
+    },
+    {
+      "word": "Ariana Grande",
+      "hints": [
+        "Ponytail",
+        "Whistle",
+        "Thank"
+      ]
+    },
+    {
+      "word": "Lady Gaga",
+      "hints": [
+        "Meat",
+        "Dress",
+        "Poker"
+      ]
+    },
+    {
+      "word": "Katy Perry",
+      "hints": [
+        "Roar",
+        "Firework",
+        "Shark"
+      ]
+    },
+    {
+      "word": "Billie Eilish",
+      "hints": [
+        "Green",
+        "Hair",
+        "Guy"
+      ]
+    },
+    {
+      "word": "The Weeknd",
+      "hints": [
+        "Blinding",
+        "Lights",
+        "Starboy"
+      ]
+    },
+    {
+      "word": "Bruno Mars",
+      "hints": [
+        "Uptown",
+        "Funk",
+        "Hooligans"
+      ]
+    },
+    {
+      "word": "Coldplay",
+      "hints": [
+        "Yellow",
+        "Stars",
+        "British"
+      ]
+    },
+    {
+      "word": "Maroon 5",
+      "hints": [
+        "Adam",
+        "Moves",
+        "Jagger"
+      ]
+    },
+    {
+      "word": "Imagine Dragons",
+      "hints": [
+        "Radioactive",
+        "Believer",
+        "Rock"
+      ]
+    },
+    {
+      "word": "Arctic Monkeys",
+      "hints": [
+        "British",
+        "Indie",
+        "Margarita"
+      ]
+    },
+    {
+      "word": "The Strokes",
+      "hints": [
+        "New",
+        "York",
+        "Garage"
+      ]
+    },
+    {
+      "word": "Radiohead",
+      "hints": [
+        "Creep",
+        "Computer",
+        "Yorke"
+      ]
+    },
+    {
+      "word": "Daft Punk",
+      "hints": [
+        "Helmets",
+        "French",
+        "Electronic"
+      ]
+    },
+    {
+      "word": "Skrillex",
+      "hints": [
+        "Dubstep",
+        "Drop",
+        "Hair"
+      ]
+    },
+    {
+      "word": "Calvin Harris",
+      "hints": [
+        "DJ",
+        "Summer",
+        "Vegas"
+      ]
+    },
+    {
+      "word": "Avicii",
+      "hints": [
+        "Levels",
+        "Swedish",
+        "DJ"
+      ]
+    },
+    {
+      "word": "David Guetta",
+      "hints": [
+        "Titanium",
+        "French",
+        "DJ"
+      ]
+    },
+    {
+      "word": "Metallica",
+      "hints": [
+        "Master",
+        "Puppets",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Iron Maiden",
+      "hints": [
+        "Eddie",
+        "Beast",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Black Sabbath",
+      "hints": [
+        "Ozzy",
+        "Doom",
+        "Bats"
+      ]
+    },
+    {
+      "word": "AC/DC",
+      "hints": [
+        "Thunder",
+        "School",
+        "Rock"
+      ]
+    },
+    {
+      "word": "Guns N Roses",
+      "hints": [
+        "Slash",
+        "Jungle",
+        "Rose"
+      ]
+    },
+    {
+      "word": "Red Hot Chili",
+      "hints": [
+        "Peppers",
+        "California",
+        "Socks"
+      ]
+    },
+    {
+      "word": "Foo Fighters",
+      "hints": [
+        "Dave",
+        "Grohl",
+        "Pretender"
+      ]
+    },
+    {
+      "word": "Green Day",
+      "hints": [
+        "Idiot",
+        "Punk",
+        "September"
+      ]
+    },
+    {
+      "word": "Blink-182",
+      "hints": [
+        "Small",
+        "Things",
+        "Punk"
+      ]
+    },
+    {
+      "word": "My Chemical",
+      "hints": [
+        "Romance",
+        "Parade",
+        "Emo"
+      ]
+    },
+    {
+      "word": "Fall Out Boy",
+      "hints": [
+        "Sugar",
+        "Dance",
+        "Emo"
+      ]
+    },
+    {
+      "word": "Paramore",
+      "hints": [
+        "Misery",
+        "Business",
+        "Hayley"
+      ]
+    },
+    {
+      "word": "Panic At The",
+      "hints": [
+        "Disco",
+        "Sins",
+        "Brendon"
+      ]
+    },
+    {
+      "word": "Twenty One Pilots",
+      "hints": [
+        "Stressed",
+        "Out",
+        "Blurryface"
+      ]
+    },
+    {
+      "word": "Gorillaz",
+      "hints": [
+        "Virtual",
+        "Band",
+        "Apes"
+      ]
+    },
+    {
+      "word": "Tame Impala",
+      "hints": [
+        "Australian",
+        "Psychedelic",
+        "Kevin"
+      ]
+    },
+    {
+      "word": "Frank Ocean",
+      "hints": [
+        "Blonde",
+        "R&B",
+        "Channel"
+      ]
+    },
+    {
+      "word": "Tyler The Creator",
+      "hints": [
+        "Igor",
+        "Golf",
+        "Wang"
+      ]
+    },
+    {
+      "word": "Childish Gambino",
+      "hints": [
+        "America",
+        "Donald",
+        "Glover"
+      ]
+    },
+    {
+      "word": "J. Cole",
+      "hints": [
+        "Fayetteville",
+        "Platinum",
+        "Features"
+      ]
+    },
+    {
+      "word": "Travis Scott",
+      "hints": [
+        "Astroworld",
+        "Sicko",
+        "Mode"
+      ]
+    },
+    {
+      "word": "Post Malone",
+      "hints": [
+        "Tattoos",
+        "Circles",
+        "White"
+      ]
+    },
+    {
+      "word": "Lil Nas X",
+      "hints": [
+        "Old",
+        "Town",
+        "Road"
+      ]
+    },
+    {
+      "word": "Megan Thee",
+      "hints": [
+        "Stallion",
+        "Savage",
+        "Knees"
+      ]
+    },
+    {
+      "word": "Cardi B",
+      "hints": [
+        "Bodak",
+        "Yellow",
+        "WAP"
+      ]
+    },
+    {
+      "word": "Nicki Minaj",
+      "hints": [
+        "Anaconda",
+        "Pink",
+        "Barbz"
+      ]
+    },
+    {
+      "word": "Doja Cat",
+      "hints": [
+        "Say",
+        "So",
+        "Cow"
+      ]
+    },
+    {
+      "word": "Dua Lipa",
+      "hints": [
+        "Levitating",
+        "Rules",
+        "Future"
+      ]
+    },
+    {
+      "word": "Olivia Rodrigo",
+      "hints": [
+        "License",
+        "Sour",
+        "Driver"
+      ]
+    },
+    {
+      "word": "Harry Styles",
+      "hints": [
+        "Watermelon",
+        "Sugar",
+        "Direction"
+      ]
+    },
+    {
+      "word": "BTS",
+      "hints": [
+        "K-Pop",
+        "Army",
+        "Dynamite"
+      ]
+    },
+    {
+      "word": "Blackpink",
+      "hints": [
+        "K-Pop",
+        "Area",
+        "Venom"
+      ]
+    },
+    {
+      "word": "Bad Bunny",
+      "hints": [
+        "Reggaeton",
+        "Puerto",
+        "Rico"
+      ]
+    },
+    {
+      "word": "J Balvin",
+      "hints": [
+        "Mi",
+        "Gente",
+        "Reggaeton"
+      ]
+    },
+    {
+      "word": "Rosalia",
+      "hints": [
+        "Motomami",
+        "Spanish",
+        "Flamenco"
+      ]
+    },
+    {
+      "word": "Jazz",
+      "hints": [
+        "Improv",
+        "Swing",
+        "Brass"
+      ]
+    },
+    {
+      "word": "Blues",
+      "hints": [
+        "Sad",
+        "Mississippi",
+        "Guitar"
+      ]
+    },
+    {
+      "word": "Country",
+      "hints": [
+        "Boots",
+        "Truck",
+        "Twang"
+      ]
+    },
+    {
+      "word": "Hip Hop",
+      "hints": [
+        "Rap",
+        "Beats",
+        "MC"
+      ]
+    },
+    {
+      "word": "R&B",
+      "hints": [
+        "Rhythm",
+        "Soul",
+        "Vocals"
+      ]
+    },
+    {
+      "word": "Rock",
+      "hints": [
+        "Roll",
+        "Guitars",
+        "Loud"
+      ]
+    },
+    {
+      "word": "Pop",
+      "hints": [
+        "Charts",
+        "Catchy",
+        "Mainstream"
+      ]
+    },
+    {
+      "word": "Classical",
+      "hints": [
+        "Orchestra",
+        "Symphony",
+        "Mozart"
+      ]
+    },
+    {
+      "word": "Electronic",
+      "hints": [
+        "Synths",
+        "Dance",
+        "Beats"
+      ]
+    },
+    {
+      "word": "Reggae",
+      "hints": [
+        "Jamaica",
+        "Bob",
+        "Marley"
+      ]
+    },
+    {
+      "word": "Folk",
+      "hints": [
+        "Acoustic",
+        "Story",
+        "Traditional"
+      ]
+    },
+    {
+      "word": "Punk",
+      "hints": [
+        "Fast",
+        "Rebel",
+        "Loud"
+      ]
+    },
+    {
+      "word": "Metal",
+      "hints": [
+        "Heavy",
+        "Scream",
+        "Distortion"
+      ]
+    },
+    {
+      "word": "Disco",
+      "hints": [
+        "Ball",
+        "Dance",
+        "70s"
+      ]
+    },
+    {
+      "word": "Funk",
+      "hints": [
+        "Groove",
+        "Bass",
+        "Slap"
+      ]
+    },
+    {
+      "word": "Soul",
+      "hints": [
+        "Vocals",
+        "Motown",
+        "Emotion"
+      ]
+    },
+    {
+      "word": "Gospel",
+      "hints": [
+        "Church",
+        "Choir",
+        "Praise"
+      ]
+    },
+    {
+      "word": "Opera",
+      "hints": [
+        "Vocal",
+        "Italian",
+        "Theater"
+      ]
+    },
+    {
+      "word": "Symphony",
+      "hints": [
+        "Orchestra",
+        "Movements",
+        "Conductor"
+      ]
+    },
+    {
+      "word": "Chorus",
+      "hints": [
+        "Singers",
+        "Group",
+        "Refrain"
+      ]
+    },
+    {
+      "word": "Acapella",
+      "hints": [
+        "No",
+        "Instruments",
+        "Pitch"
+      ]
+    },
+    {
+      "word": "Tempo",
+      "hints": [
+        "Speed",
+        "BPM",
+        "Fast"
+      ]
+    },
+    {
+      "word": "Rhythm",
+      "hints": [
+        "Beat",
+        "Groove",
+        "Timing"
+      ]
+    },
+    {
+      "word": "Melody",
+      "hints": [
+        "Tune",
+        "Sing",
+        "Main"
+      ]
+    },
+    {
+      "word": "Harmony",
+      "hints": [
+        "Chords",
+        "Together",
+        "Voices"
+      ]
+    },
+    {
+      "word": "Chord",
+      "hints": [
+        "Notes",
+        "Together",
+        "Guitar"
+      ]
+    },
+    {
+      "word": "Scale",
+      "hints": [
+        "Notes",
+        "Order",
+        "Practice"
+      ]
+    },
+    {
+      "word": "Octave",
+      "hints": [
+        "Eight",
+        "Notes",
+        "Higher"
+      ]
+    },
+    {
+      "word": "Treble",
+      "hints": [
+        "Clef",
+        "High",
+        "Staff"
+      ]
+    },
+    {
+      "word": "Bass Clef",
+      "hints": [
+        "Low",
+        "Staff",
+        "Notes"
+      ]
+    }
+  ]
+}

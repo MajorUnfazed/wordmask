@@ -2,406 +2,958 @@
   "id": "movies",
   "name": "Movies",
   "emoji": "🎬",
-  "description": "Iconic films and cinematic moments",
+  "description": "Cinema, blockbusters, and film tropes",
   "words": [
     {
-      "word": "Inception",
+      "word": "The Godfather",
       "hints": [
-        "dreams",
-        "within",
-        "heist"
+        "Mafia",
+        "Corleone",
+        "Offer"
+      ]
+    },
+    {
+      "word": "Star Wars",
+      "hints": [
+        "Jedi",
+        "Force",
+        "Vader"
+      ]
+    },
+    {
+      "word": "Jurassic Park",
+      "hints": [
+        "Dinosaurs",
+        "Amber",
+        "Rex"
       ]
     },
     {
       "word": "Titanic",
       "hints": [
-        "doomed",
-        "ocean",
-        "liner"
+        "Ship",
+        "Iceberg",
+        "Jack"
       ]
     },
     {
       "word": "The Matrix",
       "hints": [
-        "red",
-        "pill",
-        "blue"
+        "Neo",
+        "Pills",
+        "Simulation"
       ]
     },
     {
-      "word": "Parasite",
+      "word": "Inception",
       "hints": [
-        "south",
-        "korean",
-        "oscar"
+        "Dreams",
+        "Top",
+        "Spinning"
       ]
     },
     {
-      "word": "Interstellar",
+      "word": "Avatar",
       "hints": [
-        "wormhole",
-        "space",
-        "odyssey"
+        "Blue",
+        "Pandora",
+        "Navi"
       ]
     },
     {
-      "word": "Spirited Away",
+      "word": "Avengers",
       "hints": [
-        "studio",
-        "ghibli",
-        "spirit"
+        "Assemble",
+        "Marvel",
+        "Thanos"
       ]
     },
     {
-      "word": "The Godfather",
+      "word": "Harry Potter",
       "hints": [
-        "corleone",
-        "family",
-        "crime"
+        "Wizard",
+        "Hogwarts",
+        "Scar"
+      ]
+    },
+    {
+      "word": "Lord of the Rings",
+      "hints": [
+        "Hobbits",
+        "Ring",
+        "Mordor"
       ]
     },
     {
       "word": "Pulp Fiction",
       "hints": [
-        "tarantino",
-        "interwoven",
-        "crime"
+        "Tarantino",
+        "Briefcase",
+        "Dance"
       ]
     },
     {
-      "word": "Avengers: Endgame",
+      "word": "Forrest Gump",
       "hints": [
-        "mcu",
-        "final",
-        "showdown"
+        "Chocolates",
+        "Run",
+        "Jenny"
       ]
     },
     {
-      "word": "Joker",
+      "word": "Fight Club",
       "hints": [
-        "phoenix's",
-        "origin",
-        "story"
+        "Rules",
+        "Soap",
+        "Tyler"
       ]
     },
     {
-      "word": "Get Out",
+      "word": "The Shining",
       "hints": [
-        "jordan",
-        "peele's",
-        "race"
+        "Axe",
+        "Twins",
+        "Hotel"
       ]
     },
     {
-      "word": "Mad Max: Fury Road",
+      "word": "Jaws",
       "hints": [
-        "post",
-        "apocalyptic",
-        "car"
+        "Shark",
+        "Boat",
+        "Teeth"
       ]
     },
     {
-      "word": "Everything Everywhere All at Once",
+      "word": "E.T.",
       "hints": [
-        "multiverse",
-        "laundromat",
-        "tax"
+        "Alien",
+        "Bicycle",
+        "Phone"
       ]
     },
     {
-      "word": "Blade Runner 2049",
+      "word": "Back to the Future",
       "hints": [
-        "neo",
-        "noir",
-        "sequel"
+        "DeLorean",
+        "Marty",
+        "Time"
       ]
     },
     {
-      "word": "Hereditary",
+      "word": "Indiana Jones",
       "hints": [
-        "graham",
-        "family",
-        "grief"
+        "Whip",
+        "Fedora",
+        "Boulder"
       ]
     },
     {
-      "word": "The Grand Budapest Hotel",
+      "word": "Terminator",
       "hints": [
-        "wes",
-        "anderson",
-        "colourful"
+        "Robot",
+        "Arnold",
+        "Back"
       ]
     },
     {
-      "word": "Requiem for a Dream",
+      "word": "Die Hard",
       "hints": [
-        "aronofsky",
-        "portrait",
-        "addiction"
+        "Nakatomi",
+        "Vent",
+        "Christmas"
       ]
     },
     {
-      "word": "Whiplash",
+      "word": "Rocky",
       "hints": [
-        "ruthless",
-        "jazz",
-        "drumming"
+        "Boxing",
+        "Steps",
+        "Adrian"
       ]
     },
     {
-      "word": "The Dark Knight",
+      "word": "Alien",
       "hints": [
-        "heath",
-        "ledger's",
-        "iconic"
+        "Chestburster",
+        "Space",
+        "Ripley"
       ]
     },
     {
-      "word": "Her",
+      "word": "Ghostbusters",
       "hints": [
-        "man",
-        "falls",
-        "love"
+        "Proton",
+        "Slime",
+        "Marshmallow"
       ]
     },
     {
-      "word": "Moonlight",
+      "word": "Blade Runner",
       "hints": [
-        "three",
-        "chapter",
-        "portrait"
+        "Replicants",
+        "Tears",
+        "Rain"
       ]
     },
     {
-      "word": "1917",
+      "word": "Mad Max",
       "hints": [
-        "wwi",
-        "single",
-        "shot"
+        "Wasteland",
+        "Cars",
+        "Fury"
       ]
     },
     {
-      "word": "Dune",
+      "word": "Gladiator",
       "hints": [
-        "desert",
-        "planet",
-        "sci"
+        "Arena",
+        "Maximus",
+        "Rome"
+      ]
+    },
+    {
+      "word": "Braveheart",
+      "hints": [
+        "Freedom",
+        "Kilt",
+        "Scotland"
+      ]
+    },
+    {
+      "word": "The Lion King",
+      "hints": [
+        "Simba",
+        "Pride",
+        "Mufasa"
       ]
     },
     {
       "word": "Toy Story",
       "hints": [
-        "first",
-        "pixar",
-        "feature"
+        "Woody",
+        "Buzz",
+        "Andy"
       ]
     },
     {
-      "word": "La La Land",
+      "word": "Finding Nemo",
       "hints": [
-        "los",
-        "angeles",
-        "jazz"
+        "Fish",
+        "Ocean",
+        "Dory"
       ]
     },
     {
-      "word": "Black Swan",
+      "word": "Shrek",
       "hints": [
-        "ballet",
-        "dancer",
-        "obsessed"
+        "Ogre",
+        "Donkey",
+        "Swamp"
       ]
     },
     {
-      "word": "The Shape of Water",
+      "word": "Frozen",
       "hints": [
-        "guillermo",
-        "del",
-        "toro's"
+        "Ice",
+        "Let",
+        "Snowman"
       ]
     },
     {
-      "word": "Knives Out",
+      "word": "Moana",
       "hints": [
-        "whodunit",
-        "detective",
-        "benoit"
+        "Ocean",
+        "Demigod",
+        "Wayfinder"
       ]
     },
     {
-      "word": "Roma",
+      "word": "Spider-Man",
       "hints": [
-        "alfonso",
-        "cuar",
-        "black"
+        "Web",
+        "Bite",
+        "Uncle"
       ]
     },
     {
-      "word": "No Country for Old Men",
+      "word": "Batman",
       "hints": [
-        "coen",
-        "brothers",
-        "unstoppable"
+        "Gotham",
+        "Joker",
+        "Cape"
       ]
     },
     {
-      "word": "Gone Girl",
+      "word": "Superman",
       "hints": [
-        "marriage",
-        "thriller",
-        "shocking"
+        "Krypton",
+        "Cape",
+        "Metropolis"
       ]
     },
     {
-      "word": "The Truman Show",
+      "word": "Wonder Woman",
       "hints": [
-        "man",
-        "discovers",
-        "his"
+        "Lasso",
+        "Amazon",
+        "Shield"
       ]
     },
     {
-      "word": "Shutter Island",
+      "word": "X-Men",
       "hints": [
-        "dicaprio",
-        "investigates",
-        "asylum"
+        "Mutants",
+        "Wolverine",
+        "School"
       ]
     },
     {
-      "word": "Midsommar",
+      "word": "Joker",
       "hints": [
-        "swedish",
-        "folk",
-        "horror"
+        "Clown",
+        "Stairs",
+        "Society"
       ]
     },
     {
-      "word": "Oldboy",
+      "word": "Deadpool",
       "hints": [
-        "korean",
-        "revenge",
-        "mystery"
+        "Fourth",
+        "Wall",
+        "Chimichangas"
       ]
     },
     {
-      "word": "Ex Machina",
+      "word": "Black Panther",
       "hints": [
-        "programmer",
-        "tests",
-        "artificial"
+        "Wakanda",
+        "Vibranium",
+        "King"
       ]
     },
     {
-      "word": "A Quiet Place",
+      "word": "Iron Man",
       "hints": [
-        "family",
-        "survives",
-        "blind"
+        "Suit",
+        "Stark",
+        "Arc"
       ]
     },
     {
-      "word": "Portrait of a Lady on Fire",
+      "word": "Captain America",
       "hints": [
-        "forbidden",
-        "love",
-        "between"
+        "Shield",
+        "Ice",
+        "Steve"
       ]
     },
     {
-      "word": "Train to Busan",
+      "word": "Thor",
       "hints": [
-        "korean",
-        "zombie",
-        "outbreak"
+        "Hammer",
+        "Lightning",
+        "Asgard"
       ]
     },
     {
-      "word": "Soul",
+      "word": "Guardians",
       "hints": [
-        "pixar",
-        "film",
-        "exploring"
+        "Galaxy",
+        "Tree",
+        "Raccoon"
       ]
     },
     {
-      "word": "The Witch",
+      "word": "James Bond",
       "hints": [
-        "puritan",
-        "family",
-        "terrorised"
+        "Spy",
+        "Martini",
+        "007"
       ]
     },
     {
-      "word": "Annihilation",
+      "word": "Mission Impossible",
       "hints": [
-        "scientists",
-        "enter",
-        "mysterious"
+        "Cruise",
+        "Stunts",
+        "Masks"
       ]
     },
     {
-      "word": "Prisoners",
+      "word": "Fast and Furious",
       "hints": [
-        "father",
-        "takes",
-        "justice"
+        "Family",
+        "Cars",
+        "Racing"
+      ]
+    },
+    {
+      "word": "Transformers",
+      "hints": [
+        "Autobots",
+        "Disguise",
+        "Robots"
+      ]
+    },
+    {
+      "word": "Pirates",
+      "hints": [
+        "Caribbean",
+        "Sparrow",
+        "Ship"
+      ]
+    },
+    {
+      "word": "The Hunger Games",
+      "hints": [
+        "Mockingjay",
+        "Katniss",
+        "District"
+      ]
+    },
+    {
+      "word": "Twilight",
+      "hints": [
+        "Vampires",
+        "Sparkle",
+        "Bella"
+      ]
+    },
+    {
+      "word": "The Hobbit",
+      "hints": [
+        "Bilbo",
+        "Dragon",
+        "Dwarves"
+      ]
+    },
+    {
+      "word": "Dune",
+      "hints": [
+        "Spice",
+        "Sandworm",
+        "Arrakis"
+      ]
+    },
+    {
+      "word": "Interstellar",
+      "hints": [
+        "Black",
+        "Hole",
+        "Time"
+      ]
+    },
+    {
+      "word": "Gravity",
+      "hints": [
+        "Space",
+        "Debris",
+        "Tether"
+      ]
+    },
+    {
+      "word": "The Martian",
+      "hints": [
+        "Potatoes",
+        "Mars",
+        "Duct"
       ]
     },
     {
       "word": "Arrival",
       "hints": [
-        "linguist",
-        "deciphers",
-        "alien"
+        "Language",
+        "Aliens",
+        "Circular"
       ]
     },
     {
-      "word": "Burning",
+      "word": "Blade Runner 2049",
       "hints": [
-        "korean",
-        "drama",
-        "social"
+        "Hologram",
+        "Gosling",
+        "Snow"
       ]
     },
     {
-      "word": "Uncut Gems",
+      "word": "Mad Max Fury Road",
       "hints": [
-        "sadie's",
-        "frantic",
-        "gambling"
+        "Valhalla",
+        "Guitar",
+        "Desert"
+      ]
+    },
+    {
+      "word": "Parasite",
+      "hints": [
+        "Basement",
+        "Rich",
+        "Poor"
+      ]
+    },
+    {
+      "word": "Everything Everywhere",
+      "hints": [
+        "Bagel",
+        "Multiverse",
+        "Fingers"
+      ]
+    },
+    {
+      "word": "La La Land",
+      "hints": [
+        "Musical",
+        "Jazz",
+        "Stars"
+      ]
+    },
+    {
+      "word": "Whiplash",
+      "hints": [
+        "Drums",
+        "Tempo",
+        "Rush"
+      ]
+    },
+    {
+      "word": "Birdman",
+      "hints": [
+        "Theater",
+        "Take",
+        "Wings"
+      ]
+    },
+    {
+      "word": "The Revenant",
+      "hints": [
+        "Bear",
+        "Snow",
+        "Leo"
+      ]
+    },
+    {
+      "word": "Jojo Rabbit",
+      "hints": [
+        "Hitler",
+        "Shoes",
+        "Camp"
+      ]
+    },
+    {
+      "word": "Get Out",
+      "hints": [
+        "Sunken",
+        "Place",
+        "Tea"
+      ]
+    },
+    {
+      "word": "Us",
+      "hints": [
+        "Tethered",
+        "Scissors",
+        "Red"
+      ]
+    },
+    {
+      "word": "Nope",
+      "hints": [
+        "Cloud",
+        "UFO",
+        "Horses"
+      ]
+    },
+    {
+      "word": "Hereditary",
+      "hints": [
+        "Head",
+        "Treehouse",
+        "Click"
+      ]
+    },
+    {
+      "word": "Midsommar",
+      "hints": [
+        "Flower",
+        "Crown",
+        "Cult"
+      ]
+    },
+    {
+      "word": "The Witch",
+      "hints": [
+        "Goat",
+        "Butter",
+        "Puritan"
       ]
     },
     {
       "word": "The Lighthouse",
       "hints": [
-        "two",
-        "keepers",
-        "mad"
+        "Gull",
+        "Beans",
+        "Mermaid"
       ]
     },
     {
-      "word": "Chinatown",
+      "word": "Uncut Gems",
       "hints": [
-        "1970s",
-        "neo",
-        "noir"
+        "Opal",
+        "Bet",
+        "Adam"
       ]
     },
     {
-      "word": "2001: A Space Odyssey",
+      "word": "Goodfellas",
       "hints": [
-        "kubrick's",
-        "monolith",
-        "hal"
+        "Mob",
+        "Funny",
+        "Pasta"
       ]
     },
     {
-      "word": "City of God",
+      "word": "Casino",
       "hints": [
-        "rio",
-        "janeiro",
-        "favela"
+        "Vegas",
+        "Mob",
+        "Desert"
+      ]
+    },
+    {
+      "word": "The Wolf of Wall Street",
+      "hints": [
+        "Stocks",
+        "Quaaludes",
+        "Chest"
+      ]
+    },
+    {
+      "word": "Catch Me If You Can",
+      "hints": [
+        "Pilot",
+        "Checks",
+        "Chase"
+      ]
+    },
+    {
+      "word": "Schindlers List",
+      "hints": [
+        "Red",
+        "Coat",
+        "Factory"
+      ]
+    },
+    {
+      "word": "Saving Private Ryan",
+      "hints": [
+        "Beach",
+        "Brother",
+        "Normandy"
+      ]
+    },
+    {
+      "word": "Amadeus",
+      "hints": [
+        "Mozart",
+        "Salieri",
+        "Laugh"
+      ]
+    },
+    {
+      "word": "A Clockwork Orange",
+      "hints": [
+        "Milk",
+        "Eyes",
+        "Beethoven"
+      ]
+    },
+    {
+      "word": "2001 A Space Odyssey",
+      "hints": [
+        "Monolith",
+        "HAL",
+        "Bone"
+      ]
+    },
+    {
+      "word": "The Truman Show",
+      "hints": [
+        "Dome",
+        "TV",
+        "Morning"
+      ]
+    },
+    {
+      "word": "Eternal Sunshine",
+      "hints": [
+        "Memory",
+        "Erase",
+        "Ice"
+      ]
+    },
+    {
+      "word": "Her",
+      "hints": [
+        "AI",
+        "OS",
+        "Voice"
+      ]
+    },
+    {
+      "word": "Ex Machina",
+      "hints": [
+        "Robot",
+        "Turing",
+        "Dance"
+      ]
+    },
+    {
+      "word": "The Social Network",
+      "hints": [
+        "Facebook",
+        "Harvard",
+        "Code"
+      ]
+    },
+    {
+      "word": "Zodiac",
+      "hints": [
+        "Cipher",
+        "San",
+        "Francisco"
+      ]
+    },
+    {
+      "word": "Se7en",
+      "hints": [
+        "Box",
+        "Sins",
+        "Rain"
+      ]
+    },
+    {
+      "word": "Silence of the Lambs",
+      "hints": [
+        "Lecter",
+        "Moth",
+        "Fava"
+      ]
+    },
+    {
+      "word": "Psycho",
+      "hints": [
+        "Shower",
+        "Motel",
+        "Mother"
+      ]
+    },
+    {
+      "word": "Vertigo",
+      "hints": [
+        "Tower",
+        "Heights",
+        "Swirl"
+      ]
+    },
+    {
+      "word": "Rear Window",
+      "hints": [
+        "Cast",
+        "Binoculars",
+        "Neighbor"
+      ]
+    },
+    {
+      "word": "North by Northwest",
+      "hints": [
+        "Crop",
+        "Duster",
+        "Rushmore"
+      ]
+    },
+    {
+      "word": "Casablanca",
+      "hints": [
+        "Piano",
+        "Paris",
+        "Airport"
+      ]
+    },
+    {
+      "word": "Citizen Kane",
+      "hints": [
+        "Rosebud",
+        "Sled",
+        "Newspaper"
+      ]
+    },
+    {
+      "word": "Gone with the Wind",
+      "hints": [
+        "Tara",
+        "Frankly",
+        "Curtain"
+      ]
+    },
+    {
+      "word": "The Wizard of Oz",
+      "hints": [
+        "Tornado",
+        "Shoes",
+        "Yellow"
+      ]
+    },
+    {
+      "word": "Singin in the Rain",
+      "hints": [
+        "Umbrella",
+        "Puddle",
+        "Musical"
+      ]
+    },
+    {
+      "word": "Some Like It Hot",
+      "hints": [
+        "Drag",
+        "Band",
+        "Train"
+      ]
+    },
+    {
+      "word": "12 Angry Men",
+      "hints": [
+        "Jury",
+        "Room",
+        "Guilty"
+      ]
+    },
+    {
+      "word": "To Kill a Mockingbird",
+      "hints": [
+        "Atticus",
+        "Scout",
+        "Trial"
+      ]
+    },
+    {
+      "word": "The Good, the Bad",
+      "hints": [
+        "Ugly",
+        "Standoff",
+        "Gold"
+      ]
+    },
+    {
+      "word": "Once Upon a Time",
+      "hints": [
+        "West",
+        "Harmonica",
+        "Revenge"
+      ]
+    },
+    {
+      "word": "Taxi Driver",
+      "hints": [
+        "Mohawk",
+        "Mirror",
+        "Cab"
+      ]
+    },
+    {
+      "word": "Raging Bull",
+      "hints": [
+        "Boxer",
+        "Weight",
+        "Brother"
+      ]
+    },
+    {
+      "word": "Apocalypse Now",
+      "hints": [
+        "Napalm",
+        "Smell",
+        "River"
+      ]
+    },
+    {
+      "word": "The Deer Hunter",
+      "hints": [
+        "Roulette",
+        "Vietnam",
+        "Wedding"
+      ]
+    },
+    {
+      "word": "Platoon",
+      "hints": [
+        "Knees",
+        "Arms",
+        "Jungle"
+      ]
+    },
+    {
+      "word": "Full Metal Jacket",
+      "hints": [
+        "Drill",
+        "Instructor",
+        "Helmet"
+      ]
+    },
+    {
+      "word": "The Big Lebowski",
+      "hints": [
+        "Rug",
+        "Bowling",
+        "Dude"
+      ]
+    },
+    {
+      "word": "Fargo",
+      "hints": [
+        "Woodchipper",
+        "Snow",
+        "Minnesota"
+      ]
+    },
+    {
+      "word": "No Country for Old Men",
+      "hints": [
+        "Coin",
+        "Toss",
+        "Air"
+      ]
+    },
+    {
+      "word": "There Will Be Blood",
+      "hints": [
+        "Milkshake",
+        "Oil",
+        "Bowling"
+      ]
+    },
+    {
+      "word": "Boogie Nights",
+      "hints": [
+        "Porn",
+        "Roller",
+        "70s"
+      ]
+    },
+    {
+      "word": "Magnolia",
+      "hints": [
+        "Frogs",
+        "Rain",
+        "Interconnected"
+      ]
+    },
+    {
+      "word": "Punch-Drunk Love",
+      "hints": [
+        "Pudding",
+        "Harmonium",
+        "Suit"
       ]
     }
   ]

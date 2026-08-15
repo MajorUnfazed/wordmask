@@ -1,247 +1,967 @@
 {
   "id": "professions",
   "name": "Professions",
-  "emoji": "👷",
-  "description": "Jobs, careers, and occupations",
+  "emoji": "💼",
+  "description": "Careers, trades, and occupations",
   "words": [
     {
-      "word": "Actuary",
+      "word": "Doctor",
       "hints": [
-        "uses",
-        "statistics",
-        "assess"
+        "Heals sick",
+        "Medical degree",
+        "Prescribes meds"
       ]
     },
     {
-      "word": "Sommelier",
+      "word": "Nurse",
       "hints": [
-        "wine",
-        "expert",
-        "advises"
+        "Assists doctor",
+        "Patient care",
+        "Hospital worker"
       ]
     },
     {
-      "word": "Taxidermist",
+      "word": "Engineer",
       "hints": [
-        "preserves",
-        "mounts",
-        "animal"
+        "Builds things",
+        "Math heavy",
+        "Design structures"
       ]
     },
     {
-      "word": "Cryptographer",
+      "word": "Teacher",
       "hints": [
-        "designs",
-        "breaks",
-        "secret"
+        "Educates youth",
+        "Grading papers",
+        "School instructor"
       ]
     },
     {
-      "word": "Demographer",
+      "word": "Police",
       "hints": [
-        "statistician",
-        "studies",
-        "population"
+        "Catches thieves",
+        "Law enforcer",
+        "Wears badge"
       ]
     },
     {
-      "word": "Epidemiologist",
+      "word": "Firefighter",
       "hints": [
-        "studies",
-        "spread",
-        "control"
+        "Extinguishes flames",
+        "Rescues cats",
+        "Drives red"
       ]
     },
     {
-      "word": "UX Designer",
+      "word": "Pilot",
       "hints": [
-        "makes",
-        "products",
-        "intuitive"
+        "Flies planes",
+        "Aviation expert",
+        "Cockpit seat"
       ]
     },
     {
-      "word": "Marine Biologist",
+      "word": "Chef",
       "hints": [
-        "studies",
-        "life",
-        "oceans"
+        "Cooks meals",
+        "Kitchen boss",
+        "Wears toque"
       ]
     },
     {
-      "word": "Forensic Accountant",
+      "word": "Baker",
       "hints": [
-        "investigates",
-        "financial",
-        "fraud"
+        "Makes bread",
+        "Kneads dough",
+        "Oven user"
       ]
     },
     {
-      "word": "Lobbyist",
+      "word": "Artist",
       "hints": [
-        "advocates",
-        "politicians",
-        "behalf"
+        "Paints canvas",
+        "Creative mind",
+        "Mixes colors"
       ]
     },
     {
-      "word": "Docent",
+      "word": "Actor",
       "hints": [
-        "volunteer",
-        "guide",
-        "leads"
+        "Performs stage",
+        "Movie star",
+        "Reads scripts"
       ]
     },
     {
-      "word": "Ethical Hacker",
+      "word": "Singer",
       "hints": [
-        "paid",
-        "find",
-        "security"
+        "Vocal talent",
+        "Musical voice",
+        "Holds mic"
       ]
     },
     {
-      "word": "Curator",
+      "word": "Dancer",
       "hints": [
-        "manages",
-        "interprets",
-        "collection"
+        "Moves rhythmically",
+        "Ballet steps",
+        "Choreography expert"
       ]
     },
     {
-      "word": "Urban Planner",
+      "word": "Writer",
       "hints": [
-        "designs",
-        "layout",
-        "cities"
+        "Pens books",
+        "Author novels",
+        "Types words"
       ]
     },
     {
-      "word": "Arborist",
+      "word": "Poet",
       "hints": [
-        "specialist",
-        "care",
-        "maintenance"
+        "Rhymes words",
+        "Writes stanzas",
+        "Literary artist"
       ]
     },
     {
-      "word": "Palaeontologist",
+      "word": "Musician",
       "hints": [
-        "studies",
-        "prehistoric",
-        "life"
+        "Plays instruments",
+        "Reads notes",
+        "Band member"
       ]
     },
     {
-      "word": "Podcast Producer",
+      "word": "Plumber",
       "hints": [
-        "plans",
-        "records",
-        "edits"
+        "Fixes pipes",
+        "Unclogs drains",
+        "Wrenches used"
       ]
     },
     {
-      "word": "Interpreter",
+      "word": "Electrician",
       "hints": [
-        "translates",
-        "spoken",
-        "signed"
+        "Wires houses",
+        "Fixes circuits",
+        "Handles currents"
       ]
     },
     {
-      "word": "Air Traffic Controller",
+      "word": "Carpenter",
       "hints": [
-        "directs",
-        "aircraft",
-        "movements"
+        "Works wood",
+        "Builds furniture",
+        "Saws boards"
       ]
     },
     {
-      "word": "Dramaturge",
+      "word": "Mechanic",
       "hints": [
-        "provides",
-        "literary",
-        "conceptual"
+        "Repairs cars",
+        "Engine expert",
+        "Fixes brakes"
       ]
     },
     {
-      "word": "Meteorologist",
+      "word": "Driver",
       "hints": [
-        "studies",
-        "forecasts",
-        "weather"
+        "Steers vehicle",
+        "Chauffeurs people",
+        "Road navigator"
       ]
     },
     {
-      "word": "Prosthetist",
+      "word": "Sailor",
       "hints": [
-        "designs",
-        "fits",
-        "artificial"
+        "Navigates seas",
+        "Boat crew",
+        "Ocean traveler"
       ]
     },
     {
-      "word": "Actuary",
+      "word": "Astronaut",
       "hints": [
-        "uses",
-        "maths",
-        "analyse"
+        "Space explorer",
+        "Wears spacesuit",
+        "Moon walker"
       ]
     },
     {
-      "word": "Zookeeper",
+      "word": "Scientist",
       "hints": [
-        "cares",
-        "animals",
-        "zoo"
+        "Conducts experiments",
+        "Lab coat",
+        "Research data"
       ]
     },
     {
-      "word": "Cartographer",
+      "word": "Biologist",
       "hints": [
-        "creates",
-        "studies",
-        "maps"
+        "Studies life",
+        "Examines cells",
+        "Nature expert"
+      ]
+    },
+    {
+      "word": "Chemist",
+      "hints": [
+        "Mixes potions",
+        "Lab tubes",
+        "Elements expert"
+      ]
+    },
+    {
+      "word": "Physicist",
+      "hints": [
+        "Studies forces",
+        "Math formulas",
+        "Gravity expert"
+      ]
+    },
+    {
+      "word": "Astronomer",
+      "hints": [
+        "Studies stars",
+        "Telescope user",
+        "Galaxy watcher"
+      ]
+    },
+    {
+      "word": "Geologist",
+      "hints": [
+        "Studies rocks",
+        "Earth expert",
+        "Fossil finder"
+      ]
+    },
+    {
+      "word": "Botanist",
+      "hints": [
+        "Studies plants",
+        "Flora expert",
+        "Green thumb"
+      ]
+    },
+    {
+      "word": "Zoologist",
+      "hints": [
+        "Studies animals",
+        "Fauna expert",
+        "Wildlife researcher"
+      ]
+    },
+    {
+      "word": "Veterinarian",
+      "hints": [
+        "Animal doctor",
+        "Pets healed",
+        "Treats dogs"
+      ]
+    },
+    {
+      "word": "Dentist",
+      "hints": [
+        "Cleans teeth",
+        "Fills cavities",
+        "Oral care"
+      ]
+    },
+    {
+      "word": "Surgeon",
+      "hints": [
+        "Operates patients",
+        "Scalpel user",
+        "Medical operations"
+      ]
+    },
+    {
+      "word": "Pharmacist",
+      "hints": [
+        "Dispenses meds",
+        "Drug expert",
+        "Pill counter"
       ]
     },
     {
       "word": "Optometrist",
       "hints": [
-        "tests",
-        "eyesight",
-        "prescribes"
+        "Eye doctor",
+        "Prescribes glasses",
+        "Vision checker"
       ]
     },
     {
-      "word": "Concierge",
+      "word": "Therapist",
       "hints": [
-        "hotel",
-        "attendant",
-        "arranges"
+        "Talks problems",
+        "Mental health",
+        "Counseling sessions"
       ]
     },
     {
-      "word": "Glassblower",
+      "word": "Psychiatrist",
       "hints": [
-        "shapes",
-        "molten",
-        "glass"
+        "Mental doctor",
+        "Prescribes therapy",
+        "Brain expert"
       ]
     },
     {
-      "word": "Quantum Engineer",
+      "word": "Psychologist",
       "hints": [
-        "builds",
-        "maintains",
-        "computing"
+        "Studies mind",
+        "Behavior expert",
+        "Therapy provider"
       ]
     },
     {
-      "word": "Stunt Double",
+      "word": "Lawyer",
       "hints": [
-        "performs",
-        "dangerous",
-        "scenes"
+        "Defends clients",
+        "Courtroom arguer",
+        "Legal counsel"
+      ]
+    },
+    {
+      "word": "Judge",
+      "hints": [
+        "Rules court",
+        "Wears robe",
+        "Gavel banger"
+      ]
+    },
+    {
+      "word": "Detective",
+      "hints": [
+        "Solves crimes",
+        "Finds clues",
+        "Investigates cases"
+      ]
+    },
+    {
+      "word": "Guard",
+      "hints": [
+        "Protects places",
+        "Security duty",
+        "Watches doors"
+      ]
+    },
+    {
+      "word": "Soldier",
+      "hints": [
+        "Fights wars",
+        "Army member",
+        "Military duty"
+      ]
+    },
+    {
+      "word": "General",
+      "hints": [
+        "Army leader",
+        "High rank",
+        "Commands troops"
+      ]
+    },
+    {
+      "word": "Captain",
+      "hints": [
+        "Ship boss",
+        "Team leader",
+        "Commands vessel"
+      ]
+    },
+    {
+      "word": "Mayor",
+      "hints": [
+        "City boss",
+        "Elected leader",
+        "Town official"
+      ]
+    },
+    {
+      "word": "Governor",
+      "hints": [
+        "State leader",
+        "Elected official",
+        "Runs province"
+      ]
+    },
+    {
+      "word": "President",
+      "hints": [
+        "Country leader",
+        "Head state",
+        "Elected chief"
+      ]
+    },
+    {
+      "word": "Senator",
+      "hints": [
+        "Law maker",
+        "Elected rep",
+        "Capitol worker"
+      ]
+    },
+    {
+      "word": "Congressman",
+      "hints": [
+        "House member",
+        "Votes laws",
+        "District rep"
+      ]
+    },
+    {
+      "word": "Diplomat",
+      "hints": [
+        "Foreign relations",
+        "Peace maker",
+        "Embassy worker"
+      ]
+    },
+    {
+      "word": "Ambassador",
+      "hints": [
+        "Top diplomat",
+        "Represents country",
+        "Foreign envoy"
+      ]
+    },
+    {
+      "word": "Clerk",
+      "hints": [
+        "Files papers",
+        "Office helper",
+        "Desk worker"
+      ]
+    },
+    {
+      "word": "Cashier",
+      "hints": [
+        "Rings purchases",
+        "Takes money",
+        "Store checkout"
+      ]
+    },
+    {
+      "word": "Banker",
+      "hints": [
+        "Handles money",
+        "Loans funds",
+        "Vault worker"
+      ]
+    },
+    {
+      "word": "Accountant",
+      "hints": [
+        "Crunches numbers",
+        "Taxes expert",
+        "Ledger keeper"
+      ]
+    },
+    {
+      "word": "Manager",
+      "hints": [
+        "Bosses team",
+        "Runs store",
+        "Oversees work"
+      ]
+    },
+    {
+      "word": "Executive",
+      "hints": [
+        "Corporate leader",
+        "Boardroom boss",
+        "CEO role"
+      ]
+    },
+    {
+      "word": "Secretary",
+      "hints": [
+        "Answers phones",
+        "Types memos",
+        "Office admin"
+      ]
+    },
+    {
+      "word": "Receptionist",
+      "hints": [
+        "Greets guests",
+        "Front desk",
+        "Takes calls"
+      ]
+    },
+    {
+      "word": "Assistant",
+      "hints": [
+        "Helps boss",
+        "Runs errands",
+        "Support staff"
+      ]
+    },
+    {
+      "word": "Consultant",
+      "hints": [
+        "Gives advice",
+        "Expert opinion",
+        "Hired help"
+      ]
+    },
+    {
+      "word": "Analyst",
+      "hints": [
+        "Studies data",
+        "Trends expert",
+        "Reports findings"
+      ]
+    },
+    {
+      "word": "Programmer",
+      "hints": [
+        "Writes code",
+        "Software maker",
+        "Typing scripts"
+      ]
+    },
+    {
+      "word": "Developer",
+      "hints": [
+        "Builds apps",
+        "Codes software",
+        "Tech creator"
+      ]
+    },
+    {
+      "word": "Designer",
+      "hints": [
+        "Creates layouts",
+        "Visual artist",
+        "UI expert"
+      ]
+    },
+    {
+      "word": "Architect",
+      "hints": [
+        "Designs buildings",
+        "Draws blueprints",
+        "Structure planner"
+      ]
+    },
+    {
+      "word": "Builder",
+      "hints": [
+        "Constructs houses",
+        "Hard hat",
+        "Erects walls"
+      ]
+    },
+    {
+      "word": "Mason",
+      "hints": [
+        "Lays bricks",
+        "Stone worker",
+        "Cement user"
+      ]
+    },
+    {
+      "word": "Welder",
+      "hints": [
+        "Melts metal",
+        "Sparks fly",
+        "Joins steel"
+      ]
+    },
+    {
+      "word": "Painter",
+      "hints": [
+        "Coats walls",
+        "Uses brushes",
+        "Colors rooms"
+      ]
+    },
+    {
+      "word": "Sculptor",
+      "hints": [
+        "Carves stone",
+        "Molds clay",
+        "Statue maker"
+      ]
+    },
+    {
+      "word": "Photographer",
+      "hints": [
+        "Takes snaps",
+        "Camera user",
+        "Captures moments"
+      ]
+    },
+    {
+      "word": "Videographer",
+      "hints": [
+        "Films movies",
+        "Records clips",
+        "Camera operator"
+      ]
+    },
+    {
+      "word": "Journalist",
+      "hints": [
+        "Reports news",
+        "Writes articles",
+        "Press pass"
+      ]
+    },
+    {
+      "word": "Reporter",
+      "hints": [
+        "Live news",
+        "On scene",
+        "Broadcasts facts"
+      ]
+    },
+    {
+      "word": "Anchor",
+      "hints": [
+        "Reads news",
+        "Desk broadcaster",
+        "TV host"
+      ]
+    },
+    {
+      "word": "Editor",
+      "hints": [
+        "Fixes text",
+        "Checks facts",
+        "Improves articles"
+      ]
+    },
+    {
+      "word": "Publisher",
+      "hints": [
+        "Prints books",
+        "Releases media",
+        "Issues magazines"
+      ]
+    },
+    {
+      "word": "Author",
+      "hints": [
+        "Writes books",
+        "Penning stories",
+        "Published writer"
+      ]
+    },
+    {
+      "word": "Librarian",
+      "hints": [
+        "Sorts books",
+        "Shushes loud",
+        "Manages stacks"
+      ]
+    },
+    {
+      "word": "Curator",
+      "hints": [
+        "Museum boss",
+        "Art manager",
+        "Exhibit planner"
+      ]
+    },
+    {
+      "word": "Historian",
+      "hints": [
+        "Studies past",
+        "Ancient events",
+        "Time expert"
+      ]
+    },
+    {
+      "word": "Archaeologist",
+      "hints": [
+        "Digs ruins",
+        "Finds artifacts",
+        "Ancient bones"
+      ]
+    },
+    {
+      "word": "Anthropologist",
+      "hints": [
+        "Studies humans",
+        "Culture expert",
+        "Society research"
+      ]
+    },
+    {
+      "word": "Sociologist",
+      "hints": [
+        "Studies groups",
+        "Social trends",
+        "Human behavior"
+      ]
+    },
+    {
+      "word": "Economist",
+      "hints": [
+        "Money trends",
+        "Market expert",
+        "Financial research"
+      ]
+    },
+    {
+      "word": "Philosopher",
+      "hints": [
+        "Deep thinker",
+        "Ponders life",
+        "Logic expert"
+      ]
+    },
+    {
+      "word": "Theologian",
+      "hints": [
+        "Studies religion",
+        "Divine expert",
+        "Faith scholar"
+      ]
+    },
+    {
+      "word": "Priest",
+      "hints": [
+        "Church leader",
+        "Holy man",
+        "Mass leader"
+      ]
+    },
+    {
+      "word": "Pastor",
+      "hints": [
+        "Flock leader",
+        "Preaches sermons",
+        "Church head"
+      ]
+    },
+    {
+      "word": "Rabbi",
+      "hints": [
+        "Jewish leader",
+        "Torah teacher",
+        "Synagogue head"
+      ]
+    },
+    {
+      "word": "Imam",
+      "hints": [
+        "Islamic leader",
+        "Mosque head",
+        "Prayer leader"
+      ]
+    },
+    {
+      "word": "Monk",
+      "hints": [
+        "Cloistered life",
+        "Silent prayer",
+        "Abbey resident"
+      ]
+    },
+    {
+      "word": "Nun",
+      "hints": [
+        "Convent sister",
+        "Habit wearer",
+        "Holy woman"
+      ]
+    },
+    {
+      "word": "Farmer",
+      "hints": [
+        "Grows crops",
+        "Tends fields",
+        "Tractor driver"
+      ]
+    },
+    {
+      "word": "Rancher",
+      "hints": [
+        "Raises cattle",
+        "Herds cows",
+        "Livestock boss"
+      ]
+    },
+    {
+      "word": "Gardener",
+      "hints": [
+        "Tends flowers",
+        "Pulls weeds",
+        "Plants seeds"
+      ]
+    },
+    {
+      "word": "Landscaper",
+      "hints": [
+        "Designs yards",
+        "Mows lawns",
+        "Trims bushes"
+      ]
+    },
+    {
+      "word": "Florist",
+      "hints": [
+        "Arranges bouquets",
+        "Sells roses",
+        "Flower shop"
+      ]
+    },
+    {
+      "word": "Fisherman",
+      "hints": [
+        "Catches bass",
+        "Casts nets",
+        "Bait user"
+      ]
+    },
+    {
+      "word": "Hunter",
+      "hints": [
+        "Tracks game",
+        "Shoots prey",
+        "Wilderness stalker"
+      ]
+    },
+    {
+      "word": "Trapper",
+      "hints": [
+        "Snares animals",
+        "Catches pelts",
+        "Wilderness survivor"
+      ]
+    },
+    {
+      "word": "Miner",
+      "hints": [
+        "Digs ore",
+        "Underground worker",
+        "Extracts coal"
+      ]
+    },
+    {
+      "word": "Logger",
+      "hints": [
+        "Chops trees",
+        "Timber worker",
+        "Lumberjack role"
+      ]
+    },
+    {
+      "word": "Butcher",
+      "hints": [
+        "Cuts meat",
+        "Chops steaks",
+        "Prepares poultry"
+      ]
+    },
+    {
+      "word": "Tailor",
+      "hints": [
+        "Sews clothes",
+        "Alters suits",
+        "Measures fabric"
+      ]
+    },
+    {
+      "word": "Weaver",
+      "hints": [
+        "Looms cloth",
+        "Spins yarn",
+        "Textile maker"
+      ]
+    },
+    {
+      "word": "Cobbler",
+      "hints": [
+        "Fixes shoes",
+        "Leather worker",
+        "Heel repair"
+      ]
+    },
+    {
+      "word": "Jeweler",
+      "hints": [
+        "Makes rings",
+        "Sets gems",
+        "Gold worker"
+      ]
+    },
+    {
+      "word": "Watchmaker",
+      "hints": [
+        "Repairs clocks",
+        "Tiny gears",
+        "Timepiece expert"
+      ]
+    },
+    {
+      "word": "Barber",
+      "hints": [
+        "Cuts hair",
+        "Shaves beards",
+        "Trims fades"
+      ]
+    },
+    {
+      "word": "Hairdresser",
+      "hints": [
+        "Styles locks",
+        "Dyes roots",
+        "Salon worker"
+      ]
+    },
+    {
+      "word": "Stylist",
+      "hints": [
+        "Picks outfits",
+        "Fashion expert",
+        "Wardrobe planner"
+      ]
+    },
+    {
+      "word": "Model",
+      "hints": [
+        "Poses photos",
+        "Runway walker",
+        "Fashion display"
+      ]
+    },
+    {
+      "word": "Athlete",
+      "hints": [
+        "Plays sports",
+        "Physical pro",
+        "Competes hard"
+      ]
+    },
+    {
+      "word": "Coach",
+      "hints": [
+        "Trains team",
+        "Draws plays",
+        "Blows whistle"
+      ]
+    },
+    {
+      "word": "Umpire",
+      "hints": [
+        "Calls strikes",
+        "Baseball judge",
+        "Rules fair"
+      ]
+    },
+    {
+      "word": "Referee",
+      "hints": [
+        "Enforces rules",
+        "Wears stripes",
+        "Blows whistle"
       ]
     }
   ]

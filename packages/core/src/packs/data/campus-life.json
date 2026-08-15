@@ -2,246 +2,966 @@
   "id": "campus-life",
   "name": "Campus Life",
   "emoji": "🎓",
-  "description": "University experiences and student culture",
+  "description": "College life, academics, and culture",
   "words": [
     {
-      "word": "All-Nighter",
+      "word": "Dorm",
       "hints": [
-        "studying",
-        "working",
-        "entire"
+        "Sleep",
+        "Roommate",
+        "Bed"
       ]
     },
     {
-      "word": "Drop/Add Period",
+      "word": "Library",
       "hints": [
-        "short",
-        "window",
-        "change"
+        "Books",
+        "Quiet",
+        "Study"
       ]
     },
     {
-      "word": "Dissertation",
+      "word": "Lecture",
       "hints": [
-        "long",
-        "original",
-        "research"
+        "Listen",
+        "Notes",
+        "Hall"
       ]
     },
     {
-      "word": "Office Hours",
+      "word": "Exam",
       "hints": [
-        "scheduled",
-        "time",
-        "professor"
+        "Test",
+        "Pass",
+        "Fail"
       ]
     },
     {
-      "word": "Orientation Week",
+      "word": "Thesis",
       "hints": [
-        "social",
-        "introduction",
-        "events"
+        "Paper",
+        "Final",
+        "Research"
+      ]
+    },
+    {
+      "word": "Professor",
+      "hints": [
+        "Teach",
+        "Smart",
+        "Class"
+      ]
+    },
+    {
+      "word": "Student",
+      "hints": [
+        "Learn",
+        "Study",
+        "College"
+      ]
+    },
+    {
+      "word": "Campus",
+      "hints": [
+        "Grounds",
+        "Walk",
+        "Buildings"
+      ]
+    },
+    {
+      "word": "Degree",
+      "hints": [
+        "Graduate",
+        "Paper",
+        "Diploma"
+      ]
+    },
+    {
+      "word": "Syllabus",
+      "hints": [
+        "Outline",
+        "Course",
+        "Plan"
+      ]
+    },
+    {
+      "word": "Grade",
+      "hints": [
+        "Score",
+        "Pass",
+        "Fail"
+      ]
+    },
+    {
+      "word": "Assignment",
+      "hints": [
+        "Homework",
+        "Task",
+        "Due"
+      ]
+    },
+    {
+      "word": "Quiz",
+      "hints": [
+        "Short",
+        "Test",
+        "Surprise"
+      ]
+    },
+    {
+      "word": "Essay",
+      "hints": [
+        "Write",
+        "Words",
+        "Paper"
+      ]
+    },
+    {
+      "word": "Project",
+      "hints": [
+        "Group",
+        "Work",
+        "Final"
+      ]
+    },
+    {
+      "word": "Semester",
+      "hints": [
+        "Term",
+        "Half",
+        "Year"
+      ]
+    },
+    {
+      "word": "Scholarship",
+      "hints": [
+        "Money",
+        "Free",
+        "Award"
+      ]
+    },
+    {
+      "word": "Tuition",
+      "hints": [
+        "Pay",
+        "Cost",
+        "Money"
+      ]
+    },
+    {
+      "word": "Textbook",
+      "hints": [
+        "Read",
+        "Heavy",
+        "Costly"
+      ]
+    },
+    {
+      "word": "Notebook",
+      "hints": [
+        "Write",
+        "Paper",
+        "Spiral"
+      ]
+    },
+    {
+      "word": "Backpack",
+      "hints": [
+        "Carry",
+        "Books",
+        "Bag"
+      ]
+    },
+    {
+      "word": "Cafeteria",
+      "hints": [
+        "Food",
+        "Eat",
+        "Tray"
+      ]
+    },
+    {
+      "word": "Dining Hall",
+      "hints": [
+        "Meal",
+        "Plan",
+        "Eat"
+      ]
+    },
+    {
+      "word": "Quad",
+      "hints": [
+        "Grass",
+        "Sit",
+        "Frisbee"
+      ]
+    },
+    {
+      "word": "Fraternity",
+      "hints": [
+        "Greek",
+        "Brothers",
+        "House"
+      ]
+    },
+    {
+      "word": "Sorority",
+      "hints": [
+        "Greek",
+        "Sisters",
+        "House"
+      ]
+    },
+    {
+      "word": "Alumni",
+      "hints": [
+        "Grad",
+        "Past",
+        "School"
+      ]
+    },
+    {
+      "word": "Dean",
+      "hints": [
+        "Head",
+        "Boss",
+        "College"
+      ]
+    },
+    {
+      "word": "Advisor",
+      "hints": [
+        "Help",
+        "Plan",
+        "Guide"
+      ]
+    },
+    {
+      "word": "Major",
+      "hints": [
+        "Focus",
+        "Subject",
+        "Degree"
+      ]
+    },
+    {
+      "word": "Minor",
+      "hints": [
+        "Secondary",
+        "Subject",
+        "Study"
+      ]
+    },
+    {
+      "word": "Credits",
+      "hints": [
+        "Points",
+        "Pass",
+        "Class"
+      ]
+    },
+    {
+      "word": "Elective",
+      "hints": [
+        "Choice",
+        "Fun",
+        "Class"
+      ]
+    },
+    {
+      "word": "Prerequisite",
+      "hints": [
+        "Before",
+        "Require",
+        "Class"
+      ]
+    },
+    {
+      "word": "Transcript",
+      "hints": [
+        "Record",
+        "Grades",
+        "Paper"
+      ]
+    },
+    {
+      "word": "GPA",
+      "hints": [
+        "Average",
+        "Score",
+        "Number"
+      ]
+    },
+    {
+      "word": "Midterm",
+      "hints": [
+        "Halfway",
+        "Test",
+        "Exam"
+      ]
+    },
+    {
+      "word": "Final",
+      "hints": [
+        "Last",
+        "Test",
+        "Exam"
+      ]
+    },
+    {
+      "word": "Commencement",
+      "hints": [
+        "Grad",
+        "Ceremony",
+        "Walk"
+      ]
+    },
+    {
+      "word": "Tassel",
+      "hints": [
+        "Hat",
+        "Turn",
+        "Grad"
+      ]
+    },
+    {
+      "word": "Cap",
+      "hints": [
+        "Head",
+        "Grad",
+        "Gown"
+      ]
+    },
+    {
+      "word": "Gown",
+      "hints": [
+        "Wear",
+        "Grad",
+        "Robe"
+      ]
+    },
+    {
+      "word": "Diploma",
+      "hints": [
+        "Paper",
+        "Degree",
+        "Frame"
+      ]
+    },
+    {
+      "word": "Valedictorian",
+      "hints": [
+        "Top",
+        "Speech",
+        "Smart"
+      ]
+    },
+    {
+      "word": "Salutatorian",
+      "hints": [
+        "Second",
+        "Speech",
+        "Smart"
       ]
     },
     {
       "word": "Plagiarism",
       "hints": [
-        "presenting",
-        "someone",
-        "else's"
+        "Copy",
+        "Cheat",
+        "Steal"
       ]
     },
     {
-      "word": "Seminar",
+      "word": "Citation",
       "hints": [
-        "small",
-        "group",
-        "discussion"
+        "Source",
+        "Reference",
+        "Quote"
       ]
     },
     {
-      "word": "Lecture Theatre",
+      "word": "Bibliography",
       "hints": [
-        "large",
-        "tiered",
-        "room"
+        "List",
+        "Sources",
+        "End"
       ]
     },
     {
-      "word": "Fresher",
+      "word": "Abstract",
       "hints": [
-        "first",
-        "year",
-        "university"
+        "Summary",
+        "Start",
+        "Paper"
       ]
     },
     {
-      "word": "Campus Card",
+      "word": "Lab",
       "hints": [
-        "unlocks",
-        "buildings",
-        "pays"
+        "Science",
+        "Coat",
+        "Experiment"
       ]
     },
     {
-      "word": "Grade Inflation",
+      "word": "Equipment",
       "hints": [
-        "trend",
-        "higher",
-        "marks"
+        "Tools",
+        "Use",
+        "Lab"
       ]
     },
     {
-      "word": "Cram Session",
+      "word": "Beaker",
       "hints": [
-        "intensive",
-        "last",
-        "minute"
+        "Glass",
+        "Pour",
+        "Lab"
       ]
     },
     {
-      "word": "Hall of Residence",
+      "word": "Microscope",
       "hints": [
-        "student",
-        "accommodation",
-        "managed"
+        "Look",
+        "Small",
+        "Science"
       ]
     },
     {
-      "word": "Common Room",
+      "word": "Telescope",
       "hints": [
-        "shared",
-        "space",
-        "hall"
+        "Look",
+        "Stars",
+        "Space"
       ]
     },
     {
-      "word": "Fresher's Flu",
+      "word": "Easel",
       "hints": [
-        "illness",
-        "spread",
-        "rapidly"
+        "Art",
+        "Paint",
+        "Stand"
       ]
     },
     {
-      "word": "Reading Week",
+      "word": "Canvas",
       "hints": [
-        "break",
-        "lectures",
-        "independent"
+        "Paint",
+        "Blank",
+        "Art"
       ]
     },
     {
-      "word": "Past Papers",
+      "word": "Studio",
       "hints": [
-        "previous",
-        "years",
-        "exam"
+        "Room",
+        "Art",
+        "Work"
       ]
     },
     {
-      "word": "Plagiarism Checker",
+      "word": "Rehearsal",
       "hints": [
-        "software",
-        "scans",
-        "essays"
+        "Practice",
+        "Play",
+        "Music"
       ]
     },
     {
-      "word": "Student Union",
+      "word": "Audition",
       "hints": [
-        "organisation",
-        "representing",
-        "students"
+        "Try",
+        "Part",
+        "Play"
       ]
     },
     {
-      "word": "Imposter Syndrome",
+      "word": "Stage",
       "hints": [
-        "feeling",
-        "don't",
-        "deserve"
+        "Act",
+        "Play",
+        "Theater"
       ]
     },
     {
-      "word": "Library Fine",
+      "word": "Auditorium",
       "hints": [
-        "fee",
-        "charged",
-        "returning"
+        "Seats",
+        "Show",
+        "Hall"
       ]
     },
     {
-      "word": "Extracurricular",
+      "word": "Gymnasium",
       "hints": [
-        "activity",
-        "outside",
-        "formal"
+        "Sports",
+        "Play",
+        "Court"
       ]
     },
     {
-      "word": "Thesis Defence",
+      "word": "Stadium",
       "hints": [
-        "oral",
-        "examination",
-        "completed"
+        "Seats",
+        "Field",
+        "Game"
       ]
     },
     {
-      "word": "Student Loan",
+      "word": "Bleachers",
       "hints": [
-        "government",
-        "bank",
-        "money"
+        "Sit",
+        "Watch",
+        "Cheer"
       ]
     },
     {
-      "word": "Matriculation",
+      "word": "Mascot",
       "hints": [
-        "formal",
-        "enrolment",
-        "registration"
+        "Costume",
+        "Cheer",
+        "Team"
       ]
     },
     {
-      "word": "Dean's List",
+      "word": "Cheerleader",
       "hints": [
-        "academic",
-        "honour",
-        "roll"
+        "Pom",
+        "Yell",
+        "Team"
       ]
     },
     {
-      "word": "Pre-Med",
+      "word": "Coach",
       "hints": [
-        "undergraduate",
-        "track",
-        "preparing"
+        "Lead",
+        "Team",
+        "Yell"
       ]
     },
     {
-      "word": "Retroactive Drop",
+      "word": "Referee",
       "hints": [
-        "removing",
-        "failed",
-        "course"
+        "Whistle",
+        "Rule",
+        "Game"
       ]
     },
     {
-      "word": "Credit Hours",
+      "word": "Whistle",
       "hints": [
-        "unit",
-        "measuring",
-        "workload"
+        "Blow",
+        "Stop",
+        "Ref"
       ]
     },
     {
-      "word": "Cafeteria Swipe",
+      "word": "Trophy",
       "hints": [
-        "meal",
-        "plan",
-        "entry"
+        "Win",
+        "Cup",
+        "Award"
+      ]
+    },
+    {
+      "word": "Medal",
+      "hints": [
+        "Neck",
+        "Win",
+        "Gold"
+      ]
+    },
+    {
+      "word": "Certificate",
+      "hints": [
+        "Paper",
+        "Award",
+        "Print"
+      ]
+    },
+    {
+      "word": "Whiteboard",
+      "hints": [
+        "Marker",
+        "Write",
+        "Erase"
+      ]
+    },
+    {
+      "word": "Chalkboard",
+      "hints": [
+        "Dust",
+        "Write",
+        "Erase"
+      ]
+    },
+    {
+      "word": "Marker",
+      "hints": [
+        "Draw",
+        "Color",
+        "Whiteboard"
+      ]
+    },
+    {
+      "word": "Eraser",
+      "hints": [
+        "Remove",
+        "Mistake",
+        "Clean"
+      ]
+    },
+    {
+      "word": "Projector",
+      "hints": [
+        "Screen",
+        "Show",
+        "Light"
+      ]
+    },
+    {
+      "word": "Screen",
+      "hints": [
+        "Watch",
+        "Show",
+        "Projector"
+      ]
+    },
+    {
+      "word": "Podium",
+      "hints": [
+        "Stand",
+        "Speak",
+        "Speech"
+      ]
+    },
+    {
+      "word": "Microphone",
+      "hints": [
+        "Speak",
+        "Loud",
+        "Stand"
+      ]
+    },
+    {
+      "word": "Desk",
+      "hints": [
+        "Sit",
+        "Work",
+        "Table"
+      ]
+    },
+    {
+      "word": "Chair",
+      "hints": [
+        "Sit",
+        "Seat",
+        "Rest"
+      ]
+    },
+    {
+      "word": "Locker",
+      "hints": [
+        "Store",
+        "Code",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Keycard",
+      "hints": [
+        "Swipe",
+        "Door",
+        "Access"
+      ]
+    },
+    {
+      "word": "ID",
+      "hints": [
+        "Card",
+        "Face",
+        "Show"
+      ]
+    },
+    {
+      "word": "Lanyard",
+      "hints": [
+        "Neck",
+        "Hold",
+        "ID"
+      ]
+    },
+    {
+      "word": "Bulletin Board",
+      "hints": [
+        "Pins",
+        "Flyers",
+        "Wall"
+      ]
+    },
+    {
+      "word": "Flyer",
+      "hints": [
+        "Paper",
+        "Ad",
+        "Wall"
+      ]
+    },
+    {
+      "word": "Poster",
+      "hints": [
+        "Wall",
+        "Big",
+        "Art"
+      ]
+    },
+    {
+      "word": "Club",
+      "hints": [
+        "Group",
+        "Meet",
+        "Fun"
+      ]
+    },
+    {
+      "word": "Society",
+      "hints": [
+        "Group",
+        "Join",
+        "Meet"
+      ]
+    },
+    {
+      "word": "Meeting",
+      "hints": [
+        "Gather",
+        "Talk",
+        "Group"
+      ]
+    },
+    {
+      "word": "Agenda",
+      "hints": [
+        "Plan",
+        "List",
+        "Meeting"
+      ]
+    },
+    {
+      "word": "Minutes",
+      "hints": [
+        "Notes",
+        "Time",
+        "Meeting"
+      ]
+    },
+    {
+      "word": "Debate",
+      "hints": [
+        "Argue",
+        "Talk",
+        "Side"
+      ]
+    },
+    {
+      "word": "Election",
+      "hints": [
+        "Vote",
+        "Choose",
+        "Win"
+      ]
+    },
+    {
+      "word": "Campaign",
+      "hints": [
+        "Run",
+        "Vote",
+        "Signs"
+      ]
+    },
+    {
+      "word": "Candidate",
+      "hints": [
+        "Run",
+        "Person",
+        "Vote"
+      ]
+    },
+    {
+      "word": "Ballot",
+      "hints": [
+        "Vote",
+        "Paper",
+        "Box"
+      ]
+    },
+    {
+      "word": "President",
+      "hints": [
+        "Head",
+        "Lead",
+        "Top"
+      ]
+    },
+    {
+      "word": "Vice President",
+      "hints": [
+        "Second",
+        "Lead",
+        "Next"
+      ]
+    },
+    {
+      "word": "Treasurer",
+      "hints": [
+        "Money",
+        "Keep",
+        "Lead"
+      ]
+    },
+    {
+      "word": "Secretary",
+      "hints": [
+        "Notes",
+        "Keep",
+        "Lead"
+      ]
+    },
+    {
+      "word": "Committee",
+      "hints": [
+        "Group",
+        "Task",
+        "Work"
+      ]
+    },
+    {
+      "word": "Volunteer",
+      "hints": [
+        "Help",
+        "Free",
+        "Time"
+      ]
+    },
+    {
+      "word": "Internship",
+      "hints": [
+        "Work",
+        "Learn",
+        "Free"
+      ]
+    },
+    {
+      "word": "Resume",
+      "hints": [
+        "Paper",
+        "Job",
+        "Skills"
+      ]
+    },
+    {
+      "word": "Interview",
+      "hints": [
+        "Talk",
+        "Job",
+        "Questions"
+      ]
+    },
+    {
+      "word": "Career Fair",
+      "hints": [
+        "Jobs",
+        "Booths",
+        "Meet"
+      ]
+    },
+    {
+      "word": "Networking",
+      "hints": [
+        "Meet",
+        "Talk",
+        "Jobs"
+      ]
+    },
+    {
+      "word": "Business Card",
+      "hints": [
+        "Name",
+        "Paper",
+        "Hand"
+      ]
+    },
+    {
+      "word": "Portfolio",
+      "hints": [
+        "Work",
+        "Show",
+        "Art"
+      ]
+    },
+    {
+      "word": "Recommendation",
+      "hints": [
+        "Letter",
+        "Praise",
+        "Help"
+      ]
+    },
+    {
+      "word": "Reference",
+      "hints": [
+        "Person",
+        "Call",
+        "Vouch"
+      ]
+    },
+    {
+      "word": "Application",
+      "hints": [
+        "Form",
+        "Fill",
+        "Apply"
+      ]
+    },
+    {
+      "word": "Deadline",
+      "hints": [
+        "Time",
+        "Due",
+        "Late"
+      ]
+    },
+    {
+      "word": "Extension",
+      "hints": [
+        "More",
+        "Time",
+        "Late"
+      ]
+    },
+    {
+      "word": "Late",
+      "hints": [
+        "Tardy",
+        "Miss",
+        "Time"
+      ]
+    },
+    {
+      "word": "Absence",
+      "hints": [
+        "Miss",
+        "Gone",
+        "Class"
+      ]
+    },
+    {
+      "word": "Roommate",
+      "hints": [
+        "Share",
+        "Dorm",
+        "Live"
       ]
     }
   ]

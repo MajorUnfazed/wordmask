@@ -1,407 +1,967 @@
 {
-  "id": "f1",
-  "name": "F1 Motorsport",
+  "id": "formula-1",
+  "name": "Formula 1",
   "emoji": "🏎️",
-  "description": "Formula 1 teams, drivers, and concepts",
+  "description": "Motorsport racing, drivers, and circuits",
   "words": [
     {
-      "word": "DRS",
+      "word": "Car",
       "hints": [
-        "drag",
-        "reduction",
-        "system"
+        "Drive",
+        "Fast",
+        "Race"
       ]
     },
     {
-      "word": "Undercut",
+      "word": "Track",
       "hints": [
-        "pitting",
-        "earlier",
-        "gain"
+        "Asphalt",
+        "Drive",
+        "Circuit"
       ]
     },
     {
-      "word": "Safety Car",
+      "word": "Pitstop",
       "hints": [
-        "deployed",
-        "neutralise",
-        "race"
+        "Tires",
+        "Change",
+        "Fast"
       ]
     },
     {
-      "word": "Parc Fermé",
+      "word": "Driver",
       "hints": [
-        "restricted",
-        "area",
-        "cars"
+        "Steer",
+        "Race",
+        "Person"
       ]
     },
     {
-      "word": "Tifosi",
+      "word": "Helmet",
       "hints": [
-        "passionate",
-        "ferrari",
-        "fans"
+        "Head",
+        "Safe",
+        "Visor"
       ]
     },
     {
-      "word": "Haas",
+      "word": "Tyre",
       "hints": [
-        "american",
-        "team",
-        "based"
+        "Rubber",
+        "Wheel",
+        "Black"
       ]
     },
     {
-      "word": "Ayrton Senna",
+      "word": "Engine",
       "hints": [
-        "brazilian",
-        "triple",
-        "world"
+        "Power",
+        "Motor",
+        "Loud"
       ]
     },
     {
-      "word": "Lewis Hamilton",
+      "word": "Wing",
       "hints": [
-        "record",
-        "seven",
-        "time"
+        "Aero",
+        "Front",
+        "Rear"
       ]
     },
     {
-      "word": "Max Verstappen",
+      "word": "Grid",
       "hints": [
-        "dominant",
-        "dutch",
-        "champion"
+        "Start",
+        "Line",
+        "Cars"
       ]
     },
     {
-      "word": "Monaco",
+      "word": "Flag",
       "hints": [
-        "narrow",
-        "street",
-        "circuit"
-      ]
-    },
-    {
-      "word": "Silverstone",
-      "hints": [
-        "historic",
-        "british",
-        "grand"
-      ]
-    },
-    {
-      "word": "Spa-Francorchamps",
-      "hints": [
-        "belgian",
-        "circuit",
-        "famous"
-      ]
-    },
-    {
-      "word": "Monza",
-      "hints": [
-        "temple",
-        "speed",
-        "fastest"
-      ]
-    },
-    {
-      "word": "Podium",
-      "hints": [
-        "top",
-        "three",
-        "finishing"
-      ]
-    },
-    {
-      "word": "Pole Position",
-      "hints": [
-        "front",
-        "grid",
-        "qualifying"
-      ]
-    },
-    {
-      "word": "Pit Stop",
-      "hints": [
-        "tyre",
-        "change",
-        "race"
-      ]
-    },
-    {
-      "word": "Virtual Safety Car",
-      "hints": [
-        "drivers",
-        "must",
-        "maintain"
-      ]
-    },
-    {
-      "word": "Graining",
-      "hints": [
-        "tyre",
-        "surface",
-        "rubber"
-      ]
-    },
-    {
-      "word": "Blistering",
-      "hints": [
-        "tyre",
-        "heat",
-        "damage"
-      ]
-    },
-    {
-      "word": "Overcut",
-      "hints": [
-        "staying",
-        "out",
-        "longer"
-      ]
-    },
-    {
-      "word": "Grid Penalty",
-      "hints": [
-        "starting",
-        "further",
-        "back"
-      ]
-    },
-    {
-      "word": "Team Radio",
-      "hints": [
-        "communication",
-        "channel",
-        "between"
-      ]
-    },
-    {
-      "word": "Sector Time",
-      "hints": [
-        "timing",
-        "split",
-        "one"
-      ]
-    },
-    {
-      "word": "Lap Record",
-      "hints": [
-        "fastest",
-        "ever",
-        "set"
-      ]
-    },
-    {
-      "word": "Downforce",
-      "hints": [
-        "aerodynamic",
-        "force",
-        "pushing"
-      ]
-    },
-    {
-      "word": "Porpoising",
-      "hints": [
-        "bouncing",
-        "caused",
-        "ground"
-      ]
-    },
-    {
-      "word": "FIA",
-      "hints": [
-        "international",
-        "governing",
-        "body"
-      ]
-    },
-    {
-      "word": "Stewards",
-      "hints": [
-        "officials",
-        "investigate",
-        "track"
-      ]
-    },
-    {
-      "word": "Concorde Agreement",
-      "hints": [
-        "commercial",
-        "contract",
-        "between"
-      ]
-    },
-    {
-      "word": "Cost Cap",
-      "hints": [
-        "budget",
-        "limit",
-        "introduced"
-      ]
-    },
-    {
-      "word": "Sprint Race",
-      "hints": [
-        "short",
-        "saturday",
-        "format"
-      ]
-    },
-    {
-      "word": "Michael Schumacher",
-      "hints": [
-        "german",
-        "seven",
-        "time"
-      ]
-    },
-    {
-      "word": "Nico Rosberg",
-      "hints": [
-        "2016",
-        "champion",
-        "retired"
-      ]
-    },
-    {
-      "word": "Jeddah Corniche",
-      "hints": [
-        "saudi",
-        "arabian",
-        "street"
-      ]
-    },
-    {
-      "word": "Suzuka",
-      "hints": [
-        "japanese",
-        "figure",
-        "eight"
-      ]
-    },
-    {
-      "word": "KERS",
-      "hints": [
-        "kinetic",
-        "energy",
-        "recovery"
-      ]
-    },
-    {
-      "word": "Marbles",
-      "hints": [
-        "rubber",
-        "debris",
-        "builds"
-      ]
-    },
-    {
-      "word": "Kerb",
-      "hints": [
-        "raised",
-        "painted",
-        "edge"
-      ]
-    },
-    {
-      "word": "Braking Point",
-      "hints": [
-        "latest",
-        "possible",
-        "position"
+        "Wave",
+        "Checkered",
+        "Color"
       ]
     },
     {
       "word": "Apex",
       "hints": [
-        "innermost",
-        "point",
-        "corner"
+        "Corner",
+        "Hit",
+        "Turn"
+      ]
+    },
+    {
+      "word": "Paddock",
+      "hints": [
+        "Walk",
+        "VIP",
+        "Teams"
+      ]
+    },
+    {
+      "word": "Cockpit",
+      "hints": [
+        "Sit",
+        "Steer",
+        "Inside"
+      ]
+    },
+    {
+      "word": "Chassis",
+      "hints": [
+        "Body",
+        "Frame",
+        "Carbon"
+      ]
+    },
+    {
+      "word": "Downforce",
+      "hints": [
+        "Push",
+        "Aero",
+        "Grip"
+      ]
+    },
+    {
+      "word": "Slipstream",
+      "hints": [
+        "Draft",
+        "Follow",
+        "Fast"
+      ]
+    },
+    {
+      "word": "Overtake",
+      "hints": [
+        "Pass",
+        "Ahead",
+        "Move"
+      ]
+    },
+    {
+      "word": "Penalty",
+      "hints": [
+        "Rule",
+        "Time",
+        "Punish"
+      ]
+    },
+    {
+      "word": "Podium",
+      "hints": [
+        "Top",
+        "Three",
+        "Trophy"
+      ]
+    },
+    {
+      "word": "Pole",
+      "hints": [
+        "First",
+        "Start",
+        "Qualify"
+      ]
+    },
+    {
+      "word": "Qualifying",
+      "hints": [
+        "Time",
+        "Fast",
+        "Grid"
+      ]
+    },
+    {
+      "word": "Practice",
+      "hints": [
+        "Learn",
+        "Friday",
+        "Drive"
+      ]
+    },
+    {
+      "word": "Sector",
+      "hints": [
+        "Part",
+        "Track",
+        "Time"
+      ]
+    },
+    {
+      "word": "Lap",
+      "hints": [
+        "Round",
+        "Track",
+        "Time"
       ]
     },
     {
       "word": "Chicane",
       "hints": [
-        "tight",
-        "section",
-        "added"
+        "Turn",
+        "Left",
+        "Right"
       ]
     },
     {
       "word": "Hairpin",
       "hints": [
-        "very",
-        "tight",
-        "slow"
+        "Turn",
+        "Tight",
+        "Slow"
       ]
     },
     {
-      "word": "Eau Rouge",
+      "word": "Straight",
       "hints": [
-        "legendary",
-        "uphill",
-        "left"
+        "Fast",
+        "No",
+        "Turns"
       ]
     },
     {
-      "word": "Verstappen Lap",
+      "word": "Telemetry",
       "hints": [
-        "slang",
-        "incredibly",
-        "fast"
+        "Data",
+        "Read",
+        "Screen"
       ]
     },
     {
-      "word": "Lapped Traffic",
+      "word": "Strategy",
       "hints": [
-        "backmarker",
-        "cars",
-        "leaders"
+        "Plan",
+        "Pit",
+        "Tires"
       ]
     },
     {
-      "word": "Blue Flag",
+      "word": "Undercut",
       "hints": [
-        "signal",
-        "move",
-        "aside"
+        "Pit",
+        "Early",
+        "Pass"
       ]
     },
     {
-      "word": "Yellow Flag",
+      "word": "Overcut",
       "hints": [
-        "danger",
-        "ahead",
-        "overtaking"
+        "Pit",
+        "Late",
+        "Pass"
       ]
     },
     {
-      "word": "Red Flag",
+      "word": "Slick",
       "hints": [
-        "race",
-        "suspended",
-        "all"
+        "Dry",
+        "Tire",
+        "Smooth"
       ]
     },
     {
-      "word": "Formation Lap",
+      "word": "Intermediate",
       "hints": [
-        "warm",
-        "standing",
-        "start"
+        "Damp",
+        "Tire",
+        "Green"
       ]
     },
     {
-      "word": "Flying Lap",
+      "word": "Wet",
       "hints": [
-        "single",
-        "timed",
-        "qualifying"
+        "Rain",
+        "Tire",
+        "Blue"
+      ]
+    },
+    {
+      "word": "Compound",
+      "hints": [
+        "Soft",
+        "Medium",
+        "Hard"
+      ]
+    },
+    {
+      "word": "Degradation",
+      "hints": [
+        "Wear",
+        "Tire",
+        "Lose"
+      ]
+    },
+    {
+      "word": "Blistering",
+      "hints": [
+        "Hot",
+        "Tire",
+        "Bubble"
+      ]
+    },
+    {
+      "word": "Graining",
+      "hints": [
+        "Wear",
+        "Tire",
+        "Crumble"
+      ]
+    },
+    {
+      "word": "Suspension",
+      "hints": [
+        "Springs",
+        "Ride",
+        "Bumps"
+      ]
+    },
+    {
+      "word": "Aero",
+      "hints": [
+        "Wind",
+        "Shape",
+        "Fast"
+      ]
+    },
+    {
+      "word": "Diffuser",
+      "hints": [
+        "Rear",
+        "Air",
+        "Floor"
+      ]
+    },
+    {
+      "word": "Halo",
+      "hints": [
+        "Head",
+        "Safe",
+        "Titanium"
+      ]
+    },
+    {
+      "word": "Visor",
+      "hints": [
+        "See",
+        "Helmet",
+        "Tear"
+      ]
+    },
+    {
+      "word": "Balaclava",
+      "hints": [
+        "Fire",
+        "Wear",
+        "Head"
+      ]
+    },
+    {
+      "word": "Overalls",
+      "hints": [
+        "Suit",
+        "Fire",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Gloves",
+      "hints": [
+        "Hands",
+        "Steer",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Boots",
+      "hints": [
+        "Feet",
+        "Pedals",
+        "Wear"
+      ]
+    },
+    {
+      "word": "Steering",
+      "hints": [
+        "Wheel",
+        "Buttons",
+        "Turn"
+      ]
+    },
+    {
+      "word": "Radio",
+      "hints": [
+        "Talk",
+        "Team",
+        "Hear"
+      ]
+    },
+    {
+      "word": "Engineer",
+      "hints": [
+        "Talk",
+        "Plan",
+        "Smart"
+      ]
+    },
+    {
+      "word": "Mechanic",
+      "hints": [
+        "Fix",
+        "Build",
+        "Wrench"
+      ]
+    },
+    {
+      "word": "Principal",
+      "hints": [
+        "Boss",
+        "Team",
+        "Lead"
+      ]
+    },
+    {
+      "word": "Steward",
+      "hints": [
+        "Rule",
+        "Judge",
+        "Penalize"
+      ]
+    },
+    {
+      "word": "Director",
+      "hints": [
+        "Race",
+        "Lead",
+        "Control"
+      ]
+    },
+    {
+      "word": "Marshal",
+      "hints": [
+        "Flag",
+        "Help",
+        "Track"
+      ]
+    },
+    {
+      "word": "Safety",
+      "hints": [
+        "Car",
+        "Slow",
+        "Pace"
+      ]
+    },
+    {
+      "word": "Medical",
+      "hints": [
+        "Car",
+        "Help",
+        "Doctor"
+      ]
+    },
+    {
+      "word": "Lights",
+      "hints": [
+        "Red",
+        "Out",
+        "Start"
+      ]
+    },
+    {
+      "word": "Chequered",
+      "hints": [
+        "Flag",
+        "End",
+        "Win"
+      ]
+    },
+    {
+      "word": "Yellow",
+      "hints": [
+        "Flag",
+        "Slow",
+        "Danger"
+      ]
+    },
+    {
+      "word": "Red",
+      "hints": [
+        "Flag",
+        "Stop",
+        "Danger"
+      ]
+    },
+    {
+      "word": "Blue",
+      "hints": [
+        "Flag",
+        "Pass",
+        "Lapped"
+      ]
+    },
+    {
+      "word": "Green",
+      "hints": [
+        "Flag",
+        "Go",
+        "Clear"
+      ]
+    },
+    {
+      "word": "Black",
+      "hints": [
+        "Flag",
+        "Out",
+        "Disqualify"
+      ]
+    },
+    {
+      "word": "White",
+      "hints": [
+        "Flag",
+        "Slow",
+        "Ahead"
+      ]
+    },
+    {
+      "word": "Champion",
+      "hints": [
+        "Win",
+        "Year",
+        "Title"
+      ]
+    },
+    {
+      "word": "Constructor",
+      "hints": [
+        "Team",
+        "Build",
+        "Win"
+      ]
+    },
+    {
+      "word": "Standings",
+      "hints": [
+        "Points",
+        "List",
+        "Rank"
+      ]
+    },
+    {
+      "word": "Points",
+      "hints": [
+        "Score",
+        "Ten",
+        "Win"
+      ]
+    },
+    {
+      "word": "Trophy",
+      "hints": [
+        "Cup",
+        "Win",
+        "Hold"
+      ]
+    },
+    {
+      "word": "Champagne",
+      "hints": [
+        "Spray",
+        "Drink",
+        "Podium"
+      ]
+    },
+    {
+      "word": "Anthem",
+      "hints": [
+        "Song",
+        "Country",
+        "Play"
+      ]
+    },
+    {
+      "word": "Grandstand",
+      "hints": [
+        "Sit",
+        "Watch",
+        "Fans"
+      ]
+    },
+    {
+      "word": "Spectator",
+      "hints": [
+        "Watch",
+        "Fan",
+        "See"
+      ]
+    },
+    {
+      "word": "Merchandise",
+      "hints": [
+        "Shirt",
+        "Cap",
+        "Buy"
+      ]
+    },
+    {
+      "word": "Sponsorship",
+      "hints": [
+        "Money",
+        "Logo",
+        "Brand"
+      ]
+    },
+    {
+      "word": "Livery",
+      "hints": [
+        "Colors",
+        "Paint",
+        "Design"
+      ]
+    },
+    {
+      "word": "Decal",
+      "hints": [
+        "Sticker",
+        "Logo",
+        "Car"
+      ]
+    },
+    {
+      "word": "Carbon",
+      "hints": [
+        "Fiber",
+        "Black",
+        "Light"
+      ]
+    },
+    {
+      "word": "Kevlar",
+      "hints": [
+        "Strong",
+        "Yellow",
+        "Material"
+      ]
+    },
+    {
+      "word": "Titanium",
+      "hints": [
+        "Metal",
+        "Sparks",
+        "Skid"
+      ]
+    },
+    {
+      "word": "Alloy",
+      "hints": [
+        "Metal",
+        "Wheel",
+        "Mix"
+      ]
+    },
+    {
+      "word": "Rubber",
+      "hints": [
+        "Tire",
+        "Black",
+        "Grip"
+      ]
+    },
+    {
+      "word": "Brakes",
+      "hints": [
+        "Stop",
+        "Hot",
+        "Disc"
+      ]
+    },
+    {
+      "word": "Disc",
+      "hints": [
+        "Brake",
+        "Round",
+        "Stop"
+      ]
+    },
+    {
+      "word": "Caliper",
+      "hints": [
+        "Brake",
+        "Squeeze",
+        "Pad"
+      ]
+    },
+    {
+      "word": "Pad",
+      "hints": [
+        "Brake",
+        "Friction",
+        "Stop"
+      ]
+    },
+    {
+      "word": "Fluid",
+      "hints": [
+        "Brake",
+        "Liquid",
+        "Line"
+      ]
+    },
+    {
+      "word": "Sensor",
+      "hints": [
+        "Data",
+        "Read",
+        "Part"
+      ]
+    },
+    {
+      "word": "Cable",
+      "hints": [
+        "Wire",
+        "Connect",
+        "Part"
+      ]
+    },
+    {
+      "word": "Wiring",
+      "hints": [
+        "Loom",
+        "Electrical",
+        "Car"
+      ]
+    },
+    {
+      "word": "Battery",
+      "hints": [
+        "Power",
+        "Hybrid",
+        "Store"
+      ]
+    },
+    {
+      "word": "Motor",
+      "hints": [
+        "Electric",
+        "Power",
+        "Drive"
+      ]
+    },
+    {
+      "word": "Generator",
+      "hints": [
+        "Power",
+        "Make",
+        "Spin"
+      ]
+    },
+    {
+      "word": "Exhaust",
+      "hints": [
+        "Pipe",
+        "Gas",
+        "Hot"
+      ]
+    },
+    {
+      "word": "Turbo",
+      "hints": [
+        "Spin",
+        "Power",
+        "Boost"
+      ]
+    },
+    {
+      "word": "Intake",
+      "hints": [
+        "Air",
+        "Breathe",
+        "Engine"
+      ]
+    },
+    {
+      "word": "Radiator",
+      "hints": [
+        "Cool",
+        "Water",
+        "Side"
+      ]
+    },
+    {
+      "word": "Cooler",
+      "hints": [
+        "Cold",
+        "Air",
+        "Part"
+      ]
+    },
+    {
+      "word": "Pump",
+      "hints": [
+        "Move",
+        "Fluid",
+        "Part"
+      ]
+    },
+    {
+      "word": "Valve",
+      "hints": [
+        "Open",
+        "Close",
+        "Engine"
+      ]
+    },
+    {
+      "word": "Piston",
+      "hints": [
+        "Up",
+        "Down",
+        "Engine"
+      ]
+    },
+    {
+      "word": "Crankshaft",
+      "hints": [
+        "Spin",
+        "Engine",
+        "Part"
+      ]
+    },
+    {
+      "word": "Gearbox",
+      "hints": [
+        "Shift",
+        "Ratio",
+        "Part"
+      ]
+    },
+    {
+      "word": "Ratio",
+      "hints": [
+        "Gear",
+        "Speed",
+        "Number"
+      ]
+    },
+    {
+      "word": "Clutch",
+      "hints": [
+        "Start",
+        "Bite",
+        "Paddle"
+      ]
+    },
+    {
+      "word": "Shift",
+      "hints": [
+        "Gear",
+        "Up",
+        "Down"
+      ]
+    },
+    {
+      "word": "Paddle",
+      "hints": [
+        "Steer",
+        "Pull",
+        "Shift"
+      ]
+    },
+    {
+      "word": "Axle",
+      "hints": [
+        "Spin",
+        "Wheel",
+        "Part"
+      ]
+    },
+    {
+      "word": "Hub",
+      "hints": [
+        "Wheel",
+        "Attach",
+        "Part"
+      ]
+    },
+    {
+      "word": "Bearing",
+      "hints": [
+        "Spin",
+        "Smooth",
+        "Part"
+      ]
+    },
+    {
+      "word": "Nut",
+      "hints": [
+        "Wheel",
+        "Tight",
+        "Gun"
+      ]
+    },
+    {
+      "word": "Gun",
+      "hints": [
+        "Wheel",
+        "Pit",
+        "Loud"
+      ]
+    },
+    {
+      "word": "Jack",
+      "hints": [
+        "Lift",
+        "Car",
+        "Up"
+      ]
+    },
+    {
+      "word": "Trolley",
+      "hints": [
+        "Move",
+        "Tires",
+        "Push"
+      ]
+    },
+    {
+      "word": "Blanket",
+      "hints": [
+        "Heat",
+        "Tire",
+        "Warm"
+      ]
+    },
+    {
+      "word": "Garage",
+      "hints": [
+        "Box",
+        "Team",
+        "Work"
+      ]
+    },
+    {
+      "word": "Motorhome",
+      "hints": [
+        "Sleep",
+        "Eat",
+        "Team"
+      ]
+    },
+    {
+      "word": "Hospitality",
+      "hints": [
+        "VIP",
+        "Food",
+        "Drink"
+      ]
+    },
+    {
+      "word": "Pass",
+      "hints": [
+        "Lanyard",
+        "VIP",
+        "Entry"
       ]
     }
   ]

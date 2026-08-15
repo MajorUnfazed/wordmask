@@ -2,246 +2,966 @@
   "id": "science",
   "name": "Science",
   "emoji": "🔬",
-  "description": "Scientific concepts and discoveries",
+  "description": "Physics, chemistry, biology, and space",
   "words": [
     {
-      "word": "Black Hole",
+      "word": "Atom",
       "hints": [
-        "region",
-        "spacetime",
-        "gravity"
+        "Tiny particle",
+        "Basic building",
+        "Nucleus inside"
       ]
     },
     {
-      "word": "CRISPR",
+      "word": "Molecule",
       "hints": [
-        "gene",
-        "editing",
-        "tool"
+        "Combined atoms",
+        "Chemical structure",
+        "Water unit"
       ]
     },
     {
-      "word": "Photosynthesis",
+      "word": "Element",
       "hints": [
-        "plants",
-        "converting",
-        "sunlight"
+        "Periodic table",
+        "Pure substance",
+        "Gold oxygen"
       ]
     },
     {
-      "word": "Entropy",
+      "word": "Compound",
       "hints": [
-        "measure",
-        "disorder",
-        "thermodynamic"
+        "Mixed elements",
+        "Chemical mix",
+        "Combined bonded"
       ]
     },
     {
-      "word": "Mitochondria",
+      "word": "Mixture",
       "hints": [
-        "organelle",
-        "nicknamed",
-        "powerhouse"
+        "Blended stuff",
+        "Not bonded",
+        "Stirred together"
       ]
     },
     {
-      "word": "Dark Matter",
+      "word": "Solution",
       "hints": [
-        "invisible",
-        "substance",
-        "making"
+        "Dissolved mix",
+        "Liquid blend",
+        "Salt water"
       ]
     },
     {
-      "word": "Tectonic Plates",
+      "word": "Acid",
       "hints": [
-        "giant",
-        "rock",
-        "slabs"
+        "Low pH",
+        "Sour taste",
+        "Corrosive liquid"
       ]
     },
     {
-      "word": "Doppler Effect",
+      "word": "Base",
       "hints": [
-        "frequency",
-        "shift",
-        "observed"
+        "High pH",
+        "Bitter taste",
+        "Alkaline liquid"
       ]
     },
     {
-      "word": "Half-Life",
+      "word": "Salt",
       "hints": [
-        "time",
-        "radioactive",
-        "substance"
+        "Neutral compound",
+        "Sodium chloride",
+        "Food seasoning"
       ]
     },
     {
-      "word": "Osmosis",
+      "word": "Gas",
       "hints": [
-        "water",
-        "moving",
-        "membrane"
+        "Floating state",
+        "Invisible matter",
+        "Fills space"
       ]
     },
     {
-      "word": "Superconductor",
+      "word": "Liquid",
       "hints": [
-        "material",
-        "zero",
-        "electrical"
+        "Flowing state",
+        "Water form",
+        "Pours easily"
       ]
     },
     {
-      "word": "Antimatter",
+      "word": "Solid",
       "hints": [
-        "particles",
-        "opposite",
-        "charge"
+        "Firm state",
+        "Hard matter",
+        "Keeps shape"
       ]
     },
     {
-      "word": "Neuron",
+      "word": "Plasma",
       "hints": [
-        "nerve",
-        "cell",
-        "transmits"
+        "Superheated gas",
+        "Star matter",
+        "Fourth state"
       ]
     },
     {
-      "word": "Catalysis",
+      "word": "Energy",
       "hints": [
-        "speeding",
-        "chemical",
-        "reaction"
+        "Does work",
+        "Power source",
+        "Joule unit"
       ]
     },
     {
-      "word": "Higgs Boson",
+      "word": "Force",
       "hints": [
-        "particle",
-        "gives",
-        "other"
+        "Push pull",
+        "Newton unit",
+        "Moves objects"
       ]
     },
     {
-      "word": "Stem Cell",
+      "word": "Mass",
       "hints": [
-        "undifferentiated",
-        "can",
-        "become"
+        "Matter amount",
+        "Kilogram unit",
+        "Weight cause"
       ]
     },
     {
-      "word": "Plate Tectonics",
+      "word": "Weight",
       "hints": [
-        "theory",
-        "describing",
-        "movement"
+        "Gravity pull",
+        "Scale measure",
+        "Heavy light"
       ]
     },
     {
-      "word": "Solar Flare",
+      "word": "Gravity",
       "hints": [
-        "intense",
-        "burst",
-        "radiation"
+        "Pulls down",
+        "Earth force",
+        "Falling apple"
       ]
     },
     {
-      "word": "Protein Folding",
+      "word": "Friction",
       "hints": [
-        "process",
-        "which",
-        "chain"
+        "Rubbing force",
+        "Slows motion",
+        "Creates heat"
       ]
     },
     {
-      "word": "Quantum Entanglement",
+      "word": "Motion",
       "hints": [
-        "two",
-        "particles",
-        "sharing"
+        "Moving object",
+        "Kinetic state",
+        "Traveling fast"
       ]
     },
     {
-      "word": "DNA Double Helix",
+      "word": "Speed",
       "hints": [
-        "watson",
-        "crick's",
-        "twisted"
+        "Fast slow",
+        "Distance time",
+        "MPH unit"
       ]
     },
     {
-      "word": "Event Horizon",
+      "word": "Velocity",
       "hints": [
-        "point",
-        "return",
-        "edge"
+        "Speed direction",
+        "Vector rate",
+        "Moving fast"
       ]
     },
     {
-      "word": "Electromagnetic Spectrum",
+      "word": "Acceleration",
       "hints": [
-        "full",
-        "range",
-        "radiation"
+        "Speeding up",
+        "Changing velocity",
+        "Getting faster"
       ]
     },
     {
-      "word": "Antibody",
+      "word": "Momentum",
       "hints": [
-        "protein",
-        "produced",
-        "immune"
+        "Mass speed",
+        "Hard stopping",
+        "Moving force"
+      ]
+    },
+    {
+      "word": "Inertia",
+      "hints": [
+        "Resists change",
+        "Stays still",
+        "Keeps moving"
+      ]
+    },
+    {
+      "word": "Work",
+      "hints": [
+        "Force distance",
+        "Joule measure",
+        "Physics task"
+      ]
+    },
+    {
+      "word": "Power",
+      "hints": [
+        "Work rate",
+        "Watt unit",
+        "Energy speed"
+      ]
+    },
+    {
+      "word": "Heat",
+      "hints": [
+        "Thermal energy",
+        "Warms up",
+        "Hot feeling"
+      ]
+    },
+    {
+      "word": "Temperature",
+      "hints": [
+        "Hot cold",
+        "Degree measure",
+        "Thermometer reading"
+      ]
+    },
+    {
+      "word": "Conduction",
+      "hints": [
+        "Heat transfer",
+        "Touching warmth",
+        "Metal spoons"
+      ]
+    },
+    {
+      "word": "Convection",
+      "hints": [
+        "Fluid heat",
+        "Rising hot",
+        "Boiling water"
+      ]
+    },
+    {
+      "word": "Radiation",
+      "hints": [
+        "Wave heat",
+        "Sun warmth",
+        "Glowing transfer"
+      ]
+    },
+    {
+      "word": "Wave",
+      "hints": [
+        "Energy ripple",
+        "Ocean swell",
+        "Sound form"
+      ]
+    },
+    {
+      "word": "Sound",
+      "hints": [
+        "Hearing sense",
+        "Vibrating air",
+        "Acoustic wave"
+      ]
+    },
+    {
+      "word": "Light",
+      "hints": [
+        "Seeing sense",
+        "Photon beam",
+        "Bright ray"
+      ]
+    },
+    {
+      "word": "Color",
+      "hints": [
+        "Visual shade",
+        "Rainbow hue",
+        "Red blue"
+      ]
+    },
+    {
+      "word": "Spectrum",
+      "hints": [
+        "Full range",
+        "Rainbow bands",
+        "Light split"
+      ]
+    },
+    {
+      "word": "Lens",
+      "hints": [
+        "Bends light",
+        "Eye glasses",
+        "Focus glass"
+      ]
+    },
+    {
+      "word": "Prism",
+      "hints": [
+        "Splits light",
+        "Glass triangle",
+        "Rainbow maker"
+      ]
+    },
+    {
+      "word": "Mirror",
+      "hints": [
+        "Reflects light",
+        "Glass look",
+        "Bounces image"
+      ]
+    },
+    {
+      "word": "Reflection",
+      "hints": [
+        "Bouncing back",
+        "Mirror image",
+        "Echo sound"
+      ]
+    },
+    {
+      "word": "Refraction",
+      "hints": [
+        "Bending light",
+        "Water distortion",
+        "Prism effect"
+      ]
+    },
+    {
+      "word": "Diffraction",
+      "hints": [
+        "Bending waves",
+        "Spreading out",
+        "Edge effect"
+      ]
+    },
+    {
+      "word": "Interference",
+      "hints": [
+        "Wave mixing",
+        "Adding canceling",
+        "Overlap effect"
+      ]
+    },
+    {
+      "word": "Polarization",
+      "hints": [
+        "Filtering light",
+        "Glare blocking",
+        "One direction"
+      ]
+    },
+    {
+      "word": "Electricity",
+      "hints": [
+        "Flowing charge",
+        "Shock power",
+        "Current flow"
+      ]
+    },
+    {
+      "word": "Magnetism",
+      "hints": [
+        "Attracting force",
+        "North south",
+        "Iron pull"
+      ]
+    },
+    {
+      "word": "Charge",
+      "hints": [
+        "Positive negative",
+        "Static shock",
+        "Electron level"
+      ]
+    },
+    {
+      "word": "Current",
+      "hints": [
+        "Flowing amps",
+        "River flow",
+        "Wire electricity"
+      ]
+    },
+    {
+      "word": "Voltage",
+      "hints": [
+        "Electrical push",
+        "Volt unit",
+        "Battery power"
+      ]
+    },
+    {
+      "word": "Resistance",
+      "hints": [
+        "Ohm unit",
+        "Blocking flow",
+        "Friction electrical"
+      ]
+    },
+    {
+      "word": "Circuit",
+      "hints": [
+        "Electrical path",
+        "Closed loop",
+        "Wire route"
+      ]
+    },
+    {
+      "word": "Cell",
+      "hints": [
+        "Battery unit",
+        "Biological block",
+        "Tiny room"
+      ]
+    },
+    {
+      "word": "Battery",
+      "hints": [
+        "Stores power",
+        "AA AAA",
+        "Chemical energy"
+      ]
+    },
+    {
+      "word": "Generator",
+      "hints": [
+        "Makes power",
+        "Spinning magnets",
+        "Backup electricity"
+      ]
+    },
+    {
+      "word": "Motor",
+      "hints": [
+        "Spins things",
+        "Electrical engine",
+        "Drives wheels"
+      ]
+    },
+    {
+      "word": "Transformer",
+      "hints": [
+        "Changes voltage",
+        "Power grid",
+        "Robot disguise"
+      ]
+    },
+    {
+      "word": "Electron",
+      "hints": [
+        "Negative particle",
+        "Orbits nucleus",
+        "Tiny charge"
+      ]
+    },
+    {
+      "word": "Proton",
+      "hints": [
+        "Positive particle",
+        "Nucleus part",
+        "Atomic number"
+      ]
+    },
+    {
+      "word": "Neutron",
+      "hints": [
+        "Neutral particle",
+        "Nucleus partner",
+        "No charge"
+      ]
+    },
+    {
+      "word": "Nucleus",
+      "hints": [
+        "Center atom",
+        "Cell brain",
+        "Core part"
+      ]
+    },
+    {
+      "word": "Orbit",
+      "hints": [
+        "Circling path",
+        "Planet path",
+        "Space loop"
+      ]
+    },
+    {
+      "word": "Shell",
+      "hints": [
+        "Electron path",
+        "Outer layer",
+        "Hard cover"
       ]
     },
     {
       "word": "Isotope",
       "hints": [
-        "variant",
-        "element",
-        "same"
+        "Different neutrons",
+        "Radioactive version",
+        "Atomic variant"
       ]
     },
     {
-      "word": "Greenhouse Effect",
+      "word": "Ion",
       "hints": [
-        "gases",
-        "trap",
-        "heat"
+        "Charged atom",
+        "Lost electron",
+        "Gained electron"
       ]
     },
     {
-      "word": "Absolute Zero",
+      "word": "Bond",
       "hints": [
-        "273",
-        "coldest",
-        "theoretically"
+        "Chemical link",
+        "Holding atoms",
+        "Sharing electrons"
       ]
     },
     {
-      "word": "Centrifuge",
+      "word": "Reaction",
       "hints": [
-        "machine",
-        "spins",
-        "samples"
+        "Chemical change",
+        "Mixing fizz",
+        "Explosive result"
       ]
     },
     {
-      "word": "Epigenetics",
+      "word": "Equation",
       "hints": [
-        "study",
-        "gene",
-        "expression"
+        "Math sentence",
+        "Balanced formula",
+        "Equals sign"
       ]
     },
     {
-      "word": "Event Horizon Telescope",
+      "word": "Catalyst",
       "hints": [
-        "array",
-        "captured",
-        "first"
+        "Speeds up",
+        "Helper chemical",
+        "Reaction starter"
+      ]
+    },
+    {
+      "word": "Enzyme",
+      "hints": [
+        "Biological catalyst",
+        "Digestive helper",
+        "Protein worker"
+      ]
+    },
+    {
+      "word": "Protein",
+      "hints": [
+        "Muscle builder",
+        "Meat nutrient",
+        "Amino acids"
+      ]
+    },
+    {
+      "word": "Carbohydrate",
+      "hints": [
+        "Energy food",
+        "Sugar starch",
+        "Bread pasta"
+      ]
+    },
+    {
+      "word": "Lipid",
+      "hints": [
+        "Fat oil",
+        "Greasy molecule",
+        "Energy store"
+      ]
+    },
+    {
+      "word": "Nucleic",
+      "hints": [
+        "DNA part",
+        "Acid code",
+        "Genetic material"
+      ]
+    },
+    {
+      "word": "DNA",
+      "hints": [
+        "Genetic code",
+        "Double helix",
+        "Life blueprint"
+      ]
+    },
+    {
+      "word": "RNA",
+      "hints": [
+        "Messenger code",
+        "Single strand",
+        "Protein maker"
+      ]
+    },
+    {
+      "word": "Gene",
+      "hints": [
+        "Inherited trait",
+        "DNA section",
+        "Family coding"
+      ]
+    },
+    {
+      "word": "Chromosome",
+      "hints": [
+        "DNA bundle",
+        "X Y",
+        "Cell thread"
+      ]
+    },
+    {
+      "word": "Tissue",
+      "hints": [
+        "Cell group",
+        "Muscle skin",
+        "Organ layer"
+      ]
+    },
+    {
+      "word": "Organ",
+      "hints": [
+        "Body part",
+        "Heart lung",
+        "Tissue group"
+      ]
+    },
+    {
+      "word": "System",
+      "hints": [
+        "Working parts",
+        "Digestive nervous",
+        "Organ group"
+      ]
+    },
+    {
+      "word": "Organism",
+      "hints": [
+        "Living thing",
+        "Whole creature",
+        "Life form"
+      ]
+    },
+    {
+      "word": "Species",
+      "hints": [
+        "Specific type",
+        "Mating group",
+        "Animal classification"
+      ]
+    },
+    {
+      "word": "Population",
+      "hints": [
+        "Group numbers",
+        "Same species",
+        "Local count"
+      ]
+    },
+    {
+      "word": "Community",
+      "hints": [
+        "Mixed species",
+        "Living together",
+        "Local ecosystem"
+      ]
+    },
+    {
+      "word": "Ecosystem",
+      "hints": [
+        "Living environment",
+        "Nature system",
+        "Web life"
+      ]
+    },
+    {
+      "word": "Biosphere",
+      "hints": [
+        "Earth life",
+        "Global ecosystem",
+        "Living zone"
+      ]
+    },
+    {
+      "word": "Habitat",
+      "hints": [
+        "Living place",
+        "Animal home",
+        "Natural environment"
+      ]
+    },
+    {
+      "word": "Niche",
+      "hints": [
+        "Specific role",
+        "Ecosystem job",
+        "Perfect spot"
+      ]
+    },
+    {
+      "word": "Evolution",
+      "hints": [
+        "Species change",
+        "Darwin theory",
+        "Slow adaptation"
+      ]
+    },
+    {
+      "word": "Mutation",
+      "hints": [
+        "Genetic change",
+        "DNA error",
+        "New trait"
+      ]
+    },
+    {
+      "word": "Selection",
+      "hints": [
+        "Natural survival",
+        "Choosing best",
+        "Fittest win"
+      ]
+    },
+    {
+      "word": "Adaptation",
+      "hints": [
+        "Adjusting survival",
+        "Evolved trait",
+        "Fitting in"
+      ]
+    },
+    {
+      "word": "Fossil",
+      "hints": [
+        "Ancient bone",
+        "Rock imprint",
+        "Dino remains"
+      ]
+    },
+    {
+      "word": "Era",
+      "hints": [
+        "Time period",
+        "Mesozoic Cenozoic",
+        "Long age"
+      ]
+    },
+    {
+      "word": "Period",
+      "hints": [
+        "Time chunk",
+        "Jurassic Triassic",
+        "Era part"
+      ]
+    },
+    {
+      "word": "Epoch",
+      "hints": [
+        "Time slice",
+        "Geological age",
+        "Short era"
+      ]
+    },
+    {
+      "word": "Galaxy",
+      "hints": [
+        "Star cluster",
+        "Milky Way",
+        "Spiral shape"
+      ]
+    },
+    {
+      "word": "Star",
+      "hints": [
+        "Burning gas",
+        "Night twinkler",
+        "Sun example"
+      ]
+    },
+    {
+      "word": "Planet",
+      "hints": [
+        "Orbits star",
+        "Earth Mars",
+        "Round world"
+      ]
+    },
+    {
+      "word": "Moon",
+      "hints": [
+        "Orbits planet",
+        "Night light",
+        "Lunar sphere"
+      ]
+    },
+    {
+      "word": "Asteroid",
+      "hints": [
+        "Space rock",
+        "Belt flying",
+        "Dino killer"
+      ]
+    },
+    {
+      "word": "Comet",
+      "hints": [
+        "Icy tail",
+        "Halley flying",
+        "Shooting star"
+      ]
+    },
+    {
+      "word": "Meteor",
+      "hints": [
+        "Falling rock",
+        "Burns up",
+        "Atmosphere streak"
+      ]
+    },
+    {
+      "word": "Nebula",
+      "hints": [
+        "Space cloud",
+        "Star nursery",
+        "Gas dust"
+      ]
+    },
+    {
+      "word": "Quasar",
+      "hints": [
+        "Bright center",
+        "Distant galaxy",
+        "Active core"
+      ]
+    },
+    {
+      "word": "Pulsar",
+      "hints": [
+        "Spinning star",
+        "Radio blip",
+        "Neutron blink"
+      ]
+    },
+    {
+      "word": "Blackhole",
+      "hints": [
+        "Traps light",
+        "Gravity well",
+        "Dense center"
+      ]
+    },
+    {
+      "word": "Supernova",
+      "hints": [
+        "Exploding star",
+        "Bright flash",
+        "Stellar death"
+      ]
+    },
+    {
+      "word": "Eclipse",
+      "hints": [
+        "Blocking light",
+        "Solar lunar",
+        "Shadow cast"
+      ]
+    },
+    {
+      "word": "Phase",
+      "hints": [
+        "Moon shape",
+        "Changing state",
+        "Full crescent"
+      ]
+    },
+    {
+      "word": "Tides",
+      "hints": [
+        "Ocean rise",
+        "Moon pull",
+        "High low"
+      ]
+    },
+    {
+      "word": "Crust",
+      "hints": [
+        "Earth surface",
+        "Outer shell",
+        "Pizza edge"
+      ]
+    },
+    {
+      "word": "Mantle",
+      "hints": [
+        "Middle earth",
+        "Hot rock",
+        "Under crust"
+      ]
+    },
+    {
+      "word": "Core",
+      "hints": [
+        "Earth center",
+        "Iron heart",
+        "Inner hot"
+      ]
+    },
+    {
+      "word": "Magma",
+      "hints": [
+        "Underground lava",
+        "Hot liquid",
+        "Volcano belly"
+      ]
+    },
+    {
+      "word": "Lava",
+      "hints": [
+        "Surface magma",
+        "Volcano eruption",
+        "Flowing fire"
+      ]
+    },
+    {
+      "word": "Volcano",
+      "hints": [
+        "Erupting mountain",
+        "Lava spewer",
+        "Ash cloud"
+      ]
+    },
+    {
+      "word": "Earthquake",
+      "hints": [
+        "Shaking ground",
+        "Tremor fault",
+        "Seismic event"
+      ]
+    },
+    {
+      "word": "Fault",
+      "hints": [
+        "Earth crack",
+        "Plate edge",
+        "Quake line"
       ]
     }
   ]

@@ -1,407 +1,967 @@
 {
   "id": "food",
   "name": "Food",
-  "emoji": "🍔",
-  "description": "Cuisines, dishes, and ingredients",
+  "emoji": "🍕",
+  "description": "Delicious meals, snacks, and ingredients",
   "words": [
     {
       "word": "Pizza",
       "hints": [
-        "italian",
-        "baked",
-        "dish"
+        "Slice",
+        "Cheese",
+        "Crust"
+      ]
+    },
+    {
+      "word": "Burger",
+      "hints": [
+        "Bun",
+        "Patty",
+        "Beef"
       ]
     },
     {
       "word": "Sushi",
       "hints": [
-        "japanese",
-        "vinegared",
-        "rice"
+        "Rice",
+        "Fish",
+        "Roll"
       ]
     },
     {
-      "word": "Croissant",
+      "word": "Pasta",
       "hints": [
-        "flaky",
-        "crescent",
-        "shaped"
+        "Noodles",
+        "Sauce",
+        "Italy"
+      ]
+    },
+    {
+      "word": "Salad",
+      "hints": [
+        "Lettuce",
+        "Bowl",
+        "Healthy"
       ]
     },
     {
       "word": "Taco",
       "hints": [
-        "mexican",
-        "folded",
-        "tortilla"
+        "Shell",
+        "Meat",
+        "Mexico"
       ]
     },
     {
-      "word": "Ramen",
+      "word": "Steak",
       "hints": [
-        "japanese",
-        "noodle",
-        "soup"
+        "Beef",
+        "Grill",
+        "Meat"
       ]
     },
     {
-      "word": "Paella",
+      "word": "Chicken",
       "hints": [
-        "spanish",
-        "rice",
-        "dish"
+        "Bird",
+        "Roast",
+        "Meat"
+      ]
+    },
+    {
+      "word": "Fish",
+      "hints": [
+        "Swim",
+        "Ocean",
+        "Meat"
+      ]
+    },
+    {
+      "word": "Pork",
+      "hints": [
+        "Pig",
+        "Meat",
+        "Chop"
+      ]
+    },
+    {
+      "word": "Beef",
+      "hints": [
+        "Cow",
+        "Meat",
+        "Red"
+      ]
+    },
+    {
+      "word": "Rice",
+      "hints": [
+        "Grain",
+        "White",
+        "Bowl"
+      ]
+    },
+    {
+      "word": "Noodle",
+      "hints": [
+        "Long",
+        "Soup",
+        "Slurp"
+      ]
+    },
+    {
+      "word": "Bread",
+      "hints": [
+        "Loaf",
+        "Slice",
+        "Bake"
+      ]
+    },
+    {
+      "word": "Cheese",
+      "hints": [
+        "Yellow",
+        "Melt",
+        "Dairy"
+      ]
+    },
+    {
+      "word": "Butter",
+      "hints": [
+        "Yellow",
+        "Spread",
+        "Dairy"
+      ]
+    },
+    {
+      "word": "Milk",
+      "hints": [
+        "White",
+        "Drink",
+        "Cow"
+      ]
+    },
+    {
+      "word": "Egg",
+      "hints": [
+        "Shell",
+        "Yolk",
+        "Breakfast"
+      ]
+    },
+    {
+      "word": "Apple",
+      "hints": [
+        "Red",
+        "Fruit",
+        "Crunch"
+      ]
+    },
+    {
+      "word": "Banana",
+      "hints": [
+        "Yellow",
+        "Peel",
+        "Monkey"
+      ]
+    },
+    {
+      "word": "Orange",
+      "hints": [
+        "Citrus",
+        "Juice",
+        "Peel"
+      ]
+    },
+    {
+      "word": "Grape",
+      "hints": [
+        "Vine",
+        "Purple",
+        "Wine"
+      ]
+    },
+    {
+      "word": "Strawberry",
+      "hints": [
+        "Red",
+        "Seed",
+        "Sweet"
+      ]
+    },
+    {
+      "word": "Blueberry",
+      "hints": [
+        "Small",
+        "Blue",
+        "Muffin"
+      ]
+    },
+    {
+      "word": "Raspberry",
+      "hints": [
+        "Red",
+        "Soft",
+        "Berry"
+      ]
+    },
+    {
+      "word": "Blackberry",
+      "hints": [
+        "Black",
+        "Bramble",
+        "Berry"
+      ]
+    },
+    {
+      "word": "Melon",
+      "hints": [
+        "Large",
+        "Sweet",
+        "Fruit"
+      ]
+    },
+    {
+      "word": "Watermelon",
+      "hints": [
+        "Green",
+        "Red",
+        "Seeds"
+      ]
+    },
+    {
+      "word": "Pineapple",
+      "hints": [
+        "Spikes",
+        "Yellow",
+        "Hawaii"
+      ]
+    },
+    {
+      "word": "Mango",
+      "hints": [
+        "Tropical",
+        "Pit",
+        "Orange"
+      ]
+    },
+    {
+      "word": "Papaya",
+      "hints": [
+        "Tropical",
+        "Seeds",
+        "Orange"
+      ]
+    },
+    {
+      "word": "Peach",
+      "hints": [
+        "Fuzz",
+        "Pit",
+        "Sweet"
+      ]
+    },
+    {
+      "word": "Plum",
+      "hints": [
+        "Purple",
+        "Pit",
+        "Sweet"
+      ]
+    },
+    {
+      "word": "Cherry",
+      "hints": [
+        "Red",
+        "Pit",
+        "Stem"
+      ]
+    },
+    {
+      "word": "Pear",
+      "hints": [
+        "Green",
+        "Shape",
+        "Fruit"
+      ]
+    },
+    {
+      "word": "Lemon",
+      "hints": [
+        "Yellow",
+        "Sour",
+        "Citrus"
+      ]
+    },
+    {
+      "word": "Lime",
+      "hints": [
+        "Green",
+        "Sour",
+        "Citrus"
+      ]
+    },
+    {
+      "word": "Coconut",
+      "hints": [
+        "Hairy",
+        "Shell",
+        "Milk"
+      ]
+    },
+    {
+      "word": "Avocado",
+      "hints": [
+        "Green",
+        "Pit",
+        "Toast"
+      ]
+    },
+    {
+      "word": "Tomato",
+      "hints": [
+        "Red",
+        "Vine",
+        "Ketchup"
+      ]
+    },
+    {
+      "word": "Potato",
+      "hints": [
+        "Brown",
+        "Mash",
+        "Fry"
+      ]
+    },
+    {
+      "word": "Onion",
+      "hints": [
+        "Cry",
+        "Layers",
+        "Peel"
+      ]
+    },
+    {
+      "word": "Garlic",
+      "hints": [
+        "Clove",
+        "Vampire",
+        "Smell"
+      ]
+    },
+    {
+      "word": "Carrot",
+      "hints": [
+        "Orange",
+        "Bugs",
+        "Root"
+      ]
+    },
+    {
+      "word": "Broccoli",
+      "hints": [
+        "Green",
+        "Tree",
+        "Veggie"
+      ]
+    },
+    {
+      "word": "Cauliflower",
+      "hints": [
+        "White",
+        "Tree",
+        "Veggie"
+      ]
+    },
+    {
+      "word": "Spinach",
+      "hints": [
+        "Green",
+        "Leaf",
+        "Popeye"
+      ]
+    },
+    {
+      "word": "Lettuce",
+      "hints": [
+        "Green",
+        "Leaf",
+        "Salad"
+      ]
+    },
+    {
+      "word": "Cabbage",
+      "hints": [
+        "Head",
+        "Green",
+        "Slaw"
+      ]
+    },
+    {
+      "word": "Celery",
+      "hints": [
+        "Stalk",
+        "Crunch",
+        "Peanut"
+      ]
+    },
+    {
+      "word": "Cucumber",
+      "hints": [
+        "Green",
+        "Pickle",
+        "Slice"
+      ]
+    },
+    {
+      "word": "Zucchini",
+      "hints": [
+        "Green",
+        "Squash",
+        "Long"
+      ]
+    },
+    {
+      "word": "Squash",
+      "hints": [
+        "Yellow",
+        "Gourd",
+        "Bake"
+      ]
+    },
+    {
+      "word": "Pumpkin",
+      "hints": [
+        "Orange",
+        "Carve",
+        "Pie"
+      ]
+    },
+    {
+      "word": "Corn",
+      "hints": [
+        "Yellow",
+        "Cob",
+        "Pop"
+      ]
+    },
+    {
+      "word": "Pea",
+      "hints": [
+        "Green",
+        "Pod",
+        "Small"
+      ]
+    },
+    {
+      "word": "Bean",
+      "hints": [
+        "Green",
+        "Pod",
+        "Snap"
+      ]
+    },
+    {
+      "word": "Mushroom",
+      "hints": [
+        "Fungi",
+        "Cap",
+        "Cook"
+      ]
+    },
+    {
+      "word": "Pepper",
+      "hints": [
+        "Spicy",
+        "Bell",
+        "Shake"
+      ]
+    },
+    {
+      "word": "Salt",
+      "hints": [
+        "White",
+        "Shake",
+        "Sea"
+      ]
+    },
+    {
+      "word": "Sugar",
+      "hints": [
+        "Sweet",
+        "White",
+        "Bake"
+      ]
+    },
+    {
+      "word": "Flour",
+      "hints": [
+        "White",
+        "Powder",
+        "Bake"
+      ]
+    },
+    {
+      "word": "Oil",
+      "hints": [
+        "Liquid",
+        "Fry",
+        "Olive"
+      ]
+    },
+    {
+      "word": "Vinegar",
+      "hints": [
+        "Sour",
+        "Liquid",
+        "Dress"
+      ]
+    },
+    {
+      "word": "Soy",
+      "hints": [
+        "Sauce",
+        "Salty",
+        "Bean"
+      ]
+    },
+    {
+      "word": "Ketchup",
+      "hints": [
+        "Red",
+        "Tomato",
+        "Fries"
+      ]
+    },
+    {
+      "word": "Mustard",
+      "hints": [
+        "Yellow",
+        "Hotdog",
+        "Seed"
+      ]
+    },
+    {
+      "word": "Mayonnaise",
+      "hints": [
+        "White",
+        "Spread",
+        "Sandwich"
+      ]
+    },
+    {
+      "word": "Salsa",
+      "hints": [
+        "Dip",
+        "Chips",
+        "Tomato"
+      ]
+    },
+    {
+      "word": "Guacamole",
+      "hints": [
+        "Dip",
+        "Chips",
+        "Avocado"
       ]
     },
     {
       "word": "Hummus",
       "hints": [
-        "chickpea",
-        "dip",
-        "middle"
+        "Dip",
+        "Pita",
+        "Chickpea"
+      ]
+    },
+    {
+      "word": "Jelly",
+      "hints": [
+        "Spread",
+        "Sweet",
+        "Jar"
+      ]
+    },
+    {
+      "word": "Jam",
+      "hints": [
+        "Spread",
+        "Sweet",
+        "Fruit"
+      ]
+    },
+    {
+      "word": "Honey",
+      "hints": [
+        "Bee",
+        "Sweet",
+        "Sticky"
+      ]
+    },
+    {
+      "word": "Syrup",
+      "hints": [
+        "Maple",
+        "Pancake",
+        "Sticky"
+      ]
+    },
+    {
+      "word": "Chocolate",
+      "hints": [
+        "Brown",
+        "Sweet",
+        "Candy"
+      ]
+    },
+    {
+      "word": "Vanilla",
+      "hints": [
+        "Bean",
+        "Flavor",
+        "Ice"
+      ]
+    },
+    {
+      "word": "Caramel",
+      "hints": [
+        "Sticky",
+        "Sweet",
+        "Brown"
+      ]
+    },
+    {
+      "word": "Candy",
+      "hints": [
+        "Sweet",
+        "Treat",
+        "Wrapper"
+      ]
+    },
+    {
+      "word": "Cookie",
+      "hints": [
+        "Bake",
+        "Chip",
+        "Sweet"
+      ]
+    },
+    {
+      "word": "Cake",
+      "hints": [
+        "Bake",
+        "Slice",
+        "Frosting"
+      ]
+    },
+    {
+      "word": "Pie",
+      "hints": [
+        "Bake",
+        "Crust",
+        "Slice"
+      ]
+    },
+    {
+      "word": "Brownie",
+      "hints": [
+        "Square",
+        "Chocolate",
+        "Bake"
+      ]
+    },
+    {
+      "word": "Muffin",
+      "hints": [
+        "Bake",
+        "Cup",
+        "Top"
+      ]
+    },
+    {
+      "word": "Donut",
+      "hints": [
+        "Hole",
+        "Glaze",
+        "Fry"
+      ]
+    },
+    {
+      "word": "Croissant",
+      "hints": [
+        "Flaky",
+        "France",
+        "Crescent"
+      ]
+    },
+    {
+      "word": "Bagel",
+      "hints": [
+        "Hole",
+        "Boil",
+        "Cream"
+      ]
+    },
+    {
+      "word": "Toast",
+      "hints": [
+        "Bread",
+        "Burn",
+        "Morning"
+      ]
+    },
+    {
+      "word": "Pancake",
+      "hints": [
+        "Flat",
+        "Syrup",
+        "Flip"
       ]
     },
     {
       "word": "Waffle",
       "hints": [
-        "grid",
-        "patterned",
-        "breakfast"
+        "Grid",
+        "Syrup",
+        "Iron"
       ]
     },
     {
-      "word": "Lasagna",
+      "word": "Cereal",
       "hints": [
-        "layered",
-        "italian",
-        "pasta"
+        "Bowl",
+        "Milk",
+        "Morning"
       ]
     },
     {
-      "word": "Burrito",
+      "word": "Oatmeal",
       "hints": [
-        "large",
-        "flour",
-        "tortilla"
+        "Bowl",
+        "Hot",
+        "Grain"
       ]
     },
     {
-      "word": "Curry",
+      "word": "Granola",
       "hints": [
-        "spiced",
-        "sauce",
-        "dish"
+        "Crunch",
+        "Yogurt",
+        "Oats"
       ]
     },
     {
-      "word": "Tiramisu",
+      "word": "Yogurt",
       "hints": [
-        "italian",
-        "espresso",
-        "flavoured"
+        "Dairy",
+        "Spoon",
+        "Fruit"
       ]
     },
     {
-      "word": "Dumpling",
+      "word": "Ice Cream",
       "hints": [
-        "filled",
-        "dough",
-        "pocket"
+        "Cold",
+        "Cone",
+        "Scoop"
       ]
     },
     {
-      "word": "Baklava",
+      "word": "Popsicle",
       "hints": [
-        "layered",
-        "pastry",
-        "nuts"
-      ]
-    },
-    {
-      "word": "Pretzel",
-      "hints": [
-        "twisted",
-        "baked",
-        "bread"
-      ]
-    },
-    {
-      "word": "Mochi",
-      "hints": [
-        "japanese",
-        "sticky",
-        "rice"
-      ]
-    },
-    {
-      "word": "Falafel",
-      "hints": [
-        "fried",
-        "chickpea",
-        "balls"
-      ]
-    },
-    {
-      "word": "Gyoza",
-      "hints": [
-        "pan",
-        "fried",
-        "japanese"
-      ]
-    },
-    {
-      "word": "Churros",
-      "hints": [
-        "fried",
-        "dough",
-        "sticks"
-      ]
-    },
-    {
-      "word": "Pho",
-      "hints": [
-        "vietnamese",
-        "aromatic",
-        "noodle"
+        "Cold",
+        "Stick",
+        "Ice"
       ]
     },
     {
       "word": "Gelato",
       "hints": [
-        "dense",
-        "italian",
-        "ice"
+        "Italy",
+        "Cold",
+        "Scoop"
       ]
     },
     {
-      "word": "Empanada",
+      "word": "Sorbet",
       "hints": [
-        "baked",
-        "fried",
-        "stuffed"
+        "Fruit",
+        "Cold",
+        "Scoop"
       ]
     },
     {
-      "word": "Shakshuka",
+      "word": "Soup",
       "hints": [
-        "eggs",
-        "poached",
-        "spiced"
+        "Bowl",
+        "Spoon",
+        "Hot"
       ]
     },
     {
-      "word": "Bibimbap",
+      "word": "Stew",
       "hints": [
-        "korean",
-        "mixed",
-        "rice"
+        "Bowl",
+        "Thick",
+        "Meat"
       ]
     },
     {
-      "word": "Ceviche",
+      "word": "Chili",
       "hints": [
-        "raw",
-        "fish",
-        "cured"
+        "Bowl",
+        "Spicy",
+        "Beans"
       ]
     },
     {
-      "word": "Crepe",
+      "word": "Curry",
       "hints": [
-        "thin",
-        "french",
-        "pancake"
+        "Spicy",
+        "India",
+        "Sauce"
       ]
     },
     {
-      "word": "Moussaka",
+      "word": "Sandwich",
       "hints": [
-        "greek",
-        "baked",
-        "aubergine"
+        "Bread",
+        "Meat",
+        "Eat"
       ]
     },
     {
-      "word": "Pierogi",
+      "word": "Wrap",
       "hints": [
-        "polish",
-        "stuffed",
-        "dough"
+        "Tortilla",
+        "Fold",
+        "Eat"
       ]
     },
     {
-      "word": "Tagine",
+      "word": "Burrito",
       "hints": [
-        "moroccan",
-        "slow",
-        "cooked"
+        "Tortilla",
+        "Beans",
+        "Foil"
       ]
     },
     {
-      "word": "Poutine",
+      "word": "Quesadilla",
       "hints": [
-        "canadian",
-        "fries",
-        "gravy"
+        "Tortilla",
+        "Cheese",
+        "Flat"
       ]
     },
     {
-      "word": "Brioche",
+      "word": "Enchilada",
       "hints": [
-        "rich",
-        "buttery",
-        "french"
+        "Tortilla",
+        "Sauce",
+        "Bake"
       ]
     },
     {
-      "word": "Kimchi",
+      "word": "Tamale",
       "hints": [
-        "fermented",
-        "korean",
-        "spicy"
+        "Corn",
+        "Husk",
+        "Steam"
       ]
     },
     {
-      "word": "Goulash",
+      "word": "Dumpling",
       "hints": [
-        "hungarian",
-        "paprika",
-        "beef"
+        "Dough",
+        "Fill",
+        "Steam"
       ]
     },
     {
-      "word": "Naan",
+      "word": "Sashimi",
       "hints": [
-        "leavened",
-        "flatbread",
-        "tandoor"
-      ]
-    },
-    {
-      "word": "Soufflé",
-      "hints": [
-        "delicate",
-        "baked",
-        "french"
+        "Slice",
+        "Fish",
+        "Raw"
       ]
     },
     {
       "word": "Tempura",
       "hints": [
-        "japanese",
-        "light",
-        "battered"
+        "Fry",
+        "Batter",
+        "Japan"
       ]
     },
     {
-      "word": "Stroganoff",
+      "word": "Ramen",
       "hints": [
-        "russian",
-        "beef",
-        "sour"
+        "Bowl",
+        "Noodle",
+        "Japan"
       ]
     },
     {
-      "word": "Risotto",
+      "word": "Udon",
       "hints": [
-        "creamy",
-        "slow",
-        "cooked"
+        "Thick",
+        "Noodle",
+        "Japan"
       ]
     },
     {
-      "word": "Bruschetta",
+      "word": "Pho",
       "hints": [
-        "italian",
-        "toasted",
-        "bread"
+        "Bowl",
+        "Noodle",
+        "Vietnam"
       ]
     },
     {
-      "word": "Borscht",
+      "word": "Bacon",
       "hints": [
-        "eastern",
-        "european",
-        "beetroot"
+        "Pork",
+        "Fry",
+        "Strips"
       ]
     },
     {
-      "word": "Kebab",
+      "word": "Sausage",
       "hints": [
-        "grilled",
-        "meat",
-        "skewer"
+        "Link",
+        "Pork",
+        "Grill"
       ]
     },
     {
-      "word": "Quiche",
+      "word": "Nutmeg",
       "hints": [
-        "french",
-        "egg",
-        "cream"
+        "Spice",
+        "Grate",
+        "Bake"
       ]
     },
     {
-      "word": "Pad Thai",
+      "word": "Cinnamon",
       "hints": [
-        "stir",
-        "fried",
-        "rice"
+        "Spice",
+        "Stick",
+        "Roll"
       ]
     },
     {
-      "word": "Calzone",
+      "word": "Pretzel",
       "hints": [
-        "folded",
-        "pizza",
-        "filling"
+        "Twist",
+        "Salt",
+        "Bake"
       ]
     },
     {
-      "word": "Cannoli",
+      "word": "Popcorn",
       "hints": [
-        "sicilian",
-        "pastry",
-        "tubes"
-      ]
-    },
-    {
-      "word": "Macaron",
-      "hints": [
-        "french",
-        "colourful",
-        "meringue"
-      ]
-    },
-    {
-      "word": "Fondue",
-      "hints": [
-        "swiss",
-        "melted",
-        "cheese"
-      ]
-    },
-    {
-      "word": "Croquette",
-      "hints": [
-        "breaded",
-        "fried",
-        "mashed"
-      ]
-    },
-    {
-      "word": "Samosa",
-      "hints": [
-        "fried",
-        "indian",
-        "pastry"
-      ]
-    },
-    {
-      "word": "Biryani",
-      "hints": [
-        "layered",
-        "south",
-        "asian"
+        "Movie",
+        "Snack",
+        "Butter"
       ]
     }
   ]

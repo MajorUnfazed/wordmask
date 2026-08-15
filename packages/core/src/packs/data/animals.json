@@ -5,403 +5,963 @@
   "description": "Creatures from land, sea, and sky",
   "words": [
     {
-      "word": "Axolotl",
+      "word": "Dog",
       "hints": [
-        "mexican",
-        "salamander",
-        "keeps"
+        "Bark",
+        "Pet",
+        "Loyal"
       ]
     },
     {
-      "word": "Platypus",
+      "word": "Cat",
       "hints": [
-        "egg",
-        "laying",
-        "mammal"
+        "Meow",
+        "Feline",
+        "Purr"
       ]
     },
     {
-      "word": "Narwhal",
+      "word": "Lion",
       "hints": [
-        "arctic",
-        "whale",
-        "long"
+        "King",
+        "Mane",
+        "Roar"
       ]
     },
     {
-      "word": "Pangolin",
+      "word": "Tiger",
       "hints": [
-        "scale",
-        "covered",
-        "mammal"
+        "Stripes",
+        "Fierce",
+        "Jungle"
       ]
     },
     {
-      "word": "Quokka",
+      "word": "Bear",
       "hints": [
-        "smiling",
-        "marsupial",
-        "western"
+        "Grizzly",
+        "Honey",
+        "Claws"
       ]
     },
     {
-      "word": "Capybara",
+      "word": "Elephant",
       "hints": [
-        "world's",
-        "largest",
-        "rodent"
+        "Trunk",
+        "Tusks",
+        "Grey"
       ]
     },
     {
-      "word": "Mantis Shrimp",
+      "word": "Giraffe",
       "hints": [
-        "crustacean",
-        "most",
-        "complex"
+        "Neck",
+        "Tall",
+        "Spots"
       ]
     },
     {
-      "word": "Tardigrade",
+      "word": "Zebra",
       "hints": [
-        "microscopic",
-        "creature",
-        "survives"
+        "Stripes",
+        "Horse",
+        "Africa"
       ]
     },
     {
-      "word": "Okapi",
+      "word": "Monkey",
       "hints": [
-        "striped",
-        "forest",
-        "relative"
+        "Swing",
+        "Banana",
+        "Chimp"
       ]
     },
     {
-      "word": "Fossa",
+      "word": "Gorilla",
       "hints": [
-        "top",
-        "predator",
-        "madagascar"
+        "Ape",
+        "Chest",
+        "Silverback"
       ]
     },
     {
-      "word": "Gharial",
+      "word": "Kangaroo",
       "hints": [
-        "long",
-        "snouted",
-        "indian"
+        "Jump",
+        "Pouch",
+        "Joey"
       ]
     },
     {
-      "word": "Binturong",
+      "word": "Penguin",
       "hints": [
-        "bearcat",
-        "smells",
-        "like"
+        "Tuxedo",
+        "Ice",
+        "Waddle"
       ]
     },
     {
-      "word": "Aye-aye",
+      "word": "Dolphin",
       "hints": [
-        "madagascar",
-        "primate",
-        "long"
+        "Flipper",
+        "Ocean",
+        "Smart"
       ]
     },
     {
-      "word": "Saiga",
+      "word": "Whale",
       "hints": [
-        "antelope",
-        "bulbous",
-        "nose"
+        "Huge",
+        "Blowhole",
+        "Sea"
       ]
     },
     {
-      "word": "Wombat",
+      "word": "Shark",
       "hints": [
-        "australian",
-        "marsupial",
-        "makes"
+        "Fins",
+        "Teeth",
+        "Jaws"
       ]
     },
     {
-      "word": "Manta Ray",
+      "word": "Octopus",
       "hints": [
-        "giant",
-        "flat",
-        "ocean"
+        "Tentacles",
+        "Ink",
+        "Eight"
       ]
     },
     {
-      "word": "Shoebill",
+      "word": "Snake",
       "hints": [
-        "tall",
-        "african",
-        "bird"
+        "Slither",
+        "Hiss",
+        "Venom"
       ]
     },
     {
-      "word": "Sun Bear",
+      "word": "Turtle",
       "hints": [
-        "smallest",
-        "species",
-        "long"
+        "Shell",
+        "Slow",
+        "Reptile"
       ]
     },
     {
-      "word": "Kinkajou",
+      "word": "Frog",
       "hints": [
-        "honey",
-        "loving",
-        "rainforest"
+        "Leap",
+        "Croak",
+        "Pond"
       ]
     },
     {
-      "word": "Kakapo",
+      "word": "Lizard",
       "hints": [
-        "critically",
-        "endangered",
-        "flightless"
+        "Scales",
+        "Tail",
+        "Crawl"
       ]
     },
     {
-      "word": "Blue-footed Booby",
+      "word": "Cheetah",
       "hints": [
-        "seabird",
-        "famous",
-        "bright"
+        "Fast",
+        "Spots",
+        "Sprint"
       ]
     },
     {
-      "word": "Proboscis Monkey",
+      "word": "Leopard",
       "hints": [
-        "borneo",
-        "enormous",
-        "nose"
+        "Spotted",
+        "Tree",
+        "Cat"
       ]
     },
     {
-      "word": "Dumbo Octopus",
+      "word": "Panther",
       "hints": [
-        "deep",
-        "sea",
-        "ear"
+        "Black",
+        "Stealth",
+        "Feline"
       ]
     },
     {
-      "word": "Red Panda",
+      "word": "Jaguar",
       "hints": [
-        "fluffy",
-        "tree",
-        "climbing"
+        "Amazon",
+        "Spots",
+        "Predator"
       ]
     },
     {
-      "word": "Blobfish",
+      "word": "Wolf",
       "hints": [
-        "deep",
-        "sea",
-        "fish"
+        "Howl",
+        "Pack",
+        "Moon"
       ]
     },
     {
-      "word": "Thorny Devil",
+      "word": "Fox",
       "hints": [
-        "australian",
-        "lizard",
-        "covered"
+        "Sly",
+        "Red",
+        "Bushy"
       ]
     },
     {
-      "word": "Mimic Octopus",
+      "word": "Coyote",
       "hints": [
-        "cephalopod",
-        "impersonates",
-        "other"
+        "Desert",
+        "Howl",
+        "Wild"
       ]
     },
     {
-      "word": "Leafy Sea Dragon",
+      "word": "Hyena",
       "hints": [
-        "seahorse",
-        "relative",
-        "disguised"
+        "Laugh",
+        "Scavenger",
+        "Pack"
       ]
     },
     {
-      "word": "Glass Frog",
+      "word": "Rhino",
       "hints": [
-        "amphibian",
-        "transparent",
-        "belly"
+        "Horn",
+        "Charge",
+        "Heavy"
       ]
     },
     {
-      "word": "Flying Fish",
+      "word": "Hippo",
       "hints": [
-        "glides",
-        "above",
-        "ocean"
+        "River",
+        "Yawn",
+        "Heavy"
       ]
     },
     {
-      "word": "Mudskipper",
+      "word": "Crocodile",
       "hints": [
-        "fish",
-        "walks",
-        "land"
+        "Snout",
+        "Teeth",
+        "Swamp"
       ]
     },
     {
-      "word": "Pistol Shrimp",
+      "word": "Alligator",
       "hints": [
-        "crustacean",
-        "snaps",
-        "claw"
+        "Florida",
+        "Swamp",
+        "Reptile"
       ]
     },
     {
-      "word": "Geoduck",
+      "word": "Deer",
       "hints": [
-        "giant",
-        "pacific",
-        "clam"
+        "Antlers",
+        "Bambi",
+        "Forest"
       ]
     },
     {
-      "word": "Tarsier",
+      "word": "Moose",
       "hints": [
-        "tiny",
-        "primate",
-        "enormous"
+        "Huge",
+        "Antlers",
+        "North"
       ]
     },
     {
-      "word": "Gharial",
+      "word": "Elk",
       "hints": [
-        "long",
-        "snouted",
-        "indian"
+        "Bugle",
+        "Antlers",
+        "Wild"
       ]
     },
     {
-      "word": "Vampire Squid",
+      "word": "Caribou",
       "hints": [
-        "deep",
-        "sea",
-        "cephalopod"
+        "Snow",
+        "Herd",
+        "Tundra"
+      ]
+    },
+    {
+      "word": "Reindeer",
+      "hints": [
+        "Sleigh",
+        "Santa",
+        "Hooves"
+      ]
+    },
+    {
+      "word": "Antelope",
+      "hints": [
+        "Fast",
+        "Horns",
+        "Plains"
+      ]
+    },
+    {
+      "word": "Gazelle",
+      "hints": [
+        "Leap",
+        "Fast",
+        "Prey"
+      ]
+    },
+    {
+      "word": "Buffalo",
+      "hints": [
+        "Plains",
+        "Horns",
+        "Herd"
+      ]
+    },
+    {
+      "word": "Bison",
+      "hints": [
+        "Hump",
+        "Prairie",
+        "Heavy"
+      ]
+    },
+    {
+      "word": "Cow",
+      "hints": [
+        "Moo",
+        "Milk",
+        "Farm"
+      ]
+    },
+    {
+      "word": "Bull",
+      "hints": [
+        "Horns",
+        "Rodeo",
+        "Charge"
+      ]
+    },
+    {
+      "word": "Sheep",
+      "hints": [
+        "Baa",
+        "Wool",
+        "Flock"
+      ]
+    },
+    {
+      "word": "Goat",
+      "hints": [
+        "Horns",
+        "Beard",
+        "Climb"
+      ]
+    },
+    {
+      "word": "Pig",
+      "hints": [
+        "Oink",
+        "Mud",
+        "Pork"
+      ]
+    },
+    {
+      "word": "Horse",
+      "hints": [
+        "Neigh",
+        "Gallop",
+        "Ride"
+      ]
+    },
+    {
+      "word": "Donkey",
+      "hints": [
+        "Bray",
+        "Mule",
+        "Burro"
+      ]
+    },
+    {
+      "word": "Camel",
+      "hints": [
+        "Hump",
+        "Desert",
+        "Spit"
+      ]
+    },
+    {
+      "word": "Llama",
+      "hints": [
+        "Andes",
+        "Spit",
+        "Fleece"
+      ]
+    },
+    {
+      "word": "Alpaca",
+      "hints": [
+        "Wool",
+        "Andes",
+        "Soft"
+      ]
+    },
+    {
+      "word": "Rabbit",
+      "hints": [
+        "Hop",
+        "Carrot",
+        "Ears"
+      ]
+    },
+    {
+      "word": "Hare",
+      "hints": [
+        "Fast",
+        "Ears",
+        "Wild"
+      ]
+    },
+    {
+      "word": "Squirrel",
+      "hints": [
+        "Acorn",
+        "Bushy",
+        "Tree"
+      ]
+    },
+    {
+      "word": "Chipmunk",
+      "hints": [
+        "Cheeks",
+        "Stripes",
+        "Small"
+      ]
+    },
+    {
+      "word": "Mouse",
+      "hints": [
+        "Squeak",
+        "Cheese",
+        "Tiny"
+      ]
+    },
+    {
+      "word": "Rat",
+      "hints": [
+        "Sewer",
+        "Tail",
+        "Rodent"
+      ]
+    },
+    {
+      "word": "Hamster",
+      "hints": [
+        "Wheel",
+        "Pet",
+        "Cheeks"
+      ]
+    },
+    {
+      "word": "Guinea Pig",
+      "hints": [
+        "Squeak",
+        "Pet",
+        "Cavy"
+      ]
+    },
+    {
+      "word": "Porcupine",
+      "hints": [
+        "Quills",
+        "Spikes",
+        "Defense"
+      ]
+    },
+    {
+      "word": "Hedgehog",
+      "hints": [
+        "Spikes",
+        "Curl",
+        "Sonic"
+      ]
+    },
+    {
+      "word": "Skunk",
+      "hints": [
+        "Spray",
+        "Stink",
+        "Stripe"
+      ]
+    },
+    {
+      "word": "Raccoon",
+      "hints": [
+        "Mask",
+        "Trash",
+        "Paws"
+      ]
+    },
+    {
+      "word": "Badger",
+      "hints": [
+        "Fierce",
+        "Claws",
+        "Burrow"
+      ]
+    },
+    {
+      "word": "Beaver",
+      "hints": [
+        "Dam",
+        "Wood",
+        "Tail"
+      ]
+    },
+    {
+      "word": "Otter",
+      "hints": [
+        "River",
+        "Playful",
+        "Shell"
+      ]
+    },
+    {
+      "word": "Seal",
+      "hints": [
+        "Bark",
+        "Flippers",
+        "Ocean"
+      ]
+    },
+    {
+      "word": "Walrus",
+      "hints": [
+        "Tusks",
+        "Mustache",
+        "Ice"
+      ]
+    },
+    {
+      "word": "Sea Lion",
+      "hints": [
+        "Bark",
+        "Perform",
+        "Flippers"
       ]
     },
     {
       "word": "Manatee",
       "hints": [
-        "slow",
-        "moving",
-        "sea"
+        "Sea cow",
+        "Slow",
+        "Gentle"
       ]
     },
     {
-      "word": "Sunfish",
+      "word": "Dugong",
       "hints": [
-        "world's",
-        "heaviest",
-        "bony"
-      ]
-    },
-    {
-      "word": "Honey Badger",
-      "hints": [
-        "fearless",
-        "african",
-        "mammal"
+        "Ocean",
+        "Herbivore",
+        "Gentle"
       ]
     },
     {
       "word": "Sloth",
       "hints": [
-        "slow",
-        "moving",
-        "tree"
+        "Slow",
+        "Tree",
+        "Sleep"
       ]
     },
     {
-      "word": "Pufferfish",
+      "word": "Armadillo",
       "hints": [
-        "fish",
-        "inflates",
-        "defence"
+        "Shell",
+        "Roll",
+        "Armor"
       ]
     },
     {
-      "word": "Naked Mole Rat",
+      "word": "Anteater",
       "hints": [
-        "hairless",
-        "eusocial",
-        "underground"
+        "Snout",
+        "Tongue",
+        "Insects"
       ]
     },
     {
-      "word": "Star-nosed Mole",
+      "word": "Platypus",
       "hints": [
-        "north",
-        "american",
-        "ring"
+        "Duckbill",
+        "Poison",
+        "Weird"
       ]
     },
     {
-      "word": "Peacock Spider",
+      "word": "Echidna",
       "hints": [
-        "australian",
-        "jumping",
-        "colourful"
+        "Spines",
+        "Egg",
+        "Monotreme"
       ]
     },
     {
-      "word": "Mantis",
+      "word": "Koala",
       "hints": [
-        "insect",
-        "ambushes",
-        "prey"
+        "Eucalyptus",
+        "Bear",
+        "Pouch"
       ]
     },
     {
-      "word": "Yeti Crab",
+      "word": "Wombat",
       "hints": [
-        "deep",
-        "sea",
-        "covered"
+        "Burrow",
+        "Cube",
+        "Marsupial"
       ]
     },
     {
-      "word": "Pygmy Seahorse",
+      "word": "Tasmanian Devil",
       "hints": [
-        "tiny",
-        "camouflaged",
-        "coral"
+        "Spin",
+        "Fierce",
+        "Island"
       ]
     },
     {
-      "word": "Numbat",
+      "word": "Opossum",
       "hints": [
-        "australian",
-        "marsupial",
-        "feeds"
+        "Play dead",
+        "Marsupial",
+        "Night"
       ]
     },
     {
-      "word": "Clouded Leopard",
+      "word": "Bat",
       "hints": [
-        "south",
-        "east",
-        "asian"
+        "Fly",
+        "Sonar",
+        "Night"
       ]
     },
     {
-      "word": "Irrawaddy Dolphin",
+      "word": "Owl",
       "hints": [
-        "blunt",
-        "nosed",
-        "spits"
+        "Hoot",
+        "Night",
+        "Wise"
+      ]
+    },
+    {
+      "word": "Eagle",
+      "hints": [
+        "Bald",
+        "Soar",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Hawk",
+      "hints": [
+        "Predator",
+        "Talons",
+        "Sky"
+      ]
+    },
+    {
+      "word": "Falcon",
+      "hints": [
+        "Dive",
+        "Fast",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Osprey",
+      "hints": [
+        "Fish",
+        "Dive",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Vulture",
+      "hints": [
+        "Scavenger",
+        "Bald",
+        "Circle"
+      ]
+    },
+    {
+      "word": "Condor",
+      "hints": [
+        "Huge",
+        "Andes",
+        "Scavenger"
+      ]
+    },
+    {
+      "word": "Crow",
+      "hints": [
+        "Black",
+        "Caw",
+        "Smart"
+      ]
+    },
+    {
+      "word": "Raven",
+      "hints": [
+        "Black",
+        "Nevermore",
+        "Smart"
+      ]
+    },
+    {
+      "word": "Magpie",
+      "hints": [
+        "Shiny",
+        "Thief",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Blue Jay",
+      "hints": [
+        "Blue",
+        "Noisy",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Cardinal",
+      "hints": [
+        "Red",
+        "Crest",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Robin",
+      "hints": [
+        "Redbreast",
+        "Spring",
+        "Worm"
+      ]
+    },
+    {
+      "word": "Sparrow",
+      "hints": [
+        "Small",
+        "Chirp",
+        "Common"
+      ]
+    },
+    {
+      "word": "Finch",
+      "hints": [
+        "Small",
+        "Beak",
+        "Seed"
+      ]
+    },
+    {
+      "word": "Pigeon",
+      "hints": [
+        "City",
+        "Coo",
+        "Flock"
+      ]
+    },
+    {
+      "word": "Dove",
+      "hints": [
+        "Peace",
+        "White",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Swan",
+      "hints": [
+        "Graceful",
+        "White",
+        "Pond"
+      ]
+    },
+    {
+      "word": "Goose",
+      "hints": [
+        "Honk",
+        "V",
+        "Fly"
+      ]
+    },
+    {
+      "word": "Duck",
+      "hints": [
+        "Quack",
+        "Pond",
+        "Webbed"
+      ]
+    },
+    {
+      "word": "Pelican",
+      "hints": [
+        "Pouch",
+        "Fish",
+        "Beak"
+      ]
+    },
+    {
+      "word": "Seagull",
+      "hints": [
+        "Beach",
+        "Chip",
+        "Loud"
+      ]
+    },
+    {
+      "word": "Albatross",
+      "hints": [
+        "Wingspan",
+        "Ocean",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Ostrich",
+      "hints": [
+        "Run",
+        "Huge",
+        "Flightless"
+      ]
+    },
+    {
+      "word": "Emu",
+      "hints": [
+        "Australia",
+        "Run",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Kiwi",
+      "hints": [
+        "New Zealand",
+        "Fruit",
+        "Flightless"
+      ]
+    },
+    {
+      "word": "Peacock",
+      "hints": [
+        "Feathers",
+        "Show",
+        "Tail"
+      ]
+    },
+    {
+      "word": "Flamingo",
+      "hints": [
+        "Pink",
+        "One leg",
+        "Flock"
+      ]
+    },
+    {
+      "word": "Parrot",
+      "hints": [
+        "Talk",
+        "Colors",
+        "Pirate"
+      ]
+    },
+    {
+      "word": "Macaw",
+      "hints": [
+        "Jungle",
+        "Loud",
+        "Colors"
+      ]
+    },
+    {
+      "word": "Cockatoo",
+      "hints": [
+        "Crest",
+        "Loud",
+        "Pet"
+      ]
+    },
+    {
+      "word": "Toucan",
+      "hints": [
+        "Bill",
+        "Colorful",
+        "Jungle"
+      ]
+    },
+    {
+      "word": "Woodpecker",
+      "hints": [
+        "Tree",
+        "Knock",
+        "Bird"
+      ]
+    },
+    {
+      "word": "Hummingbird",
+      "hints": [
+        "Hover",
+        "Nectar",
+        "Fast"
+      ]
+    },
+    {
+      "word": "Panda",
+      "hints": [
+        "Bamboo",
+        "Bear",
+        "China"
+      ]
+    },
+    {
+      "word": "Lemur",
+      "hints": [
+        "Madagascar",
+        "Ring",
+        "Tail"
+      ]
+    },
+    {
+      "word": "Meerkat",
+      "hints": [
+        "Stand",
+        "Desert",
+        "Timon"
+      ]
+    },
+    {
+      "word": "Baboon",
+      "hints": [
+        "Ape",
+        "Red",
+        "Bottom"
+      ]
+    },
+    {
+      "word": "Wolverine",
+      "hints": [
+        "Fierce",
+        "Claws",
+        "Wild"
       ]
     }
   ]

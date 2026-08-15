@@ -1,247 +1,967 @@
 {
   "id": "everyday",
   "name": "Everyday",
-  "emoji": "🌍",
-  "description": "Common objects and everyday situations",
+  "emoji": "🏠",
+  "description": "Objects and activities from daily life",
   "words": [
     {
-      "word": "Elevator Pitch",
+      "word": "Phone",
       "hints": [
-        "second",
-        "summary",
-        "idea"
+        "Call",
+        "Text",
+        "Screen"
       ]
     },
     {
-      "word": "Alarm Clock",
+      "word": "Keys",
       "hints": [
-        "device",
-        "wakes",
-        "set"
+        "Unlock",
+        "Door",
+        "Metal"
       ]
     },
     {
-      "word": "Grocery Store",
+      "word": "Wallet",
       "hints": [
-        "shop",
-        "buy",
-        "food"
+        "Money",
+        "Cards",
+        "Leather"
       ]
     },
     {
-      "word": "Bus Stop",
+      "word": "Watch",
       "hints": [
-        "designated",
-        "place",
-        "wait"
+        "Time",
+        "Wrist",
+        "Tick"
       ]
     },
     {
-      "word": "Waiting Room",
+      "word": "Glasses",
       "hints": [
-        "sit",
-        "appointment",
-        "waiting"
+        "See",
+        "Eyes",
+        "Frames"
       ]
     },
     {
-      "word": "Password",
+      "word": "Shoes",
       "hints": [
-        "secret",
-        "string",
-        "grants"
+        "Walk",
+        "Feet",
+        "Laces"
       ]
     },
     {
-      "word": "Voicemail",
+      "word": "Socks",
       "hints": [
-        "recorded",
-        "message",
-        "left"
+        "Feet",
+        "Warm",
+        "Cotton"
+      ]
+    },
+    {
+      "word": "Shirt",
+      "hints": [
+        "Wear",
+        "Top",
+        "Sleeves"
+      ]
+    },
+    {
+      "word": "Pants",
+      "hints": [
+        "Legs",
+        "Wear",
+        "Jeans"
+      ]
+    },
+    {
+      "word": "Jacket",
+      "hints": [
+        "Warm",
+        "Coat",
+        "Zip"
+      ]
+    },
+    {
+      "word": "Toothbrush",
+      "hints": [
+        "Clean",
+        "Teeth",
+        "Paste"
+      ]
+    },
+    {
+      "word": "Soap",
+      "hints": [
+        "Wash",
+        "Lather",
+        "Clean"
+      ]
+    },
+    {
+      "word": "Shampoo",
+      "hints": [
+        "Hair",
+        "Wash",
+        "Suds"
+      ]
+    },
+    {
+      "word": "Towel",
+      "hints": [
+        "Dry",
+        "Bath",
+        "Cloth"
+      ]
+    },
+    {
+      "word": "Mirror",
+      "hints": [
+        "Look",
+        "Reflect",
+        "Glass"
+      ]
+    },
+    {
+      "word": "Bed",
+      "hints": [
+        "Sleep",
+        "Mattress",
+        "Rest"
+      ]
+    },
+    {
+      "word": "Pillow",
+      "hints": [
+        "Head",
+        "Soft",
+        "Sleep"
+      ]
+    },
+    {
+      "word": "Blanket",
+      "hints": [
+        "Warm",
+        "Cover",
+        "Bed"
+      ]
+    },
+    {
+      "word": "Alarm",
+      "hints": [
+        "Wake",
+        "Ring",
+        "Clock"
+      ]
+    },
+    {
+      "word": "Clock",
+      "hints": [
+        "Time",
+        "Tick",
+        "Wall"
+      ]
+    },
+    {
+      "word": "Door",
+      "hints": [
+        "Open",
+        "Close",
+        "Wood"
+      ]
+    },
+    {
+      "word": "Window",
+      "hints": [
+        "Glass",
+        "Look",
+        "Open"
+      ]
+    },
+    {
+      "word": "Curtain",
+      "hints": [
+        "Drape",
+        "Window",
+        "Pull"
+      ]
+    },
+    {
+      "word": "Rug",
+      "hints": [
+        "Floor",
+        "Carpet",
+        "Step"
+      ]
+    },
+    {
+      "word": "Chair",
+      "hints": [
+        "Sit",
+        "Seat",
+        "Rest"
+      ]
+    },
+    {
+      "word": "Table",
+      "hints": [
+        "Eat",
+        "Wood",
+        "Legs"
+      ]
+    },
+    {
+      "word": "Couch",
+      "hints": [
+        "Sit",
+        "Living",
+        "Soft"
+      ]
+    },
+    {
+      "word": "Television",
+      "hints": [
+        "Watch",
+        "Screen",
+        "Show"
+      ]
+    },
+    {
+      "word": "Remote",
+      "hints": [
+        "Click",
+        "Channel",
+        "Control"
+      ]
+    },
+    {
+      "word": "Lamp",
+      "hints": [
+        "Light",
+        "Switch",
+        "Shade"
+      ]
+    },
+    {
+      "word": "Bulb",
+      "hints": [
+        "Light",
+        "Screw",
+        "Bright"
+      ]
+    },
+    {
+      "word": "Candle",
+      "hints": [
+        "Wax",
+        "Flame",
+        "Burn"
+      ]
+    },
+    {
+      "word": "Match",
+      "hints": [
+        "Strike",
+        "Fire",
+        "Wood"
+      ]
+    },
+    {
+      "word": "Lighter",
+      "hints": [
+        "Flick",
+        "Flame",
+        "Fire"
+      ]
+    },
+    {
+      "word": "Stove",
+      "hints": [
+        "Cook",
+        "Heat",
+        "Burner"
+      ]
+    },
+    {
+      "word": "Oven",
+      "hints": [
+        "Bake",
+        "Heat",
+        "Food"
+      ]
+    },
+    {
+      "word": "Microwave",
+      "hints": [
+        "Heat",
+        "Fast",
+        "Beep"
+      ]
+    },
+    {
+      "word": "Refrigerator",
+      "hints": [
+        "Cold",
+        "Food",
+        "Keep"
+      ]
+    },
+    {
+      "word": "Freezer",
+      "hints": [
+        "Ice",
+        "Cold",
+        "Keep"
+      ]
+    },
+    {
+      "word": "Sink",
+      "hints": [
+        "Wash",
+        "Water",
+        "Tap"
+      ]
+    },
+    {
+      "word": "Faucet",
+      "hints": [
+        "Turn",
+        "Water",
+        "Tap"
+      ]
+    },
+    {
+      "word": "Toilet",
+      "hints": [
+        "Flush",
+        "Seat",
+        "Bowl"
+      ]
+    },
+    {
+      "word": "Shower",
+      "hints": [
+        "Wash",
+        "Water",
+        "Stand"
+      ]
+    },
+    {
+      "word": "Bathtub",
+      "hints": [
+        "Wash",
+        "Water",
+        "Sit"
+      ]
+    },
+    {
+      "word": "Sponge",
+      "hints": [
+        "Scrub",
+        "Clean",
+        "Wet"
+      ]
+    },
+    {
+      "word": "Broom",
+      "hints": [
+        "Sweep",
+        "Dirt",
+        "Floor"
+      ]
+    },
+    {
+      "word": "Dustpan",
+      "hints": [
+        "Sweep",
+        "Dirt",
+        "Hold"
+      ]
+    },
+    {
+      "word": "Mop",
+      "hints": [
+        "Wash",
+        "Floor",
+        "Wet"
+      ]
+    },
+    {
+      "word": "Bucket",
+      "hints": [
+        "Hold",
+        "Water",
+        "Pail"
+      ]
+    },
+    {
+      "word": "Trash Can",
+      "hints": [
+        "Waste",
+        "Throw",
+        "Bin"
+      ]
+    },
+    {
+      "word": "Recycling",
+      "hints": [
+        "Green",
+        "Bin",
+        "Save"
+      ]
+    },
+    {
+      "word": "Bag",
+      "hints": [
+        "Carry",
+        "Hold",
+        "Plastic"
+      ]
+    },
+    {
+      "word": "Box",
+      "hints": [
+        "Cardboard",
+        "Hold",
+        "Square"
+      ]
+    },
+    {
+      "word": "Tape",
+      "hints": [
+        "Sticky",
+        "Roll",
+        "Bind"
+      ]
+    },
+    {
+      "word": "Scissors",
+      "hints": [
+        "Cut",
+        "Paper",
+        "Sharp"
+      ]
+    },
+    {
+      "word": "Paper",
+      "hints": [
+        "Write",
+        "Sheet",
+        "White"
+      ]
+    },
+    {
+      "word": "Pen",
+      "hints": [
+        "Write",
+        "Ink",
+        "Click"
+      ]
+    },
+    {
+      "word": "Pencil",
+      "hints": [
+        "Write",
+        "Lead",
+        "Wood"
+      ]
+    },
+    {
+      "word": "Eraser",
+      "hints": [
+        "Mistake",
+        "Rub",
+        "Pink"
+      ]
+    },
+    {
+      "word": "Stapler",
+      "hints": [
+        "Bind",
+        "Paper",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Paperclip",
+      "hints": [
+        "Hold",
+        "Paper",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Folder",
+      "hints": [
+        "Hold",
+        "Paper",
+        "Manila"
+      ]
+    },
+    {
+      "word": "Envelope",
+      "hints": [
+        "Mail",
+        "Letter",
+        "Seal"
+      ]
+    },
+    {
+      "word": "Stamp",
+      "hints": [
+        "Mail",
+        "Letter",
+        "Sticky"
+      ]
+    },
+    {
+      "word": "Letter",
+      "hints": [
+        "Mail",
+        "Write",
+        "Paper"
+      ]
+    },
+    {
+      "word": "Mailbox",
+      "hints": [
+        "Post",
+        "Letter",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Package",
+      "hints": [
+        "Box",
+        "Mail",
+        "Delivery"
+      ]
+    },
+    {
+      "word": "Newspaper",
+      "hints": [
+        "Read",
+        "Daily",
+        "Print"
+      ]
+    },
+    {
+      "word": "Magazine",
+      "hints": [
+        "Read",
+        "Glossy",
+        "Pages"
+      ]
+    },
+    {
+      "word": "Book",
+      "hints": [
+        "Read",
+        "Pages",
+        "Cover"
+      ]
+    },
+    {
+      "word": "Bookmark",
+      "hints": [
+        "Keep",
+        "Place",
+        "Page"
+      ]
+    },
+    {
+      "word": "Calendar",
+      "hints": [
+        "Date",
+        "Month",
+        "Wall"
+      ]
+    },
+    {
+      "word": "Diary",
+      "hints": [
+        "Write",
+        "Secret",
+        "Book"
+      ]
+    },
+    {
+      "word": "Journal",
+      "hints": [
+        "Write",
+        "Daily",
+        "Book"
+      ]
+    },
+    {
+      "word": "Purse",
+      "hints": [
+        "Carry",
+        "Bag",
+        "Straps"
       ]
     },
     {
       "word": "Umbrella",
       "hints": [
-        "portable",
-        "shelter",
-        "rain"
+        "Rain",
+        "Keep",
+        "Dry"
       ]
     },
     {
-      "word": "Charging Cable",
+      "word": "Raincoat",
       "hints": [
-        "wire",
-        "refills",
-        "device's"
+        "Rain",
+        "Wear",
+        "Dry"
       ]
     },
     {
-      "word": "Doorbell",
+      "word": "Boots",
       "hints": [
-        "button",
-        "visitors",
-        "press"
+        "Rain",
+        "Feet",
+        "Walk"
       ]
     },
     {
-      "word": "Leftovers",
+      "word": "Gloves",
       "hints": [
-        "yesterday's",
-        "meal",
-        "eaten"
+        "Warm",
+        "Hands",
+        "Fingers"
       ]
     },
     {
-      "word": "Traffic Jam",
+      "word": "Scarf",
       "hints": [
-        "gridlock",
-        "vehicles",
-        "moving"
+        "Warm",
+        "Neck",
+        "Wrap"
       ]
     },
     {
-      "word": "Laundry",
+      "word": "Hat",
       "hints": [
-        "clothes",
-        "waiting",
-        "washed"
+        "Head",
+        "Wear",
+        "Brim"
       ]
     },
     {
-      "word": "Deadline",
+      "word": "Belt",
       "hints": [
-        "point",
-        "which",
-        "work"
+        "Waist",
+        "Hold",
+        "Buckle"
       ]
     },
     {
-      "word": "Power Cut",
+      "word": "Tie",
       "hints": [
-        "sudden",
-        "loss",
-        "electricity"
+        "Neck",
+        "Suit",
+        "Knot"
       ]
     },
     {
-      "word": "Receipt",
+      "word": "Suit",
       "hints": [
-        "paper",
-        "proof",
-        "purchase"
+        "Wear",
+        "Formal",
+        "Jacket"
       ]
     },
     {
-      "word": "Flat Tyre",
+      "word": "Dress",
       "hints": [
-        "punctured",
-        "deflated",
-        "car"
+        "Wear",
+        "Formal",
+        "Skirt"
       ]
     },
     {
-      "word": "Spam Email",
+      "word": "Skirt",
       "hints": [
-        "unwanted",
-        "mass",
-        "sent"
+        "Wear",
+        "Legs",
+        "Spin"
       ]
     },
     {
-      "word": "Coins",
+      "word": "Shorts",
       "hints": [
-        "metal",
-        "currency",
-        "jingles"
+        "Wear",
+        "Legs",
+        "Summer"
+      ]
+    },
+    {
+      "word": "Swimsuit",
+      "hints": [
+        "Pool",
+        "Wear",
+        "Swim"
       ]
     },
     {
       "word": "Sunscreen",
       "hints": [
-        "lotion",
-        "applied",
-        "protect"
+        "Lotion",
+        "Burn",
+        "Sun"
       ]
     },
     {
-      "word": "Takeaway",
+      "word": "Sunglasses",
       "hints": [
-        "food",
-        "ordered",
-        "restaurant"
+        "Eyes",
+        "Sun",
+        "Shades"
       ]
     },
     {
-      "word": "Parking Ticket",
+      "word": "Lipstick",
       "hints": [
-        "fine",
-        "issued",
-        "illegally"
+        "Makeup",
+        "Red",
+        "Lips"
       ]
     },
     {
-      "word": "Wi-Fi Password",
+      "word": "Mascara",
       "hints": [
-        "string",
-        "needed",
-        "connect"
+        "Makeup",
+        "Eyes",
+        "Lashes"
       ]
     },
     {
-      "word": "Queue",
+      "word": "Perfume",
       "hints": [
-        "orderly",
-        "line",
-        "people"
+        "Smell",
+        "Spray",
+        "Scent"
       ]
     },
     {
-      "word": "Pothole",
+      "word": "Deodorant",
       "hints": [
-        "hole",
-        "road",
-        "surface"
+        "Smell",
+        "Armpit",
+        "Roll"
       ]
     },
     {
-      "word": "Thermostat",
+      "word": "Razor",
       "hints": [
-        "device",
-        "regulates",
-        "indoor"
+        "Shave",
+        "Hair",
+        "Sharp"
       ]
     },
     {
-      "word": "Subscription",
+      "word": "Shaving Cream",
       "hints": [
-        "regular",
-        "payment",
-        "ongoing"
+        "Lather",
+        "Face",
+        "Shave"
       ]
     },
     {
-      "word": "Commute",
+      "word": "Comb",
       "hints": [
-        "daily",
-        "journey",
-        "between"
+        "Hair",
+        "Teeth",
+        "Part"
       ]
     },
     {
-      "word": "Nap",
+      "word": "Brush",
       "hints": [
-        "short",
-        "daytime",
-        "sleep"
+        "Hair",
+        "Bristles",
+        "Stroke"
       ]
     },
     {
-      "word": "Notification",
+      "word": "Hairdryer",
       "hints": [
-        "buzz",
-        "ping",
-        "alerting"
+        "Blow",
+        "Hot",
+        "Hair"
+      ]
+    },
+    {
+      "word": "Iron",
+      "hints": [
+        "Press",
+        "Clothes",
+        "Hot"
+      ]
+    },
+    {
+      "word": "Ironing Board",
+      "hints": [
+        "Flat",
+        "Press",
+        "Stand"
+      ]
+    },
+    {
+      "word": "Washing Machine",
+      "hints": [
+        "Clean",
+        "Clothes",
+        "Spin"
+      ]
+    },
+    {
+      "word": "Dryer",
+      "hints": [
+        "Dry",
+        "Clothes",
+        "Hot"
+      ]
+    },
+    {
+      "word": "Laundry Basket",
+      "hints": [
+        "Hold",
+        "Clothes",
+        "Plastic"
+      ]
+    },
+    {
+      "word": "Hanger",
+      "hints": [
+        "Closet",
+        "Clothes",
+        "Hook"
+      ]
+    },
+    {
+      "word": "Closet",
+      "hints": [
+        "Store",
+        "Clothes",
+        "Doors"
+      ]
+    },
+    {
+      "word": "Drawer",
+      "hints": [
+        "Pull",
+        "Store",
+        "Wood"
+      ]
+    },
+    {
+      "word": "Shelf",
+      "hints": [
+        "Hold",
+        "Books",
+        "Wood"
+      ]
+    },
+    {
+      "word": "Picture",
+      "hints": [
+        "Frame",
+        "Wall",
+        "Photo"
+      ]
+    },
+    {
+      "word": "Painting",
+      "hints": [
+        "Art",
+        "Wall",
+        "Canvas"
+      ]
+    },
+    {
+      "word": "Vase",
+      "hints": [
+        "Flowers",
+        "Glass",
+        "Hold"
+      ]
+    },
+    {
+      "word": "Plant",
+      "hints": [
+        "Grow",
+        "Green",
+        "Pot"
+      ]
+    },
+    {
+      "word": "Pot",
+      "hints": [
+        "Dirt",
+        "Plant",
+        "Hold"
+      ]
+    },
+    {
+      "word": "Teacup",
+      "hints": [
+        "Drink",
+        "Warm",
+        "Saucer"
+      ]
+    },
+    {
+      "word": "Mug",
+      "hints": [
+        "Coffee",
+        "Handle",
+        "Hot"
+      ]
+    },
+    {
+      "word": "Plate",
+      "hints": [
+        "Eat",
+        "Round",
+        "Dish"
+      ]
+    },
+    {
+      "word": "Bowl",
+      "hints": [
+        "Soup",
+        "Deep",
+        "Dish"
+      ]
+    },
+    {
+      "word": "Fork",
+      "hints": [
+        "Eat",
+        "Tines",
+        "Metal"
+      ]
+    },
+    {
+      "word": "Spoon",
+      "hints": [
+        "Eat",
+        "Soup",
+        "Silver"
+      ]
+    },
+    {
+      "word": "Knife",
+      "hints": [
+        "Cut",
+        "Sharp",
+        "Metal"
       ]
     }
   ]

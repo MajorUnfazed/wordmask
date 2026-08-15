@@ -1,247 +1,959 @@
 {
   "id": "geography",
   "name": "Geography",
-  "emoji": "🗺️",
-  "description": "Countries, cities, and geographic features",
+  "emoji": "🌍",
+  "description": "Countries, landmarks, and nature",
   "words": [
     {
-      "word": "Sahara Desert",
+      "word": "Mount Everest",
       "hints": [
-        "world's",
-        "largest",
-        "hot"
+        "Highest",
+        "Peak",
+        "Himalayas"
       ]
     },
     {
-      "word": "Amazon Basin",
+      "word": "Grand Canyon",
       "hints": [
-        "world's",
-        "largest",
-        "tropical"
+        "Arizona",
+        "River",
+        "Gorge"
       ]
     },
     {
-      "word": "Mariana Trench",
+      "word": "Amazon River",
       "hints": [
-        "deepest",
-        "point",
-        "ocean"
+        "South",
+        "America",
+        "Rainforest"
       ]
     },
     {
-      "word": "Fjord",
+      "word": "Sahara",
       "hints": [
-        "narrow",
-        "coastal",
-        "inlet"
+        "Desert",
+        "Africa",
+        "Sand"
       ]
     },
     {
-      "word": "Reykjavik",
+      "word": "Antarctica",
       "hints": [
-        "capital",
-        "iceland",
-        "most"
+        "Ice",
+        "Penguins",
+        "South"
       ]
     },
     {
-      "word": "Cape Town",
+      "word": "Pacific Ocean",
       "hints": [
-        "south",
-        "african",
-        "city"
+        "Largest",
+        "Water",
+        "Ring"
       ]
     },
     {
-      "word": "Strait of Gibraltar",
+      "word": "Atlantic Ocean",
       "hints": [
-        "narrow",
-        "passage",
-        "connecting"
+        "Ocean",
+        "Titanic",
+        "Gulf"
       ]
     },
     {
-      "word": "Patagonia",
+      "word": "Indian Ocean",
       "hints": [
-        "vast",
-        "wilderness",
-        "southern"
+        "Water",
+        "Asia",
+        "Africa"
       ]
     },
     {
-      "word": "Gobi Desert",
+      "word": "Arctic Ocean",
       "hints": [
-        "cold",
-        "across",
-        "northern"
+        "North",
+        "Pole",
+        "Ice"
       ]
     },
     {
-      "word": "Great Barrier Reef",
+      "word": "Mediterranean",
       "hints": [
-        "world's",
-        "largest",
-        "coral"
+        "Sea",
+        "Europe",
+        "Africa"
+      ]
+    },
+    {
+      "word": "Caribbean",
+      "hints": [
+        "Islands",
+        "Pirates",
+        "Sea"
+      ]
+    },
+    {
+      "word": "Alps",
+      "hints": [
+        "Mountains",
+        "Europe",
+        "Skiing"
       ]
     },
     {
       "word": "Andes",
       "hints": [
-        "longest",
-        "continental",
-        "mountain"
+        "Mountains",
+        "South",
+        "America"
+      ]
+    },
+    {
+      "word": "Rocky Mountains",
+      "hints": [
+        "North",
+        "America",
+        "Range"
+      ]
+    },
+    {
+      "word": "Himalayas",
+      "hints": [
+        "Asia",
+        "Mountains",
+        "Nepal"
+      ]
+    },
+    {
+      "word": "Nile",
+      "hints": [
+        "River",
+        "Egypt",
+        "Longest"
+      ]
+    },
+    {
+      "word": "Mississippi",
+      "hints": [
+        "River",
+        "USA",
+        "Delta"
+      ]
+    },
+    {
+      "word": "Yangtze",
+      "hints": [
+        "River",
+        "China",
+        "Dam"
+      ]
+    },
+    {
+      "word": "Ganges",
+      "hints": [
+        "River",
+        "India",
+        "Holy"
+      ]
+    },
+    {
+      "word": "Thames",
+      "hints": [
+        "River",
+        "London",
+        "England"
+      ]
+    },
+    {
+      "word": "Seine",
+      "hints": [
+        "River",
+        "Paris",
+        "France"
+      ]
+    },
+    {
+      "word": "Danube",
+      "hints": [
+        "River",
+        "Europe",
+        "Waltz"
+      ]
+    },
+    {
+      "word": "Amazon Rainforest",
+      "hints": [
+        "Trees",
+        "Brazil",
+        "Lungs"
+      ]
+    },
+    {
+      "word": "Great Barrier",
+      "hints": [
+        "Reef",
+        "Australia",
+        "Coral"
+      ]
+    },
+    {
+      "word": "Galapagos",
+      "hints": [
+        "Islands",
+        "Darwin",
+        "Turtles"
+      ]
+    },
+    {
+      "word": "Madagascar",
+      "hints": [
+        "Island",
+        "Africa",
+        "Lemurs"
+      ]
+    },
+    {
+      "word": "Greenland",
+      "hints": [
+        "Island",
+        "Ice",
+        "Denmark"
+      ]
+    },
+    {
+      "word": "Iceland",
+      "hints": [
+        "Fire",
+        "Ice",
+        "Reykjavik"
+      ]
+    },
+    {
+      "word": "New Zealand",
+      "hints": [
+        "Kiwis",
+        "Hobbits",
+        "Islands"
+      ]
+    },
+    {
+      "word": "Japan",
+      "hints": [
+        "Tokyo",
+        "Islands",
+        "Sushi"
+      ]
+    },
+    {
+      "word": "United Kingdom",
+      "hints": [
+        "Britain",
+        "London",
+        "Queen"
+      ]
+    },
+    {
+      "word": "Ireland",
+      "hints": [
+        "Emerald",
+        "Isle",
+        "Dublin"
+      ]
+    },
+    {
+      "word": "Cuba",
+      "hints": [
+        "Havana",
+        "Cigars",
+        "Island"
+      ]
+    },
+    {
+      "word": "Jamaica",
+      "hints": [
+        "Reggae",
+        "Island",
+        "Caribbean"
+      ]
+    },
+    {
+      "word": "Hawaii",
+      "hints": [
+        "Aloha",
+        "Volcanoes",
+        "Islands"
+      ]
+    },
+    {
+      "word": "Fiji",
+      "hints": [
+        "Water",
+        "Island",
+        "Pacific"
+      ]
+    },
+    {
+      "word": "Bermuda",
+      "hints": [
+        "Triangle",
+        "Shorts",
+        "Island"
+      ]
+    },
+    {
+      "word": "Bahamas",
+      "hints": [
+        "Nassau",
+        "Beaches",
+        "Islands"
       ]
     },
     {
       "word": "Maldives",
       "hints": [
-        "low",
-        "lying",
-        "island"
+        "Atolls",
+        "Ocean",
+        "Resorts"
       ]
     },
     {
-      "word": "Outback",
+      "word": "Seychelles",
       "hints": [
-        "remote",
-        "arid",
-        "interior"
+        "Islands",
+        "Africa",
+        "Ocean"
       ]
     },
     {
-      "word": "The Nile",
+      "word": "Sri Lanka",
       "hints": [
-        "world's",
-        "longest",
-        "river"
+        "Ceylon",
+        "Tea",
+        "Island"
       ]
     },
     {
-      "word": "Atacama Desert",
+      "word": "Taiwan",
       "hints": [
-        "driest",
-        "non",
-        "polar"
+        "Taipei",
+        "Island",
+        "Asia"
       ]
     },
     {
-      "word": "Bosphorus",
+      "word": "Philippines",
       "hints": [
-        "strait",
-        "divides",
-        "istanbul"
+        "Manila",
+        "Islands",
+        "Asia"
       ]
     },
     {
-      "word": "Lake Titicaca",
+      "word": "Indonesia",
       "hints": [
-        "world's",
-        "highest",
-        "navigable"
+        "Jakarta",
+        "Islands",
+        "Bali"
       ]
     },
     {
-      "word": "Svalbard",
+      "word": "Malaysia",
       "hints": [
-        "norwegian",
-        "arctic",
-        "archipelago"
+        "Kuala",
+        "Lumpur",
+        "Asia"
       ]
     },
     {
-      "word": "Dead Sea",
+      "word": "Singapore",
       "hints": [
-        "saltiest",
-        "earth",
-        "cannot"
+        "City",
+        "State",
+        "Asia"
       ]
     },
     {
-      "word": "Trans-Siberian Railway",
+      "word": "Thailand",
       "hints": [
-        "world's",
-        "longest",
-        "line"
+        "Bangkok",
+        "Asia",
+        "Elephants"
       ]
     },
     {
-      "word": "Pangaea",
+      "word": "Vietnam",
       "hints": [
-        "supercontinent",
-        "existed",
-        "tectonic"
+        "Hanoi",
+        "Pho",
+        "Asia"
       ]
     },
     {
-      "word": "Monsoon",
+      "word": "Cambodia",
       "hints": [
-        "seasonal",
-        "reversal",
-        "winds"
+        "Angkor",
+        "Wat",
+        "Asia"
       ]
     },
     {
-      "word": "Longitude",
+      "word": "Laos",
       "hints": [
-        "east",
-        "west",
-        "coordinate"
+        "Landlocked",
+        "Asia",
+        "Vientiane"
       ]
     },
     {
-      "word": "Tundra",
+      "word": "Myanmar",
       "hints": [
-        "treeless",
-        "arctic",
-        "plain"
+        "Burma",
+        "Asia",
+        "Yangon"
       ]
     },
     {
-      "word": "Isthmus of Panama",
+      "word": "India",
       "hints": [
-        "narrow",
-        "land",
-        "bridge"
+        "Taj",
+        "Mahal",
+        "Delhi"
       ]
     },
     {
-      "word": "International Date Line",
+      "word": "Pakistan",
       "hints": [
-        "180",
-        "meridian",
-        "calendar"
+        "Islamabad",
+        "Asia",
+        "K2"
       ]
     },
     {
-      "word": "Caspian Sea",
+      "word": "Bangladesh",
       "hints": [
-        "world's",
-        "largest",
-        "landlocked"
+        "Dhaka",
+        "Asia",
+        "Tigers"
       ]
     },
     {
-      "word": "Mount Everest",
+      "word": "Nepal",
       "hints": [
-        "highest",
-        "point",
-        "earth"
+        "Kathmandu",
+        "Everest",
+        "Sherpas"
       ]
     },
     {
-      "word": "Savanna",
+      "word": "Bhutan",
       "hints": [
-        "tropical",
-        "grassland",
-        "scattered"
+        "Thimphu",
+        "Dragons",
+        "Happiness"
       ]
     },
     {
-      "word": "Archipelago",
+      "word": "China",
       "hints": [
-        "chain",
-        "cluster",
-        "islands"
+        "Wall",
+        "Beijing",
+        "Pandas"
+      ]
+    },
+    {
+      "word": "Mongolia",
+      "hints": [
+        "Ulaanbaatar",
+        "Genghis",
+        "Khan"
+      ]
+    },
+    {
+      "word": "South Korea",
+      "hints": [
+        "Seoul",
+        "K-Pop",
+        "Asia"
+      ]
+    },
+    {
+      "word": "North Korea",
+      "hints": [
+        "Pyongyang",
+        "Kim",
+        "Asia"
+      ]
+    },
+    {
+      "word": "Russia",
+      "hints": [
+        "Moscow",
+        "Vodka",
+        "Largest"
+      ]
+    },
+    {
+      "word": "Kazakhstan",
+      "hints": [
+        "Astana",
+        "Borat",
+        "Asia"
+      ]
+    },
+    {
+      "word": "Uzbekistan",
+      "hints": [
+        "Tashkent",
+        "Silk",
+        "Road"
+      ]
+    },
+    {
+      "word": "Turkmenistan",
+      "hints": [
+        "Ashgabat",
+        "Desert",
+        "Asia"
+      ]
+    },
+    {
+      "word": "Kyrgyzstan",
+      "hints": [
+        "Bishkek",
+        "Mountains",
+        "Asia"
+      ]
+    },
+    {
+      "word": "Tajikistan",
+      "hints": [
+        "Dushanbe",
+        "Mountains",
+        "Asia"
+      ]
+    },
+    {
+      "word": "Afghanistan",
+      "hints": [
+        "Kabul",
+        "Mountains",
+        "Asia"
+      ]
+    },
+    {
+      "word": "Iran",
+      "hints": [
+        "Tehran",
+        "Persia",
+        "Middle"
+      ]
+    },
+    {
+      "word": "Iraq",
+      "hints": [
+        "Baghdad",
+        "Mesopotamia",
+        "Middle"
+      ]
+    },
+    {
+      "word": "Syria",
+      "hints": [
+        "Damascus",
+        "Middle",
+        "East"
+      ]
+    },
+    {
+      "word": "Lebanon",
+      "hints": [
+        "Beirut",
+        "Cedars",
+        "Middle"
+      ]
+    },
+    {
+      "word": "Israel",
+      "hints": [
+        "Jerusalem",
+        "Middle",
+        "East"
+      ]
+    },
+    {
+      "word": "Jordan",
+      "hints": [
+        "Amman",
+        "Petra",
+        "Middle"
+      ]
+    },
+    {
+      "word": "Saudi Arabia",
+      "hints": [
+        "Riyadh",
+        "Mecca",
+        "Oil"
+      ]
+    },
+    {
+      "word": "Yemen",
+      "hints": [
+        "Sanaa",
+        "Middle",
+        "East"
+      ]
+    },
+    {
+      "word": "Oman",
+      "hints": [
+        "Muscat",
+        "Middle",
+        "East"
+      ]
+    },
+    {
+      "word": "United Arab",
+      "hints": [
+        "Emirates",
+        "Dubai",
+        "Abu"
+      ]
+    },
+    {
+      "word": "Qatar",
+      "hints": [
+        "Doha",
+        "Middle",
+        "East"
+      ]
+    },
+    {
+      "word": "Kuwait",
+      "hints": [
+        "City",
+        "Middle",
+        "East"
+      ]
+    },
+    {
+      "word": "Bahrain",
+      "hints": [
+        "Manama",
+        "Middle",
+        "East"
+      ]
+    },
+    {
+      "word": "Turkey",
+      "hints": [
+        "Istanbul",
+        "Ankara",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Greece",
+      "hints": [
+        "Athens",
+        "Mythology",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Italy",
+      "hints": [
+        "Rome",
+        "Pizza",
+        "Boot"
+      ]
+    },
+    {
+      "word": "Spain",
+      "hints": [
+        "Madrid",
+        "Tapas",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Portugal",
+      "hints": [
+        "Lisbon",
+        "Europe",
+        "Iberian"
+      ]
+    },
+    {
+      "word": "France",
+      "hints": [
+        "Paris",
+        "Eiffel",
+        "Wine"
+      ]
+    },
+    {
+      "word": "Germany",
+      "hints": [
+        "Berlin",
+        "Beer",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Poland",
+      "hints": [
+        "Warsaw",
+        "Europe",
+        "Pierogi"
+      ]
+    },
+    {
+      "word": "Ukraine",
+      "hints": [
+        "Kyiv",
+        "Europe",
+        "Sunflower"
+      ]
+    },
+    {
+      "word": "Belarus",
+      "hints": [
+        "Minsk",
+        "Europe",
+        "Tractors"
+      ]
+    },
+    {
+      "word": "Romania",
+      "hints": [
+        "Bucharest",
+        "Dracula",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Bulgaria",
+      "hints": [
+        "Sofia",
+        "Europe",
+        "Balkans"
+      ]
+    },
+    {
+      "word": "Serbia",
+      "hints": [
+        "Belgrade",
+        "Europe",
+        "Balkans"
+      ]
+    },
+    {
+      "word": "Croatia",
+      "hints": [
+        "Zagreb",
+        "Europe",
+        "Balkans"
+      ]
+    },
+    {
+      "word": "Bosnia",
+      "hints": [
+        "Sarajevo",
+        "Europe",
+        "Balkans"
+      ]
+    },
+    {
+      "word": "Slovenia",
+      "hints": [
+        "Ljubljana",
+        "Europe",
+        "Balkans"
+      ]
+    },
+    {
+      "word": "Slovakia",
+      "hints": [
+        "Bratislava",
+        "Europe",
+        "Castles"
+      ]
+    },
+    {
+      "word": "Czechia",
+      "hints": [
+        "Prague",
+        "Europe",
+        "Beer"
+      ]
+    },
+    {
+      "word": "Austria",
+      "hints": [
+        "Vienna",
+        "Europe",
+        "Alps"
+      ]
+    },
+    {
+      "word": "Switzerland",
+      "hints": [
+        "Bern",
+        "Alps",
+        "Chocolate"
+      ]
+    },
+    {
+      "word": "Netherlands",
+      "hints": [
+        "Amsterdam",
+        "Tulips",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Belgium",
+      "hints": [
+        "Brussels",
+        "Waffles",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Sweden",
+      "hints": [
+        "Stockholm",
+        "IKEA",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Norway",
+      "hints": [
+        "Oslo",
+        "Fjords",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Denmark",
+      "hints": [
+        "Copenhagen",
+        "Lego",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Finland",
+      "hints": [
+        "Helsinki",
+        "Saunas",
+        "Europe"
+      ]
+    },
+    {
+      "word": "Estonia",
+      "hints": [
+        "Tallinn",
+        "Europe",
+        "Baltic"
+      ]
+    },
+    {
+      "word": "Latvia",
+      "hints": [
+        "Riga",
+        "Europe",
+        "Baltic"
+      ]
+    },
+    {
+      "word": "Lithuania",
+      "hints": [
+        "Vilnius",
+        "Europe",
+        "Baltic"
+      ]
+    },
+    {
+      "word": "Canada",
+      "hints": [
+        "Ottawa",
+        "Maple",
+        "Moose"
+      ]
+    },
+    {
+      "word": "United States",
+      "hints": [
+        "Washington",
+        "Eagles",
+        "States"
+      ]
+    },
+    {
+      "word": "Mexico",
+      "hints": [
+        "City",
+        "Tacos",
+        "America"
+      ]
+    },
+    {
+      "word": "Guatemala",
+      "hints": [
+        "City",
+        "Maya",
+        "America"
+      ]
+    },
+    {
+      "word": "Belize",
+      "hints": [
+        "Belmopan",
+        "America",
+        "Reef"
+      ]
+    },
+    {
+      "word": "Honduras",
+      "hints": [
+        "Tegucigalpa",
+        "America",
+        "Central"
+      ]
+    },
+    {
+      "word": "El Salvador",
+      "hints": [
+        "San",
+        "Salvador",
+        "America"
+      ]
+    },
+    {
+      "word": "Nicaragua",
+      "hints": [
+        "Managua",
+        "America",
+        "Central"
+      ]
+    },
+    {
+      "word": "Costa Rica",
+      "hints": [
+        "San",
+        "Jose",
+        "Pura"
+      ]
+    },
+    {
+      "word": "Panama",
+      "hints": [
+        "Canal",
+        "America",
+        "Central"
       ]
     }
   ]

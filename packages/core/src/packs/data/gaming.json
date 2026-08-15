@@ -2,246 +2,958 @@
   "id": "gaming",
   "name": "Gaming",
   "emoji": "🎮",
-  "description": "Video games, mechanics, and gamer culture",
+  "description": "Video games, consoles, and esports",
   "words": [
     {
-      "word": "Respawn",
+      "word": "Super Mario",
       "hints": [
-        "returning",
-        "game",
-        "character"
+        "Plumber",
+        "Mushroom",
+        "Nintendo"
       ]
     },
     {
-      "word": "Loot Box",
+      "word": "Minecraft",
       "hints": [
-        "randomised",
-        "game",
-        "reward"
+        "Blocks",
+        "Creepers",
+        "Crafting"
       ]
     },
     {
-      "word": "Speedrun",
+      "word": "Zelda",
       "hints": [
-        "completing",
-        "game",
-        "fast"
+        "Link",
+        "Triforce",
+        "Hyrule"
       ]
     },
     {
-      "word": "Aggro",
+      "word": "Tetris",
       "hints": [
-        "pulling",
-        "enemy",
-        "attention"
+        "Blocks",
+        "Puzzle",
+        "Lines"
       ]
     },
     {
-      "word": "Open World",
+      "word": "Pac-Man",
       "hints": [
-        "game",
-        "design",
-        "players"
+        "Ghosts",
+        "Pellets",
+        "Maze"
       ]
     },
     {
-      "word": "Checkpoint",
+      "word": "Pokemon",
       "hints": [
-        "progress",
-        "save",
-        "point"
+        "Pikachu",
+        "Catch",
+        "Monsters"
       ]
     },
     {
-      "word": "Easter Egg",
+      "word": "Halo",
       "hints": [
-        "hidden",
-        "message",
-        "joke"
+        "Master",
+        "Chief",
+        "Cortana"
       ]
     },
     {
-      "word": "Nerf",
+      "word": "Fortnite",
       "hints": [
-        "developer",
-        "update",
-        "weakening"
+        "Battle",
+        "Royale",
+        "Building"
       ]
     },
     {
-      "word": "Buff",
+      "word": "Overwatch",
       "hints": [
-        "developer",
-        "update",
-        "strengthening"
+        "Hero",
+        "Shooter",
+        "Blizzard"
       ]
     },
     {
-      "word": "Gacha",
+      "word": "Skyrim",
       "hints": [
-        "japanese",
-        "monetisation",
-        "mechanic"
+        "Dragons",
+        "Elder",
+        "Scrolls"
       ]
     },
     {
-      "word": "No Hit Run",
+      "word": "Doom",
       "hints": [
-        "completing",
-        "notoriously",
-        "difficult"
+        "Demons",
+        "Mars",
+        "Shotgun"
       ]
     },
     {
-      "word": "Rage Quit",
+      "word": "Sonic",
       "hints": [
-        "angrily",
-        "leaving",
-        "game"
+        "Hedgehog",
+        "Rings",
+        "Fast"
       ]
     },
     {
-      "word": "Permadeath",
+      "word": "Portal",
       "hints": [
-        "character",
-        "dies",
-        "permanently"
+        "Cake",
+        "Aperture",
+        "Physics"
       ]
     },
     {
-      "word": "DLC",
+      "word": "Half-Life",
       "hints": [
-        "downloadable",
-        "additional",
-        "game"
+        "Gordon",
+        "Freeman",
+        "Crowbar"
       ]
     },
     {
-      "word": "Frame Rate",
+      "word": "Roblox",
       "hints": [
-        "how",
-        "many",
-        "images"
+        "User",
+        "Created",
+        "Avatars"
       ]
     },
     {
-      "word": "Controller Drift",
+      "word": "Terraria",
       "hints": [
-        "joystick",
-        "registers",
-        "input"
+        "2D",
+        "Mining",
+        "Bosses"
       ]
     },
     {
-      "word": "Hitbox",
+      "word": "Among Us",
       "hints": [
-        "invisible",
-        "area",
-        "around"
+        "Impostor",
+        "Tasks",
+        "Sus"
       ]
     },
     {
-      "word": "Camper",
+      "word": "Street Fighter",
       "hints": [
-        "player",
-        "stays",
-        "one"
+        "Ryu",
+        "Hadouken",
+        "Capcom"
       ]
     },
     {
-      "word": "AFK",
+      "word": "Mortal Kombat",
       "hints": [
-        "away",
-        "keyboard",
-        "player"
+        "Fatality",
+        "Scorpion",
+        "Sub-Zero"
       ]
     },
     {
-      "word": "Skill Issue",
+      "word": "Smash Bros",
       "hints": [
-        "dismissive",
-        "response",
-        "complaint"
+        "Nintendo",
+        "Fighting",
+        "Crossover"
       ]
     },
     {
-      "word": "Git Gud",
+      "word": "Animal Crossing",
       "hints": [
-        "harsh",
-        "advice",
-        "improve"
+        "Tom",
+        "Nook",
+        "Islands"
       ]
     },
     {
-      "word": "GG",
+      "word": "Stardew Valley",
       "hints": [
-        "good",
-        "game",
-        "sportsmanship"
+        "Farming",
+        "Simulation",
+        "Pelican"
       ]
     },
     {
-      "word": "Patch Notes",
+      "word": "The Witcher",
       "hints": [
-        "developer",
-        "changelog",
-        "describing"
+        "Geralt",
+        "Monster",
+        "Hunter"
       ]
     },
     {
-      "word": "Meta",
+      "word": "Cyberpunk",
       "hints": [
-        "current",
-        "dominant",
-        "strategy"
+        "Night",
+        "City",
+        "Keanu"
       ]
     },
     {
-      "word": "Side Quest",
+      "word": "Fallout",
       "hints": [
-        "optional",
-        "mission",
-        "separate"
+        "Vault",
+        "Wasteland",
+        "Pip-Boy"
       ]
     },
     {
-      "word": "Dungeon",
+      "word": "Dark Souls",
       "hints": [
-        "enclosed",
-        "danger",
-        "area"
+        "Hard",
+        "Bonfire",
+        "Bosses"
       ]
     },
     {
-      "word": "Healer",
+      "word": "Elden Ring",
       "hints": [
-        "support",
-        "role",
-        "rpgs"
+        "Tarnished",
+        "Maiden",
+        "Tree"
       ]
     },
     {
-      "word": "Tank",
+      "word": "Bloodborne",
       "hints": [
-        "heavy",
-        "defensive",
-        "role"
+        "Yharnam",
+        "Hunters",
+        "Beasts"
       ]
     },
     {
-      "word": "Last Hit",
+      "word": "Sekiro",
       "hints": [
-        "delivering",
-        "killing",
-        "blow"
+        "Wolf",
+        "Parry",
+        "Shinobi"
       ]
     },
     {
-      "word": "Battle Pass",
+      "word": "Persona",
       "hints": [
-        "season",
-        "based",
-        "cosmetic"
+        "High",
+        "School",
+        "Shadows"
+      ]
+    },
+    {
+      "word": "Final Fantasy",
+      "hints": [
+        "Chocobo",
+        "Moogle",
+        "Crystal"
+      ]
+    },
+    {
+      "word": "Kingdom Hearts",
+      "hints": [
+        "Disney",
+        "Keyblade",
+        "Sora"
+      ]
+    },
+    {
+      "word": "Metal Gear",
+      "hints": [
+        "Snake",
+        "Stealth",
+        "Box"
+      ]
+    },
+    {
+      "word": "Resident Evil",
+      "hints": [
+        "Zombies",
+        "Umbrella",
+        "Mansion"
+      ]
+    },
+    {
+      "word": "Silent Hill",
+      "hints": [
+        "Fog",
+        "Pyramid",
+        "Radio"
+      ]
+    },
+    {
+      "word": "Castlevania",
+      "hints": [
+        "Dracula",
+        "Vampire",
+        "Whip"
+      ]
+    },
+    {
+      "word": "Metroid",
+      "hints": [
+        "Samus",
+        "Bounty",
+        "Hunter"
+      ]
+    },
+    {
+      "word": "Donkey Kong",
+      "hints": [
+        "Ape",
+        "Barrels",
+        "Bananas"
+      ]
+    },
+    {
+      "word": "Kirby",
+      "hints": [
+        "Pink",
+        "Puffball",
+        "Inhale"
+      ]
+    },
+    {
+      "word": "Star Fox",
+      "hints": [
+        "Arwing",
+        "Barrel",
+        "Roll"
+      ]
+    },
+    {
+      "word": "F-Zero",
+      "hints": [
+        "Captain",
+        "Falcon",
+        "Racing"
+      ]
+    },
+    {
+      "word": "Mario Kart",
+      "hints": [
+        "Blue",
+        "Shell",
+        "Racing"
+      ]
+    },
+    {
+      "word": "Mario Party",
+      "hints": [
+        "Board",
+        "Game",
+        "Minigames"
+      ]
+    },
+    {
+      "word": "Splatoon",
+      "hints": [
+        "Squid",
+        "Ink",
+        "Paint"
+      ]
+    },
+    {
+      "word": "Pikmin",
+      "hints": [
+        "Plant",
+        "Creatures",
+        "Olimar"
+      ]
+    },
+    {
+      "word": "Fire Emblem",
+      "hints": [
+        "Tactics",
+        "Grid",
+        "Permadeath"
+      ]
+    },
+    {
+      "word": "Xenoblade",
+      "hints": [
+        "Monado",
+        "Shulk",
+        "Titan"
+      ]
+    },
+    {
+      "word": "EarthBound",
+      "hints": [
+        "Ness",
+        "PSI",
+        "Mother"
+      ]
+    },
+    {
+      "word": "Chrono Trigger",
+      "hints": [
+        "Time",
+        "Travel",
+        "Lavos"
+      ]
+    },
+    {
+      "word": "Secret of Mana",
+      "hints": [
+        "Tree",
+        "Action",
+        "RPG"
+      ]
+    },
+    {
+      "word": "Dragon Quest",
+      "hints": [
+        "Slime",
+        "Hero",
+        "Turn-Based"
+      ]
+    },
+    {
+      "word": "Monster Hunter",
+      "hints": [
+        "Rathalos",
+        "Wyvern",
+        "Weapons"
+      ]
+    },
+    {
+      "word": "Genshin Impact",
+      "hints": [
+        "Gacha",
+        "Anime",
+        "Traveler"
+      ]
+    },
+    {
+      "word": "League of Legends",
+      "hints": [
+        "MOBA",
+        "Riot",
+        "Champions"
+      ]
+    },
+    {
+      "word": "Dota 2",
+      "hints": [
+        "Valve",
+        "Defense",
+        "Ancients"
+      ]
+    },
+    {
+      "word": "World of Warcraft",
+      "hints": [
+        "Alliance",
+        "Horde",
+        "MMO"
+      ]
+    },
+    {
+      "word": "Runescape",
+      "hints": [
+        "Grinding",
+        "Gielinor",
+        "Woodcutting"
+      ]
+    },
+    {
+      "word": "Guild Wars",
+      "hints": [
+        "Tyria",
+        "Events",
+        "MMORPG"
+      ]
+    },
+    {
+      "word": "Destiny",
+      "hints": [
+        "Guardians",
+        "Ghost",
+        "Traveler"
+      ]
+    },
+    {
+      "word": "Warframe",
+      "hints": [
+        "Tenno",
+        "Ninjas",
+        "Space"
+      ]
+    },
+    {
+      "word": "Apex Legends",
+      "hints": [
+        "Hero",
+        "Battle",
+        "Royale"
+      ]
+    },
+    {
+      "word": "PUBG",
+      "hints": [
+        "Chicken",
+        "Dinner",
+        "Pan"
+      ]
+    },
+    {
+      "word": "Valorant",
+      "hints": [
+        "Agents",
+        "Spike",
+        "Tactical"
+      ]
+    },
+    {
+      "word": "CSGO",
+      "hints": [
+        "Terrorist",
+        "Counter",
+        "Bomb"
+      ]
+    },
+    {
+      "word": "Rainbow Six",
+      "hints": [
+        "Siege",
+        "Operators",
+        "Destruction"
+      ]
+    },
+    {
+      "word": "Call of Duty",
+      "hints": [
+        "Warzone",
+        "Zombies",
+        "Shooter"
+      ]
+    },
+    {
+      "word": "Battlefield",
+      "hints": [
+        "Levolution",
+        "Vehicles",
+        "Conquest"
+      ]
+    },
+    {
+      "word": "Gears of War",
+      "hints": [
+        "Lancer",
+        "Locust",
+        "Cover"
+      ]
+    },
+    {
+      "word": "Mass Effect",
+      "hints": [
+        "Shepard",
+        "Reapers",
+        "Normandy"
+      ]
+    },
+    {
+      "word": "Dragon Age",
+      "hints": [
+        "Thedas",
+        "Blight",
+        "Inquisition"
+      ]
+    },
+    {
+      "word": "Baldurs Gate",
+      "hints": [
+        "DnD",
+        "Mind",
+        "Flayer"
+      ]
+    },
+    {
+      "word": "Divinity",
+      "hints": [
+        "Original",
+        "Sin",
+        "Larian"
+      ]
+    },
+    {
+      "word": "Diablo",
+      "hints": [
+        "Loot",
+        "Demon",
+        "Sanctuary"
+      ]
+    },
+    {
+      "word": "Path of Exile",
+      "hints": [
+        "Skill",
+        "Tree",
+        "Wraeclast"
+      ]
+    },
+    {
+      "word": "Hades",
+      "hints": [
+        "Underworld",
+        "Roguelike",
+        "Zagreus"
+      ]
+    },
+    {
+      "word": "Dead Cells",
+      "hints": [
+        "Roguevania",
+        "Prisoner",
+        "Flask"
+      ]
+    },
+    {
+      "word": "Hollow Knight",
+      "hints": [
+        "Bug",
+        "Nail",
+        "Hallownest"
+      ]
+    },
+    {
+      "word": "Ori",
+      "hints": [
+        "Blind",
+        "Forest",
+        "Platformer"
+      ]
+    },
+    {
+      "word": "Celeste",
+      "hints": [
+        "Mountain",
+        "Strawberries",
+        "Dash"
+      ]
+    },
+    {
+      "word": "Cuphead",
+      "hints": [
+        "Rubber",
+        "Hose",
+        "Bosses"
+      ]
+    },
+    {
+      "word": "Undertale",
+      "hints": [
+        "Mercy",
+        "Genocide",
+        "Sans"
+      ]
+    },
+    {
+      "word": "Deltarune",
+      "hints": [
+        "Kris",
+        "Susie",
+        "Dark"
+      ]
+    },
+    {
+      "word": "Five Nights",
+      "hints": [
+        "Freddy",
+        "Animatronics",
+        "Jump"
+      ]
+    },
+    {
+      "word": "Amnesia",
+      "hints": [
+        "Dark",
+        "Descent",
+        "Sanity"
+      ]
+    },
+    {
+      "word": "Outlast",
+      "hints": [
+        "Asylum",
+        "Camera",
+        "Battery"
+      ]
+    },
+    {
+      "word": "Alien Isolation",
+      "hints": [
+        "Xenomorph",
+        "Amanda",
+        "Ripley"
+      ]
+    },
+    {
+      "word": "Dead Space",
+      "hints": [
+        "Necromorph",
+        "Isaac",
+        "Clarke"
+      ]
+    },
+    {
+      "word": "Bioshock",
+      "hints": [
+        "Rapture",
+        "Big",
+        "Daddy"
+      ]
+    },
+    {
+      "word": "Dishonored",
+      "hints": [
+        "Corvo",
+        "Blink",
+        "Stealth"
+      ]
+    },
+    {
+      "word": "Prey",
+      "hints": [
+        "Mimics",
+        "Talos",
+        "Space"
+      ]
+    },
+    {
+      "word": "Thief",
+      "hints": [
+        "Garrett",
+        "Shadows",
+        "Stealth"
+      ]
+    },
+    {
+      "word": "Deus Ex",
+      "hints": [
+        "Augmentation",
+        "Jensen",
+        "Conspiracy"
+      ]
+    },
+    {
+      "word": "System Shock",
+      "hints": [
+        "Shodan",
+        "Hacker",
+        "Space"
+      ]
+    },
+    {
+      "word": "Hitman",
+      "hints": [
+        "Agent",
+        "Barcode",
+        "Assassination"
+      ]
+    },
+    {
+      "word": "Assassins Creed",
+      "hints": [
+        "Hidden",
+        "Blade",
+        "Templars"
+      ]
+    },
+    {
+      "word": "Far Cry",
+      "hints": [
+        "Outpost",
+        "Villain",
+        "Jungle"
+      ]
+    },
+    {
+      "word": "Watch Dogs",
+      "hints": [
+        "Hacking",
+        "Chicago",
+        "DedSec"
+      ]
+    },
+    {
+      "word": "Grand Theft Auto",
+      "hints": [
+        "Cars",
+        "Heists",
+        "Los"
+      ]
+    },
+    {
+      "word": "Red Dead",
+      "hints": [
+        "Cowboy",
+        "Arthur",
+        "Morgan"
+      ]
+    },
+    {
+      "word": "Bully",
+      "hints": [
+        "School",
+        "Jimmy",
+        "Hopkins"
+      ]
+    },
+    {
+      "word": "L.A. Noire",
+      "hints": [
+        "Detective",
+        "Doubt",
+        "Interrogation"
+      ]
+    },
+    {
+      "word": "Max Payne",
+      "hints": [
+        "Bullet",
+        "Time",
+        "Noir"
+      ]
+    },
+    {
+      "word": "Alan Wake",
+      "hints": [
+        "Flashlight",
+        "Writer",
+        "Darkness"
+      ]
+    },
+    {
+      "word": "Control",
+      "hints": [
+        "Federal",
+        "Bureau",
+        "Telekinesis"
+      ]
+    },
+    {
+      "word": "Quantum Break",
+      "hints": [
+        "Time",
+        "Stutter",
+        "Remedy"
+      ]
+    },
+    {
+      "word": "SimCity",
+      "hints": [
+        "Mayor",
+        "Zoning",
+        "Disasters"
+      ]
+    },
+    {
+      "word": "The Sims",
+      "hints": [
+        "Plumbob",
+        "Gibberish",
+        "Pool"
+      ]
+    },
+    {
+      "word": "Civilization",
+      "hints": [
+        "Gandhi",
+        "Nukes",
+        "Turns"
+      ]
+    },
+    {
+      "word": "Age of Empires",
+      "hints": [
+        "Wololo",
+        "RTS",
+        "History"
+      ]
+    },
+    {
+      "word": "Starcraft",
+      "hints": [
+        "Zerg",
+        "Protoss",
+        "Terran"
+      ]
+    },
+    {
+      "word": "Warcraft",
+      "hints": [
+        "Orcs",
+        "Humans",
+        "Strategy"
+      ]
+    },
+    {
+      "word": "Command Conquer",
+      "hints": [
+        "Tiberium",
+        "Kane",
+        "Brotherhood"
+      ]
+    },
+    {
+      "word": "RollerCoaster",
+      "hints": [
+        "Tycoon",
+        "Parks",
+        "Vomiting"
+      ]
+    },
+    {
+      "word": "Planet Coaster",
+      "hints": [
+        "Simulation",
+        "Rides",
+        "Theme"
+      ]
+    },
+    {
+      "word": "Cities Skylines",
+      "hints": [
+        "Traffic",
+        "Zoning",
+        "Mayor"
+      ]
+    },
+    {
+      "word": "Flight Simulator",
+      "hints": [
+        "Planes",
+        "Earth",
+        "Microsoft"
+      ]
+    },
+    {
+      "word": "Euro Truck",
+      "hints": [
+        "Driving",
+        "Deliveries",
+        "Simulation"
+      ]
+    },
+    {
+      "word": "Farming Simulator",
+      "hints": [
+        "Tractors",
+        "Crops",
+        "Harvest"
+      ]
+    },
+    {
+      "word": "Goat Simulator",
+      "hints": [
+        "Physics",
+        "Licking",
+        "Chaos"
       ]
     }
   ]
