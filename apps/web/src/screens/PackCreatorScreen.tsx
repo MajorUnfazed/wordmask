@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useRef, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { GlassCard } from '../components/ui/GlassCard'
 import { GlowButton } from '../components/ui/GlowButton'
@@ -14,8 +14,29 @@ interface WordDraft {
   hints: string[]
 }
 
+const SAMPLE_JSON = {
+  title: "Classic Movies",
+  description: "Identify popular movies from subtle 1-2 word clues.",
+  category: "Entertainment",
+  language: "en",
+  tags: ["movies", "pop-culture", "cinema"],
+  words: [
+    { word: "Inception", hints: ["Dream", "Layers"] },
+    { word: "Matrix", hints: ["Simulation", "Red Pill"] },
+    { word: "Titanic", hints: ["Iceberg", "Shipwreck"] },
+    { word: "Gladiator", hints: ["Colosseum", "Vengeance"] },
+    { word: "Interstellar", hints: ["Wormhole", "Gravity"] },
+    { word: "Jaws", hints: ["Shark", "Beach"] },
+    { word: "Jurassic Park", hints: ["Dinosaur", "Island"] },
+    { word: "Avatar", hints: ["Pandora", "Blue"] },
+    { word: "Psycho", hints: ["Shower", "Motel"] },
+    { word: "Star Wars", hints: ["Galactic", "Force"] }
+  ]
+}
+
 export default function PackCreatorScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
+  const fileInputRef = useRef<HTMLInputElement>(null)
   const [step, setStep] = useState<Step>('meta')
 
   // Meta
@@ -23,15 +44,89 @@ export default function PackCreatorScreen() {
   const [description, setDescription] = useState('')
   const [language, setLanguage] = useState('en')
   const [category, setCategory] = useState('')
+  const [tagsInput, setTagsInput] = useState('')
 
   // Words
-  const [words, setWords] = useState<WordDraft[]>([{ word: '', hints: [''] }])
+  const [words, setWords] = useState<WordDraft[]>([
+    { word: '', hints: [''] },
+    { word: '', hints: [''] }
+  ])
 
   // Submission
   const [submitting, setSubmitting] = useState(false)
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submitted, setSubmitted] = useState(false)
   const [validationErrors, setValidationErrors] = useState<string[]>([])
+
+  function downloadSampleJson() {
+    const jsonStr = JSON.stringify(SAMPLE_JSON, null, 2)
+    const blob = new Blob([jsonStr], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'wordmask_pack_template.json'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function handleFileUpload(event: React.ChangeEvent<HTMLInputElement>) {
+    const file = event.target.files?.[0]
+    if (!file) return
+
+    const reader = new FileReader()
+    reader.onload = (e) => {
+      try {
+        const text = e.target?.result as string
+        const parsed = JSON.parse(text) as Record<string, unknown> | Array<Record<string, unknown>>
+
+        if (Array.isArray(parsed)) {
+          // Simple words array JSON
+          const importedWords: WordDraft[] = parsed
+            .filter((item) => typeof item === 'object' && item !== null && 'word' in item)
+            .map((item) => ({
+              word: String(item['word'] ?? '').trim(),
+              hints: Array.isArray(item['hints'])
+                ? item['hints'].map((h) => String(h).trim()).filter(Boolean)
+                : Array.isArray(item['clues'])
+                ? item['clues'].map((c) => String(c).trim()).filter(Boolean)
+                : [''],
+            }))
+
+          if (importedWords.length > 0) {
+            setWords(importedWords)
+            setStep('words')
+          }
+        } else if (typeof parsed === 'object' && parsed !== null) {
+          // Full pack draft JSON
+          if (parsed['title']) setTitle(String(parsed['title']).trim())
+          if (parsed['description']) setDescription(String(parsed['description']).trim())
+          if (parsed['category']) setCategory(String(parsed['category']).trim())
+          if (parsed['language']) setLanguage(String(parsed['language']).trim())
+          if (Array.isArray(parsed['tags'])) setTagsInput(parsed['tags'].join(', '))
+
+          if (Array.isArray(parsed['words'])) {
+            const importedWords: WordDraft[] = parsed['words']
+              .filter((item) => typeof item === 'object' && item !== null && 'word' in item)
+              .map((item) => ({
+                word: String((item as Record<string, unknown>)['word'] ?? '').trim(),
+                hints: Array.isArray((item as Record<string, unknown>)['hints'])
+                  ? ((item as Record<string, unknown>)['hints'] as unknown[]).map((h) => String(h).trim()).filter(Boolean)
+                  : Array.isArray((item as Record<string, unknown>)['clues'])
+                  ? ((item as Record<string, unknown>)['clues'] as unknown[]).map((c) => String(c).trim()).filter(Boolean)
+                  : [''],
+              }))
+
+            if (importedWords.length > 0) setWords(importedWords)
+          }
+
+          setStep('words')
+        }
+      } catch (err) {
+        setSubmitError(err instanceof Error ? `Invalid JSON: ${err.message}` : 'Failed to parse JSON file.')
+      }
+    }
+    reader.readAsText(file)
+  }
 
   function addWord() {
     setWords((prev) => [...prev, { word: '', hints: [''] }])
@@ -60,50 +155,70 @@ export default function PackCreatorScreen() {
   }
 
   function goToReview() {
-    const draft: CommunityPackDraft = { title, description, language, category, tags: [], words }
+    const tags = tagsInput.split(',').map((t) => t.trim()).filter(Boolean)
+    const draft: CommunityPackDraft = { title, description, language, category, tags, words }
     const result = validateCommunityPack(draft)
     setValidationErrors(result.errors)
     if (result.valid) setStep('review')
   }
 
   async function handleSubmit() {
-    if (!isSupabaseConfigured) {
-      setSubmitError('Supabase is not configured.')
-      return
-    }
     setSubmitting(true)
     setSubmitError(null)
-    try {
-      const client = await ensureAnonymousSession()
-      const { data: { user } } = await client.auth.getUser()
-      if (!user) throw new Error('You must be signed in to submit a pack.')
 
-      // Insert pack metadata
-      const { data: packData, error: packError } = await client
-        .from('community_packs')
-        .insert({ title, description, language, category, tags: [], creator_id: user.id })
-        .select('id')
-        .single()
-
-      if (packError) throw packError
-      const packId = String((packData as Record<string, unknown>)['id'] ?? '')
-
-      // Insert words
-      const wordRows = words.map((w, position) => ({
-        pack_id: packId,
-        word: w.word.trim(),
-        clues: w.hints.map((h) => h.trim()).filter(Boolean),
-        position,
-      }))
-      const { error: wordsError } = await client.from('community_pack_words').insert(wordRows)
-      if (wordsError) throw wordsError
-
-      setSubmitted(true)
-    } catch (err) {
-      setSubmitError(err instanceof Error ? err.message : 'Submission failed.')
-    } finally {
-      setSubmitting(false)
+    const tags = tagsInput.split(',').map((t) => t.trim()).filter(Boolean)
+    const packObj = {
+      id: crypto.randomUUID(),
+      title: title.trim(),
+      description: description.trim(),
+      language,
+      category: category.trim(),
+      tags,
+      words: words.map((w) => ({ word: w.word.trim(), hints: w.hints.map((h) => h.trim()).filter(Boolean) })),
+      createdAt: new Date().toISOString(),
     }
+
+    // Always save to localStorage custom packs
+    try {
+      const existing = localStorage.getItem('wordmask_custom_packs')
+      const list = existing ? (JSON.parse(existing) as unknown[]) : []
+      list.push(packObj)
+      localStorage.setItem('wordmask_custom_packs', JSON.stringify(list))
+    } catch {
+      // Ignore
+    }
+
+    // Submit to Supabase if configured
+    if (isSupabaseConfigured) {
+      try {
+        const client = await ensureAnonymousSession()
+        const { data: { user } } = await client.auth.getUser()
+        if (user) {
+          const { data: packData, error: packError } = await client
+            .from('community_packs')
+            .insert({ title: title.trim(), description: description.trim(), language, category: category.trim(), tags, creator_id: user.id })
+            .select('id')
+            .single()
+
+          if (packError) throw packError
+          const packId = String((packData as Record<string, unknown>)['id'] ?? '')
+
+          const wordRows = words.map((w, position) => ({
+            pack_id: packId,
+            word: w.word.trim(),
+            clues: w.hints.map((h) => h.trim()).filter(Boolean),
+            position,
+          }))
+
+          await client.from('community_pack_words').insert(wordRows)
+        }
+      } catch (err) {
+        console.warn('Supabase pack submission warning:', err)
+      }
+    }
+
+    setSubmitting(false)
+    setSubmitted(true)
   }
 
   if (submitted) {
@@ -117,8 +232,8 @@ export default function PackCreatorScreen() {
         >
           🎉
         </motion.div>
-        <h2 className="font-display text-4xl font-bold">Pack Submitted!</h2>
-        <p className="text-white/60">Your pack is pending review. Once approved, it will appear in the community browser.</p>
+        <h2 className="font-display text-4xl font-bold">Pack Created & Saved!</h2>
+        <p className="text-white/60">Your pack is saved and ready to use in your games.</p>
         <GlowButton onClick={() => setScreen('pack-browser')}>Browse Packs</GlowButton>
       </div>
     )
@@ -126,6 +241,14 @@ export default function PackCreatorScreen() {
 
   return (
     <div className="flex min-h-screen flex-col items-center gap-8 overflow-y-auto px-6 py-12">
+      <input
+        type="file"
+        ref={fileInputRef}
+        accept=".json"
+        className="hidden"
+        onChange={handleFileUpload}
+      />
+
       <motion.div
         className="w-full max-w-lg text-center"
         initial={{ opacity: 0, y: -20 }}
@@ -135,9 +258,25 @@ export default function PackCreatorScreen() {
           {step === 'meta' ? 'Step 1 of 3' : step === 'words' ? 'Step 2 of 3' : 'Step 3 of 3'}
         </p>
         <h2 className="mt-2 font-display text-4xl font-bold">
-          {step === 'meta' ? 'Pack Details' : step === 'words' ? 'Add Words' : 'Review & Submit'}
+          {step === 'meta' ? 'Pack Details' : step === 'words' ? 'Add Words' : 'Review & Save'}
         </h2>
       </motion.div>
+
+      {/* Upload JSON banner */}
+      <GlassCard className="w-full max-w-lg rounded-3xl p-5 border border-accent/30 bg-accent/10">
+        <div className="flex items-center justify-between gap-4">
+          <div>
+            <h4 className="font-display font-bold text-white">📁 Quick JSON Import</h4>
+            <p className="text-xs text-white/60 mt-1">Upload a .json pack file to automatically prefill everything.</p>
+          </div>
+          <button
+            onClick={() => fileInputRef.current?.click()}
+            className="shrink-0 rounded-2xl bg-accent px-4 py-2 text-xs font-semibold text-white shadow-lg transition hover:bg-accent/80"
+          >
+            Upload JSON
+          </button>
+        </div>
+      </GlassCard>
 
       <AnimatePresence mode="wait">
         {step === 'meta' && (
@@ -151,7 +290,8 @@ export default function PackCreatorScreen() {
             <GlassCard className="rounded-3xl p-6 flex flex-col gap-5">
               {[{ label: 'Pack Title', value: title, set: setTitle, placeholder: 'e.g. Classic Movies', max: 80 },
                 { label: 'Description', value: description, set: setDescription, placeholder: 'What is this pack about?', max: 500 },
-                { label: 'Category', value: category, set: setCategory, placeholder: 'e.g. Entertainment', max: 48 }].map(({ label, value, set, placeholder, max }) => (
+                { label: 'Category', value: category, set: setCategory, placeholder: 'e.g. Entertainment', max: 48 },
+                { label: 'Tags (comma separated)', value: tagsInput, set: setTagsInput, placeholder: 'e.g. movies, pop-culture', max: 100 }].map(({ label, value, set, placeholder, max }) => (
                 <label key={label} className="flex flex-col gap-2">
                   <span className="text-sm text-white/60">{label}</span>
                   <input
@@ -163,6 +303,7 @@ export default function PackCreatorScreen() {
                   />
                 </label>
               ))}
+
               <label className="flex flex-col gap-2">
                 <span className="text-sm text-white/60">Language</span>
                 <select
@@ -179,6 +320,16 @@ export default function PackCreatorScreen() {
                 </select>
               </label>
             </GlassCard>
+
+            <div className="flex gap-3">
+              <button
+                onClick={downloadSampleJson}
+                className="flex-1 rounded-2xl border border-white/10 bg-white/5 py-3 text-xs font-semibold text-white/70 hover:bg-white/10"
+              >
+                📥 Download JSON Template
+              </button>
+            </div>
+
             <GlowButton onClick={() => setStep('words')} disabled={!title.trim() || !category.trim()}>
               Next: Add Words
             </GlowButton>
@@ -202,6 +353,7 @@ export default function PackCreatorScreen() {
                 {validationErrors.slice(0, 5).map((err, i) => <div key={i}>{err}</div>)}
               </div>
             )}
+
             {words.map((word, wi) => (
               <GlassCard key={wi} className="rounded-2xl p-4 flex flex-col gap-3">
                 <div className="flex items-center gap-3">
@@ -230,22 +382,26 @@ export default function PackCreatorScreen() {
                 ))}
                 <button
                   onClick={() => addHint(wi)}
-                  className="text-xs text-accent/70 hover:text-accent transition"
+                  className="text-xs text-accent/70 hover:text-accent transition self-start"
                 >
                   + Add clue
                 </button>
               </GlassCard>
             ))}
+
             <button
               onClick={addWord}
               className="flex items-center justify-center gap-2 rounded-2xl border border-dashed border-white/20 py-4 text-sm font-semibold text-white/60 hover:text-white hover:bg-white/5 transition"
             >
               + Add Word
             </button>
-            <p className="text-center text-xs text-white/30">{words.length} / 500 words · Minimum 10 required</p>
-            <GlowButton onClick={goToReview} disabled={words.length < 10}>
+
+            <p className="text-center text-xs text-white/30">{words.length} words added · Minimum 10 recommended</p>
+
+            <GlowButton onClick={goToReview} disabled={words.length < 2 || words.some((w) => !w.word.trim())}>
               Review Pack
             </GlowButton>
+
             <GlowButton variant="secondary" onClick={() => setStep('meta')}>Back</GlowButton>
           </motion.div>
         )}
@@ -261,7 +417,7 @@ export default function PackCreatorScreen() {
             <GlassCard className="rounded-3xl p-6 flex flex-col gap-3">
               <h3 className="font-display text-xl font-bold">{title}</h3>
               <p className="text-sm text-white/60">{description}</p>
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex gap-2 flex-wrap mt-2">
                 <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/60">{category}</span>
                 <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/60">{language.toUpperCase()}</span>
                 <span className="rounded-full bg-white/10 px-3 py-1 text-xs text-white/60">{words.length} words</span>
@@ -277,8 +433,8 @@ export default function PackCreatorScreen() {
               </div>
             )}
 
-            <GlowButton onClick={handleSubmit} disabled={submitting}>
-              {submitting ? 'Submitting…' : 'Submit Pack for Review'}
+            <GlowButton onClick={() => void handleSubmit()} disabled={submitting}>
+              {submitting ? 'Saving…' : 'Save & Publish Pack'}
             </GlowButton>
             <GlowButton variant="secondary" onClick={() => setStep('words')}>Edit Words</GlowButton>
           </motion.div>
