@@ -185,11 +185,11 @@ function resolveRoundSourceCategories(
 }
 
 export function isOnlineSchemaCompatible(schemaVersion: number) {
-  return schemaVersion === ONLINE_SCHEMA_VERSION
+  return schemaVersion >= 9 && schemaVersion <= ONLINE_SCHEMA_VERSION
 }
 
 export function getOnlineSchemaMismatchMessage(schemaVersion: number) {
-  return `Online multiplayer needs a backend migration. Expected schema v${ONLINE_SCHEMA_VERSION}, received v${schemaVersion}.`
+  return `Online multiplayer needs a backend migration. Expected schema v${ONLINE_SCHEMA_VERSION}, received v${schemaVersion}. Run 010_wordmask_v2.sql in Supabase SQL Editor.`
 }
 
 export interface OnlineRolePayload {
