@@ -4,7 +4,7 @@
  */
 import type { GameState, Round, RoundResult } from '../types/game'
 import type { GameEvent } from './gameEvents'
-import { assignRoles, getImpostorIds } from '../systems/RoleAssigner'
+import { assignRoles, getImpostorIds, getJesterIds } from '../systems/RoleAssigner'
 import { calculateScoresDetailed } from '../systems/ScoreCalculator'
 import { pickRandom } from '../utils/random'
 import { ALL_WORDS } from '../packs/data/wordRegistry'
@@ -37,6 +37,12 @@ export function gameReducer(state: GameState, event: GameEvent): GameState {
 
     case 'VOTING_FINISHED':
       return handleVotingFinished(state)
+
+    case 'FINAL_IMPOSTOR_GUESS_SUBMITTED':
+      return handleFinalImpostorGuess(state, event)
+
+    case 'PASS_THE_PHONE_ANSWERED':
+      return handlePassThePhoneAnswered(state, event)
 
     case 'ROUND_RESOLVED':
       return handleRoundResolved(state)
@@ -118,13 +124,30 @@ function handleRoundStarted(
     throw new Error('No words available for the selected categories')
   }
 
-  const availableWords = categoryWords.filter((entry) => !state.usedWordIds.has(entry.id))
-  const wordPool = availableWords.length > 0 ? availableWords : categoryWords
-  const usedWordIds = availableWords.length > 0 ? new Set(state.usedWordIds) : new Set<string>()
+  const historyLimit = state.config.wordHistoryLimit ?? 100
+  const recentWordIds = new Set(
+    state.rounds.slice(-historyLimit).map((round) => `${round.category}:${round.word}`),
+  )
+  const availableWords = categoryWords.filter((entry) =>
+    !state.usedWordIds.has(entry.id) && !recentWordIds.has(`${entry.category}:${entry.word}`),
+  )
+  const unusedWords = categoryWords.filter((entry) => !state.usedWordIds.has(entry.id))
+  // Repetition is only permitted after the configured history cannot be honoured.
+  const wordPool = availableWords.length > 0
+    ? availableWords
+    : unusedWords.length > 0
+      ? unusedWords
+      : categoryWords
+  const usedWordIds = unusedWords.length > 0 ? new Set(state.usedWordIds) : new Set<string>()
   const entry = pickRandom(wordPool)
 
-  const playersWithRoles = assignRoles(state.players, state.config.impostorCount)
+  const playersWithRoles = assignRoles(
+    state.players,
+    state.config.impostorCount,
+    state.config.jesterCount ?? 0,
+  )
   const impostorIds = getImpostorIds(playersWithRoles)
+  const jesterIds = getJesterIds(playersWithRoles)
   const hint = pickRandom(entry.hints)
   usedWordIds.add(entry.id)
 
@@ -134,6 +157,7 @@ function handleRoundStarted(
     hint,
     category: entry.category,
     impostorIds,
+    jesterIds,
     players: playersWithRoles,
     votes: {},
     startedAt: Date.now(),
@@ -180,6 +204,10 @@ function handleVoteCast(
   if (!state.currentRound) {
     throw new Error('No active round')
   }
+  const voter = state.currentRound.players.find((player) => player.id === event.voterId)
+  if (!voter || voter.isSpectator || voter.isEliminated) {
+    throw new Error('Only active players can vote')
+  }
 
   const updatedRound: Round = {
     ...state.currentRound,
@@ -221,11 +249,78 @@ function handleRoundResolved(state: GameState): GameState {
 
   const completedRound: Round = { ...state.currentRound }
 
+  if (result.winningRole === 'JESTER') {
+    return {
+      ...state,
+      phase: 'RESULTS',
+      rounds: [...state.rounds, completedRound],
+      scores: newScores,
+      currentRound: null,
+    }
+  }
+
+  if (result.finalGuessRequired) {
+    const caughtImpostor = result.voteResult.eliminatedPlayerId!
+    return {
+      ...state,
+      phase: 'FINAL_IMPOSTOR_GUESS',
+      scores: newScores,
+      currentRound: {
+        ...state.currentRound,
+        finalGuess: { impostorId: caughtImpostor, guess: null },
+      },
+    }
+  }
+
   return {
     ...state,
     phase: 'RESULTS',
     rounds: [...state.rounds, completedRound],
     scores: newScores,
+    currentRound: null,
+  }
+}
+
+function handleFinalImpostorGuess(
+  state: GameState,
+  event: Extract<GameEvent, { type: 'FINAL_IMPOSTOR_GUESS_SUBMITTED' }>,
+): GameState {
+  if (state.phase !== 'FINAL_IMPOSTOR_GUESS' || !state.currentRound?.finalGuess) {
+    throw new Error('No final impostor guess is pending')
+  }
+  if (state.currentRound.finalGuess.impostorId !== event.impostorId) {
+    throw new Error('Only the caught impostor can make the final guess')
+  }
+
+  const finalGuess = event.guess.trim()
+  const succeeded = finalGuess.localeCompare(state.currentRound.word, undefined, { sensitivity: 'accent' }) === 0
+  const completedRound: Round = {
+    ...state.currentRound,
+    finalGuess: { ...state.currentRound.finalGuess, guess: finalGuess, correct: succeeded },
+  }
+  return {
+    ...state,
+    phase: 'RESULTS',
+    rounds: [...state.rounds, completedRound],
+    currentRound: null,
+  }
+}
+
+function handlePassThePhoneAnswered(
+  state: GameState,
+  event: Extract<GameEvent, { type: 'PASS_THE_PHONE_ANSWERED' }>,
+): GameState {
+  if (state.phase !== 'DISCUSSION' || state.config.mode !== 'PASS_THE_PHONE' || !state.currentRound) {
+    throw new Error('Pass-the-phone answer is not available')
+  }
+  const completedRound: Round = {
+    ...state.currentRound,
+    passThePhoneImpostorCaught: event.impostorCaught,
+  }
+  return {
+    ...state,
+    phase: 'RESULTS',
+    rounds: [...state.rounds, completedRound],
     currentRound: null,
   }
 }

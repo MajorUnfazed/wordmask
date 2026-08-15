@@ -6,12 +6,17 @@ import { useUIStore } from '../store/uiStore'
 
 export default function DiscussionScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
-  const { currentRound, beginVoting } = useOfflineGame()
+  const { currentRound, beginVoting, gameMode } = useOfflineGame()
   const duration = currentRound?.discussionDuration ?? 60
+  const isPassThePhone = gameMode === 'PASS_THE_PHONE'
 
   function handleStartVoting() {
     beginVoting()
     setScreen('voting')
+  }
+
+  function handleResolveRound() {
+    setScreen('pass-the-phone-resolve')
   }
 
   return (
@@ -55,8 +60,8 @@ export default function DiscussionScreen() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
       >
-        <GlowButton onClick={handleStartVoting}>
-          Start Voting
+        <GlowButton onClick={isPassThePhone ? handleResolveRound : handleStartVoting}>
+          {isPassThePhone ? 'Resolve Round' : 'Start Voting'}
         </GlowButton>
       </motion.div>
     </div>

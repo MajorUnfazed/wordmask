@@ -73,6 +73,14 @@ export class GameEngine {
     this.dispatch({ type: 'VOTING_FINISHED' })
   }
 
+  submitFinalImpostorGuess(impostorId: string, guess: string): void {
+    this.dispatch({ type: 'FINAL_IMPOSTOR_GUESS_SUBMITTED', impostorId, guess })
+  }
+
+  answerPassThePhone(impostorCaught: boolean): void {
+    this.dispatch({ type: 'PASS_THE_PHONE_ANSWERED', impostorCaught })
+  }
+
   resolveRound(): RoundResult | null {
     if (!this.state.currentRound) return null
 
@@ -99,6 +107,9 @@ export function createInitialState(): GameState {
     config: {
       playerCount: 4,
       impostorCount: 1,
+      jesterCount: 0,
+      mode: 'STANDARD',
+      wordHistoryLimit: 100,
       selectedCategories: [],
       discussionDuration: 60,
       maxRounds: 5,

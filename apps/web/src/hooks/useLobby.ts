@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import {
   ONLINE_IMPOSTOR_COUNT,
+  ONLINE_JESTER_COUNT,
   ONLINE_START_COUNTDOWN_SECONDS,
   getOnlineSchemaMismatchMessage,
   getOnlineCategoryOptions,
@@ -31,6 +32,7 @@ const onlineGameScreens = new Set<AppScreen>([
   'online-role-reveal',
   'online-discussion',
   'online-voting',
+  'online-final-guess',
   'online-results',
 ])
 
@@ -70,6 +72,8 @@ function screenForRound(round: OnlineRoundSnapshot | null): AppScreen | null {
       return 'online-discussion'
     case 'voting':
       return 'online-voting'
+    case 'final_impostor_guess':
+      return 'online-final-guess'
     case 'results':
       return 'online-results'
     default:
@@ -317,6 +321,11 @@ export function useLobby() {
       return snapshot
     }
 
+    if (snapshot.currentRound.phase === 'final_impostor_guess') {
+      setScreen('online-final-guess')
+      return snapshot
+    }
+
     setResult(null)
     setSubmittedVoteTargetId(null)
 
@@ -375,6 +384,14 @@ export function useLobby() {
     let isActive = true
     let channel: RealtimeChannel | null = null
     let client = getSupabaseClient()
+    let refreshTimer: number | null = null
+    const queueRefresh = () => {
+      if (refreshTimer !== null) return
+      refreshTimer = window.setTimeout(() => {
+        refreshTimer = null
+        void requestLobbyRefreshRef.current()
+      }, 80)
+    }
 
     void (async () => {
       try {
@@ -396,7 +413,7 @@ export function useLobby() {
               filter: `lobby_id=eq.${lobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              queueRefresh()
             },
           )
           .on(
@@ -408,7 +425,7 @@ export function useLobby() {
               filter: `id=eq.${lobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              queueRefresh()
             },
           )
           .on(
@@ -420,7 +437,7 @@ export function useLobby() {
               filter: `lobby_id=eq.${lobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              queueRefresh()
             },
           )
           .on(
@@ -432,7 +449,7 @@ export function useLobby() {
               filter: `lobby_id=eq.${lobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              queueRefresh()
             },
           )
           .on(
@@ -444,7 +461,7 @@ export function useLobby() {
               filter: `lobby_id=eq.${lobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              queueRefresh()
             },
           )
           .on(
@@ -455,7 +472,7 @@ export function useLobby() {
               table: 'room_message_reactions',
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              queueRefresh()
             },
           )
           .on(
@@ -467,7 +484,7 @@ export function useLobby() {
               filter: `lobby_id=eq.${lobbyId}`,
             },
             () => {
-              void requestLobbyRefreshRef.current()
+              queueRefresh()
             },
           )
           .subscribe()
@@ -487,15 +504,9 @@ export function useLobby() {
     window.addEventListener('focus', handleVisibilityRefresh)
     document.addEventListener('visibilitychange', handleVisibilityRefresh)
 
-    // Polling fallback: postgres_changes with row-level filters is not reliable
-    // enough on this project, so poll aggressively while the lobby is open.
-    const pollInterval = setInterval(() => {
-      void requestLobbyRefreshRef.current()
-    }, 1000)
-
     return () => {
       isActive = false
-      clearInterval(pollInterval)
+      if (refreshTimer !== null) window.clearTimeout(refreshTimer)
       window.removeEventListener('focus', handleVisibilityRefresh)
       document.removeEventListener('visibilitychange', handleVisibilityRefresh)
       if (channel && client) {
@@ -522,12 +533,15 @@ export function useLobby() {
     }
 
     void heartbeat()
-    const heartbeatInterval = window.setInterval(() => {
-      void heartbeat()
-    }, 5000)
+    const handleActivity = () => {
+      if (document.visibilityState === 'visible') void heartbeat()
+    }
+    window.addEventListener('focus', handleActivity)
+    document.addEventListener('visibilitychange', handleActivity)
 
     return () => {
-      window.clearInterval(heartbeatInterval)
+      window.removeEventListener('focus', handleActivity)
+      document.removeEventListener('visibilitychange', handleActivity)
     }
   }, [lobbyId])
 
@@ -876,6 +890,7 @@ export function useLobby() {
           p_hint: nextWord.hint,
           p_pack_id: nextWord.packId,
           p_impostor_count: ONLINE_IMPOSTOR_COUNT,
+          p_jester_count: ONLINE_JESTER_COUNT,
         })
 
         if (!rpcError) {
@@ -1057,7 +1072,7 @@ export function useLobby() {
       const normalized = normalizeRoundResult(data as Record<string, unknown>)
       setResult(normalized)
       await refreshLobby()
-      setScreen('online-results')
+      setScreen(normalized.phase === 'final_impostor_guess' ? 'online-final-guess' : 'online-results')
 
       return normalized
     } catch (finishError) {
@@ -1067,6 +1082,33 @@ export function useLobby() {
       setIsBusy(false)
     }
   }, [refreshLobby, setResult, setScreen])
+
+  const submitFinalImpostorGuess = useCallback(async (guess: string) => {
+    const activeRoundId = useOnlineRoundStore.getState().round?.id
+    if (!activeRoundId || !guess.trim()) {
+      setError('Enter your guess first.')
+      return null
+    }
+    setIsBusy(true)
+    setError(null)
+    try {
+      const client = await ensureAnonymousSession()
+      const { error: rpcError } = await client.rpc('submit_final_impostor_guess', {
+        p_round_id: activeRoundId,
+        p_guess: guess.trim(),
+      })
+      if (rpcError) throw rpcError
+      await refreshLobby()
+      const finalResult = await loadRoundResult(activeRoundId)
+      if (finalResult) setScreen('online-results')
+      return finalResult
+    } catch (guessError) {
+      setError(getErrorMessage(guessError))
+      return null
+    } finally {
+      setIsBusy(false)
+    }
+  }, [loadRoundResult, refreshLobby, setScreen])
 
   const returnToLobby = useCallback(() => {
     setRole(null)
@@ -1197,6 +1239,7 @@ export function useLobby() {
     startVoting: () => setRoundPhase('voting'),
     submitVote,
     finishRound,
+    submitFinalImpostorGuess,
     returnToLobby,
     disconnectLobby,
   }

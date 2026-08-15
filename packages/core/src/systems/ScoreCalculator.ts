@@ -16,6 +16,7 @@ const POINTS = {
   IMPOSTOR_ESCAPES: 10,
   CORRECT_VOTE: 3,
   WRONG_VOTE: -1,
+  JESTER_VOTED_OUT: 12,
 } as const
 
 export function calculateScores(
@@ -36,7 +37,12 @@ export function calculateScores(
     scoreDeltas[player.id] = 0
   }
 
-  if (!impostorsCaught) {
+  const jesterVotedOut = voteResult.eliminatedPlayerId !== null &&
+    players.some((player) => player.id === voteResult.eliminatedPlayerId && player.role === 'JESTER')
+
+  if (jesterVotedOut) {
+    scoreDeltas[voteResult.eliminatedPlayerId!] = POINTS.JESTER_VOTED_OUT
+  } else if (!impostorsCaught) {
     for (const id of impostorIds) {
       scoreDeltas[id] = (scoreDeltas[id] ?? 0) + POINTS.IMPOSTOR_ESCAPES
     }
@@ -61,6 +67,8 @@ export function calculateScores(
     impostorIds,
     voteResult,
     scoreDeltas,
+    winningRole: jesterVotedOut ? 'JESTER' : impostorsCaught ? 'CREW' : 'IMPOSTOR',
+    finalGuessRequired: impostorsCaught && !jesterVotedOut,
   }
 }
 
@@ -85,7 +93,12 @@ export function calculateScoresDetailed(
     voteResult.eliminatedPlayerId !== null &&
     impostorSet.has(voteResult.eliminatedPlayerId)
 
-  if (!impostorsCaught) {
+  const jesterVotedOut = voteResult.eliminatedPlayerId !== null &&
+    players.some((player) => player.id === voteResult.eliminatedPlayerId && player.role === 'JESTER')
+
+  if (jesterVotedOut) {
+    scoreDeltas[voteResult.eliminatedPlayerId!] = POINTS.JESTER_VOTED_OUT
+  } else if (!impostorsCaught) {
     for (const id of impostorIds) {
       scoreDeltas[id] = (scoreDeltas[id] ?? 0) + POINTS.IMPOSTOR_ESCAPES
     }
@@ -93,11 +106,18 @@ export function calculateScoresDetailed(
 
   for (const [voterId, targetId] of Object.entries(rawVotes)) {
     const voter = players.find((p) => p.id === voterId)
-    if (!voter || voter.role === 'IMPOSTOR') continue
+    if (!voter || voter.role !== 'CREWMATE') continue
     const isCorrect = impostorSet.has(targetId)
     scoreDeltas[voterId] =
       (scoreDeltas[voterId] ?? 0) + (isCorrect ? POINTS.CORRECT_VOTE : POINTS.WRONG_VOTE)
   }
 
-  return { impostorsCaught, impostorIds, voteResult, scoreDeltas }
+  return {
+    impostorsCaught,
+    impostorIds,
+    voteResult,
+    scoreDeltas,
+    winningRole: jesterVotedOut ? 'JESTER' : impostorsCaught ? 'CREW' : 'IMPOSTOR',
+    finalGuessRequired: impostorsCaught && !jesterVotedOut,
+  }
 }

@@ -4,9 +4,10 @@ import { RECOMMENDED_CATEGORIES } from './categoryUI'
 export const ONLINE_PACK_ID = 'everyday'
 export const ONLINE_DISCUSSION_DURATION = 60
 export const ONLINE_IMPOSTOR_COUNT = 1
+export const ONLINE_JESTER_COUNT = 1
 export const ONLINE_DEFAULT_CATEGORY = 'Everyday'
 export const ONLINE_START_COUNTDOWN_SECONDS = 3
-export const ONLINE_SCHEMA_VERSION = 9
+export const ONLINE_SCHEMA_VERSION = 10
 
 export type OnlinePresenceStatus = 'active' | 'reconnecting' | 'away'
 export type OnlineAccessState = 'member' | 'blocked' | 'pending_approval' | 'none'
@@ -63,7 +64,7 @@ export interface OnlineVoteProgress {
 export interface OnlineRoundSnapshot {
   id: string
   roundNumber: number
-  phase: 'role_reveal' | 'discussion' | 'voting' | 'results'
+  phase: 'role_reveal' | 'discussion' | 'voting' | 'final_impostor_guess' | 'results'
   packId: string
   sourceCategories: string[]
   startedAt: string
@@ -192,7 +193,7 @@ export function getOnlineSchemaMismatchMessage(schemaVersion: number) {
 }
 
 export interface OnlineRolePayload {
-  role: 'CREWMATE' | 'IMPOSTOR'
+  role: 'CREWMATE' | 'IMPOSTOR' | 'JESTER'
   word: string | null
   hint: string | null
 }
@@ -204,7 +205,7 @@ export interface OnlineVoteSummaryItem {
 
 export interface OnlineRoundResult {
   roundId: string
-  phase: 'results'
+  phase: 'final_impostor_guess' | 'results'
   word: string
   hint: string
   impostorsCaught: boolean
@@ -213,6 +214,8 @@ export interface OnlineRoundResult {
   eliminatedPlayerName: string | null
   voteSummary: OnlineVoteSummaryItem[]
   isTie: boolean
+  jesterWon: boolean
+  finalGuessCorrect: boolean | null
 }
 
 function normalizeLobbyPlayer(player: Record<string, unknown>): OnlineLobbyPlayer {
@@ -440,7 +443,7 @@ export function normalizeRolePayload(payload: Record<string, unknown>): OnlineRo
 export function normalizeRoundResult(payload: Record<string, unknown>): OnlineRoundResult {
   return {
     roundId: String(payload['round_id'] ?? ''),
-    phase: 'results',
+    phase: payload['phase'] === 'final_impostor_guess' ? 'final_impostor_guess' : 'results',
     word: String(payload['word'] ?? ''),
     hint: String(payload['hint'] ?? ''),
     impostorsCaught: Boolean(payload['impostors_caught']),
@@ -463,6 +466,11 @@ export function normalizeRoundResult(payload: Record<string, unknown>): OnlineRo
         }))
       : [],
     isTie: Boolean(payload['is_tie']),
+    jesterWon: Boolean(payload['jester_won']),
+    finalGuessCorrect:
+      typeof payload['final_guess_correct'] === 'boolean'
+        ? payload['final_guess_correct']
+        : null,
   }
 }
 

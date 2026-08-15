@@ -400,5 +400,51 @@ Variants supported:
 
 ---
 
+---
+
+# 16. LiveStateStore & Ephemeral State Architecture (v2)
+
+To maintain ultra-low latency and battery efficiency during live gameplay, WordMask decouples **durable state** (stored in PostgreSQL/Supabase DB) from **ephemeral state** (stored in-memory or transient storage).
+
+### State Classification
+
+| State Type | Storage Location | Examples |
+|------------|------------------|----------|
+| **Durable** | Supabase DB (`lobbies`, `players`, `rounds`, `profiles`) | Player accounts, lobby codes, round outcomes, cumulative scores, word history |
+| **Ephemeral** | `LiveStateStore` (Memory / Realtime Presence / Redis) | Player connected status, typing indicators, live vote progress, suspicion graphs, timer sync |
+
+### LiveStateStore Interface (`@impostor/core`)
+
+```typescript
+export interface LivePlayerState {
+  playerId: string
+  connected: boolean
+  typing: boolean
+  suspicion: number
+  ready: boolean
+  updatedAt: number
+}
+
+export interface LiveRoundState {
+  lobbyId: string
+  roundId: string | null
+  phase: string
+  endsAt: number | null
+  players: Record<string, LivePlayerState>
+}
+
+export interface LiveStateStore {
+  read(lobbyId: string): Promise<LiveRoundState | null>
+  write(state: LiveRoundState): Promise<void>
+  remove(lobbyId: string): Promise<void>
+}
+```
+
+Implementation details:
+- **Client/Dev**: `MemoryLiveStateStore` stores transient state in memory.
+- **Production**: Supabase Realtime Presence or a Redis/Edge KV adapter implements `LiveStateStore` without altering core engine game rules.
+
+---
+
 **WordMask Architecture Document**  
-Hackathon Project
+Hackathon Project v2.0

@@ -9,9 +9,12 @@ export type { GameEvent } from './engine/gameEvents'
 export * from './systems/RoleAssigner'
 export * from './systems/VoteCounter'
 export * from './systems/ScoreCalculator'
+export * from './systems/ReplacementBot'
+export * from './live/LiveStateStore'
 
 // Word packs
 export * from './packs/index'
+export * from './packs/community'
 
 // Utilities
 export * from './utils/random'

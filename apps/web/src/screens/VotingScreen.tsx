@@ -106,7 +106,7 @@ export default function VotingScreen() {
         </motion.div>
 
         <div className="flex w-full flex-wrap items-center justify-center gap-5">
-          {players.map((target, index) => {
+          {players.map((target: { id: string; name: string }, index: number) => {
             const isSelf = target.id === currentVoter.id
             const isSelected = selectedTargetId === target.id
             const isConfirmed = confirmedTargetId === target.id

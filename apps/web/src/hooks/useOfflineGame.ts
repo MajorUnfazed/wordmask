@@ -16,7 +16,7 @@ export function useOfflineGame() {
   const scores = game.scores
 
   // Role reveal state
-  const { currentPlayerIndex, currentVoterIndex, allRolesSeen, selectedCategories } =
+  const { currentPlayerIndex, currentVoterIndex, allRolesSeen, selectedCategories, gameMode } =
     store.offlineState
   const currentRevealPlayer = useMemo(() => {
     return currentRound?.players[currentPlayerIndex]
@@ -33,7 +33,7 @@ export function useOfflineGame() {
 
   const allPlayersVoted = useMemo(() => {
     if (!currentRound) return false
-    return currentRound.players.every((p) => hasVoted(p.id))
+    return currentRound.players.every((p: { id: string }) => hasVoted(p.id))
   }, [currentRound])
 
   return {
@@ -44,6 +44,7 @@ export function useOfflineGame() {
     scores,
     currentRound,
     lastResult: store.lastResult,
+    gameMode,
     
     // Role reveal state
     currentRevealPlayer,
@@ -71,6 +72,7 @@ export function useOfflineGame() {
     castVote: store.castVote,
     advanceToNextVoter: store.advanceToNextVoter,
     finishVoting: store.finishVoting,
+    answerPassThePhone: store.answerPassThePhone,
     nextRound: store.nextRound,
     resetGame: store.resetGame,
   }

@@ -33,6 +33,7 @@ export function RoleCardNative({
 }: RoleCardNativeProps) {
   const rotation = useSharedValue(0)
   const isImpostor = role === 'IMPOSTOR'
+  const isJester = role === 'JESTER'
 
   useEffect(() => {
     rotation.value = withTiming(revealed ? 180 : 0, {
@@ -86,8 +87,8 @@ export function RoleCardNative({
             backStyle,
           ]}
         >
-          <Text style={styles.roleIcon}>{isImpostor ? '😈' : '🕵️'}</Text>
-          <Text style={styles.roleName}>{isImpostor ? 'Impostor' : 'Crewmate'}</Text>
+          <Text style={styles.roleIcon}>{isImpostor ? '😈' : isJester ? '🃏' : '🕵️'}</Text>
+          <Text style={styles.roleName}>{isImpostor ? 'Impostor' : isJester ? 'Jester' : 'Crewmate'}</Text>
           {!isImpostor && (
             <>
               <Text style={styles.wordLabel}>The word is</Text>
@@ -101,6 +102,7 @@ export function RoleCardNative({
               <Text style={styles.impostorText}>Blend in. Don't get caught.</Text>
             </>
           )}
+          {isJester && <Text style={styles.impostorText}>Get voted out to win.</Text>}
         </Animated.View>
       </View>
     </GestureDetector>

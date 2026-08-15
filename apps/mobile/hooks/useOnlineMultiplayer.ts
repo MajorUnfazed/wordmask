@@ -3,6 +3,7 @@ import { usePathname, useRouter } from 'expo-router'
 import type { RealtimeChannel } from '@supabase/supabase-js'
 import {
   ONLINE_IMPOSTOR_COUNT,
+  ONLINE_JESTER_COUNT,
   ONLINE_SCHEMA_VERSION,
   ONLINE_START_COUNTDOWN_SECONDS,
   getErrorMessage,
@@ -329,6 +330,14 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
     let isActive = true
     let channel: RealtimeChannel | null = null
     let client = getSupabaseClient()
+    let refreshTimer: ReturnType<typeof setTimeout> | null = null
+    const queueRefresh = () => {
+      if (refreshTimer) return
+      refreshTimer = setTimeout(() => {
+        refreshTimer = null
+        void refreshLobbyRef.current().catch(() => undefined)
+      }, 100)
+    }
 
     void (async () => {
       try {
@@ -354,7 +363,7 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
               filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void refreshLobbyRef.current().catch(() => undefined)
+              queueRefresh()
             },
           )
           .on(
@@ -366,7 +375,7 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
               filter: `id=eq.${activeLobbyId}`,
             },
             () => {
-              void refreshLobbyRef.current().catch(() => undefined)
+              queueRefresh()
             },
           )
           .on(
@@ -378,7 +387,7 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
               filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void refreshLobbyRef.current().catch(() => undefined)
+              queueRefresh()
             },
           )
           .on(
@@ -390,7 +399,7 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
               filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void refreshLobbyRef.current().catch(() => undefined)
+              queueRefresh()
             },
           )
           .on(
@@ -401,7 +410,7 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
               table: 'room_message_reactions',
             },
             () => {
-              void refreshLobbyRef.current().catch(() => undefined)
+              queueRefresh()
             },
           )
           .on(
@@ -413,7 +422,7 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
               filter: `lobby_id=eq.${activeLobbyId}`,
             },
             () => {
-              void refreshLobbyRef.current().catch(() => undefined)
+              queueRefresh()
             },
           )
           .subscribe()
@@ -424,13 +433,9 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
       }
     })()
 
-    const pollInterval = setInterval(() => {
-      void refreshLobbyRef.current().catch(() => undefined)
-    }, 1500)
-
     return () => {
       isActive = false
-      clearInterval(pollInterval)
+      if (refreshTimer) clearTimeout(refreshTimer)
       if (channel && client) {
         void client.removeChannel(channel)
       }
@@ -454,12 +459,9 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
     }
 
     void heartbeat()
-    const heartbeatInterval = setInterval(() => {
-      void heartbeat()
-    }, 5000)
 
     return () => {
-      clearInterval(heartbeatInterval)
+      // Realtime channel teardown is sufficient while backgrounded; no write loop.
     }
   }, [lobbyId])
 
@@ -781,6 +783,7 @@ export function useOnlineMultiplayer(resolvedCode?: string) {
         p_hint: nextWord.hint,
         p_pack_id: nextWord.packId,
         p_impostor_count: ONLINE_IMPOSTOR_COUNT,
+        p_jester_count: ONLINE_JESTER_COUNT,
       })
 
       if (rpcError) {

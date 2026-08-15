@@ -15,8 +15,8 @@ export default function ResultsScreen() {
   const eliminated = lastResult?.voteResult.eliminatedPlayerId
 
   const impostorNames = round?.players
-    .filter((p) => impostorIds.has(p.id))
-    .map((p) => p.name)
+    .filter((p: { id: string }) => impostorIds.has(p.id))
+    .map((p: { name: string }) => p.name)
     .join(', ')
 
   function handleNextRound() {

@@ -78,6 +78,15 @@ export default function HomeScreen() {
             Play
           </GlowButton>
         )}
+
+        <div className="flex gap-3 w-full mt-2">
+          <GlowButton variant="secondary" onClick={() => setScreen('profile')} className="flex-1 text-sm py-3">
+            👤 Profile
+          </GlowButton>
+          <GlowButton variant="secondary" onClick={() => setScreen('pack-browser')} className="flex-1 text-sm py-3">
+            📦 Packs
+          </GlowButton>
+        </div>
       </motion.div>
     </div>
   )

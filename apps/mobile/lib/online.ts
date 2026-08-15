@@ -1,8 +1,9 @@
 import { ALL_WORDS, pickRandom } from '@impostor/core'
 
-export const ONLINE_SCHEMA_VERSION = 9
+export const ONLINE_SCHEMA_VERSION = 10
 export const ONLINE_DISCUSSION_DURATION = 60
 export const ONLINE_IMPOSTOR_COUNT = 1
+export const ONLINE_JESTER_COUNT = 1
 export const ONLINE_DEFAULT_CATEGORY = 'Everyday'
 export const ONLINE_START_COUNTDOWN_SECONDS = 3
 export type MobileOnlineAccessState = 'member' | 'blocked' | 'pending_approval' | 'none'
@@ -64,7 +65,7 @@ export interface MobileLobbyJoinRequest {
 export interface MobileRoundSnapshot {
   id: string
   roundNumber: number
-  phase: 'role_reveal' | 'discussion' | 'voting' | 'results'
+  phase: 'role_reveal' | 'discussion' | 'voting' | 'final_impostor_guess' | 'results'
   packId: string
   sourceCategories: string[]
   startedAt: string
@@ -105,7 +106,7 @@ export interface MobileRoundResult {
 }
 
 export interface MobileRolePayload {
-  role: 'CREWMATE' | 'IMPOSTOR'
+  role: 'CREWMATE' | 'IMPOSTOR' | 'JESTER'
   word: string | null
   hint: string | null
 }

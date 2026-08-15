@@ -4,7 +4,7 @@ import { GlowButton } from '../components/ui/GlowButton'
 import { GlassCard } from '../components/ui/GlassCard'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
-import type { Player } from '@impostor/core'
+import type { GameMode, Player } from '@impostor/core'
 import { PLAYER_COLORS, PLAYER_EMOJIS, getRandomColor, getRandomEmoji } from '../lib/customization'
 
 function createDefaultPlayerName(index: number): string {
@@ -120,7 +120,9 @@ export default function OfflineSetupScreen() {
     }))
   )
   const [impostorCount, setImpostorCount] = useState(1)
+  const [jesterCount, setJesterCount] = useState(0)
   const [discussionDuration, setDiscussionDuration] = useState(60)
+  const [gameMode, setGameMode] = useState<GameMode>('STANDARD')
   
   const [bluffMode, setBluffMode] = useState(false)
   const [anonymousVoting, setAnonymousVoting] = useState(false)
@@ -167,6 +169,8 @@ export default function OfflineSetupScreen() {
       {
         playerCount: corePlayers.length,
         impostorCount,
+        jesterCount,
+        mode: gameMode,
         selectedCategories: [],
         discussionDuration,
         maxRounds: 5,
@@ -232,6 +236,33 @@ export default function OfflineSetupScreen() {
           >
             <option value={1} className="bg-void text-white font-medium">1 Impostor</option>
             <option value={2} className="bg-void text-white font-medium">2 Impostors</option>
+          </select>
+        </label>
+
+        <label className="flex items-center justify-between text-base group">
+          <div className="flex flex-col gap-1">
+            <span className="text-white/90 font-medium">Jester</span>
+            <span className="text-xs text-white/50 max-w-[200px]">A secret wild card who wins by getting voted out</span>
+          </div>
+          <div
+            className="w-12 h-6 rounded-full transition-colors relative shrink-0 cursor-pointer"
+            style={{ background: jesterCount > 0 ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)' }}
+            onClick={() => setJesterCount(n => n > 0 ? 0 : 1)}
+          >
+            <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${jesterCount > 0 ? 'translate-x-6' : ''}`} />
+          </div>
+        </label>
+
+        <label className="flex items-center justify-between text-base group">
+          <span className="text-white/70">Game Mode</span>
+          <select
+            value={gameMode}
+            onChange={(e) => setGameMode(e.target.value as GameMode)}
+            className="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-white outline-none cursor-pointer focus:border-accent appearance-none font-medium text-center"
+            style={{ WebkitAppearance: 'none' }}
+          >
+            <option value="STANDARD" className="bg-void text-white font-medium">Standard</option>
+            <option value="PASS_THE_PHONE" className="bg-void text-white font-medium">Pass the Phone</option>
           </select>
         </label>
 

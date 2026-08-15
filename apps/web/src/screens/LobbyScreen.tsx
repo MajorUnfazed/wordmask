@@ -2,9 +2,11 @@ import { motion } from 'framer-motion'
 import { LobbyCode } from '../components/lobby/LobbyCode'
 import { PlayerList } from '../components/lobby/PlayerList'
 import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
+import { VoiceChatPanel } from '../components/lobby/VoiceChatPanel'
 import { GlowButton } from '../components/ui/GlowButton'
 import { getDisplayCategoryName } from '../lib/categoryUI'
 import { useLobby } from '../hooks/useLobby'
+import { useUIStore } from '../store/uiStore'
 
 export default function LobbyScreen() {
   const {
@@ -212,6 +214,14 @@ export default function LobbyScreen() {
             >
               {isBusy ? 'Starting…' : 'Start Countdown'}
             </GlowButton>
+            <GlowButton
+              variant="secondary"
+              onClick={() => {
+                useUIStore.getState().setScreen('tv-host')
+              }}
+            >
+              📺 Open TV Display
+            </GlowButton>
             {canRepairRoom && (
               <GlowButton
                 variant="secondary"
@@ -237,6 +247,7 @@ export default function LobbyScreen() {
         </GlowButton>
       </div>
 
+      <VoiceChatPanel />
       <RoomChatPanel />
     </div>
   )

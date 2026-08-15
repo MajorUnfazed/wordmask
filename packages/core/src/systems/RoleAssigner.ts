@@ -13,20 +13,35 @@ import { pickN } from '../utils/random'
 export function assignRoles(
   players: Player[],
   impostorCount: number,
+  jesterCount = 0,
 ): PlayerWithRole[] {
   if (impostorCount < 1) throw new Error('impostorCount must be >= 1')
-  if (impostorCount >= players.length) {
-    throw new Error('impostorCount must be less than player count')
+  if (jesterCount < 0) throw new Error('jesterCount must not be negative')
+  const eligiblePlayers = players.filter((player) => !player.isSpectator)
+  if (impostorCount + jesterCount >= eligiblePlayers.length) {
+    throw new Error('Impostors and Jesters must leave at least one crewmate')
   }
 
-  const impostorIds = new Set(pickN(players, impostorCount).map((p) => p.id))
+  const impostorIds = new Set(pickN(eligiblePlayers, impostorCount).map((p) => p.id))
+  const jesterIds = new Set(
+    pickN(eligiblePlayers.filter((player) => !impostorIds.has(player.id)), jesterCount)
+      .map((player) => player.id),
+  )
 
   return players.map((p) => ({
     ...p,
-    role: (impostorIds.has(p.id) ? 'IMPOSTOR' : 'CREWMATE') as PlayerRole,
+    role: (impostorIds.has(p.id)
+      ? 'IMPOSTOR'
+      : jesterIds.has(p.id)
+        ? 'JESTER'
+        : 'CREWMATE') as PlayerRole,
   }))
 }
 
 export function getImpostorIds(players: PlayerWithRole[]): string[] {
   return players.filter((p) => p.role === 'IMPOSTOR').map((p) => p.id)
+}
+
+export function getJesterIds(players: PlayerWithRole[]): string[] {
+  return players.filter((player) => player.role === 'JESTER').map((player) => player.id)
 }

@@ -62,9 +62,10 @@ export function Confetti({ particleCount = 80, colors, sad = false }: ConfettiPr
 
     let frame: number
     let elapsed = 0
+    let paused = false
 
     function animate() {
-      if (!ctx || !canvas) return
+      if (paused || !ctx || !canvas) return
       ctx.clearRect(0, 0, rect.width, rect.height)
       elapsed++
 
@@ -95,8 +96,23 @@ export function Confetti({ particleCount = 80, colors, sad = false }: ConfettiPr
       }
     }
 
+    function handleVisibility() {
+      if (document.visibilityState === 'visible') {
+        paused = false
+        animate()
+      } else {
+        paused = true
+        cancelAnimationFrame(frame)
+      }
+    }
+
+    document.addEventListener('visibilitychange', handleVisibility)
     frame = requestAnimationFrame(animate)
-    return () => cancelAnimationFrame(frame)
+
+    return () => {
+      cancelAnimationFrame(frame)
+      document.removeEventListener('visibilitychange', handleVisibility)
+    }
   }, [particleCount, palette, sad])
 
   return (

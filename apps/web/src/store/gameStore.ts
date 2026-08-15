@@ -8,6 +8,8 @@ interface OfflineGameState {
   currentVoterIndex: number
   allRolesSeen: boolean
   selectedCategories: string[]
+  /** The game mode chosen at setup — propagated from config for UI use */
+  gameMode: 'STANDARD' | 'PASS_THE_PHONE'
 }
 
 interface GameStore {
@@ -36,6 +38,7 @@ interface GameStore {
   castVote: (voterId: string, targetId: string) => void
   advanceToNextVoter: () => boolean
   finishVoting: () => RoundResult | null
+  answerPassThePhone: (impostorCaught: boolean) => void
   nextRound: () => void
   resetGame: () => void
 }
@@ -45,6 +48,7 @@ const createOfflineState = (): OfflineGameState => ({
   currentVoterIndex: 0,
   allRolesSeen: false,
   selectedCategories: [],
+  gameMode: 'STANDARD',
 })
 
 export const useGameStore = create<GameStore>((set, get) => ({
@@ -59,7 +63,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
   initializeOfflineGame(config, players) {
     const { engine } = get()
     engine.setupGame(config, players)
-    set({ offlineState: createOfflineState() })
+    set({
+      offlineState: {
+        ...createOfflineState(),
+        gameMode: config.mode ?? 'STANDARD',
+      },
+    })
   },
 
   setSelectedCategories(categoryIds) {
@@ -147,6 +156,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const result = engine.resolveRound()
     set({ lastResult: result })
     return result
+  },
+
+  answerPassThePhone(impostorCaught: boolean) {
+    const { engine } = get()
+    engine.answerPassThePhone(impostorCaught)
   },
 
   nextRound() {

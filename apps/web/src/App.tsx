@@ -1,4 +1,4 @@
-import {
+﻿import {
   Component,
   Suspense,
   lazy,
@@ -24,7 +24,14 @@ const OnlineRoundStartingScreen = lazy(() => import('./screens/OnlineRoundStarti
 const OnlineRoleRevealScreen = lazy(() => import('./screens/OnlineRoleRevealScreen'))
 const OnlineDiscussionScreen = lazy(() => import('./screens/OnlineDiscussionScreen'))
 const OnlineVotingScreen = lazy(() => import('./screens/OnlineVotingScreen'))
+const OnlineFinalGuessScreen = lazy(() => import('./screens/OnlineFinalGuessScreen'))
 const OnlineResultsScreen = lazy(() => import('./screens/OnlineResultsScreen'))
+const PassThePhoneResolutionScreen = lazy(() => import('./screens/PassThePhoneResolutionScreen'))
+const OnlineSpectatorScreen = lazy(() => import('./screens/OnlineSpectatorScreen'))
+const TVHostScreen = lazy(() => import('./screens/TVHostScreen'))
+const ProfileScreen = lazy(() => import('./screens/ProfileScreen'))
+const PackBrowserScreen = lazy(() => import('./screens/PackBrowserScreen'))
+const PackCreatorScreen = lazy(() => import('./screens/PackCreatorScreen'))
 
 class ErrorBoundary extends Component<{ children: ReactNode }, { error: Error | null }> {
   override state = { error: null }
@@ -61,7 +68,14 @@ function renderScreen(screen: AppScreen) {
     case 'online-role-reveal': return <OnlineRoleRevealScreen />
     case 'online-discussion': return <OnlineDiscussionScreen />
     case 'online-voting': return <OnlineVotingScreen />
+    case 'online-final-guess': return <OnlineFinalGuessScreen />
     case 'online-results': return <OnlineResultsScreen />
+    case 'pass-the-phone-resolve': return <PassThePhoneResolutionScreen />
+    case 'online-spectator': return <OnlineSpectatorScreen />
+    case 'tv-host': return <TVHostScreen />
+    case 'profile': return <ProfileScreen />
+    case 'pack-browser': return <PackBrowserScreen />
+    case 'pack-creator': return <PackCreatorScreen />
     case 'home':
     default: return <HomeScreen />
   }

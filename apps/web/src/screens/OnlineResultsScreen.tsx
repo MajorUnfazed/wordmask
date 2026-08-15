@@ -36,12 +36,16 @@ export default function OnlineResultsScreen() {
           phaseLabel="Round Results"
           categories={round?.sourceCategories ?? []}
         />
-        <div className="mb-4 text-6xl">{result.impostorsCaught ? '🎉' : '😈'}</div>
+        <div className="mb-4 text-6xl">{result.jesterWon ? '🃏' : result.finalGuessCorrect ? '😈' : result.impostorsCaught ? '🎉' : '😈'}</div>
         <h2 className="font-display text-4xl font-bold">
-          {result.impostorsCaught ? 'Caught!' : result.isTie ? 'Stalemate' : 'Escaped!'}
+          {result.jesterWon ? 'Jester Wins!' : result.finalGuessCorrect ? 'The Impostor Stole It!' : result.impostorsCaught ? 'Caught!' : result.isTie ? 'Stalemate' : 'Escaped!'}
         </h2>
         <p className="mt-2 text-white/60">
-          {result.impostorsCaught
+          {result.jesterWon
+            ? `${result.eliminatedPlayerName ?? 'The Jester'} was voted out and wins immediately.`
+            : result.finalGuessCorrect
+              ? 'The caught impostor correctly guessed the secret word.'
+            : result.impostorsCaught
             ? `The impostor was ${result.impostors.map((player) => player.name).join(', ')}.`
             : result.isTie
               ? 'The room tied and nobody was eliminated.'

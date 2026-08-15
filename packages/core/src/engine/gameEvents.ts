@@ -14,5 +14,7 @@ export type GameEvent =
   | { type: 'VOTING_STARTED' }
   | { type: 'VOTE_CAST'; voterId: string; targetId: string }
   | { type: 'VOTING_FINISHED' }
+  | { type: 'FINAL_IMPOSTOR_GUESS_SUBMITTED'; impostorId: string; guess: string }
+  | { type: 'PASS_THE_PHONE_ANSWERED'; impostorCaught: boolean }
   | { type: 'ROUND_RESOLVED' }
   | { type: 'GAME_RESET' }

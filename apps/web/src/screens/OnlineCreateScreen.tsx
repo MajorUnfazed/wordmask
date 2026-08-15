@@ -175,6 +175,37 @@ export default function OnlineCreateScreen() {
     }
   }
 
+  async function handleSpectate() {
+    const trimmedName = joinName.trim() || 'Spectator'
+    const trimmedCode = joinCode.trim().toUpperCase()
+
+    if (trimmedCode.length !== 6) {
+      setError('Enter a 6-character lobby code to spectate.')
+      return
+    }
+
+    setIsJoining(true)
+    setError(null)
+
+    try {
+      const client = await ensureAnonymousSession()
+      const { data: lookupData, error: lookupError } = await client.rpc('get_lobby_by_code', { p_code: trimmedCode })
+      if (lookupError || !lookupData) throw new Error('Lobby not found.')
+      const lobbyId = String((lookupData as Record<string, unknown>)['id'] ?? '')
+
+      const { error: specError } = await client.rpc('join_as_spectator', { p_lobby_id: lobbyId, p_name: trimmedName })
+      if (specError) throw specError
+
+      setDisplayName(trimmedName)
+      await hydrateByCode(trimmedCode)
+      setScreen('online-spectator')
+    } catch (specErr) {
+      setError(getErrorMessage(specErr))
+    } finally {
+      setIsJoining(false)
+    }
+  }
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center gap-8 px-6 py-12">
       <motion.div
@@ -277,14 +308,26 @@ export default function OnlineCreateScreen() {
               />
             </label>
 
-            <GlowButton
-              onClick={() => {
-                void handleJoin()
-              }}
-              disabled={!isSupabaseConfigured || isJoining}
-            >
-              {isJoining ? 'Joining…' : 'Join Lobby'}
-            </GlowButton>
+            <div className="flex flex-col gap-2">
+              <GlowButton
+                onClick={() => {
+                  void handleJoin()
+                }}
+                disabled={!isSupabaseConfigured || isJoining}
+              >
+                {isJoining ? 'Joining…' : 'Join Lobby'}
+              </GlowButton>
+
+              <GlowButton
+                variant="secondary"
+                onClick={() => {
+                  void handleSpectate()
+                }}
+                disabled={!isSupabaseConfigured || isJoining}
+              >
+                👀 Watch as Spectator
+              </GlowButton>
+            </div>
           </div>
         </GlassCard>
       </div>

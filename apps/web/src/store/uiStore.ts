@@ -18,7 +18,14 @@ export type AppScreen =
   | 'online-role-reveal'
   | 'online-discussion'
   | 'online-voting'
+  | 'online-final-guess'
   | 'online-results'
+  | 'pass-the-phone-resolve'
+  | 'online-spectator'
+  | 'tv-host'
+  | 'profile'
+  | 'pack-browser'
+  | 'pack-creator'
 
 interface UIStore {
   screen: AppScreen

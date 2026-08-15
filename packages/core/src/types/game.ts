@@ -5,9 +5,11 @@ export type GamePhase =
   | 'ROLE_REVEAL'
   | 'DISCUSSION'
   | 'VOTING'
+  | 'FINAL_IMPOSTOR_GUESS'
   | 'RESULTS'
 
-export type PlayerRole = 'CREWMATE' | 'IMPOSTOR'
+export type PlayerRole = 'CREWMATE' | 'IMPOSTOR' | 'JESTER'
+export type GameMode = 'STANDARD' | 'PASS_THE_PHONE'
 
 export interface Player {
   id: string
@@ -15,6 +17,8 @@ export interface Player {
   avatar?: string
   score: number
   isEliminated: boolean
+  isBot?: boolean
+  isSpectator?: boolean
 }
 
 export interface PlayerWithRole extends Player {
@@ -27,17 +31,23 @@ export interface Round {
   hint: string
   category: string
   impostorIds: string[]
+  jesterIds: string[]
   players: PlayerWithRole[]
   /** Map of voterId → targetId */
   votes: Record<string, string>
   startedAt: number
   discussionDuration: number
+  finalGuess?: { impostorId: string; guess: string | null; correct?: boolean }
+  passThePhoneImpostorCaught?: boolean
 }
 
 export interface GameConfig {
   playerCount: number
   /** Must be >= 1 and < playerCount */
   impostorCount: number
+  jesterCount?: number
+  mode?: GameMode
+  wordHistoryLimit?: number
   selectedCategories: string[]
   /** Discussion timer in seconds */
   discussionDuration: number
@@ -69,4 +79,7 @@ export interface RoundResult {
   voteResult: VoteResult
   /** Score change per player for this round */
   scoreDeltas: Record<string, number>
+  winningRole?: PlayerRole | 'CREW'
+  finalGuessRequired?: boolean
+  finalGuessSucceeded?: boolean
 }

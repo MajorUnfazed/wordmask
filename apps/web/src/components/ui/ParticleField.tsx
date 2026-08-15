@@ -13,6 +13,7 @@ interface Particle {
 /**
  * Canvas-based particle field rendered behind the game UI.
  * Creates a subtle ambient floating-dust effect.
+ * Battery optimized: pauses when tab hidden, reduces particle count on mobile.
  */
 export function ParticleField() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -23,7 +24,12 @@ export function ParticleField() {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
+    // Reduce particle count on touch/mobile devices for battery
+    const isTouchDevice = window.matchMedia('(hover: none)').matches
+    const MAX_PARTICLES = isTouchDevice ? 30 : 60
+
     let animId: number
+    let isActive = true
     const particles: Particle[] = []
 
     function resize() {
@@ -45,10 +51,10 @@ export function ParticleField() {
     }
 
     function tick() {
-      if (!ctx || !canvas) return
+      if (!isActive || !ctx || !canvas) return
       ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      if (particles.length < 60) particles.push(spawnParticle())
+      if (particles.length < MAX_PARTICLES) particles.push(spawnParticle())
 
       for (let i = particles.length - 1; i >= 0; i--) {
         const p = particles[i]!
@@ -70,13 +76,28 @@ export function ParticleField() {
       animId = requestAnimationFrame(tick)
     }
 
+    function handleVisibility() {
+      if (document.visibilityState === 'visible') {
+        if (!isActive) {
+          isActive = true
+          tick()
+        }
+      } else {
+        isActive = false
+        cancelAnimationFrame(animId)
+      }
+    }
+
     resize()
     window.addEventListener('resize', resize)
+    document.addEventListener('visibilitychange', handleVisibility)
     tick()
 
     return () => {
+      isActive = false
       cancelAnimationFrame(animId)
       window.removeEventListener('resize', resize)
+      document.removeEventListener('visibilitychange', handleVisibility)
     }
   }, [])
 
