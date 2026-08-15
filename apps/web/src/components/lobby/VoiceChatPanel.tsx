@@ -11,9 +11,11 @@ export function VoiceChatPanel() {
     isConnected,
     isConnecting,
     isReconnecting,
+    isLocalTest,
     isMuted,
     isDeafened,
     isConfigured,
+    micLevel,
     error,
     audioDevices,
     speakerDevices,
@@ -29,9 +31,10 @@ export function VoiceChatPanel() {
   } = useVoiceChat(lobbyCode, displayName)
 
   const [showSettings, setShowSettings] = useState(false)
+  const [showGuide, setShowGuide] = useState(false)
 
   return (
-    <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-xl">
+    <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-5 shadow-xl backdrop-blur-xl transition-all">
       <div className="flex items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-accent/15 text-xl text-accent">
@@ -52,14 +55,16 @@ export function VoiceChatPanel() {
             </div>
             <p className="text-xs text-white/50">
               {isConnected
-                ? isReconnecting
+                ? isLocalTest
+                  ? 'Local Mic Test · Echo & Noise suppressed'
+                  : isReconnecting
                   ? 'Reconnecting voice…'
-                  : 'Connected · Echo & Noise suppressed'
+                  : 'LiveKit Room · Connected'
                 : isConnecting
-                ? 'Connecting to voice room…'
+                ? 'Connecting to audio track…'
                 : isConfigured
-                ? 'Voice chat available'
-                : 'LiveKit server not configured'}
+                ? 'LiveKit Voice Room Available'
+                : 'Local Mic Test / LiveKit Cloud'}
             </p>
           </div>
         </div>
@@ -69,7 +74,7 @@ export function VoiceChatPanel() {
             onClick={disconnect}
             className="rounded-2xl border border-red-500/30 bg-red-500/10 px-4 py-2 text-xs font-semibold text-red-300 transition hover:bg-red-500/20"
           >
-            Disconnect
+            Leave Voice
           </button>
         ) : (
           <button
@@ -77,10 +82,25 @@ export function VoiceChatPanel() {
             disabled={isConnecting}
             className="rounded-2xl bg-accent px-4 py-2 text-xs font-semibold text-white shadow-lg shadow-accent/20 transition hover:bg-accent/80 disabled:opacity-50"
           >
-            {isConnecting ? 'Joining…' : 'Join Voice'}
+            {isConnecting ? 'Testing…' : isConfigured ? 'Join Voice' : 'Test Mic'}
           </button>
         )}
       </div>
+
+      {/* Mic Audio Meter when connected */}
+      {isConnected && (
+        <div className="mt-3 flex items-center gap-2 rounded-2xl bg-black/30 px-3 py-2 border border-white/5">
+          <span className="text-[10px] uppercase tracking-wider text-white/40">Mic Level</span>
+          <div className="flex-1 h-1.5 overflow-hidden rounded-full bg-white/10">
+            <motion.div
+              className="h-1.5 rounded-full bg-emerald-400"
+              animate={{ width: isMuted ? '0%' : `${micLevel}%` }}
+              transition={{ duration: 0.1 }}
+            />
+          </div>
+          <span className="text-[10px] font-mono text-emerald-400">{isMuted ? 'Muted' : `${micLevel}%`}</span>
+        </div>
+      )}
 
       {error && (
         <div className="mt-3 rounded-2xl border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-xs text-amber-200">
@@ -88,7 +108,7 @@ export function VoiceChatPanel() {
         </div>
       )}
 
-      {/* Connected Voice Controls */}
+      {/* Voice Controls */}
       {isConnected && (
         <div className="mt-4 flex items-center justify-between gap-3 border-t border-white/10 pt-4">
           <div className="flex gap-2">
@@ -120,14 +140,14 @@ export function VoiceChatPanel() {
           <button
             onClick={() => setShowSettings(!showSettings)}
             className="rounded-2xl border border-white/10 bg-white/5 p-2 text-white/60 transition hover:bg-white/10 hover:text-white"
-            title="Audio Device Settings"
+            title="Audio Settings"
           >
             ⚙️
           </button>
         </div>
       )}
 
-      {/* Active Speakers Indicators */}
+      {/* Active Speakers */}
       {isConnected && activeSpeakers.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2 pt-1">
           {activeSpeakers.map((speaker) => (
@@ -142,7 +162,37 @@ export function VoiceChatPanel() {
         </div>
       )}
 
-      {/* Device Settings Modal Dropdown */}
+      {/* Audio Setup Instructions for Vercel/LiveKit */}
+      {!isConfigured && !isConnected && (
+        <div className="mt-3 pt-2">
+          <button
+            onClick={() => setShowGuide(!showGuide)}
+            className="text-xs text-accent/70 hover:text-accent transition underline"
+          >
+            {showGuide ? 'Hide setup instructions' : 'How to enable cloud LiveKit server?'}
+          </button>
+
+          <AnimatePresence>
+            {showGuide && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="mt-3 rounded-2xl border border-white/10 bg-black/30 p-4 text-xs text-white/70 space-y-2 overflow-hidden"
+              >
+                <p className="font-semibold text-white">To enable Cloud LiveKit Voice Chat in Vercel:</p>
+                <ol className="list-decimal list-inside space-y-1 text-white/60">
+                  <li>Create a free project at <a href="https://livekit.io" target="_blank" rel="noreferrer" className="text-accent underline">livekit.io</a>.</li>
+                  <li>Copy your WebSocket URL (e.g. <code className="text-accent">wss://project.livekit.cloud</code>).</li>
+                  <li>Add <code className="text-accent">VITE_LIVEKIT_URL</code> to Vercel Environment Variables.</li>
+                </ol>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+      )}
+
+      {/* Audio Devices Modal Dropdown */}
       <AnimatePresence>
         {showSettings && (
           <motion.div
@@ -152,7 +202,7 @@ export function VoiceChatPanel() {
             className="mt-4 flex flex-col gap-3 overflow-hidden border-t border-white/10 pt-4 text-xs"
           >
             <label className="flex flex-col gap-1">
-              <span className="text-white/60">Microphone</span>
+              <span className="text-white/60">Microphone Input</span>
               <select
                 value={selectedMicId}
                 onChange={(e) => void selectMic(e.target.value)}
@@ -168,7 +218,7 @@ export function VoiceChatPanel() {
 
             {speakerDevices.length > 0 && (
               <label className="flex flex-col gap-1">
-                <span className="text-white/60">Speakers / Output</span>
+                <span className="text-white/60">Speaker / Output</span>
                 <select
                   value={selectedSpeakerId}
                   onChange={(e) => void selectSpeaker(e.target.value)}
