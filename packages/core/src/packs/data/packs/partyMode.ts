@@ -118,4 +118,7 @@ export const PARTY_MODE_PACK: WordEntry[] = [
   {"id":"party-mode_115","word":"Tears","category":"Party Mode","hints":["Cry","Drunk","Sad"]},
   {"id":"party-mode_116","word":"Fight","category":"Party Mode","hints":["Punch","Argue","Brawl"]},
   {"id":"party-mode_118","word":"Fake ID","category":"Party Mode","hints":["Underage","Card","Enter"]},
+  {"id":"party-mode_119","word":"Disco Ball","category":"Party Mode","hints":["Mirror","Sparkle","Spinning"]},
+  {"id":"party-mode_120","word":"Glow Sticks","category":"Party Mode","hints":["Neon","Snap","Bracelet"]},
+  {"id":"party-mode_121","word":"Party Hat","category":"Party Mode","hints":["Cone","Birthday","Elastic"]},
 ] as const

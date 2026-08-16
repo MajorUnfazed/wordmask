@@ -120,4 +120,5 @@ export const MOVIES_PACK: WordEntry[] = [
   {"id":"movies_117","word":"Boogie Nights","category":"Movies","hints":["Porn","Roller","70s"]},
   {"id":"movies_118","word":"Magnolia","category":"Movies","hints":["Frogs","Rain","Interconnected"]},
   {"id":"movies_119","word":"Punch-Drunk Love","category":"Movies","hints":["Pudding","Harmonium","Suit"]},
+  {"id":"movies_120","word":"Oppenheimer","category":"Movies","hints":["Atomic","Nolan","Physicist"]},
 ] as const

@@ -113,4 +113,12 @@ export const SPORTS_PACK: WordEntry[] = [
   {"id":"sports_109","word":"Jousting","category":"Sports","hints":["Horseback lances","Knight fights","Medieval games"]},
   {"id":"sports_110","word":"Gladiators","category":"Sports","hints":["Arena fights","Ancient Rome","Sword battles"]},
   {"id":"sports_111","word":"Sumo","category":"Sports","hints":["Heavy wrestlers","Pushing rings","Japanese sport"]},
+  {"id":"sports_112","word":"Softball","category":"Sports","hints":["Underhand pitch","Bigger ball","Slowpitch league"]},
+  {"id":"sports_113","word":"Curling","category":"Sports","hints":["Ice sweeping","Sliding stones","Broom polish"]},
+  {"id":"sports_114","word":"Biathlon","category":"Sports","hints":["Ski shoot","Rifle skiing","Nordic race"]},
+  {"id":"sports_115","word":"Bobsled","category":"Sports","hints":["Ice chute","Team sled","Winter track"]},
+  {"id":"sports_116","word":"Netball","category":"Sports","hints":["No dribble","Hoop passing","Court zones"]},
+  {"id":"sports_117","word":"Windsurfing","category":"Sports","hints":["Board sail","Wind gliding","Water breeze"]},
+  {"id":"sports_118","word":"Kickboxing","category":"Sports","hints":["Punch kick","Ring fighting","Padded shins"]},
+  {"id":"sports_119","word":"Wakeboarding","category":"Sports","hints":["Boat towed","Water board","Wake jumps"]},
 ] as const

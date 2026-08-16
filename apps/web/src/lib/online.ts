@@ -7,7 +7,7 @@ export const ONLINE_IMPOSTOR_COUNT = 1
 export const ONLINE_JESTER_COUNT = 1
 export const ONLINE_DEFAULT_CATEGORY = 'Everyday'
 export const ONLINE_START_COUNTDOWN_SECONDS = 3
-export const ONLINE_SCHEMA_VERSION = 10
+export const ONLINE_SCHEMA_VERSION = 11
 
 export type OnlinePresenceStatus = 'active' | 'reconnecting' | 'away'
 export type OnlineAccessState = 'member' | 'blocked' | 'pending_approval' | 'none'
@@ -185,11 +185,13 @@ function resolveRoundSourceCategories(
 }
 
 export function isOnlineSchemaCompatible(schemaVersion: number) {
-  return schemaVersion >= 9 && schemaVersion <= ONLINE_SCHEMA_VERSION
+  // v11 moved round-word selection into the start_round RPC (new signature), so the client
+  // can no longer talk to a pre-v11 backend.
+  return schemaVersion >= 11 && schemaVersion <= ONLINE_SCHEMA_VERSION
 }
 
 export function getOnlineSchemaMismatchMessage(schemaVersion: number) {
-  return `Online multiplayer needs a backend migration. Expected schema v${ONLINE_SCHEMA_VERSION}, received v${schemaVersion}. Run 010_wordmask_v2.sql in Supabase SQL Editor.`
+  return `Online multiplayer needs a backend migration. Expected schema v${ONLINE_SCHEMA_VERSION}, received v${schemaVersion}. Run 011_server_word_selection.sql in Supabase SQL Editor.`
 }
 
 export interface OnlineRolePayload {
@@ -474,17 +476,6 @@ export function normalizeRoundResult(payload: Record<string, unknown>): OnlineRo
   }
 }
 
-export function pickOnlineRoundWord() {
-  const everydayWords = ALL_WORDS.filter((entry) => entry.category === ONLINE_DEFAULT_CATEGORY)
-  const selected = pickRandom([...everydayWords])
-
-  return {
-    word: selected.word,
-    hint: pickRandom([...selected.hints]),
-    packId: ONLINE_PACK_ID,
-  }
-}
-
 export function getOnlineCategoryOptions() {
   return RECOMMENDED_CATEGORIES.map((category) => ({
     id: category.id,
@@ -494,7 +485,10 @@ export function getOnlineCategoryOptions() {
   }))
 }
 
-export function pickOnlineRoundWordForCategories(categories: string[]) {
+export function buildOnlineRoundWordPool(categories: string[]): {
+  pool: Array<{ word: string; hint: string; category: string }>
+  packId: string
+} {
   const normalizedCategories = categories
     .map((category) => category.trim())
     .filter(Boolean)
@@ -504,11 +498,14 @@ export function pickOnlineRoundWordForCategories(categories: string[]) {
   )
   const fallbackWords = ALL_WORDS.filter((entry) => entry.category === ONLINE_DEFAULT_CATEGORY)
   const selectedPool = categoryWords.length > 0 ? categoryWords : fallbackWords
-  const selected = pickRandom([...selectedPool])
 
-  return {
-    word: selected.word,
-    hint: pickRandom([...selected.hints]),
-    packId: selected.category,
-  }
+  // The server picks the actual word from this candidate pool, so the host never learns which
+  // word was chosen. One hint per word is pre-selected here (every hint is already public).
+  const pool = selectedPool.map((entry) => ({
+    word: entry.word,
+    hint: pickRandom([...entry.hints]),
+    category: entry.category,
+  }))
+
+  return { pool, packId: ONLINE_PACK_ID }
 }

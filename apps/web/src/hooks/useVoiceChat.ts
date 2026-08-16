@@ -4,6 +4,7 @@ import {
   RoomEvent,
   type Participant,
 } from 'livekit-client'
+import { getSupabaseRestConfig, getSupabaseClient } from '../lib/supabase'
 
 export interface VoiceSpeaker {
   id: string
@@ -198,20 +199,37 @@ export function useVoiceChat(lobbyCode: string | null, playerName: string | null
             )
           })
 
-        const tokenUrl = `/api/voice-token?room=${encodeURIComponent(lobbyCode)}&identity=${encodeURIComponent(playerName)}`
-        let token = ''
-        try {
-          const res = await fetch(tokenUrl)
-          if (res.ok) {
-            const json = (await res.json()) as { token?: string }
-            token = json.token ?? ''
-          }
-        } catch {
-          // Ignore
+        const restConfig = getSupabaseRestConfig()
+        if (!restConfig) {
+          throw new Error('Voice chat is unavailable because Supabase is not configured.')
         }
 
+        // Authenticate the token request with the current (anonymous) session when available,
+        // falling back to the anon key so the Supabase edge function's JWT check passes.
+        let accessToken = restConfig.anonKey
+        try {
+          const { data } = await getSupabaseClient()!.auth.getSession()
+          if (data.session?.access_token) {
+            accessToken = data.session.access_token
+          }
+        } catch {
+          // Fall back to the anon key.
+        }
+
+        const tokenUrl = `${restConfig.url}/functions/v1/voice-token?room=${encodeURIComponent(lobbyCode)}&identity=${encodeURIComponent(playerName)}`
+        const res = await fetch(tokenUrl, {
+          headers: {
+            apikey: restConfig.anonKey,
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+        if (!res.ok) {
+          throw new Error(`Voice token request failed (${res.status}).`)
+        }
+        const json = (await res.json()) as { token?: string }
+        const token = json.token ?? ''
         if (!token) {
-          token = `mock-token-${lobbyCode}-${Date.now()}`
+          throw new Error('Voice server did not return a token.')
         }
 
         await room.connect(livekitUrl, token)

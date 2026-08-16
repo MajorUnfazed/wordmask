@@ -1,42 +1,42 @@
-import { readdirSync, readFileSync } from 'node:fs'
-import path from 'node:path'
 import { describe, expect, it } from 'vitest'
+import { ALL_WORDS, CATEGORIES } from '../data/wordRegistry'
 
-type PackEntry = {
-  word: string
-  hints: string[]
-}
-
-type PackFile = {
-  id: string
-  words: PackEntry[]
-}
-
-const dataDir = path.resolve(__dirname, '../data')
-
-function loadPackFiles(): PackFile[] {
-  return readdirSync(dataDir)
-    .filter((file) => file.endsWith('.json'))
-    .map((file) => {
-      const filePath = path.join(dataDir, file)
-      const pack = JSON.parse(readFileSync(filePath, 'utf8')) as PackFile
-      return pack
-    })
-}
+type Entry = (typeof ALL_WORDS)[number]
 
 describe('pack data quality', () => {
-  it('keeps every category pack at 120 words with three valid hints each', () => {
-    const packs = loadPackFiles()
+  it('keeps every category at 120+ words with three valid hints each', () => {
+    expect(ALL_WORDS.length).toBeGreaterThan(0)
 
-    expect(packs.length).toBeGreaterThan(0)
+    const byCategory = new Map<string, Entry[]>()
+    for (const entry of ALL_WORDS) {
+      const bucket = byCategory.get(entry.category) ?? []
+      bucket.push(entry)
+      byCategory.set(entry.category, bucket)
+    }
 
-    for (const pack of packs) {
-      expect(pack.words.length, `${pack.id} word count`).toBeGreaterThanOrEqual(120)
+    // Every declared category is actually represented in the assembled word list.
+    for (const category of CATEGORIES) {
+      expect(byCategory.has(category), `missing category: ${category}`).toBe(true)
+    }
 
-      for (const entry of pack.words) {
-        expect(entry.hints, `${pack.id}: ${entry.word}`).toHaveLength(3)
-        expect(entry.hints.every((hint) => typeof hint === 'string' && hint.trim().length > 0)).toBe(true)
+    for (const [category, entries] of byCategory) {
+      expect(entries.length, `${category} word count`).toBeGreaterThanOrEqual(120)
+
+      for (const entry of entries) {
+        expect(entry.hints, `${category}: ${entry.word} hint count`).toHaveLength(3)
+        expect(
+          entry.hints.every((hint) => typeof hint === 'string' && hint.trim().length > 0),
+          `${category}: ${entry.word} has an empty hint`,
+        ).toBe(true)
       }
+    }
+  })
+
+  it('has globally unique word ids', () => {
+    const ids = new Set<string>()
+    for (const entry of ALL_WORDS) {
+      expect(ids.has(entry.id), `duplicate id: ${entry.id}`).toBe(false)
+      ids.add(entry.id)
     }
   })
 })

@@ -42,7 +42,7 @@ This includes:
 - voting logic
 - score calculation
 - round state machine
-- SmartShuffle word system
+- word repetition tracking
 
 The core package must:
 
@@ -115,10 +115,10 @@ packages/core/src/packs/data
 
 Each pack must contain:
 
-- 100+ words
-- one hint per word
+- 120 words
+- three hints per word
 
-Words must be selected using the **SmartShuffle algorithm** to prevent repetition.
+Word repetition is handled by the engine, not the pack: the offline reducer tracks used and recent words, and the online `start_round` RPC skips recently used words per lobby.
 
 ---
 
@@ -206,9 +206,9 @@ Core logic should be testable.
 
 Prefer pure functions so unit tests can be written for:
 
-- SmartShuffle
 - RoleAssigner
 - VoteCounter
+- ScoreCalculator
 
 ---
 

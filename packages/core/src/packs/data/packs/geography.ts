@@ -120,4 +120,5 @@ export const GEOGRAPHY_PACK: WordEntry[] = [
   {"id":"geography_117","word":"Nicaragua","category":"Geography","hints":["Managua","America","Central"]},
   {"id":"geography_118","word":"Costa Rica","category":"Geography","hints":["San","Jose","Pura"]},
   {"id":"geography_119","word":"Panama","category":"Geography","hints":["Canal","America","Central"]},
+  {"id":"geography_120","word":"Brazil","category":"Geography","hints":["Amazon","Carnival","Samba"]},
 ] as const

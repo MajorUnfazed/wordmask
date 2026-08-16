@@ -120,4 +120,5 @@ export const GAMING_PACK: WordEntry[] = [
   {"id":"gaming_117","word":"Euro Truck","category":"Gaming","hints":["Driving","Deliveries","Simulation"]},
   {"id":"gaming_118","word":"Farming Simulator","category":"Gaming","hints":["Tractors","Crops","Harvest"]},
   {"id":"gaming_119","word":"Goat Simulator","category":"Gaming","hints":["Physics","Licking","Chaos"]},
+  {"id":"gaming_120","word":"God of War","category":"Gaming","hints":["Kratos","Norse","Axe"]},
 ] as const

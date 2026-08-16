@@ -36,15 +36,10 @@ impostor-words/
 │   │   │   │   └── ScoreCalculator.ts
 │   │   │   ├── packs/
 │   │   │   │   ├── index.ts
-│   │   │   │   ├── SmartShuffle.ts
+│   │   │   │   ├── community.ts
 │   │   │   │   └── data/
-│   │   │   │       ├── food.json
-│   │   │   │       ├── animals.json
-│   │   │   │       ├── movies.json
-│   │   │   │       ├── technology.json
-│   │   │   │       ├── f1.json
-│   │   │   │       ├── memes.json
-│   │   │   │       └── ... (16 packs total)
+│   │   │   │       ├── wordRegistry.ts   # assembles ALL_WORDS + CATEGORIES
+│   │   │   │       └── packs/            # 17 category packs (*.ts)
 │   │   │   ├── types/
 │   │   │   │   ├── game.ts
 │   │   │   │   └── packs.ts
@@ -201,35 +196,12 @@ Implementation:
 
 ---
 
-# 6. Smart Shuffle Algorithm
+# 6. Word Selection & Repetition
 
-Prevents word repetition.
+Word selection lives in the engine, not a separate shuffler class.
 
-```ts
-export class SmartShuffle {
-  private used = new Set<string>()
-  private pool: string[]
-  private reserve: string[] = []
-
-  constructor(private words: string[]) {
-    this.pool = this.shuffle([...words])
-  }
-
-  next(): string {
-    if (this.pool.length === 0) {
-      this.pool = this.shuffle(this.reserve)
-      this.reserve = []
-      this.used.clear()
-    }
-
-    const word = this.pool.pop()!
-    this.used.add(word)
-    this.reserve.push(word)
-
-    return word
-  }
-}
-```
+- **Offline:** `gameReducer` tracks `usedWordIds` plus a recent-word window (`wordHistoryLimit`) and only permits a repeat once that history can no longer be honoured — every word is seen before any repeats.
+- **Online:** the `start_round` Supabase RPC picks the word server-side from the host-supplied candidate pool, preferring words not in the lobby's recent history (`lobby_word_history`).
 
 Acts like a deck of cards — every word appears once before repeats.
 

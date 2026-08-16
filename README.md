@@ -1,37 +1,51 @@
 # WordMask
 
-WordMask is a social deduction word game built for quick local play and designed to support a shared game engine across web and mobile clients.
+WordMask is a social deduction party word game with a shared TypeScript game engine powering both offline pass-the-phone play and online realtime multiplayer.
 
-The current web build focuses on a polished offline pass-the-phone experience:
+## Features
 
+**Offline (no backend required)**
 - guided player setup with editable default names
-- curated category selection
-- role reveal with hidden impostor hints
+- curated category selection (17 categories)
+- role reveal with hidden impostor hints (Crewmate / Impostor / Jester roles)
 - host-controlled discussion flow
 - sequential pass-the-phone voting
-- results and score tracking across rounds
+- final impostor guess and score tracking across rounds
+
+**Online (requires Supabase — see below)**
+- realtime lobbies with join codes, presence, and reconnection
+- server-enforced role/word secrecy (the server, not the host, picks each round's word)
+- in-room chat, join approval, and host moderation (kick)
+- spectator mode and a TV-host display mode
+- optional in-lobby voice chat via LiveKit
+- anonymous profiles and player statistics
+
+**Community packs (work in progress)**
+- Pack Creator with guided entry and JSON import/export
+- packs are saved locally and can be submitted for community review
+- note: custom packs are not yet playable inside your own games — that wiring is still to come
 
 ## Tech Stack
 
-- React + Vite + TypeScript
-- Framer Motion
-- Zustand
-- Tailwind CSS
-- Shared TypeScript game engine in `packages/core`
+- React + Vite + TypeScript, Zustand, Framer Motion, Tailwind CSS (PWA)
+- Shared TypeScript game engine in `packages/core` (`@impostor/core`)
+- Supabase (Postgres + RLS + realtime + edge functions) for online multiplayer
+- LiveKit for optional voice chat
 - Expo workspace scaffold in `apps/mobile`
 
 ## Repository Structure
 
 ```text
 apps/
-  web/        React client
+  web/        React client (primary)
   mobile/     Expo client scaffold
 packages/
   core/       Shared game engine and word data
 docs/
   architecture.md
 supabase/
-  migrations and backend groundwork
+  migrations/ numbered SQL migrations (apply in order; latest is 011)
+  functions/  edge functions (e.g. voice-token for LiveKit)
 ```
 
 ## Getting Started
@@ -39,7 +53,7 @@ supabase/
 ### Prerequisites
 
 - Node.js 18+
-- pnpm 8+
+- pnpm 10+
 
 ### Install
 
@@ -47,16 +61,17 @@ supabase/
 pnpm install
 ```
 
-### Run the Web App
+### Run the Web App (offline mode works with no configuration)
 
 ```bash
 pnpm --filter web dev
 ```
 
-### Run Type Checks
+### Run Type Checks and Tests
 
 ```bash
 pnpm -r typecheck
+pnpm test        # runs the @impostor/core vitest suite
 ```
 
 ### Build the Web App
@@ -65,9 +80,19 @@ pnpm -r typecheck
 pnpm --filter web build
 ```
 
-## Deploying to Vercel
+## Enabling Online Multiplayer
 
-The recommended Vercel setup for this repository is:
+Online play is optional; the app runs offline without any of this.
+
+1. Create a Supabase project and apply the migrations in `supabase/migrations/` in order (through `011_server_word_selection.sql`).
+2. Configure the web app with:
+   - `VITE_SUPABASE_URL`
+   - `VITE_SUPABASE_ANON_KEY`
+3. (Optional) For voice chat, deploy the `voice-token` edge function with `LIVEKIT_API_KEY` / `LIVEKIT_API_SECRET` set, and configure the web app with `VITE_LIVEKIT_URL`.
+
+The client checks the backend schema version on connect and will tell you to run a pending migration if the versions do not match.
+
+## Deploying to Vercel
 
 - Framework Preset: `Vite`
 - Root Directory: `apps/web`
@@ -75,23 +100,20 @@ The recommended Vercel setup for this repository is:
 - Build Command: `pnpm --filter web build`
 - Output Directory: `dist`
 
-The web app also includes [apps/web/vercel.json](apps/web/vercel.json) so SPA routes resolve correctly to `index.html`.
+The web app includes [apps/web/vercel.json](apps/web/vercel.json) so SPA routes resolve to `index.html`.
 
 ## Gameplay Flow
 
-1. Set up players and round settings.
+1. Set up players (offline) or create/join a lobby (online).
 2. Choose one or more categories.
-3. Pass the device for private role reveal.
+3. Reveal private roles — the impostor sees only a hint.
 4. Discuss the category and suspicious clues.
-5. Vote sequentially, one player at a time.
+5. Vote. If an impostor is caught, they get one final guess at the word.
 6. Review the result and continue to the next round.
 
 ## Project Notes
 
 - The game engine is isolated in `packages/core` to keep game rules out of the UI.
-- Word data includes multiple hint options, with one hint selected per round for the impostor.
-- The mobile app and Supabase-backed multiplayer foundation are present as workspace scaffolding, while the web offline mode is the primary playable experience in this version.
-
-## Status
-
-WordMask v1.0 is positioned as a playable web-first release with shared-core architecture for future expansion.
+- Each word ships with multiple hints; one is chosen per round for the impostor.
+- Online rounds select the word server-side (Supabase RPC) so the host never learns it in advance.
+- The mobile app is an Expo scaffold; the web app is the primary playable client.

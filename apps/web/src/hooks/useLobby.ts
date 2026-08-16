@@ -12,7 +12,7 @@ import {
   normalizeRolePayload,
   normalizeRoundResult,
   normalizeRoundSnapshotPayload,
-  pickOnlineRoundWordForCategories,
+  buildOnlineRoundWordPool,
   type OnlineLobbySnapshot,
   type OnlineRolePayload,
   type OnlineRoundResult,
@@ -880,15 +880,14 @@ export function useLobby() {
         latestSnapshot?.selectedCategories?.length
           ? latestSnapshot.selectedCategories
           : selectedCategories
-      const nextWord = pickOnlineRoundWordForCategories(categoriesForRound)
+      const wordPool = buildOnlineRoundWordPool(categoriesForRound)
       let lastRpcError: unknown = null
 
       for (const rpcName of rpcNames) {
         const { data, error: rpcError } = await client.rpc(rpcName, {
           p_lobby_id: lobbyId,
-          p_word: nextWord.word,
-          p_hint: nextWord.hint,
-          p_pack_id: nextWord.packId,
+          p_word_pool: wordPool.pool,
+          p_pack_id: wordPool.packId,
           p_impostor_count: ONLINE_IMPOSTOR_COUNT,
           p_jester_count: ONLINE_JESTER_COUNT,
         })
