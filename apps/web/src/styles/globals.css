@@ -32,6 +32,10 @@
     font-family: var(--font-display);
   }
 
+  .font-wordmark {
+    font-family: var(--font-wordmark);
+  }
+
   .bg-void {
     background-color: var(--color-void);
   }
@@ -40,8 +44,16 @@
     color: var(--color-accent-light);
   }
 
+  .text-cyan {
+    color: var(--color-cyan);
+  }
+
   .glow-accent {
     box-shadow: 0 0 20px var(--color-accent-glow), 0 0 60px var(--color-accent-glow);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 20px var(--color-cyan-glow), 0 0 60px var(--color-cyan-glow);
   }
 
   .glow-danger {
@@ -53,6 +65,11 @@
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border: 1px solid var(--color-border);
+  }
+
+  /* Cyan-bordered glass — opt-in variant for hero surfaces and the tab bar */
+  .glass-cyan {
+    border-color: rgba(34, 211, 238, 0.28);
   }
 
   /* Card flip utility */

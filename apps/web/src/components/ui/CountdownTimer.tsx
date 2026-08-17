@@ -45,7 +45,7 @@ export function CountdownTimer({ seconds, onComplete }: CountdownTimerProps) {
           cy={66}
           r={radius}
           fill="none"
-          stroke={isLow ? 'var(--color-danger)' : 'var(--color-accent)'}
+          stroke={isLow ? 'var(--color-danger)' : 'var(--color-cyan)'}
           strokeWidth={8}
           strokeLinecap="round"
           strokeDasharray={circumference}

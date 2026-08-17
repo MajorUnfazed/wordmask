@@ -7,7 +7,7 @@ export const ONLINE_IMPOSTOR_COUNT = 1
 export const ONLINE_JESTER_COUNT = 1
 export const ONLINE_DEFAULT_CATEGORY = 'Everyday'
 export const ONLINE_START_COUNTDOWN_SECONDS = 3
-export const ONLINE_SCHEMA_VERSION = 11
+export const ONLINE_SCHEMA_VERSION = 12
 
 export type OnlinePresenceStatus = 'active' | 'reconnecting' | 'away'
 export type OnlineAccessState = 'member' | 'blocked' | 'pending_approval' | 'none'
@@ -186,12 +186,13 @@ function resolveRoundSourceCategories(
 
 export function isOnlineSchemaCompatible(schemaVersion: number) {
   // v11 moved round-word selection into the start_round RPC (new signature), so the client
-  // can no longer talk to a pre-v11 backend.
+  // can no longer talk to a pre-v11 backend. v12 adds server-side stat writes but keeps the
+  // v11 RPC signatures intact, so a v11 backend still works — only the stat pipeline is absent.
   return schemaVersion >= 11 && schemaVersion <= ONLINE_SCHEMA_VERSION
 }
 
 export function getOnlineSchemaMismatchMessage(schemaVersion: number) {
-  return `Online multiplayer needs a backend migration. Expected schema v${ONLINE_SCHEMA_VERSION}, received v${schemaVersion}. Run 011_server_word_selection.sql in Supabase SQL Editor.`
+  return `Online multiplayer needs a backend migration. Expected schema v${ONLINE_SCHEMA_VERSION}, received v${schemaVersion}. Run 012_player_statistics_write.sql in Supabase SQL Editor.`
 }
 
 export interface OnlineRolePayload {

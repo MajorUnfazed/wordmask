@@ -1,8 +1,8 @@
 /* Design system tokens — all colours, spacing, and timing go here */
 :root {
   /* Colours */
-  --color-void: #0a0a14;
-  --color-void-2: #12121f;
+  --color-void: #060b27;
+  --color-void-2: #0b1030;
   --color-surface: #1a1a2e;
   --color-border: rgba(124, 58, 237, 0.25);
 
@@ -10,8 +10,22 @@
   --color-accent-light: #a855f7;
   --color-accent-glow: rgba(124, 58, 237, 0.4);
 
+  /* Cyberpunk cyan — paired with the purple accent for the "hacker terminal" look */
+  --color-cyan: #22d3ee;
+  --color-cyan-light: #67e8f9;
+  --color-cyan-glow: rgba(34, 211, 238, 0.4);
+
   --color-danger: #ef4444;
   --color-danger-glow: rgba(239, 68, 68, 0.4);
+
+  /* RGB channels (space-separated) powering Tailwind's `<alpha-value>` colours.
+     Keep these in sync with the hex tokens above; the hex vars remain for direct
+     var() use in inline styles / gradients, while these enable `bg-accent/15` etc. */
+  --color-accent-rgb: 124 58 237;
+  --color-accent-light-rgb: 168 85 247;
+  --color-cyan-rgb: 34 211 238;
+  --color-cyan-light-rgb: 103 232 249;
+  --color-danger-rgb: 239 68 68;
 
   --color-success: #22c55e;
   --color-warning: #f59e0b;
@@ -21,7 +35,8 @@
   --color-text-muted: #475569;
 
   /* Typography */
-  --font-display: 'Cinzel Decorative', serif;
+  --font-display: 'Chakra Petch', 'Rajdhani', ui-sans-serif, system-ui, sans-serif;
+  --font-wordmark: 'Orbitron', 'Chakra Petch', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 
   --text-xs: 0.75rem;

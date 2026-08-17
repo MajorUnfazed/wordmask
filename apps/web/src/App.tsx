@@ -16,6 +16,10 @@ import DiscussionScreen from './screens/DiscussionScreen'
 import VotingScreen from './screens/VotingScreen'
 import ResultsScreen from './screens/ResultsScreen'
 import type { AppScreen } from './store/uiStore'
+import { AmbientBackground } from './components/ui/AmbientBackground'
+import { TabBar } from './components/ui/TabBar'
+
+const TAB_BAR_SCREENS: AppScreen[] = ['home', 'profile', 'pack-browser']
 
 const OnlineCreateScreen = lazy(() => import('./screens/OnlineCreateScreen'))
 const LobbyScreen = lazy(() => import('./screens/LobbyScreen'))
@@ -87,7 +91,8 @@ export default function App() {
   return (
     <ErrorBoundary>
       <div className="relative min-h-screen overflow-x-hidden bg-void text-white">
-        <div className="relative w-full min-h-screen">
+        <AmbientBackground />
+        <div className="relative z-10 w-full min-h-screen">
           <Suspense
             fallback={
               <div className="flex min-h-screen items-center justify-center text-white/60">
@@ -106,6 +111,7 @@ export default function App() {
             </motion.div>
           </Suspense>
         </div>
+        {TAB_BAR_SCREENS.includes(screen) && <TabBar />}
       </div>
     </ErrorBoundary>
   )

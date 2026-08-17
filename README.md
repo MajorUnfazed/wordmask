@@ -89,6 +89,10 @@ Online play is optional; the app runs offline without any of this.
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`
 3. (Optional) For voice chat, deploy the `voice-token` edge function with `LIVEKIT_API_KEY` / `LIVEKIT_API_SECRET` set, and configure the web app with `VITE_LIVEKIT_URL`.
+4. If you want to keep the Supabase project warm, deploy the `keepalive` edge function and point cron-job.org at `https://<project-ref>.supabase.co/functions/v1/keepalive`.
+  - Use `GET`
+  - Schedule it every 5 to 10 minutes
+  - If you set `KEEPALIVE_SECRET` in Supabase, send it as `x-keepalive-secret`
 
 The client checks the backend schema version on connect and will tell you to run a pending migration if the versions do not match.
 

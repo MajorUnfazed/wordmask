@@ -1,0 +1,56 @@
+name: Keep Supabase Alive
+
+# Supabase free-tier projects pause after 7 days of insufficient DATABASE activity.
+# This workflow makes a real REST/RPC query to the database on a schedule so the
+# 7-day inactivity timer keeps resetting. It must hit the DB (not the frontend URL)
+# and it must be external (pg_cron can't self-revive a paused project).
+
+on:
+  schedule:
+    # Daily at 07:17 UTC. Times are UTC, not local. The :17 avoids the top-of-hour
+    # rush when GitHub queues/delays scheduled jobs. GitHub scheduling is best-effort:
+    # a run may be delayed or skipped under load, so daily gives a healthy buffer for
+    # a 7-day window even if a couple of runs are missed.
+    - cron: '17 7 * * *'
+  workflow_dispatch: {} # lets you trigger a run manually from the Actions tab to test
+
+permissions: {} # this job needs no repository permissions
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase database
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SUPABASE_URL:-}" ] || [ -z "${SUPABASE_ANON_KEY:-}" ]; then
+            echo "::error::Add repo secrets SUPABASE_URL and SUPABASE_ANON_KEY (Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+
+          # Calls the get_online_schema_version() RPC — a tiny, real database query
+          # that exists in every schema version of this project and is callable with
+          # the public anon key. A 2xx response means the DB served the query and the
+          # inactivity timer is reset.
+          #
+          # Alternative if you prefer a plain table read instead of the RPC:
+          #   curl ... "$SUPABASE_URL/rest/v1/lobbies?select=id&limit=1"
+          # (a SELECT still counts as DB activity even if RLS returns zero rows).
+          code=$(curl -sS -o /tmp/resp.txt -w '%{http_code}' \
+            -X POST "$SUPABASE_URL/rest/v1/rpc/get_online_schema_version" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json" \
+            -d '{}')
+
+          echo "HTTP $code"
+          echo "Response: $(cat /tmp/resp.txt)"
+
+          if [ "$code" -lt 200 ] || [ "$code" -ge 300 ]; then
+            echo "::error::Keep-alive ping failed with HTTP $code"
+            exit 1
+          fi
+          echo "Keep-alive ping OK — Supabase inactivity timer reset."

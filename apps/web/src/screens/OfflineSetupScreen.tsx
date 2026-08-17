@@ -23,19 +23,23 @@ function PlayerSetupRow({
   updatePlayer,
   removePlayer,
   canRemove,
+  isMe,
+  onSetMe,
 }: {
   player: PlayerSetup
   index: number
   updatePlayer: (index: number, updates: Partial<PlayerSetup>) => void
   removePlayer: (index: number) => void
   canRemove: boolean
+  isMe: boolean
+  onSetMe: (index: number) => void
 }) {
   const [showEmojis, setShowEmojis] = useState(false)
 
   return (
     <div
       className="flex flex-col gap-3 p-3 bg-black/20 rounded-2xl border transition-colors duration-300"
-      style={{ borderColor: `${player.color}40` }}
+      style={{ borderColor: isMe ? 'var(--color-cyan)' : `${player.color}40` }}
     >
       <div className="flex gap-3 items-center">
         <button
@@ -44,7 +48,7 @@ function PlayerSetupRow({
         >
           {player.emoji}
         </button>
-        
+
         <input
           className="flex-1 bg-transparent text-lg text-white outline-none placeholder-white/30 font-medium"
           value={player.name}
@@ -52,6 +56,18 @@ function PlayerSetupRow({
           onChange={(e) => updatePlayer(index, { name: e.target.value })}
           maxLength={20}
         />
+
+        <button
+          onClick={() => onSetMe(index)}
+          className={`shrink-0 rounded-lg px-2.5 py-1.5 text-xs font-semibold uppercase tracking-wide transition-colors ${
+            isMe
+              ? 'bg-cyan/20 text-cyan border border-cyan/50'
+              : 'border border-white/10 text-white/40 hover:text-white/80 hover:bg-white/5'
+          }`}
+          title="Track this player's stats on this device"
+        >
+          {isMe ? 'You' : 'Me?'}
+        </button>
 
         {canRemove && (
           <button
@@ -123,7 +139,8 @@ export default function OfflineSetupScreen() {
   const [jesterCount, setJesterCount] = useState(0)
   const [discussionDuration, setDiscussionDuration] = useState(60)
   const [gameMode, setGameMode] = useState<GameMode>('STANDARD')
-  
+  const [meIndex, setMeIndex] = useState(0)
+
   const [bluffMode, setBluffMode] = useState(false)
   const [anonymousVoting, setAnonymousVoting] = useState(false)
 
@@ -143,6 +160,11 @@ export default function OfflineSetupScreen() {
   function removePlayer(index: number) {
     if (playersSetup.length > 3) {
       setPlayersSetup((p) => p.filter((_, i) => i !== index))
+      // Keep the "this is me" pointer aimed at the same player after the shift.
+      setMeIndex((current) => {
+        if (index === current) return 0
+        return index < current ? current - 1 : current
+      })
     }
   }
 
@@ -165,6 +187,8 @@ export default function OfflineSetupScreen() {
       isEliminated: false,
     }))
 
+    const localPlayerId = `player-${Math.min(meIndex, corePlayers.length - 1)}`
+
     initializeOfflineGame(
       {
         playerCount: corePlayers.length,
@@ -179,6 +203,7 @@ export default function OfflineSetupScreen() {
           : {}),
       },
       corePlayers,
+      localPlayerId,
     )
 
     setScreen('category')
@@ -208,6 +233,8 @@ export default function OfflineSetupScreen() {
               updatePlayer={updatePlayer}
               removePlayer={removePlayer}
               canRemove={playersSetup.length > 3}
+              isMe={i === meIndex}
+              onSetMe={setMeIndex}
             />
           ))}
         </div>

@@ -13,5 +13,8 @@
   },
   "devDependencies": {
     "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "supabase": "^2.114.0"
   }
 }

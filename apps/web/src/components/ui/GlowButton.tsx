@@ -2,7 +2,7 @@ import type { ButtonHTMLAttributes } from 'react'
 import { motion } from 'framer-motion'
 
 interface GlowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'danger'
+  variant?: 'primary' | 'secondary' | 'danger' | 'cyber'
 }
 
 const variantStyles = {
@@ -10,6 +10,11 @@ const variantStyles = {
     background: 'var(--color-accent)',
     boxShadow: '0 0 20px var(--color-accent-glow), 0 0 60px var(--color-accent-glow)',
     hover: { boxShadow: '0 0 30px var(--color-accent-glow), 0 0 80px var(--color-accent-glow)' },
+  },
+  cyber: {
+    background: 'linear-gradient(120deg, var(--color-accent) 0%, var(--color-cyan) 100%)',
+    boxShadow: '0 0 22px var(--color-cyan-glow), 0 0 60px var(--color-accent-glow)',
+    hover: { boxShadow: '0 0 34px var(--color-cyan-glow), 0 0 90px var(--color-accent-glow)' },
   },
   secondary: {
     background: 'rgba(255,255,255,0.05)',
