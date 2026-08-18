@@ -5,6 +5,7 @@ import { OnlineRoundHeader } from '../components/game/OnlineRoundHeader'
 import { GlassCard } from '../components/ui/GlassCard'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
+import { haptics } from '../lib/haptics'
 
 export default function OnlineRoleRevealScreen() {
   const {
@@ -83,7 +84,10 @@ export default function OnlineRoleRevealScreen() {
               word={role.word}
               hint={role.hint}
               revealed={revealed}
-              onReveal={() => setRevealed(true)}
+              onReveal={() => {
+                setRevealed(true)
+                haptics.medium()
+              }}
             />
             {!revealed && (
               <p className="text-sm text-white/60">

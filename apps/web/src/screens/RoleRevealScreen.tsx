@@ -5,6 +5,7 @@ import { GlowButton } from '../components/ui/GlowButton'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useGameStore } from '../store/gameStore'
 import { useUIStore } from '../store/uiStore'
+import { haptics } from '../lib/haptics'
 
 const CARD_FLIP_BACK_MS = 650
 
@@ -64,6 +65,7 @@ export default function RoleRevealScreen() {
     }
 
     setRevealed(true)
+    haptics.medium()
   }
 
   function handleContinue() {

@@ -6,6 +6,8 @@ import { useUIStore } from '../store/uiStore'
 import { useLobbyStore } from '../store/lobbyStore'
 import { ensureAnonymousSession, isSupabaseConfigured } from '../lib/supabase'
 import { useDisplayStats } from '../hooks/useDisplayStats'
+import { useSettingsStore } from '../store/settingsStore'
+import { haptics, canVibrate } from '../lib/haptics'
 import {
   IconGamepad,
   IconAward,
@@ -37,6 +39,10 @@ export default function ProfileScreen() {
   const setLocalDisplayName = useLobbyStore((s) => s.setDisplayName)
 
   const { stats } = useDisplayStats()
+
+  const hapticsEnabled = useSettingsStore((s) => s.hapticsEnabled)
+  const setHapticsEnabled = useSettingsStore((s) => s.setHapticsEnabled)
+  const hapticsSupported = canVibrate()
 
   const [displayName, setDisplayName] = useState(localDisplayName || 'Player')
   const [equippedTitle, setEquippedTitle] = useState<string | null>(null)
@@ -186,6 +192,40 @@ export default function ProfileScreen() {
           <StatCard label="Correct Votes" value={stats.correctVotes} Icon={IconCheckCircle} />
           <StatCard label="Wrong Votes" value={stats.incorrectVotes} Icon={IconXCircle} />
         </div>
+      </GlassCard>
+
+      <GlassCard className="w-full max-w-md rounded-3xl p-5">
+        <p className="mb-4 text-sm uppercase tracking-[0.2em] text-white/40">Preferences</p>
+        <label
+          className={`flex items-center justify-between gap-4 text-base ${hapticsSupported ? 'cursor-pointer' : 'cursor-not-allowed opacity-60'}`}
+        >
+          <div className="flex flex-col gap-1">
+            <span className="font-medium text-white/90">Haptic Feedback</span>
+            <span className="max-w-[240px] text-xs text-white/50">
+              {hapticsSupported
+                ? 'Subtle vibrations on key game moments'
+                : 'Not supported on this device or browser'}
+            </span>
+          </div>
+          <div
+            className={`relative h-6 w-12 shrink-0 rounded-full transition-colors ${hapticsSupported && hapticsEnabled ? 'bg-cyan' : 'bg-white/10'}`}
+          >
+            <div
+              className={`absolute left-1 top-1 h-4 w-4 rounded-full bg-white transition-transform ${hapticsSupported && hapticsEnabled ? 'translate-x-6' : ''}`}
+            />
+          </div>
+          <input
+            type="checkbox"
+            className="hidden"
+            disabled={!hapticsSupported}
+            checked={hapticsSupported && hapticsEnabled}
+            onChange={(e) => {
+              const next = e.target.checked
+              setHapticsEnabled(next)
+              if (next) haptics.light()
+            }}
+          />
+        </label>
       </GlassCard>
 
       <GlowButton variant="secondary" onClick={() => setScreen('home')}>

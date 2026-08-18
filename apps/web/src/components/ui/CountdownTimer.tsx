@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { haptics } from '../../lib/haptics'
 
 interface CountdownTimerProps {
   seconds: number
@@ -8,15 +9,27 @@ interface CountdownTimerProps {
 
 export function CountdownTimer({ seconds, onComplete }: CountdownTimerProps) {
   const [remaining, setRemaining] = useState(seconds)
+  const lowWarningFired = useRef(false)
+  const expiryFired = useRef(false)
 
   useEffect(() => {
+    // Warn once as time runs low (skip if the timer starts at/below the threshold).
+    if (seconds > 10 && remaining === 10 && !lowWarningFired.current) {
+      lowWarningFired.current = true
+      haptics.medium()
+    }
+
     if (remaining <= 0) {
+      if (!expiryFired.current) {
+        expiryFired.current = true
+        haptics.heavy()
+      }
       onComplete?.()
       return
     }
     const id = setTimeout(() => setRemaining((r) => r - 1), 1000)
     return () => clearTimeout(id)
-  }, [remaining, onComplete])
+  }, [remaining, seconds, onComplete])
 
   const pct = remaining / seconds
   const radius = 56

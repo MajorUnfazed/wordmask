@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { GlassCard } from '../components/ui/GlassCard'
 import { useLobby } from '../hooks/useLobby'
+import { haptics } from '../lib/haptics'
 
 export default function OnlineFinalGuessScreen() {
   const { role, isBusy, error, submitFinalImpostorGuess } = useLobby()
   const [guess, setGuess] = useState('')
   const isCaughtImpostor = role?.role === 'IMPOSTOR'
+
+  // The caught impostor feels a heavy buzz — "you've been exposed".
+  useEffect(() => {
+    if (isCaughtImpostor) haptics.heavy()
+  }, [isCaughtImpostor])
 
   return (
     <div className="flex min-h-screen items-center justify-center px-6 py-12 text-center">

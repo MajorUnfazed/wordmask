@@ -5,6 +5,7 @@ import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { PlayerAvatar } from '../components/game/PlayerAvatar'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
+import { haptics } from '../lib/haptics'
 
 export default function OnlineVotingScreen() {
   const {
@@ -109,6 +110,7 @@ export default function OnlineVotingScreen() {
           <GlowButton
             onClick={() => {
               if (selectedTargetId) {
+                haptics.medium()
                 void submitVote(selectedTargetId)
               }
             }}

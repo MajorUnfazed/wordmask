@@ -1,9 +1,11 @@
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { GlassCard } from '../components/ui/GlassCard'
 import { ScoreBoard } from '../components/game/ScoreBoard'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
+import { haptics } from '../lib/haptics'
 
 export default function ResultsScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
@@ -18,6 +20,12 @@ export default function ResultsScreen() {
     .filter((p: { id: string }) => impostorIds.has(p.id))
     .map((p: { name: string }) => p.name)
     .join(', ')
+
+  // Buzz once when the outcome lands: gentle double-pulse on a catch, heavy on an escape.
+  useEffect(() => {
+    if (impostorsCaught) haptics.success()
+    else haptics.heavy()
+  }, [])
 
   function handleNextRound() {
     setScreen('category')

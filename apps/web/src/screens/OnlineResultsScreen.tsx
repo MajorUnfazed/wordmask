@@ -1,19 +1,30 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { OnlineRoundHeader } from '../components/game/OnlineRoundHeader'
 import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { GlassCard } from '../components/ui/GlassCard'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
+import { haptics } from '../lib/haptics'
 
 export default function OnlineResultsScreen() {
   const { round, result, players, error, isHost, loadRoundResult, returnToLobby, startNextRound } = useLobby()
+  const resultHapticFired = useRef(false)
 
   useEffect(() => {
     if (!result && round?.id) {
       void loadRoundResult(round.id)
     }
   }, [loadRoundResult, result, round?.id])
+
+  // Buzz once when the outcome lands: a clean crew catch feels celebratory, every
+  // other ending (escape, impostor steal, jester win, tie) lands as a heavy thud.
+  useEffect(() => {
+    if (!result || resultHapticFired.current) return
+    resultHapticFired.current = true
+    const cleanCatch = result.impostorsCaught && !result.finalGuessCorrect && !result.jesterWon
+    haptics[cleanCatch ? 'success' : 'heavy']()
+  }, [result])
 
   if (!result) {
     return (
