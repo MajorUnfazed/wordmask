@@ -10,20 +10,17 @@ interface CountdownTimerProps {
 export function CountdownTimer({ seconds, onComplete }: CountdownTimerProps) {
   const [remaining, setRemaining] = useState(seconds)
   const lowWarningFired = useRef(false)
-  const expiryFired = useRef(false)
 
   useEffect(() => {
-    // Warn once as time runs low (skip if the timer starts at/below the threshold).
+    // A subtle nudge once as time runs low (skip if the timer starts at/below the
+    // threshold). No buzz at expiry: this countdown is an optional suggestion that
+    // gates nothing, so a heavy "time's up" signal would be misleading.
     if (seconds > 10 && remaining === 10 && !lowWarningFired.current) {
       lowWarningFired.current = true
       haptics.medium()
     }
 
     if (remaining <= 0) {
-      if (!expiryFired.current) {
-        expiryFired.current = true
-        haptics.heavy()
-      }
       onComplete?.()
       return
     }

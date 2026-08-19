@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { GlassCard } from '../components/ui/GlassCard'
@@ -9,10 +9,14 @@ export default function OnlineFinalGuessScreen() {
   const { role, isBusy, error, submitFinalImpostorGuess } = useLobby()
   const [guess, setGuess] = useState('')
   const isCaughtImpostor = role?.role === 'IMPOSTOR'
+  const caughtHapticFired = useRef(false)
 
-  // The caught impostor feels a heavy buzz — "you've been exposed".
+  // The caught impostor feels a heavy buzz — "you've been exposed". Fire once
+  // (ref-guarded so StrictMode's double-invoke can't buzz it twice).
   useEffect(() => {
-    if (isCaughtImpostor) haptics.heavy()
+    if (!isCaughtImpostor || caughtHapticFired.current) return
+    caughtHapticFired.current = true
+    haptics.heavy()
   }, [isCaughtImpostor])
 
   return (

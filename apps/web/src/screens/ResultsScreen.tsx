@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { GlassCard } from '../components/ui/GlassCard'
@@ -21,11 +21,17 @@ export default function ResultsScreen() {
     .map((p: { name: string }) => p.name)
     .join(', ')
 
-  // Buzz once when the outcome lands: gentle double-pulse on a catch, heavy on an escape.
+  const resultHapticFired = useRef(false)
+
+  // Buzz once when the outcome lands: celebratory pulse on a catch, heavy on an
+  // escape. Gated on lastResult so a resume/empty mount never fires a stray buzz,
+  // and ref-guarded so it stays single under StrictMode's double-invoke.
   useEffect(() => {
+    if (!lastResult || resultHapticFired.current) return
+    resultHapticFired.current = true
     if (impostorsCaught) haptics.success()
     else haptics.heavy()
-  }, [])
+  }, [lastResult, impostorsCaught])
 
   function handleNextRound() {
     setScreen('category')
