@@ -141,9 +141,6 @@ export default function OfflineSetupScreen() {
   const [gameMode, setGameMode] = useState<GameMode>('STANDARD')
   const [meIndex, setMeIndex] = useState(0)
 
-  const [bluffMode, setBluffMode] = useState(false)
-  const [anonymousVoting, setAnonymousVoting] = useState(false)
-
   function addPlayer() {
     if (playersSetup.length < 10) {
       setPlayersSetup((players) => [
@@ -198,9 +195,6 @@ export default function OfflineSetupScreen() {
         selectedCategories: [],
         discussionDuration,
         maxRounds: 5,
-        ...(bluffMode || anonymousVoting
-          ? { mutators: { ...(bluffMode && { bluffMode: true }), ...(anonymousVoting && { anonymousVoting: true }) } }
-          : {}),
       },
       corePlayers,
       localPlayerId,
@@ -309,32 +303,6 @@ export default function OfflineSetupScreen() {
             [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 
             [&::-webkit-slider-thumb]:bg-accent [&::-webkit-slider-thumb]:rounded-full"
           />
-        </label>
-
-        <div className="h-px bg-white/5 w-full my-2" />
-
-        <h3 className="font-display font-medium text-lg text-white">Mutators</h3>
-
-        <label className="flex items-center justify-between text-base group cursor-pointer">
-          <div className="flex flex-col gap-1">
-            <span className="text-white/90 font-medium">Bluff Mode</span>
-            <span className="text-xs text-white/50 max-w-[200px]">Impostor sees the word but not the category</span>
-          </div>
-          <div className={`w-12 h-6 rounded-full transition-colors relative shrink-0 ${bluffMode ? 'bg-accent' : 'bg-white/10'}`}>
-            <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${bluffMode ? 'translate-x-6' : ''}`} />
-          </div>
-          <input type="checkbox" className="hidden" checked={bluffMode} onChange={(e) => setBluffMode(e.target.checked)} />
-        </label>
-
-        <label className="flex items-center justify-between text-base group cursor-pointer pb-2">
-          <div className="flex flex-col gap-1">
-            <span className="text-white/90 font-medium">Anonymous Voting</span>
-            <span className="text-xs text-white/50 max-w-[200px]">Votes are hidden until the end</span>
-          </div>
-          <div className={`w-12 h-6 rounded-full transition-colors relative shrink-0 ${anonymousVoting ? 'bg-accent' : 'bg-white/10'}`}>
-            <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${anonymousVoting ? 'translate-x-6' : ''}`} />
-          </div>
-          <input type="checkbox" className="hidden" checked={anonymousVoting} onChange={(e) => setAnonymousVoting(e.target.checked)} />
         </label>
       </GlassCard>
 

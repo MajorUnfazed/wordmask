@@ -44,7 +44,7 @@ packages/
 docs/
   architecture.md
 supabase/
-  migrations/ numbered SQL migrations (apply in order; latest is 011)
+  migrations/ numbered SQL migrations (apply in order; latest is 012)
   functions/  edge functions (e.g. voice-token for LiveKit)
 ```
 
@@ -84,7 +84,7 @@ pnpm --filter web build
 
 Online play is optional; the app runs offline without any of this.
 
-1. Create a Supabase project and apply the migrations in `supabase/migrations/` in order (through `011_server_word_selection.sql`).
+1. Create a Supabase project and apply the migrations in `supabase/migrations/` in order (through `012_player_statistics_write.sql`). **`012` is required for player statistics to record** — a backend stopped at `011` still connects and plays fine, but silently records no stats (every stat tile stays 0).
 2. Configure the web app with:
    - `VITE_SUPABASE_URL`
    - `VITE_SUPABASE_ANON_KEY`

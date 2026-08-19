@@ -55,8 +55,8 @@ export default function PassThePhoneResolutionScreen() {
             disabled={answered !== null}
           >
             <span className="flex items-center gap-3 justify-center">
-              <span className="text-xl">??</span>
-              Yes � Caught!
+              <span className="text-xl">🎉</span>
+              Yes — Caught!
             </span>
           </GlowButton>
         </motion.div>
@@ -71,8 +71,8 @@ export default function PassThePhoneResolutionScreen() {
             disabled={answered !== null}
           >
             <span className="flex items-center gap-3 justify-center">
-              <span className="text-xl">??</span>
-              No � They escaped
+              <span className="text-xl">😈</span>
+              No — They escaped
             </span>
           </GlowButton>
         </motion.div>

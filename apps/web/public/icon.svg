@@ -1,0 +1,38 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="WordMask">
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="10" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+    <linearGradient id="cyan" x1="116" y1="190" x2="396" y2="318" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#67e8f9" />
+      <stop offset="1" stop-color="#22d3ee" />
+    </linearGradient>
+  </defs>
+
+  <!-- Full-bleed background (fills the maskable safe area edge to edge) -->
+  <rect width="512" height="512" fill="#0a0a14" />
+
+  <!-- Domino mask, centered well inside the maskable safe zone -->
+  <g filter="url(#glow)">
+    <path
+      d="M116 238
+         C116 206 150 190 196 190
+         C226 190 240 196 256 205
+         C272 196 286 190 316 190
+         C362 190 396 206 396 238
+         C398 262 372 286 372 286
+         C344 312 316 318 300 300
+         C286 286 274 280 256 280
+         C238 280 226 286 212 300
+         C196 318 168 312 140 286
+         C114 262 116 238 116 238 Z"
+      fill="url(#cyan)" />
+    <!-- Eye cut-outs painted in the background colour -->
+    <ellipse cx="196" cy="236" rx="30" ry="19" fill="#0a0a14" transform="rotate(-8 196 236)" />
+    <ellipse cx="316" cy="236" rx="30" ry="19" fill="#0a0a14" transform="rotate(8 316 236)" />
+  </g>
+</svg>

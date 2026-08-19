@@ -15,6 +15,8 @@ export default function ResultsScreen() {
   const impostorIds = new Set(lastResult?.impostorIds ?? [])
   const impostorsCaught = lastResult?.impostorsCaught ?? false
   const eliminated = lastResult?.voteResult.eliminatedPlayerId
+  const jesterWon = lastResult?.winningRole === 'JESTER'
+  const eliminatedName = round?.players.find((p: { id: string }) => p.id === eliminated)?.name
 
   const impostorNames = round?.players
     .filter((p: { id: string }) => impostorIds.has(p.id))
@@ -29,9 +31,9 @@ export default function ResultsScreen() {
   useEffect(() => {
     if (!lastResult || resultHapticFired.current) return
     resultHapticFired.current = true
-    if (impostorsCaught) haptics.success()
+    if (impostorsCaught || jesterWon) haptics.success()
     else haptics.heavy()
-  }, [lastResult, impostorsCaught])
+  }, [lastResult, impostorsCaught, jesterWon])
 
   function handleNextRound() {
     setScreen('category')
@@ -45,14 +47,16 @@ export default function ResultsScreen() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, ease: [0.34, 1.56, 0.64, 1] }}
       >
-        <div className="text-6xl mb-4">{impostorsCaught ? '🎉' : '😈'}</div>
+        <div className="text-6xl mb-4">{jesterWon ? '🃏' : impostorsCaught ? '🎉' : '😈'}</div>
         <h2 className="font-display text-4xl font-bold">
-          {impostorsCaught ? 'Caught!' : 'Escaped!'}
+          {jesterWon ? 'Jester Wins!' : impostorsCaught ? 'Caught!' : 'Escaped!'}
         </h2>
         <p className="mt-2" style={{ color: 'var(--color-text-secondary)' }}>
-          {impostorsCaught
-            ? `The impostor was ${impostorNames}`
-            : `${impostorNames} fooled everyone`}
+          {jesterWon
+            ? `${eliminatedName} got voted out — exactly as planned`
+            : impostorsCaught
+              ? `The impostor was ${impostorNames}`
+              : `${impostorNames} fooled everyone`}
         </p>
       </motion.div>
 

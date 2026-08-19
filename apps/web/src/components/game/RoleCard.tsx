@@ -27,6 +27,7 @@ export function RoleCard({
   onReveal,
 }: RoleCardProps) {
   const isImpostor = role === "IMPOSTOR"
+  const isJester = role === "JESTER"
 
   // Drag physics
   const y = useMotionValue(0)
@@ -149,10 +150,10 @@ export function RoleCard({
                 WebkitBackfaceVisibility: "hidden",
               }}
             >
-              <div className="text-5xl mb-2">{isImpostor ? "😈" : "🕵️"}</div>
+              <div className="text-5xl mb-2">{isImpostor ? "😈" : isJester ? "🃏" : "🕵️"}</div>
 
-              <h3 className={`font-display text-3xl font-bold tracking-wide ${isImpostor ? 'text-danger' : 'text-accent'}`}>
-                {isImpostor ? "IMPOSTOR" : "PLAYER"}
+              <h3 className={`font-display text-3xl font-bold tracking-wide ${isImpostor ? 'text-danger' : isJester ? 'text-amber-300' : 'text-accent'}`}>
+                {isImpostor ? "IMPOSTOR" : isJester ? "JESTER" : "PLAYER"}
               </h3>
 
               {isImpostor ? (
@@ -178,6 +179,11 @@ export function RoleCard({
                   <p className="font-display text-2xl font-bold text-white">
                     {word}
                   </p>
+                  {isJester && (
+                    <p className="text-[10px] font-bold uppercase tracking-[0.1em] text-amber-300 mt-2">
+                      Get voted out to win.
+                    </p>
+                  )}
                 </div>
               )}
             </div>
