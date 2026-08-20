@@ -118,7 +118,13 @@ function handleRoundStarted(
 
   const selectedCategories =
     event.selectedCategories.length > 0 ? event.selectedCategories : state.config.selectedCategories
-  const categoryWords = ALL_WORDS.filter((entry) => selectedCategories.includes(entry.category))
+  // Custom/community packs ship their words on the event; merge them into the built-in
+  // pool so a synthetic category (e.g. `custom:<packId>`) can be drawn like any other.
+  const sourceWords =
+    event.extraWords && event.extraWords.length > 0
+      ? [...ALL_WORDS, ...event.extraWords]
+      : ALL_WORDS
+  const categoryWords = sourceWords.filter((entry) => selectedCategories.includes(entry.category))
 
   if (categoryWords.length === 0) {
     throw new Error('No words available for the selected categories')

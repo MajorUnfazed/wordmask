@@ -1,9 +1,11 @@
+import { useEffect, useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
 import { GlowButton } from '../components/ui/GlowButton'
 import { CategoryCard } from '../components/game/CategoryCard'
 import { RECOMMENDED_CATEGORIES, wordCountByEngineCategory } from '../lib/categoryUI'
+import { collectExtraWordsForCategories, customCategoryToken, loadCustomPacks } from '../lib/customPacks'
 
 function shuffle<T>(items: T[]): T[] {
   const copy = [...items]
@@ -18,7 +20,22 @@ function shuffle<T>(items: T[]): T[] {
 
 export default function CategorySelectScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
+  const pendingPlayPackId = useUIStore((s) => s.pendingPlayPackId)
+  const setPendingPlayPackId = useUIStore((s) => s.setPendingPlayPackId)
   const { selectedCategories, setSelectedCategories, startRound } = useOfflineGame()
+
+  // Custom packs live in localStorage and don't change while this screen is mounted.
+  const customPacks = useMemo(() => loadCustomPacks(), [])
+
+  // Arriving from "Play this pack" in the browser: preselect just that pack, then clear
+  // the handoff so a later manual visit starts from a clean slate.
+  useEffect(() => {
+    if (!pendingPlayPackId) return
+    if (customPacks.some((pack) => pack.id === pendingPlayPackId)) {
+      setSelectedCategories([customCategoryToken(pendingPlayPackId)])
+    }
+    setPendingPlayPackId(null)
+  }, [pendingPlayPackId, customPacks, setSelectedCategories, setPendingPlayPackId])
 
   function isSelected(engineCategory: string) {
     return selectedCategories.includes(engineCategory)
@@ -49,7 +66,10 @@ export default function CategorySelectScreen() {
 
   function handleStartRound() {
     if (selectedCategories.length === 0) return
-    startRound(selectedCategories)
+    // Custom-pack tokens (`custom:<id>`) carry no built-in words; ship their words as
+    // extraWords so the engine can draw from them for this round.
+    const extraWords = collectExtraWordsForCategories(selectedCategories)
+    startRound(selectedCategories, extraWords)
     setScreen('round-transition')
   }
 
@@ -93,6 +113,33 @@ export default function CategorySelectScreen() {
           )
         })}
       </div>
+
+      {customPacks.length > 0 && (
+        <div className="flex w-full max-w-5xl flex-col gap-4">
+          <p
+            className="text-xs font-bold uppercase tracking-[0.36em]"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
+            Your Packs
+          </p>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-[repeat(auto-fit,minmax(150px,1fr))] sm:gap-4">
+            {customPacks.map((pack, index) => {
+              const engineCategory = customCategoryToken(pack.id)
+              return (
+                <CategoryCard
+                  key={pack.id}
+                  emoji="📦"
+                  name={pack.title}
+                  wordCount={pack.wordCount}
+                  selected={isSelected(engineCategory)}
+                  index={index}
+                  onClick={() => toggleCategory(engineCategory)}
+                />
+              )
+            })}
+          </div>
+        </div>
+      )}
 
       <div className="flex w-full max-w-md flex-col items-center gap-4 pb-8 pt-4">
         <div className="text-center text-sm font-medium tracking-wide text-white/50">

@@ -20,10 +20,10 @@ WordMask is a social deduction party word game with a shared TypeScript game eng
 - optional in-lobby voice chat via LiveKit
 - anonymous profiles and player statistics
 
-**Community packs (work in progress)**
+**Community & custom packs**
 - Pack Creator with guided entry and JSON import/export
 - packs are saved locally and can be submitted for community review
-- note: custom packs are not yet playable inside your own games — that wiring is still to come
+- play your own packs right away — pick them under "Your Packs" when choosing categories, in offline games or as the host of an online lobby
 
 ## Tech Stack
 

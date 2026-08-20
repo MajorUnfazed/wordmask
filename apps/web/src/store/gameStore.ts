@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { GameEngine, createInitialState } from '@impostor/core'
-import type { GameState, GameConfig, Player, RoundResult } from '@impostor/core'
+import type { GameState, GameConfig, Player, RoundResult, WordEntry } from '@impostor/core'
 import { useStatsStore } from './statsStore'
 import { outcomeFromStandardRound, outcomeFromPassThePhone } from '../lib/stats'
 
@@ -34,7 +34,7 @@ interface GameStore {
   setSelectedCategories: (categoryIds: string[]) => void
   
   // Round flow actions
-  startRound: (selectedCategories: string[]) => void
+  startRound: (selectedCategories: string[], extraWords?: WordEntry[]) => void
   advanceToNextPlayer: () => void
   completeRoleReveal: () => void
   beginDiscussion: () => void
@@ -42,6 +42,13 @@ interface GameStore {
   castVote: (voterId: string, targetId: string) => void
   advanceToNextVoter: () => boolean
   finishVoting: () => RoundResult | null
+  /**
+   * Skip the round-robin and resolve the round immediately with a unanimous group
+   * accusation: every eligible player's vote is set to `targetId`, then the round
+   * resolves exactly like finishVoting(). For the common table behaviour where the
+   * group already agrees and just points at one suspect instead of voting one by one.
+   */
+  skipVoteGroupAccusation: (targetId: string) => RoundResult | null
   answerPassThePhone: (impostorCaught: boolean) => void
   nextRound: () => void
   resetGame: () => void
@@ -83,9 +90,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }))
   },
 
-  startRound(selectedCategories) {
+  startRound(selectedCategories, extraWords) {
     const { engine } = get()
-    engine.startRound(selectedCategories)
+    engine.startRound(selectedCategories, extraWords)
     set({
       offlineState: {
         ...get().offlineState,
@@ -188,6 +195,25 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
 
     return result
+  },
+
+  skipVoteGroupAccusation(targetId) {
+    const { engine } = get()
+    const round = engine.getState().currentRound
+    if (!round) return null
+
+    // Everyone eligible points at the suspect at once. This overwrites any partial
+    // round-robin votes already recorded — the table has agreed out loud, which is the
+    // entire point of skipping the one-by-one flow. The accused casts no vote, leaving
+    // them a clean plurality. Phase is VOTING here (we arrive from beginVoting()).
+    for (const player of round.players) {
+      if (player.id === targetId || player.isSpectator || player.isEliminated) continue
+      engine.castVote(player.id, targetId)
+    }
+
+    // Reuse the standard resolution path: scoring, jester handling, the FINAL_IMPOSTOR_GUESS
+    // stall auto-resolve, and stats recording all live in finishVoting().
+    return get().finishVoting()
   },
 
   answerPassThePhone(impostorCaught: boolean) {

@@ -30,11 +30,18 @@ export type AppScreen =
 interface UIStore {
   screen: AppScreen
   setScreen: (screen: AppScreen) => void
-  
+
   // For resume capability
   savedScreen: AppScreen | null
   setSavedScreen: (screen: AppScreen | null) => void
   restoreSavedScreen: () => void
+
+  /**
+   * A custom pack id the user chose to "Play" from the pack browser. Consumed by the
+   * category screen once the offline game is set up, then cleared. Not persisted.
+   */
+  pendingPlayPackId: string | null
+  setPendingPlayPackId: (packId: string | null) => void
 
   tension: number
   setTension: (tension: number) => void
@@ -62,6 +69,9 @@ export const useUIStore = create<UIStore>()(
           set({ screen: savedScreen })
         }
       },
+
+      pendingPlayPackId: null,
+      setPendingPlayPackId: (packId) => set({ pendingPlayPackId: packId }),
 
       tension: 0,
       setTension: (tension) => set({ tension })

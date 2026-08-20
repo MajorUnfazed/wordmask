@@ -51,4 +51,24 @@ describe('v2 game rules', () => {
     expect(result.valid).toBe(false)
     expect(result.errors.some((error) => error.includes('duplicates'))).toBe(true)
   })
+
+  it('draws round words from a custom pack passed as extraWords', () => {
+    const engine = new GameEngine()
+    engine.setupGame({ playerCount: 4, impostorCount: 1, selectedCategories: [], discussionDuration: 30, maxRounds: 1 }, players)
+    const extraWords = [
+      { id: 'custom:p1:0', word: 'Zizzlewump', category: 'custom:p1', hints: ['made up'] },
+      { id: 'custom:p1:1', word: 'Florbnax', category: 'custom:p1', hints: ['also made up'] },
+    ]
+    engine.startRound(['custom:p1'], extraWords)
+    const round = engine.getState().currentRound!
+    expect(['Zizzlewump', 'Florbnax']).toContain(round.word)
+    expect(round.category).toBe('custom:p1')
+  })
+
+  it('throws when a selected custom category has no matching words', () => {
+    const engine = new GameEngine()
+    engine.setupGame({ playerCount: 4, impostorCount: 1, selectedCategories: [], discussionDuration: 30, maxRounds: 1 }, players)
+    // Selecting a custom token with no extraWords supplied leaves the pool empty.
+    expect(() => engine.startRound(['custom:missing'])).toThrow('No words available')
+  })
 })

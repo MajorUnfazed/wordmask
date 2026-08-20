@@ -1,5 +1,6 @@
 import { ALL_WORDS, pickRandom } from '@impostor/core'
 import { RECOMMENDED_CATEGORIES } from './categoryUI'
+import { collectExtraWordsForCategories, isCustomCategory } from './customPacks'
 
 export const ONLINE_PACK_ID = 'everyday'
 export const ONLINE_DISCUSSION_DURATION = 60
@@ -494,19 +495,32 @@ export function buildOnlineRoundWordPool(categories: string[]): {
     .map((category) => category.trim())
     .filter(Boolean)
 
-  const categoryWords = ALL_WORDS.filter((entry) =>
+  // Built-in categories draw from the shipped registry; custom/community packs
+  // (`custom:<id>` tokens) ship their own words from localStorage. The host merges both
+  // into the candidate pool the server picks from — so the host never learns the word.
+  const builtInWords = ALL_WORDS.filter((entry) =>
     normalizedCategories.includes(entry.category),
   )
-  const fallbackWords = ALL_WORDS.filter((entry) => entry.category === ONLINE_DEFAULT_CATEGORY)
-  const selectedPool = categoryWords.length > 0 ? categoryWords : fallbackWords
+  const customWords = collectExtraWordsForCategories(normalizedCategories)
+  const combined = [...builtInWords, ...customWords]
 
-  // The server picks the actual word from this candidate pool, so the host never learns which
-  // word was chosen. One hint per word is pre-selected here (every hint is already public).
+  const fallbackWords = ALL_WORDS.filter((entry) => entry.category === ONLINE_DEFAULT_CATEGORY)
+  const selectedPool = combined.length > 0 ? combined : fallbackWords
+
+  // One hint per word is pre-selected here (every hint is already public).
   const pool = selectedPool.map((entry) => ({
     word: entry.word,
     hint: pickRandom([...entry.hints]),
     category: entry.category,
   }))
 
-  return { pool, packId: ONLINE_PACK_ID }
+  // Attribute a single-custom-pack round to that pack; mixed/built-in rounds keep the
+  // default pack id. `rounds.pack_id` is a free-form text column, so a token is safe.
+  const customTokens = normalizedCategories.filter(isCustomCategory)
+  const packId =
+    normalizedCategories.length === 1 && customTokens.length === 1
+      ? customTokens[0]!
+      : ONLINE_PACK_ID
+
+  return { pool, packId }
 }

@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { LobbyCode } from '../components/lobby/LobbyCode'
 import { PlayerList } from '../components/lobby/PlayerList'
@@ -5,6 +6,7 @@ import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { VoiceChatPanel } from '../components/lobby/VoiceChatPanel'
 import { GlowButton } from '../components/ui/GlowButton'
 import { getDisplayCategoryName } from '../lib/categoryUI'
+import { customCategoryToken, loadCustomPacks } from '../lib/customPacks'
 import { useLobby } from '../hooks/useLobby'
 import { useUIStore } from '../store/uiStore'
 
@@ -35,6 +37,9 @@ export default function LobbyScreen() {
   const canRepairRoom = isHost && players.some(
     (player) => player.presenceStatus === 'away' || player.presenceStatus === 'reconnecting',
   )
+
+  // Custom packs saved on this device — offered to the host alongside built-in categories.
+  const customPacks = useMemo(() => loadCustomPacks(), [])
 
   function toggleCategory(category: string) {
     const nextCategories = selectedCategories.includes(category)
@@ -174,6 +179,38 @@ export default function LobbyScreen() {
                 </button>
               )
             })}
+          </div>
+        )}
+
+        {isHost && status === 'waiting' && customPacks.length > 0 && (
+          <div className="mt-5">
+            <p className="text-xs uppercase tracking-[0.2em] text-white/40">Your Packs</p>
+            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-3">
+              {customPacks.map((pack) => {
+                const engineCategory = customCategoryToken(pack.id)
+                const isSelected = selectedCategories.includes(engineCategory)
+
+                return (
+                  <button
+                    key={pack.id}
+                    type="button"
+                    onClick={() => toggleCategory(engineCategory)}
+                    className="rounded-2xl border px-3 py-3 text-left transition"
+                    style={{
+                      borderColor: isSelected ? 'rgba(124,58,237,0.7)' : 'rgba(255,255,255,0.08)',
+                      background: isSelected ? 'rgba(124,58,237,0.18)' : 'rgba(255,255,255,0.03)',
+                      boxShadow: isSelected ? '0 0 0 1px rgba(124,58,237,0.35)' : 'none',
+                    }}
+                  >
+                    <div className="text-lg">📦</div>
+                    <div className="mt-2 truncate text-sm font-semibold text-white" title={pack.title}>
+                      {pack.title}
+                    </div>
+                    <div className="mt-0.5 text-[11px] text-white/45">{pack.wordCount} words</div>
+                  </button>
+                )
+              })}
+            </div>
           </div>
         )}
       </div>

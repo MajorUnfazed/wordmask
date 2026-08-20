@@ -23,6 +23,8 @@ export default function VotingScreen() {
     castVote,
     advanceToNextVoter,
     finishVoting,
+    skipVoteGroupAccusation,
+    hasVoted,
   } = useOfflineGame()
   const [selectedTargetId, setSelectedTargetId] = useState<string | null>(null)
   const [confirmedTargetId, setConfirmedTargetId] = useState<string | null>(null)
@@ -31,7 +33,12 @@ export default function VotingScreen() {
 
   const players = currentRound?.players ?? []
   const totalVotes = players.length
+  const votedCount = players.filter((player: { id: string }) => hasVoted(player.id)).length
   const currentPlayerName = formatPlayerName(currentVoter?.name ?? '')
+  const selectedTarget = players.find(
+    (player: { id: string; name: string }) => player.id === selectedTargetId,
+  )
+  const selectedTargetName = formatPlayerName(selectedTarget?.name ?? '')
 
   useEffect(() => {
     setSelectedTargetId(null)
@@ -64,6 +71,23 @@ export default function VotingScreen() {
         finishVoting()
         setScreen('results')
       }
+    }, VOTE_CONFIRM_MS)
+  }
+
+  // Skip the one-by-one round-robin: the whole table has agreed on a suspect, so
+  // record a group accusation against the current selection and jump to results.
+  function handleSkipVote() {
+    if (!selectedTargetId || isTransitioning) {
+      return
+    }
+
+    setConfirmedTargetId(selectedTargetId)
+    setIsTransitioning(true)
+    haptics.heavy()
+
+    transitionTimeoutRef.current = setTimeout(() => {
+      skipVoteGroupAccusation(selectedTargetId)
+      setScreen('results')
     }, VOTE_CONFIRM_MS)
   }
 
@@ -106,6 +130,49 @@ export default function VotingScreen() {
             Pass the phone after confirming your vote.
           </p>
         </motion.div>
+
+        <div className="flex w-full max-w-xl flex-col items-center gap-2">
+          <div
+            className="flex w-full items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.2em]"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
+            <span className="h-px flex-1 bg-white/10" />
+            {votedCount} of {totalVotes} locked in
+            <span className="h-px flex-1 bg-white/10" />
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-1.5">
+            {players.map((player: { id: string; name: string }) => {
+              const voted = hasVoted(player.id)
+              const isCurrent = player.id === currentVoter.id
+              return (
+                <span
+                  key={player.id}
+                  className="rounded-full border px-2.5 py-1 text-xs font-medium transition"
+                  style={{
+                    borderColor: voted
+                      ? 'rgba(34,197,94,0.4)'
+                      : isCurrent
+                        ? 'var(--color-accent)'
+                        : 'rgba(255,255,255,0.12)',
+                    background: voted
+                      ? 'rgba(34,197,94,0.12)'
+                      : isCurrent
+                        ? 'rgba(168,85,247,0.14)'
+                        : 'rgba(255,255,255,0.03)',
+                    color: voted
+                      ? 'var(--color-success)'
+                      : isCurrent
+                        ? 'var(--color-accent-light)'
+                        : 'var(--color-text-muted)',
+                  }}
+                >
+                  {voted ? '✓ ' : isCurrent ? '• ' : ''}
+                  {formatPlayerName(player.name)}
+                </span>
+              )
+            })}
+          </div>
+        </div>
 
         <div className="flex w-full flex-wrap items-center justify-center gap-5">
           {players.map((target: { id: string; name: string }, index: number) => {
@@ -195,11 +262,37 @@ export default function VotingScreen() {
           })}
         </div>
 
-        <div className="flex w-full justify-center">
+        <div className="flex w-full flex-col items-center gap-4">
           <div className="w-full max-w-sm">
             <GlowButton onClick={handleConfirmVote} disabled={!selectedTargetId || isTransitioning}>
               {isTransitioning ? 'Confirming...' : 'Confirm Vote'}
             </GlowButton>
+          </div>
+
+          <div className="flex w-full max-w-sm flex-col items-center gap-2">
+            <div className="flex w-full items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/25">
+              <span className="h-px flex-1 bg-white/10" />
+              or
+              <span className="h-px flex-1 bg-white/10" />
+            </div>
+            <button
+              type="button"
+              onClick={handleSkipVote}
+              disabled={!selectedTargetId || isTransitioning}
+              className="w-full rounded-2xl border px-4 py-3 text-sm font-semibold transition hover:bg-white/[0.06] disabled:cursor-not-allowed disabled:opacity-40"
+              style={{
+                borderColor: 'rgba(255,255,255,0.14)',
+                background: 'rgba(255,255,255,0.03)',
+                color: 'var(--color-text-secondary)',
+              }}
+            >
+              {selectedTargetId
+                ? `⏭ Skip votes — accuse ${selectedTargetName}`
+                : '⏭ Skip votes — tap a suspect first'}
+            </button>
+            <p className="text-center text-xs text-white/35">
+              Everyone already pointing at the same person? Accuse them together and skip the round-robin.
+            </p>
           </div>
         </div>
       </div>

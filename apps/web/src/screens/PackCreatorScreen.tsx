@@ -234,8 +234,9 @@ export default function PackCreatorScreen() {
         </motion.div>
         <h2 className="font-display text-4xl font-bold">Pack Saved!</h2>
         <p className="max-w-sm text-white/60">
-          Saved to this device{isSupabaseConfigured ? ' and submitted for community review' : ''}. Heads
-          up: custom packs can’t be used in your games yet — that feature is coming soon.
+          Saved to this device{isSupabaseConfigured ? ' and submitted for community review' : ''}. You
+          can play it right away — pick it under “Your Packs” when choosing categories, in offline
+          games or as the host of an online lobby.
         </p>
         <GlowButton onClick={() => setScreen('pack-browser')}>Browse Packs</GlowButton>
       </div>

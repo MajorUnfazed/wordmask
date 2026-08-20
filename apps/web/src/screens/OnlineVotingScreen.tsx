@@ -5,6 +5,7 @@ import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { PlayerAvatar } from '../components/game/PlayerAvatar'
 import { GlowButton } from '../components/ui/GlowButton'
 import { useLobby } from '../hooks/useLobby'
+import { useOnlineRoundStore } from '../store/onlineRoundStore'
 import { haptics } from '../lib/haptics'
 
 export default function OnlineVotingScreen() {
@@ -22,10 +23,23 @@ export default function OnlineVotingScreen() {
   const [selectedTargetId, setSelectedTargetId] = useState<string | null>(
     submittedVoteTargetId,
   )
+  // Client-side abstain: the server has no "no vote" target, so a skip is tracked
+  // locally, scoped to this round id (auto-expires when the round changes). An
+  // abstaining player simply casts nothing — finish_round tolerates partial votes.
+  const voteSkippedForRoundId = useOnlineRoundStore((s) => s.voteSkippedForRoundId)
+  const setVoteSkippedForRoundId = useOnlineRoundStore((s) => s.setVoteSkippedForRoundId)
+  const isSkipped = round != null && voteSkippedForRoundId === round.id
+  const hasSubmittedVote = submittedVoteTargetId != null
   const availableTargets = useMemo(
     () => players.filter((player) => player.id !== localPlayerId),
     [localPlayerId, players],
   )
+
+  function selectTarget(targetId: string) {
+    // Picking someone always cancels a pending skip — you can't accuse and abstain.
+    if (isSkipped) setVoteSkippedForRoundId(null)
+    setSelectedTargetId(targetId)
+  }
 
   return (
     <motion.div
@@ -67,19 +81,19 @@ export default function OnlineVotingScreen() {
 
         <div className="flex w-full flex-wrap items-center justify-center gap-5">
           {availableTargets.map((target, index) => {
-            const isSelected = selectedTargetId === target.id
+            const isSelected = !isSkipped && selectedTargetId === target.id
 
             return (
               <motion.div
                 key={target.id}
                 initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0, scale: isSelected ? 1.05 : 1 }}
+                animate={{ opacity: isSkipped ? 0.4 : 1, x: 0, scale: isSelected ? 1.05 : 1 }}
                 transition={{ delay: index * 0.04, duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
                 className="flex w-[180px] justify-center"
               >
                 <button
                   type="button"
-                  onClick={() => setSelectedTargetId(target.id)}
+                  onClick={() => selectTarget(target.id)}
                   className="relative flex w-full justify-center rounded-3xl border p-5 transition-all"
                   style={{
                     background: isSelected ? 'rgba(124,58,237,0.2)' : 'rgba(255,255,255,0.04)',
@@ -107,22 +121,54 @@ export default function OnlineVotingScreen() {
         </div>
 
         <div className="flex w-full max-w-2xl flex-col gap-3">
-          <GlowButton
-            onClick={() => {
-              if (selectedTargetId) {
-                haptics.medium()
-                void submitVote(selectedTargetId)
-              }
-            }}
-            disabled={!selectedTargetId}
-          >
-            {submittedVoteTargetId ? 'Update Vote' : 'Submit Vote'}
-          </GlowButton>
+          {isSkipped ? (
+            <div className="flex flex-col gap-3 rounded-3xl border border-white/12 bg-white/[0.04] p-5 text-center">
+              <p className="text-2xl">🙈</p>
+              <p className="font-semibold text-white">You're sitting this vote out</p>
+              <p className="text-sm text-white/50">
+                You won't accuse anyone this round. Change your mind any time before the host reveals.
+              </p>
+              <GlowButton variant="secondary" onClick={() => setVoteSkippedForRoundId(null)}>
+                Actually, let me vote
+              </GlowButton>
+            </div>
+          ) : (
+            <>
+              <GlowButton
+                onClick={() => {
+                  if (selectedTargetId) {
+                    haptics.medium()
+                    void submitVote(selectedTargetId)
+                  }
+                }}
+                disabled={!selectedTargetId}
+              >
+                {hasSubmittedVote ? 'Update Vote' : 'Submit Vote'}
+              </GlowButton>
 
-          {submittedVoteTargetId && (
-            <p className="text-sm text-white/50">
-              Your vote is locked locally and can still be changed before the host reveals results.
-            </p>
+              {hasSubmittedVote ? (
+                <p className="text-sm text-white/50">
+                  Your vote is locked locally and can still be changed before the host reveals results.
+                </p>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => {
+                    haptics.light()
+                    setSelectedTargetId(null)
+                    if (round) setVoteSkippedForRoundId(round.id)
+                  }}
+                  className="rounded-2xl border px-4 py-3 text-sm font-semibold transition hover:bg-white/[0.06]"
+                  style={{
+                    borderColor: 'rgba(255,255,255,0.14)',
+                    background: 'rgba(255,255,255,0.03)',
+                    color: 'var(--color-text-secondary)',
+                  }}
+                >
+                  🙈 Skip my vote — I'd rather not accuse anyone
+                </button>
+              )}
+            </>
           )}
 
           {isHost ? (

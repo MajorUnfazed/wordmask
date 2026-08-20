@@ -17,7 +17,15 @@ interface CommunityPack {
   isCustom?: boolean
 }
 
-function PackCard({ pack, onLike }: { pack: CommunityPack; onLike: (id: string) => void }) {
+function PackCard({
+  pack,
+  onLike,
+  onPlay,
+}: {
+  pack: CommunityPack
+  onLike: (id: string) => void
+  onPlay: (id: string) => void
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -59,12 +67,22 @@ function PackCard({ pack, onLike }: { pack: CommunityPack; onLike: (id: string) 
           <div className="flex gap-4 text-sm text-white/40">
             <span>❤️ {pack.likes}</span>
           </div>
-          <button
-            onClick={() => onLike(pack.id)}
-            className="rounded-xl border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition hover:border-accent hover:text-accent"
-          >
-            Like
-          </button>
+          <div className="flex items-center gap-2">
+            {pack.isCustom && (
+              <button
+                onClick={() => onPlay(pack.id)}
+                className="rounded-xl bg-accent px-4 py-2 text-sm font-semibold text-white shadow-lg transition hover:bg-accent/80"
+              >
+                ▶ Play
+              </button>
+            )}
+            <button
+              onClick={() => onLike(pack.id)}
+              className="rounded-xl border border-white/10 px-4 py-2 text-sm font-medium text-white/70 transition hover:border-accent hover:text-accent"
+            >
+              Like
+            </button>
+          </div>
         </div>
       </GlassCard>
     </motion.div>
@@ -73,6 +91,7 @@ function PackCard({ pack, onLike }: { pack: CommunityPack; onLike: (id: string) 
 
 export default function PackBrowserScreen() {
   const setScreen = useUIStore((s) => s.setScreen)
+  const setPendingPlayPackId = useUIStore((s) => s.setPendingPlayPackId)
   const [packs, setPacks] = useState<CommunityPack[]>([])
   const [loading, setLoading] = useState(true)
   const [search, setSearch] = useState('')
@@ -144,6 +163,12 @@ export default function PackBrowserScreen() {
     setPacks((prev) => prev.map((p) => (p.id === packId ? { ...p, likes: p.likes + 1 } : p)))
   }
 
+  // "Play" a saved pack: stash it for the category screen to preselect, then run offline setup.
+  function handlePlay(packId: string) {
+    setPendingPlayPackId(packId)
+    setScreen('setup')
+  }
+
   const filteredPacks = packs.filter(
     (pack) =>
       search.trim() === '' ||
@@ -182,7 +207,7 @@ export default function PackBrowserScreen() {
 
       <div className="flex w-full max-w-2xl flex-col gap-4">
         {filteredPacks.map((pack) => (
-          <PackCard key={pack.id} pack={pack} onLike={handleLike} />
+          <PackCard key={pack.id} pack={pack} onLike={handleLike} onPlay={handlePlay} />
         ))}
         {!loading && filteredPacks.length === 0 && (
           <div className="rounded-3xl border border-dashed border-white/10 p-12 text-center text-white/40">

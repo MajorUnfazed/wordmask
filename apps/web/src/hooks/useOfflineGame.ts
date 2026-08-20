@@ -72,6 +72,7 @@ export function useOfflineGame() {
     castVote: store.castVote,
     advanceToNextVoter: store.advanceToNextVoter,
     finishVoting: store.finishVoting,
+    skipVoteGroupAccusation: store.skipVoteGroupAccusation,
     answerPassThePhone: store.answerPassThePhone,
     nextRound: store.nextRound,
     resetGame: store.resetGame,

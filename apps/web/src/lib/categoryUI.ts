@@ -1,4 +1,5 @@
 import { ALL_WORDS } from '@impostor/core'
+import { customPackTitleById, isCustomCategory } from './customPacks'
 
 export type RecommendedCategory = {
   id: string
@@ -42,5 +43,7 @@ for (const entry of ALL_WORDS) {
 
 export function getDisplayCategoryName(engineCategory: string | undefined): string {
   if (!engineCategory) return 'Unknown'
+  // Custom/community packs use `custom:<id>` tokens — show the pack's title instead of the id.
+  if (isCustomCategory(engineCategory)) return customPackTitleById(engineCategory) ?? 'Custom Pack'
   return categoryNameByEngineCategory.get(engineCategory) ?? engineCategory
 }

@@ -10,6 +10,7 @@
  *   IDLE → SETUP → ROLE_REVEAL → DISCUSSION → VOTING → RESULTS → (repeat or IDLE)
  */
 import type { GameState, GameConfig, Player, RoundResult } from '../types/game'
+import type { WordEntry } from '../types/packs'
 import type { GameEvent } from './gameEvents'
 import { gameReducer } from './gameReducer'
 import { calculateScoresDetailed } from '../systems/ScoreCalculator'
@@ -49,8 +50,12 @@ export class GameEngine {
     this.dispatch({ type: 'PLAYER_LEFT', playerId })
   }
 
-  startRound(selectedCategories: string[]): void {
-    this.dispatch({ type: 'ROUND_STARTED', selectedCategories })
+  startRound(selectedCategories: string[], extraWords?: WordEntry[]): void {
+    this.dispatch(
+      extraWords && extraWords.length > 0
+        ? { type: 'ROUND_STARTED', selectedCategories, extraWords }
+        : { type: 'ROUND_STARTED', selectedCategories },
+    )
   }
 
   completeRoleReveal(): void {
