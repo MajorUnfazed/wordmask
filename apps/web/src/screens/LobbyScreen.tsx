@@ -5,10 +5,12 @@ import { PlayerList } from '../components/lobby/PlayerList'
 import { RoomChatPanel } from '../components/lobby/RoomChatPanel'
 import { VoiceChatPanel } from '../components/lobby/VoiceChatPanel'
 import { GlowButton } from '../components/ui/GlowButton'
+import { DifficultySelector } from '../components/ui/DifficultySelector'
 import { getDisplayCategoryName } from '../lib/categoryUI'
 import { customCategoryToken, loadCustomPacks } from '../lib/customPacks'
 import { useLobby } from '../hooks/useLobby'
 import { useUIStore } from '../store/uiStore'
+import { useSettingsStore } from '../store/settingsStore'
 
 export default function LobbyScreen() {
   const {
@@ -34,6 +36,8 @@ export default function LobbyScreen() {
     disconnectLobby,
   } = useLobby()
   const localPlayer = players.find((player) => player.id === localPlayerId)
+  const difficulty = useSettingsStore((s) => s.difficulty)
+  const setDifficulty = useSettingsStore((s) => s.setDifficulty)
   const canRepairRoom = isHost && players.some(
     (player) => player.presenceStatus === 'away' || player.presenceStatus === 'reconnecting',
   )
@@ -211,6 +215,16 @@ export default function LobbyScreen() {
                 )
               })}
             </div>
+          </div>
+        )}
+
+        {isHost && status === 'waiting' && (
+          <div className="mt-6 border-t border-white/5 pt-5">
+            <p className="text-sm uppercase tracking-[0.2em] text-white/40">Hint Difficulty</p>
+            <p className="mt-1 mb-3 text-sm text-white/55">
+              How much the impostor's clue reveals. Applies to the next round.
+            </p>
+            <DifficultySelector value={difficulty} onChange={setDifficulty} />
           </div>
         )}
       </div>

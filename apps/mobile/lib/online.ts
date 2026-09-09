@@ -1,4 +1,4 @@
-import { ALL_WORDS, pickRandom } from '@impostor/core'
+import { ALL_WORDS, pickRandom, selectHint } from '@impostor/core'
 
 export const ONLINE_SCHEMA_VERSION = 10
 export const ONLINE_DISCUSSION_DURATION = 60
@@ -246,7 +246,7 @@ export function pickMobileOnlineRoundWordForCategories(categories: string[]) {
 
   return {
     word: selected.word,
-    hint: pickRandom([...selected.hints]),
+    hint: selectHint([...selected.hints]),
     packId: selected.category,
   }
 }

@@ -1,4 +1,5 @@
-import { ALL_WORDS, pickRandom } from '@impostor/core'
+import { ALL_WORDS, selectHint } from '@impostor/core'
+import type { Difficulty } from '@impostor/core'
 import { RECOMMENDED_CATEGORIES } from './categoryUI'
 import { collectExtraWordsForCategories, isCustomCategory } from './customPacks'
 
@@ -487,7 +488,10 @@ export function getOnlineCategoryOptions() {
   }))
 }
 
-export function buildOnlineRoundWordPool(categories: string[]): {
+export function buildOnlineRoundWordPool(
+  categories: string[],
+  difficulty: Difficulty = 'BALANCED',
+): {
   pool: Array<{ word: string; hint: string; category: string }>
   packId: string
 } {
@@ -507,10 +511,12 @@ export function buildOnlineRoundWordPool(categories: string[]): {
   const fallbackWords = ALL_WORDS.filter((entry) => entry.category === ONLINE_DEFAULT_CATEGORY)
   const selectedPool = combined.length > 0 ? combined : fallbackWords
 
-  // One hint per word is pre-selected here (every hint is already public).
+  // One hint per word is pre-selected here (every hint is already public). The
+  // chosen difficulty picks which of the word's three curated hints is used;
+  // custom packs (arbitrary hint counts) fall back to a random pick inside selectHint.
   const pool = selectedPool.map((entry) => ({
     word: entry.word,
-    hint: pickRandom([...entry.hints]),
+    hint: selectHint([...entry.hints], difficulty),
     category: entry.category,
   }))
 

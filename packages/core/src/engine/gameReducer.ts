@@ -7,6 +7,7 @@ import type { GameEvent } from './gameEvents'
 import { assignRoles, getImpostorIds, getJesterIds } from '../systems/RoleAssigner'
 import { calculateScoresDetailed } from '../systems/ScoreCalculator'
 import { pickRandom } from '../utils/random'
+import { selectHint } from '../packs/hintSelection'
 import { ALL_WORDS } from '../packs/data/wordRegistry'
 
 export function gameReducer(state: GameState, event: GameEvent): GameState {
@@ -154,7 +155,7 @@ function handleRoundStarted(
   )
   const impostorIds = getImpostorIds(playersWithRoles)
   const jesterIds = getJesterIds(playersWithRoles)
-  const hint = pickRandom(entry.hints)
+  const hint = selectHint(entry.hints, state.config.difficulty)
   usedWordIds.add(entry.id)
 
   const round: Round = {

@@ -11,6 +11,16 @@ export type GamePhase =
 export type PlayerRole = 'CREWMATE' | 'IMPOSTOR' | 'JESTER'
 export type GameMode = 'STANDARD' | 'PASS_THE_PHONE'
 
+/**
+ * Difficulty controls how much the impostor's single hint reveals about the
+ * secret word. Curated packs author exactly three hints per word as an ordered
+ * difficulty triple that maps directly to these tiers:
+ *   CRYPTIC   → hint[0]  (vaguest — hardest for the impostor to blend in)
+ *   BALANCED  → hint[1]  (calibrated default)
+ *   REVEALING → hint[2]  (most helpful — easiest for the impostor)
+ */
+export type Difficulty = 'REVEALING' | 'BALANCED' | 'CRYPTIC'
+
 export interface Player {
   id: string
   name: string
@@ -52,6 +62,8 @@ export interface GameConfig {
   /** Discussion timer in seconds */
   discussionDuration: number
   maxRounds: number
+  /** How revealing the impostor's hint is. Defaults to BALANCED. */
+  difficulty?: Difficulty
 }
 
 export interface GameState {

@@ -25,6 +25,7 @@ import {
 } from '../lib/supabase'
 import { useLobbyStore } from '../store/lobbyStore'
 import { useOnlineRoundStore } from '../store/onlineRoundStore'
+import { useSettingsStore } from '../store/settingsStore'
 import { useUIStore, type AppScreen } from '../store/uiStore'
 
 const onlineGameScreens = new Set<AppScreen>([
@@ -880,7 +881,12 @@ export function useLobby() {
         latestSnapshot?.selectedCategories?.length
           ? latestSnapshot.selectedCategories
           : selectedCategories
-      const wordPool = buildOnlineRoundWordPool(categoriesForRound)
+      // The host resolves each word's hint by difficulty before upload, so the
+      // chosen tier never crosses the wire — the server stays difficulty-agnostic.
+      const wordPool = buildOnlineRoundWordPool(
+        categoriesForRound,
+        useSettingsStore.getState().difficulty,
+      )
       let lastRpcError: unknown = null
 
       for (const rpcName of rpcNames) {

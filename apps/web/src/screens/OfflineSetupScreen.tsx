@@ -2,8 +2,10 @@ import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { GlowButton } from '../components/ui/GlowButton'
 import { GlassCard } from '../components/ui/GlassCard'
+import { DifficultySelector } from '../components/ui/DifficultySelector'
 import { useOfflineGame } from '../hooks/useOfflineGame'
 import { useUIStore } from '../store/uiStore'
+import { useSettingsStore } from '../store/settingsStore'
 import type { GameMode, Player } from '@impostor/core'
 import { PLAYER_COLORS, PLAYER_EMOJIS, getRandomColor, getRandomEmoji } from '../lib/customization'
 
@@ -140,6 +142,8 @@ export default function OfflineSetupScreen() {
   const [discussionDuration, setDiscussionDuration] = useState(60)
   const [gameMode, setGameMode] = useState<GameMode>('STANDARD')
   const [meIndex, setMeIndex] = useState(0)
+  const difficulty = useSettingsStore((s) => s.difficulty)
+  const setDifficulty = useSettingsStore((s) => s.setDifficulty)
 
   function addPlayer() {
     if (playersSetup.length < 10) {
@@ -195,6 +199,7 @@ export default function OfflineSetupScreen() {
         selectedCategories: [],
         discussionDuration,
         maxRounds: 5,
+        difficulty,
       },
       corePlayers,
       localPlayerId,
@@ -286,6 +291,14 @@ export default function OfflineSetupScreen() {
             <option value="PASS_THE_PHONE" className="bg-void text-white font-medium">Pass the Phone</option>
           </select>
         </label>
+
+        <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-1">
+            <span className="text-white/90 font-medium">Hint Difficulty</span>
+            <span className="text-xs text-white/50">How much the impostor's clue reveals.</span>
+          </div>
+          <DifficultySelector value={difficulty} onChange={setDifficulty} />
+        </div>
 
         <label className="flex flex-col gap-4 group">
           <div className="flex items-center justify-between text-base pt-2">

@@ -118,6 +118,7 @@ export function createInitialState(): GameState {
       selectedCategories: [],
       discussionDuration: 60,
       maxRounds: 5,
+      difficulty: 'BALANCED',
     },
     players: [],
     rounds: [],

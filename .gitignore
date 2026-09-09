@@ -44,3 +44,9 @@ coverage/
 
 # Package manager
 package-lock.json
+
+# Agent scratch & logs
+.agents/
+.regen/
+ORIGINAL_REQUEST.md
+PROJECT.md
