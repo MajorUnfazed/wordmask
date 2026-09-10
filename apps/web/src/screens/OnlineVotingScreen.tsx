@@ -30,10 +30,7 @@ export default function OnlineVotingScreen() {
   const setVoteSkippedForRoundId = useOnlineRoundStore((s) => s.setVoteSkippedForRoundId)
   const isSkipped = round != null && voteSkippedForRoundId === round.id
   const hasSubmittedVote = submittedVoteTargetId != null
-  const availableTargets = useMemo(
-    () => players.filter((player) => player.id !== localPlayerId),
-    [localPlayerId, players],
-  )
+  const availableTargets = players
 
   function selectTarget(targetId: string) {
     // Picking someone always cancels a pending skip — you can't accuse and abstain.
@@ -81,6 +78,7 @@ export default function OnlineVotingScreen() {
 
         <div className="flex w-full flex-wrap items-center justify-center gap-5">
           {availableTargets.map((target, index) => {
+            const isSelf = target.id === localPlayerId
             const isSelected = !isSkipped && selectedTargetId === target.id
 
             return (
@@ -96,21 +94,53 @@ export default function OnlineVotingScreen() {
                   onClick={() => selectTarget(target.id)}
                   className="relative flex w-full justify-center rounded-3xl border p-5 transition-all"
                   style={{
-                    background: isSelected ? 'rgba(124,58,237,0.2)' : 'rgba(255,255,255,0.04)',
+                    background: isSelected
+                      ? isSelf
+                        ? 'rgba(239,68,68,0.18)'
+                        : 'rgba(124,58,237,0.2)'
+                      : 'rgba(255,255,255,0.04)',
                     borderColor: isSelected
-                      ? 'var(--color-accent)'
+                      ? isSelf
+                        ? 'rgba(239,68,68,0.8)'
+                        : 'var(--color-accent)'
                       : 'rgba(255,255,255,0.14)',
                     boxShadow: isSelected
-                      ? '0 0 30px var(--color-accent-glow), inset 0 0 0 1px rgba(168,85,247,0.25)'
+                      ? isSelf
+                        ? '0 0 30px rgba(239,68,68,0.35), inset 0 0 0 1px rgba(239,68,68,0.3)'
+                        : '0 0 30px var(--color-accent-glow), inset 0 0 0 1px rgba(168,85,247,0.25)'
                       : 'none',
                   }}
                 >
+                  {isSelected && (
+                    <div
+                      className="absolute right-3 top-3 rounded-full px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]"
+                      style={{
+                        background: isSelf ? 'rgba(239,68,68,0.25)' : 'rgba(168,85,247,0.18)',
+                        border: isSelf ? '1px solid rgba(239,68,68,0.5)' : '1px solid rgba(168,85,247,0.35)',
+                        color: isSelf ? '#fca5a5' : 'var(--color-accent-light)',
+                      }}
+                    >
+                      {isSelf ? 'Self-Vote 🤡' : 'Selected'}
+                    </div>
+                  )}
+
                   <div className="flex flex-col items-center gap-3 text-center">
                     <PlayerAvatar name={target.name} size="lg" />
                     <div className="space-y-1">
-                      <p className="font-semibold text-white">{target.name}</p>
-                      <p className="text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>
-                        {isSelected ? 'Selected' : 'Tap to vote'}
+                      <p className="font-semibold text-white">
+                        {target.name} {isSelf && <span className="text-xs text-white/50">(You)</span>}
+                      </p>
+                      <p
+                        className="text-xs uppercase tracking-[0.2em]"
+                        style={{ color: isSelf && isSelected ? '#fca5a5' : 'var(--color-text-muted)' }}
+                      >
+                        {isSelected
+                          ? isSelf
+                            ? 'Voting yourself 🤡'
+                            : 'Selected'
+                          : isSelf
+                            ? 'Vote yourself'
+                            : 'Tap to vote'}
                       </p>
                     </div>
                   </div>

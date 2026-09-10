@@ -198,24 +198,29 @@ export default function VotingScreen() {
               >
                 <button
                   type="button"
-                  disabled={isSelf || isTransitioning}
+                  disabled={isTransitioning}
                   onClick={() => setSelectedTargetId(target.id)}
                   className="relative flex w-full justify-center rounded-3xl border p-5 transition-all disabled:cursor-not-allowed"
                   style={{
-                    background: isSelected ? 'rgba(124,58,237,0.2)' : 'rgba(255,255,255,0.04)',
+                    background: isSelected
+                      ? isSelf
+                        ? 'rgba(239,68,68,0.18)'
+                        : 'rgba(124,58,237,0.2)'
+                      : 'rgba(255,255,255,0.04)',
                     borderColor: isConfirmed
                       ? 'var(--color-success)'
                       : isSelected
-                        ? 'var(--color-accent)'
-                        : isSelf
-                          ? 'rgba(255,255,255,0.08)'
-                          : 'rgba(255,255,255,0.14)',
+                        ? isSelf
+                          ? 'rgba(239,68,68,0.8)'
+                          : 'var(--color-accent)'
+                        : 'rgba(255,255,255,0.14)',
                     boxShadow: isConfirmed
                       ? '0 0 26px rgba(34,197,94,0.35)'
                       : isSelected
-                        ? '0 0 30px var(--color-accent-glow), inset 0 0 0 1px rgba(168,85,247,0.25)'
+                        ? isSelf
+                          ? '0 0 30px rgba(239,68,68,0.35), inset 0 0 0 1px rgba(239,68,68,0.3)'
+                          : '0 0 30px var(--color-accent-glow), inset 0 0 0 1px rgba(168,85,247,0.25)'
                         : 'none',
-                    opacity: isSelf ? 0.45 : 1,
                   }}
                 >
                   {isConfirmed && (
@@ -238,21 +243,36 @@ export default function VotingScreen() {
                     <div
                       className="absolute right-3 top-3 rounded-full px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.18em]"
                       style={{
-                        background: 'rgba(168,85,247,0.18)',
-                        border: '1px solid rgba(168,85,247,0.35)',
-                        color: 'var(--color-accent-light)',
+                        background: isSelf ? 'rgba(239,68,68,0.25)' : 'rgba(168,85,247,0.18)',
+                        border: isSelf ? '1px solid rgba(239,68,68,0.5)' : '1px solid rgba(168,85,247,0.35)',
+                        color: isSelf ? '#fca5a5' : 'var(--color-accent-light)',
                       }}
                     >
-                      Selected
+                      {isSelf ? 'Self-Vote 🤡' : 'Selected'}
                     </div>
                   )}
 
                   <div className="flex flex-col items-center gap-3 text-center">
                     <PlayerAvatar name={target.name} size="lg" />
                     <div className="space-y-1">
-                      <p className="font-semibold text-white">{target.name}</p>
-                      <p className="text-xs uppercase tracking-[0.2em]" style={{ color: 'var(--color-text-muted)' }}>
-                        {isSelf ? 'You' : isConfirmed ? 'Locked in' : isSelected ? 'Ready' : 'Tap to select'}
+                      <p className="font-semibold text-white">
+                        {target.name} {isSelf && <span className="text-xs text-white/50">(You)</span>}
+                      </p>
+                      <p
+                        className="text-xs uppercase tracking-[0.2em]"
+                        style={{ color: isSelf && isSelected ? '#fca5a5' : 'var(--color-text-muted)' }}
+                      >
+                        {isConfirmed
+                          ? isSelf
+                            ? 'Voted yourself! 💀'
+                            : 'Locked in'
+                          : isSelected
+                            ? isSelf
+                              ? 'Voting yourself 🤡'
+                              : 'Ready'
+                            : isSelf
+                              ? 'Vote yourself (sus?)'
+                              : 'Tap to select'}
                       </p>
                     </div>
                   </div>
@@ -265,7 +285,11 @@ export default function VotingScreen() {
         <div className="flex w-full flex-col items-center gap-4">
           <div className="w-full max-w-sm">
             <GlowButton onClick={handleConfirmVote} disabled={!selectedTargetId || isTransitioning}>
-              {isTransitioning ? 'Confirming...' : 'Confirm Vote'}
+              {isTransitioning
+                ? 'Confirming...'
+                : selectedTargetId === currentVoter.id
+                  ? 'Confirm Self-Vote 🤡'
+                  : 'Confirm Vote'}
             </GlowButton>
           </div>
 
@@ -287,7 +311,9 @@ export default function VotingScreen() {
               }}
             >
               {selectedTargetId
-                ? `⏭ Skip votes — accuse ${selectedTargetName}`
+                ? selectedTargetId === currentVoter.id
+                  ? '⏭ Skip votes — accuse yourself?! 🤡'
+                  : `⏭ Skip votes — accuse ${selectedTargetName}`
                 : '⏭ Skip votes — tap a suspect first'}
             </button>
             <p className="text-center text-xs text-white/35">

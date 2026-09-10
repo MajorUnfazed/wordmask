@@ -20,10 +20,7 @@ export default function VotingScreen() {
   const [selectedTargetId, setSelectedTargetId] = useState<string | null>(
     submittedVoteTargetId,
   )
-  const availableTargets = useMemo(
-    () => players.filter((player) => player.id !== localPlayerId),
-    [localPlayerId, players],
-  )
+  const availableTargets = players
 
   if (!round) {
     return (
@@ -56,6 +53,7 @@ export default function VotingScreen() {
 
       <View style={styles.voteList}>
         {availableTargets.map((player) => {
+          const isSelf = player.id === localPlayerId
           const isSelected = selectedTargetId === player.id
 
           return (
@@ -68,8 +66,18 @@ export default function VotingScreen() {
                 <Text style={styles.voteBadgeText}>{player.name[0]?.toUpperCase()}</Text>
               </View>
               <View style={styles.voteCopy}>
-                <Text style={styles.voteName}>{player.name}</Text>
-                <Text style={styles.voteHint}>{isSelected ? 'Selected' : 'Tap to vote'}</Text>
+                <Text style={styles.voteName}>
+                  {player.name} {isSelf ? '(You)' : ''}
+                </Text>
+                <Text style={styles.voteHint}>
+                  {isSelected
+                    ? isSelf
+                      ? 'Self-vote! 🤡'
+                      : 'Selected'
+                    : isSelf
+                      ? 'Vote yourself'
+                      : 'Tap to vote'}
+                </Text>
               </View>
             </Pressable>
           )

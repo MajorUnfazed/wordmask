@@ -71,4 +71,25 @@ describe('v2 game rules', () => {
     // Selecting a custom token with no extraWords supplied leaves the pool empty.
     expect(() => engine.startRound(['custom:missing'])).toThrow('No words available')
   })
+
+  it('allows players to cast a vote for themselves (self-voting)', () => {
+    const engine = new GameEngine()
+    engine.setupGame({ playerCount: 4, impostorCount: 1, selectedCategories: ['Everyday'], discussionDuration: 30, maxRounds: 1 }, players)
+    engine.startRound(['Everyday'])
+    engine.completeRoleReveal()
+    engine.startVoting()
+
+    // Player 'a' votes for player 'a' (self-vote)
+    engine.castVote('a', 'a')
+    expect(engine.getState().currentRound?.votes['a']).toBe('a')
+
+    // Other players vote
+    engine.castVote('b', 'a')
+    engine.castVote('c', 'a')
+    engine.castVote('d', 'b')
+
+    const result = engine.resolveRound()
+    expect(result?.voteResult.eliminatedPlayerId).toBe('a')
+  })
 })
+

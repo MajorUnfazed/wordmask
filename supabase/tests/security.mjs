@@ -405,8 +405,10 @@ try {
   await resetRounds()
   const vRound = await startRoundSingleWord()
   await su.query(`update rounds set phase='voting' where id=$1`, [vRound])
-  await checkThrows('Vote guard: self-vote rejected', () => rpcAs(U.alice, `select submit_vote($1,$2)`, [vRound, P.alice]), /yourself/i)
+  const selfVoteRes = await rpcAs(U.alice, `select submit_vote($1,$2)`, [vRound, P.alice])
+  check('Vote guard: self-vote accepted', !!selfVoteRes, JSON.stringify(selfVoteRes))
   await checkThrows('Vote guard: non-member cannot vote', () => rpcAs(U.outsider, `select submit_vote($1,$2)`, [vRound, P.alice]), /member/i)
+
 
   // ============================================================================================
   // Adversarial: community packs, reports, chat.

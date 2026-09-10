@@ -23,6 +23,10 @@ export default function ResultsScreen() {
     .map((p: { name: string }) => p.name)
     .join(', ')
 
+  const selfVoterNames = round?.players
+    ?.filter((p: { id: string }) => round.votes && round.votes[p.id] === p.id)
+    ?.map((p: { name: string }) => p.name) ?? []
+
   const resultHapticFired = useRef(false)
 
   // Buzz once when the outcome lands: celebratory pulse on a catch, heavy on an
@@ -59,6 +63,23 @@ export default function ResultsScreen() {
               : `${impostorNames} fooled everyone`}
         </p>
       </motion.div>
+
+      {selfVoterNames.length > 0 && (
+        <motion.div
+          className="w-full max-w-md rounded-2xl border px-4 py-3 text-center text-sm font-medium"
+          style={{
+            borderColor: 'rgba(239,68,68,0.3)',
+            background: 'rgba(239,68,68,0.08)',
+            color: '#fca5a5',
+          }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+        >
+          🤡 <span className="font-bold">{selfVoterNames.join(', ')}</span> voted for {selfVoterNames.length === 1 ? 'themselves' : 'themselves'}!
+        </motion.div>
+      )}
+
 
       <GlassCard className="w-full max-w-md p-4">
         <p className="text-sm mb-3" style={{ color: 'var(--color-text-muted)' }}>
