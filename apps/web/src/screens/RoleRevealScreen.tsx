@@ -110,6 +110,12 @@ export default function RoleRevealScreen() {
     )
   }
 
+  const isBlindImpostor = gameState?.config.mode === 'BLIND_IMPOSTOR'
+  const displayRole = isBlindImpostor ? 'CREWMATE' : currentRevealPlayer.role
+  const displayWord = isBlindImpostor
+    ? (currentRound.wordAssignments?.[currentRevealPlayer.id] ?? currentRound.word)
+    : currentRound.word
+
   return (
     <div
       className="relative flex min-h-screen flex-col items-center justify-center gap-6 overflow-y-auto px-6 pt-8"
@@ -136,14 +142,14 @@ export default function RoleRevealScreen() {
             {currentRevealPlayer.name}
           </h2>
           <p className="text-sm tracking-wide text-white/50">
-            {revealed ? 'ROLE REVEALED' : 'HOLD TO REVEAL ROLE'}
+            {revealed ? 'WORD REVEALED' : isBlindImpostor ? 'HOLD TO REVEAL WORD' : 'HOLD TO REVEAL ROLE'}
           </p>
         </motion.div>
 
         <RoleCard
           playerName={currentRevealPlayer.name}
-          role={currentRevealPlayer.role}
-          word={currentRound.word}
+          role={displayRole}
+          word={displayWord}
           hint={currentRound.hint}
           revealed={revealed}
           disabled={revealed || isAdvancing}

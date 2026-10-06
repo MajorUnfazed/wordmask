@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { GameEngine, createInitialState } from '@impostor/core'
-import type { GameState, GameConfig, Player, RoundResult, WordEntry } from '@impostor/core'
+import type { GameState, GameConfig, Player, RoundResult, WordEntry, GameMode } from '@impostor/core'
 import { useStatsStore } from './statsStore'
 import { outcomeFromStandardRound, outcomeFromPassThePhone } from '../lib/stats'
 
@@ -11,7 +11,7 @@ interface OfflineGameState {
   allRolesSeen: boolean
   selectedCategories: string[]
   /** The game mode chosen at setup — propagated from config for UI use */
-  gameMode: 'STANDARD' | 'PASS_THE_PHONE'
+  gameMode: GameMode
   /** Which player is the device owner ("this is me"), used to record personal stats. */
   localPlayerId: string | null
 }

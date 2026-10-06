@@ -194,7 +194,7 @@ export default function OfflineSetupScreen() {
       {
         playerCount: corePlayers.length,
         impostorCount,
-        jesterCount,
+        jesterCount: gameMode === 'BLIND_IMPOSTOR' ? 0 : jesterCount,
         mode: gameMode,
         selectedCategories: [],
         discussionDuration,
@@ -266,20 +266,6 @@ export default function OfflineSetupScreen() {
         </label>
 
         <label className="flex items-center justify-between text-base group">
-          <div className="flex flex-col gap-1">
-            <span className="text-white/90 font-medium">Jester</span>
-            <span className="text-xs text-white/50 max-w-[200px]">A secret wild card who wins by getting voted out</span>
-          </div>
-          <div
-            className="w-12 h-6 rounded-full transition-colors relative shrink-0 cursor-pointer"
-            style={{ background: jesterCount > 0 ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)' }}
-            onClick={() => setJesterCount(n => n > 0 ? 0 : 1)}
-          >
-            <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${jesterCount > 0 ? 'translate-x-6' : ''}`} />
-          </div>
-        </label>
-
-        <label className="flex items-center justify-between text-base group">
           <span className="text-white/70">Game Mode</span>
           <select
             value={gameMode}
@@ -289,16 +275,40 @@ export default function OfflineSetupScreen() {
           >
             <option value="STANDARD" className="bg-void text-white font-medium">Standard</option>
             <option value="PASS_THE_PHONE" className="bg-void text-white font-medium">Pass the Phone</option>
+            <option value="BLIND_IMPOSTOR" className="bg-void text-white font-medium">Blind Impostor</option>
           </select>
         </label>
 
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-col gap-1">
-            <span className="text-white/90 font-medium">Hint Difficulty</span>
-            <span className="text-xs text-white/50">How much the impostor's clue reveals.</span>
+        {gameMode === 'BLIND_IMPOSTOR' ? (
+          <div className="rounded-2xl border border-accent/25 bg-accent/5 p-4 text-xs leading-relaxed text-white/70">
+            <span className="font-bold text-accent">🎭 Blind Impostor: </span>
+            Even the impostor doesn't know their role! Everyone receives a secretly assigned word, but the impostor's word has a subtle nuance difference. Discussion is how you find out.
           </div>
-          <DifficultySelector value={difficulty} onChange={setDifficulty} />
-        </div>
+        ) : (
+          <>
+            <label className="flex items-center justify-between text-base group">
+              <div className="flex flex-col gap-1">
+                <span className="text-white/90 font-medium">Jester</span>
+                <span className="text-xs text-white/50 max-w-[200px]">A secret wild card who wins by getting voted out</span>
+              </div>
+              <div
+                className="w-12 h-6 rounded-full transition-colors relative shrink-0 cursor-pointer"
+                style={{ background: jesterCount > 0 ? 'var(--color-accent)' : 'rgba(255,255,255,0.1)' }}
+                onClick={() => setJesterCount(n => n > 0 ? 0 : 1)}
+              >
+                <div className={`absolute top-1 left-1 bg-white w-4 h-4 rounded-full transition-transform ${jesterCount > 0 ? 'translate-x-6' : ''}`} />
+              </div>
+            </label>
+
+            <div className="flex flex-col gap-3">
+              <div className="flex flex-col gap-1">
+                <span className="text-white/90 font-medium">Hint Difficulty</span>
+                <span className="text-xs text-white/50">How much the impostor's clue reveals.</span>
+              </div>
+              <DifficultySelector value={difficulty} onChange={setDifficulty} />
+            </div>
+          </>
+        )}
 
         <label className="flex flex-col gap-4 group">
           <div className="flex items-center justify-between text-base pt-2">

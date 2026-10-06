@@ -36,7 +36,9 @@ export default function DiscussionScreen() {
           </p>
         )}
         <p style={{ color: 'var(--color-text-secondary)' }}>
-          Talk it out — who's the impostor?
+          {gameMode === 'BLIND_IMPOSTOR'
+            ? 'One of you has a slightly different word — even they don\'t know!'
+            : 'Talk it out — who\'s the impostor?'}
         </p>
       </motion.div>
 

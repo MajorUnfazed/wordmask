@@ -158,6 +158,36 @@ function handleRoundStarted(
   const hint = selectHint(entry.hints, state.config.difficulty)
   usedWordIds.add(entry.id)
 
+  // Blind Impostor mode: assign each player their own word.
+  // The impostor receives a sibling word — close enough to blend in, different
+  // enough that a slip reveals them. Crewmates all receive the anchor word.
+  let impostorWord: string | undefined
+  let wordAssignments: Record<string, string> | undefined
+
+  if (state.config.mode === 'BLIND_IMPOSTOR') {
+    // Build a pool of candidate sibling words.
+    // Priority 1: curated siblings attached to the picked entry.
+    // Priority 2: random word from the same category pool, excluding the anchor.
+    const curatedSiblings = entry.siblings ?? []
+    const fallbackSiblings = categoryWords
+      .filter((e) => e.word !== entry.word && e.id !== entry.id)
+      .map((e) => e.word)
+    const siblingPool = curatedSiblings.length > 0
+      ? curatedSiblings
+      : fallbackSiblings.length > 0
+        ? fallbackSiblings
+        : [entry.word]
+
+    impostorWord = pickRandom(siblingPool)
+
+    wordAssignments = {}
+    for (const player of playersWithRoles) {
+      wordAssignments[player.id] = impostorIds.includes(player.id)
+        ? impostorWord
+        : entry.word
+    }
+  }
+
   const round: Round = {
     id: crypto.randomUUID(),
     word: entry.word,
@@ -169,6 +199,9 @@ function handleRoundStarted(
     votes: {},
     startedAt: Date.now(),
     discussionDuration: state.config.discussionDuration,
+    ...(state.config.mode === 'BLIND_IMPOSTOR' && impostorWord !== undefined && wordAssignments !== undefined
+      ? { impostorWord, wordAssignments }
+      : {}),
   }
 
   return {

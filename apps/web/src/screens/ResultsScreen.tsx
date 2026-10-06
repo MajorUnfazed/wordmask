@@ -43,6 +43,8 @@ export default function ResultsScreen() {
     setScreen('category')
   }
 
+  const isBlindImpostor = game.config.mode === 'BLIND_IMPOSTOR'
+
   return (
     <div className="flex min-h-screen flex-col items-center gap-8 px-6 py-12 overflow-y-auto">
       <motion.div
@@ -58,9 +60,13 @@ export default function ResultsScreen() {
         <p className="mt-2" style={{ color: 'var(--color-text-secondary)' }}>
           {jesterWon
             ? `${eliminatedName} got voted out — exactly as planned`
-            : impostorsCaught
-              ? `The impostor was ${impostorNames}`
-              : `${impostorNames} fooled everyone`}
+            : isBlindImpostor
+              ? impostorsCaught
+                ? `${impostorNames} had a different word and was found out!`
+                : `${impostorNames} blended in without knowing their word was different!`
+              : impostorsCaught
+                ? `The impostor was ${impostorNames}`
+                : `${impostorNames} fooled everyone`}
         </p>
       </motion.div>
 
@@ -81,16 +87,39 @@ export default function ResultsScreen() {
       )}
 
 
-      <GlassCard className="w-full max-w-md p-4">
-        <p className="text-sm mb-3" style={{ color: 'var(--color-text-muted)' }}>
-          The word was
-        </p>
-        <p className="font-display text-2xl font-bold text-accent">
-          {round?.word}
-        </p>
-        <p className="text-sm mt-1" style={{ color: 'var(--color-text-secondary)' }}>
-          {round?.hint}
-        </p>
+      <GlassCard className="w-full max-w-md p-5 text-center">
+        {isBlindImpostor ? (
+          <div className="flex flex-col gap-4">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: 'var(--color-text-muted)' }}>
+                Majority Word
+              </p>
+              <p className="font-display text-2xl font-bold text-accent">
+                {round?.word}
+              </p>
+            </div>
+            <div className="border-t border-white/10 pt-3">
+              <p className="text-xs font-bold uppercase tracking-widest mb-1 text-danger">
+                Blind Impostor Word ({impostorNames})
+              </p>
+              <p className="font-display text-2xl font-bold text-danger">
+                {round?.impostorWord ?? '—'}
+              </p>
+            </div>
+          </div>
+        ) : (
+          <>
+            <p className="text-sm mb-3" style={{ color: 'var(--color-text-muted)' }}>
+              The word was
+            </p>
+            <p className="font-display text-2xl font-bold text-accent">
+              {round?.word}
+            </p>
+            <p className="text-sm mt-1" style={{ color: 'var(--color-text-secondary)' }}>
+              {round?.hint}
+            </p>
+          </>
+        )}
       </GlassCard>
 
       <ScoreBoard scores={game.scores} players={game.players} />

@@ -9,7 +9,7 @@ export type GamePhase =
   | 'RESULTS'
 
 export type PlayerRole = 'CREWMATE' | 'IMPOSTOR' | 'JESTER'
-export type GameMode = 'STANDARD' | 'PASS_THE_PHONE'
+export type GameMode = 'STANDARD' | 'PASS_THE_PHONE' | 'BLIND_IMPOSTOR'
 
 /**
  * Difficulty controls how much the impostor's single hint reveals about the
@@ -49,6 +49,17 @@ export interface Round {
   discussionDuration: number
   finalGuess?: { impostorId: string; guess: string | null; correct?: boolean }
   passThePhoneImpostorCaught?: boolean
+  /**
+   * Blind Impostor mode only.
+   * The sibling word assigned to the impostor (crewmates all receive `word`).
+   */
+  impostorWord?: string
+  /**
+   * Blind Impostor mode only.
+   * Per-player word assignments: playerId → word they see on their card.
+   * Crewmates map to `word`; the impostor maps to `impostorWord`.
+   */
+  wordAssignments?: Record<string, string>
 }
 
 export interface GameConfig {
