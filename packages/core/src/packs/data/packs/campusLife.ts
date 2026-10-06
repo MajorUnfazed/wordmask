@@ -10,7 +10,7 @@ export const CAMPUS_LIFE_PACK: WordEntry[] = [
   {"id":"campus-life_7","word":"Student","category":"Campus Life","hints":["Ramen diet","Tuition payer","Backpack commuter"],"siblings":["Classmate","Alumni","Freshman"]},
   {"id":"campus-life_8","word":"Campus","category":"Campus Life","hints":["Grounds","Bell tower","Brick walkways"],"siblings":["Quad","University","Courtyard"]},
   {"id":"campus-life_9","word":"Degree","category":"Campus Life","hints":["Milestone","Four-year program","Commencement goal"],"siblings":["Diploma","Major","Certificate"]},
-  {"id":"campus-life_10","word":"Syllabus","category":"Campus Life","hints":["First day","Policy outline","Reading schedule"],"hints":["First day","Policy outline","Reading schedule"],"siblings":["Curriculum","Schedule","Rubric"]},
+  {"id":"campus-life_10","word":"Syllabus","category":"Campus Life","hints":["First day","Policy outline","Reading schedule"],"siblings":["Curriculum","Schedule","Rubric"]},
   {"id":"campus-life_11","word":"Grade","category":"Campus Life","hints":["Dean's list","Curve average","Letter mark"],"siblings":["GPA","Score","Transcript"]},
   {"id":"campus-life_12","word":"Assignment","category":"Campus Life","hints":["Midnight deadline","Submission portal","Homework rubric"],"siblings":["Homework","Project","Essay"]},
   {"id":"campus-life_13","word":"Quiz","category":"Campus Life","hints":["Checkpoint","Ten questions","Pop surprise"],"siblings":["Exam","Test","Midterm"]},

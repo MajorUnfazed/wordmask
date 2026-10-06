@@ -89,7 +89,7 @@ export const F1_PACK: WordEntry[] = [
   {"id":"f1_86","word":"Caliper","category":"Formula 1","hints":["Brake bleed","Piston squeeze","Wheel inner"],"siblings":["Brakes","Piston","Hydraulics"]},
   {"id":"f1_87","word":"Pad","category":"Formula 1","hints":["Friction dust","Wear limit","Biting point"],"siblings":["Disc","Brakes","Friction"]},
   {"id":"f1_88","word":"Fluid","category":"Formula 1","hints":["Bleed nipple","Boiling point","Master cylinder"],"siblings":["Hydraulics","Coolant","Oil"]},
-  {"id":"f1_89","word":"Sensor","category":"Formula 1","hints":["Telemetry wire","Data spike","Error code"]},"siblings":["Telemetry","Wiring","Gauge"]},
+  {"id":"f1_89","word":"Sensor","category":"Formula 1","hints":["Telemetry wire","Data spike","Error code"],"siblings":["Telemetry","Wiring","Gauge"]},
   {"id":"f1_90","word":"Cable","category":"Formula 1","hints":["Wire loom","Zip tie","Connectors"],"siblings":["Wiring","Harness","Tether"]},
   {"id":"f1_91","word":"Wiring","category":"Formula 1","hints":["Data loom","Heat shrink","Chassis bundle"],"siblings":["Cable","Harness","Sensor"]},
   {"id":"f1_92","word":"Battery","category":"Formula 1","hints":["Energy store","Deployment mode","Recharge lap"],"siblings":["Motor","Generator","Hybrid"]},
